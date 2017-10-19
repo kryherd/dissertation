@@ -68,4 +68,14 @@ For within-category entropy, the relevant dimension does not vary. So it does no
 ![sparse-dimwit-2](./formulas/11.png)  
 ![sparse-dimwit-3](./formulas/12.png)
 
+To calculate O (total number of possible dyadic relations among the dimensions), we use the following formula.
+
+
+![totalrel](./formulas/13.png)
+
+O = 21
+
+Between categories (across the whole set), all dyadic relations have the same probability of co-occurrence (0.25). For each relation between dimensions, there are 4 possible combinations of the levels of those dimensions. They're all equally probable. So, we end up with the following.
+
+![sparse-relbet-1](./formulas/14.png)
 
