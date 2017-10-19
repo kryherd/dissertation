@@ -25,17 +25,17 @@ Statistical density is the method that Sloutsky and colleagues use to define cat
 
 Statistical density can vary between 0 and 1. Higher values (closer to 1) are dense, while lower values (closer to 0) are sparse.  
 
-![equation](http://bit.ly/2ycl1AR)
+![Entropy](./formulas/1.png)
 
 H<sub>within</sub> is the entropy within the category.
 H<sub>between</sub> is the entropy between the category and contrasting categories. To find total entropy, we sum entropy due to varying dimension and entropy due to varying relations among dimensions.
 
-![equation](http://bit.ly/2yf9m3Y)
+![Entropy2](./formulas/2.png)
 
 This equation is the same whether you are calculating within-category entropy or between-category entropy. To find entropy due to dimensions, you use the following formulas:
 
-![equation](http://bit.ly/2ziKlCG)  
-![equation](http://bit.ly/2ydYxPS)
+![dimension-within](./formulas/3.png)  
+![dimension-between](./formulas/4.png)
 
 M is the total number of varying dimension.  
 w<sub>i</sub> is the attentional weight of a particular dimension. For dimensions, we assume that this value is 1.0.  
@@ -43,8 +43,8 @@ p<sub>j</sub> is the probability of value *j* on dimension *i*.
 
 Entropy due to relations uses the following formulas:
 
-![equation](http://bit.ly/2ycsGPs)  
-![equation](http://bit.ly/2ziVjID)
+![relation-within](./formulas/5.png)  
+![relation-between](./formulas/6.png)
 
 O is the total number of possible dyadic relations among the varying dimensions.  
 w<sub>k</sub> is the attentional weight of a relation. For relations, we use 0.5.  
@@ -58,14 +58,14 @@ w<sub>i</sub> = 1
 
 For between-category entropy, all of the dimensions are the same. There is a 0.5 probability of each level of each dimensions being present. 
 
-![equation](http://bit.ly/2geQtXZ)  
-![equation](http://bit.ly/2geA0TN)  
-![equation](http://bit.ly/2yeoAqa)
+![sparse-dimbet-1](./formulas/7.png)  
+![sparse-dimbet-2](./formulas/8.png)  
+![sparse-dimbet-3](./formulas/9.png)  
 
 For within-category entropy, the relevant dimension does not vary. So it does not contribute to the entropy. Its value goes to zero.
 
-![equation](http://bit.ly/2yedl12)  
-![equation](http://bit.ly/2ydZt6I)  
-![equation](http://bit.ly/2yHIhqL)
+![sparse-dimwit-1](./formulas/10.png)  
+![sparse-dimwit-2](./formulas/11.png)  
+![sparse-dimwit-3](./formulas/12.png)
 
 
