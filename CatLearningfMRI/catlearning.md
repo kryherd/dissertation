@@ -70,12 +70,30 @@ For within-category entropy, the relevant dimension does not vary. So it does no
 
 To calculate O (total number of possible dyadic relations among the dimensions), we use the following formula.
 
-
 ![totalrel](./formulas/13.png)
 
 O = 21
 
-Between categories (across the whole set), all dyadic relations have the same probability of co-occurrence (0.25). For each relation between dimensions, there are 4 possible combinations of the levels of those dimensions. They're all equally probable. So, we end up with the following.
+Between categories (across the whole set), all dyadic relations have the same probability of co-occurrence (0.25). For each relation between dimensions, there are 4 possible combinations of the levels of those dimensions. They're all equally probable. Recall that for relations, we use an attentional weight of 0.5. So, we end up with the following.
 
-![sparse-relbet-1](./formulas/14.png)
+![sparse-relbet-1](./formulas/15.png)
+![sparse-relbet-2](./formulas/14.png)
+![sparse-relbet-3](./formulas/16.png)
 
+Within the target category, 15 of the dyadic relationships don't include the relevant feature. Thus, their probability of co-occurrence is .25. For 6 of the dyadic relations, the probability of co-occurrence is .5.
+
+![sparse-relwit-1](./formulas/17.png)
+![sparse-relwit-2](./formulas/18.png)
+![sparse-relwit-3](./formulas/19.png)
+
+Now comes the easy part -- adding up the entropies.
+
+![sparse-within-total1](./formulas/20.png)  
+![sparse-within-total2](./formulas/21.png)  
+![sparse-between-total1](./formulas/22.png)  
+![sparse-between-total2](./formulas/23.png)
+
+And from that, we can calculate the density.
+
+![sparse-density](./formulas/24.png)  
+![sparse-density2](./formulas/25.png)
