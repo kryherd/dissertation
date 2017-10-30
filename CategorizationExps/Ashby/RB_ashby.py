@@ -69,7 +69,7 @@ slow_txt = visual.TextStim(win, text = "Too Slow",
                         wrapWidth= 2000,
                         autoLog=True)
 
-prefix = 'AshbyTask-II-sub%s' % (info['participant_id'])
+prefix = 'AshbyTask-RB-sub%s' % (info['participant_id'])
 
 #logging data 
 # overwrite (filemode='w') a detailed log of the last run in this dir
@@ -77,7 +77,7 @@ errorLog = logging.LogFile(prefix + "_errorlog.log", level=logging.DATA, filemod
 
 # in the data source, there are three columns: ii.freq, ii.or, category
 # load in our stimulus timing xlsx file
-TRIAL_LIST = data.importConditions(fileName = "II_PatchParameters.csv")
+TRIAL_LIST = data.importConditions(fileName = "RB_PatchParameters.csv")
 totalTrials = len(TRIAL_LIST)
 
 def check_exit():
@@ -114,9 +114,9 @@ for index in range(len(TRIAL_LIST_RAND)):
     #exit will be delayed until the end of a block
     check_exit()
     stim = visual.GratingStim(win, tex='sin', mask='gauss', 
-                    sf=TRIAL_LIST_RAND[index]['ii_freq'], 
+                    sf=TRIAL_LIST_RAND[index]['rb_freq'], 
                     size=5, 
-                    ori=TRIAL_LIST_RAND[index]['ii_or'], 
+                    ori=TRIAL_LIST_RAND[index]['rb_or'], 
                     units='deg',
                     autoLog=True)
     stim.draw()
@@ -151,7 +151,7 @@ for index in range(len(TRIAL_LIST_RAND)):
         wrong_txt.draw(); win.flip(); core.wait(1)
 
 # store data into the numpy array
-    data = np.vstack((data, np.hstack(("II",
+    data = np.vstack((data, np.hstack(("RB",
                                     TRIAL_LIST_RAND[index]['category'],
                                     KEY, 
                                     RESP,
