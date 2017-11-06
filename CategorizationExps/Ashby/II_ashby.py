@@ -13,7 +13,7 @@ dlg = gui.DlgFromDict(info, title = 'Ashby Task Startup')
 if not dlg.OK:
     core.quit()
 
-win = visual.Window([2560,1440], monitor='LabDesktop')
+win = visual.Window([1440,900], monitor='MacScreen')
 
 instruct_txt = visual.TextStim(win, text = "Today you will be learning about two categories. Each category is equally likely. \n\
 Perfect performance is possible. You will receive feedback to help you learn the categories. \n\

@@ -1,0 +1,11 @@
+Type	Category	KEY	RESP	Accuracy	RT
+II	a	j	b	0	1.902
+II	b	d	a	0	1.848
+II	a	j	b	0	0.546
+II	a	d	a	1	0.779
+II	a	j	b	0	0.671
+II	b	d	a	0	0.734
+II	b	j	b	1	0.887
+II	b	d	a	0	2.936
+II	a	j	b	0	0.651
+II	b	d	a	0	1.164
