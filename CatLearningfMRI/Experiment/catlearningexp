@@ -1,0 +1,214 @@
+# import psychopy modules
+from psychopy import visual, core, event, sound, gui, data, logging
+# import math (for rounding function)
+import math
+import numpy as np 
+import random
+
+#set parent directory
+parent_dir = "./"
+
+#get some startup information from the user
+info = {'participant_id':'', 'run': ['1', '2', 'Test'], 'session': '1'}
+dlg = gui.DlgFromDict(info, title = 'Category Learning Startup')
+if not dlg.OK:
+    core.quit()
+
+# info about the screen
+win = visual.Window(size = [1440,900],
+                    color = "white",
+                    fullscr = True, allowGUI=False,
+                    units = "pix")
+
+# Set up text displays
+ScannerWait_txt = visual.TextStim(win, text = "Waiting for scanner....",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 50,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        autoLog=True)
+
+FinalThankYou_txt = visual.TextStim(win, text = "Thank you!",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 50,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        autoLog=True)
+
+null_txt = visual.TextStim(win, text = "+",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 50,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        autoLog=True)
+                        
+instruct_txt = visual.TextStim(win, text = " In this experiment you will be learning new items. \nPress the left button when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 24,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1000,
+                        autoLog=True)
+
+sparse_unsup_instruct_txt = visual.TextStim(win, text = "SPARSE UNSUP INSTR. \nPress the left button when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 24,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1000,
+                        autoLog=True)
+
+
+sparse_sup_instruct_txt = visual.TextStim(win, text = "SPARSE SUP INSTR. \nPress the left button when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 24,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1000,
+                        autoLog=True)
+
+dense_unsup_instruct_txt = visual.TextStim(win, text = "DENSE UNSUP INSTR. \nPress the left button when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 24,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1000,
+                        autoLog=True)
+
+dense_sup_instruct_txt = visual.TextStim(win, text = "DENSE SUP INSTR. \nPress the left button when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 24,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1000,
+                        autoLog=True)
+
+prefix = 'sub-%s_ses-%s_task-catlearn_run-%s' % (info['participant_id'], info['session'], info['run'])
+
+#logging data 
+# overwrite (filemode='w') a detailed log of the last run in this dir
+errorLog = logging.LogFile(prefix + "_errorlog.log", level=logging.DATA, filemode='w')
+#win.logonFlip(msg=' ', level=logging.DATA)
+# in the data source, there are two columns: StimType, Stim
+# load in our stimulus timing xlsx file
+TRIAL_LIST = data.importConditions(fileName = "%s/Run%s.xlsx" % (parent_dir, info['run']))
+totalTrials = len(TRIAL_LIST)
+                        
+def check_exit():
+#abort if esc was pressed
+    if event.getKeys('escape'):
+        win.close()
+        core.quit()
+        
+#create clock
+globalClock = core.Clock()
+logging.setDefaultClock(globalClock)
+#showing instructions first 
+instruct_txt.draw()
+win.flip() 
+#waiting for space bar to continue
+keys =event.waitKeys(keyList=['space'], timeStamped=globalClock)
+#show waiting for scanner until keypress
+ScannerWait_txt.draw()
+win.flip()  
+#wait for a 5 or t keypress to start
+keys =event.waitKeys(keyList=['t','5'], timeStamped=globalClock)
+print(keys)
+t0 = float(keys[0][1])
+
+# header for data log
+data = np.hstack(("Block","StimType", "Stimulus", "ScannerPulseTime", "t1", "t2", "Onset", "KEY", "RESP", "Accuracy", "RT"))
+TRIAL_LIST_RAND = TRIAL_LIST
+random.shuffle(TRIAL_LIST_RAND)
+
+
+for index in range(len(TRIAL_LIST_RAND)):
+    #draw so we are ready to flip
+    
+    #wait until the right moment
+    #abort if esc was pressed
+    #exit will be delayed until the end of a block
+    check_exit()
+    stim = visual.ImageStim(win, pos = [0,0],
+                    size = [600,600],
+                    image = parent_dir + TRIAL_LIST_RAND[index]['Stim'] + ".png")
+    stim.draw()
+    win.flip()
+    t1 = globalClock.getTime()
+    stim_onset = t1 - t0
+    logging.log("Datalog.log",level=logging.EXP)
+    win.logOnFlip("Datalog.log",level=logging.EXP)
+    while globalClock.getTime()-t1 <= 5:
+        #abort if esc was pressed
+        check_exit()
+        KEY = event.getKeys(keyList=["d","j"])
+        if KEY != []:
+            t2 = globalClock.getTime()
+            win.flip()
+            break
+# map keypress to meaningful response type
+    if KEY == []:
+        KEY = "None"
+        RESP = "None"
+    elif KEY == ["d"]:
+        RESP = "target"
+    elif KEY == ["j"]:
+        RESP = "nottarget"
+
+# determine the accuracy of the response, calculate reaction time, and give feedback
+    if RESP == "None":
+        ACC = 0; RT = 9999
+        win.flip(); core.wait(1)
+    elif RESP == TRIAL_LIST_RAND[index]["StimType"]:
+        ACC = 1; RT = t2-t1
+        win.flip(); core.wait(1)
+    elif RESP != TRIAL_LIST_RAND[index]["StimType"]:
+        ACC = 0; RT = t2-t1
+        win.flip(); core.wait(1)
+
+# store data into the numpy array
+    data = np.vstack((data, np.hstack(("US",
+                                    TRIAL_LIST_RAND[index]['StimType'],
+                                    TRIAL_LIST_RAND[index]['Stim'],
+                                    t0,
+                                    t1,
+                                    t2,
+                                    stim_onset,
+                                    KEY, 
+                                    RESP,
+                                    ACC, 
+                                    "%.3f" %RT))))
+
+np.savetxt(prefix+"_results.tsv",
+            data, fmt='%s', delimiter='\t', newline='\n',
+            header='', footer='', comments='# ')
+
+
+#clear screen
+null_txt.draw()
+win.flip()
+#display a Thank You message
+FinalThankYou_txt.draw()
+win.flip()
+core.wait(2)
+win.flip()
+
+# close everything
+win.close()
+core.quit()
