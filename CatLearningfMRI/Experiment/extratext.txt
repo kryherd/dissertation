@@ -1,0 +1,81 @@
+#wait for a 5 or t keypress to start
+keys =event.waitKeys(keyList=['t','5'], timeStamped=globalClock)
+print(keys)
+t0 = float(keys[0][1])
+
+# header for data log
+data = np.hstack(("Block","StimType", "Stimulus", "ScannerPulseTime", "t1", "t2", "Onset", "KEY", "RESP", "Accuracy", "RT"))
+TRIAL_LIST_RAND = TRIAL_LIST
+random.shuffle(TRIAL_LIST_RAND)
+
+
+for index in range(len(TRIAL_LIST_RAND)):
+    #draw so we are ready to flip
+    
+    #wait until the right moment
+    #abort if esc was pressed
+    #exit will be delayed until the end of a block
+    check_exit()
+    stim = visual.ImageStim(win, pos = [0,0],
+                    size = [600,600],
+                    image = parent_dir + TRIAL_LIST_RAND[index]['Stim'] + ".png")
+    stim.draw()
+    win.flip()
+    t1 = globalClock.getTime()
+    stim_onset = t1 - t0
+    logging.log("Datalog.log",level=logging.EXP)
+    win.logOnFlip("Datalog.log",level=logging.EXP)
+    while globalClock.getTime()-t1 <= 5:
+        #abort if esc was pressed
+        check_exit()
+        KEY = event.getKeys(keyList=["d","j"])
+        if KEY != []:
+            t2 = globalClock.getTime()
+            win.flip()
+            break
+# map keypress to meaningful response type
+    if KEY == []:
+        KEY = "None"
+        RESP = "None"
+    elif KEY == ["d"]:
+        RESP = "target"
+    elif KEY == ["j"]:
+        RESP = "nottarget"
+
+# determine the accuracy of the response, calculate reaction time, and give feedback
+    if RESP == "None":
+        ACC = 0; RT = 9999
+        win.flip(); core.wait(1)
+    elif RESP == TRIAL_LIST_RAND[index]["StimType"]:
+        ACC = 1; RT = t2-t1
+        win.flip(); core.wait(1)
+    elif RESP != TRIAL_LIST_RAND[index]["StimType"]:
+        ACC = 0; RT = t2-t1
+        win.flip(); core.wait(1)
+
+# store data into the numpy array
+    data = np.vstack((data, np.hstack(("US",
+                                    TRIAL_LIST_RAND[index]['StimType'],
+                                    TRIAL_LIST_RAND[index]['Stim'],
+                                    t0,
+                                    t1,
+                                    t2,
+                                    stim_onset,
+                                    KEY, 
+                                    RESP,
+                                    ACC, 
+                                    "%.3f" %RT))))
+
+np.savetxt(prefix+"_results.tsv",
+            data, fmt='%s', delimiter='\t', newline='\n',
+            header='', footer='', comments='# ')
+
+
+#clear screen
+null_txt.draw()
+win.flip()
+#display a Thank You message
+FinalThankYou_txt.draw()
+win.flip()
+core.wait(2)
+win.flip()
