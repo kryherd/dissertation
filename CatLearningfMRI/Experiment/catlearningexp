@@ -1,4 +1,5 @@
 # import psychopy modules
+import psychopy
 from psychopy import visual, core, event, sound, gui, data, logging
 # import math (for rounding function)
 import math
@@ -43,7 +44,7 @@ globalClock = core.Clock()
 logging.setDefaultClock(globalClock)
 
 #info about the screen
-win = visual.Window(size = [2560,1440],
+win = visual.Window(size = [1440,900],
                     color = "white",
                     fullscr = True, allowGUI=False,
                     units = "pix")
@@ -56,7 +57,7 @@ instruct_txt = visual.TextStim(win, text = "In this experiment you will be learn
                         alignHoriz='center',
                         alignVert='center',
                         font = "Arial",
-                        wrapWidth= 1500,
+                        wrapWidth= 1400,
                         autoLog=True)
 
 blockInstr = pd.read_table('blockInstr.csv', sep=',')
@@ -64,6 +65,8 @@ blockInstr = pd.read_table('blockInstr.csv', sep=',')
 # header for data log
 data = np.hstack(("Block","StimType", "Stimulus", "KEY", "RESP", "Accuracy", "RT"))
 
+yesresp = {"UnsupervisedSparse":"Allied", "UnsupervisedDense":"Friendly", "SupervisedSparse":"Eat Garden", "SupervisedDense":"Will Like"}
+noresp = {"UnsupervisedSparse":"Enemy", "UnsupervisedDense":"Aggressive", "SupervisedSparse":"Won't Eat Garden", "SupervisedDense":"Won't Like"}
 
 #### EXPERIMENT RUNNING
 # run through the blocks in order
@@ -77,14 +80,23 @@ for i in range(1, 5):
     win.flip() 
     #waiting for space bar to continue
     keys =event.waitKeys(keyList=['space'], timeStamped=globalClock)
-    
+    #### NEED TO ADD TRAINING HERE
     # in the data source, there are two columns: StimType, Stim
     # load in our stimulus file
-    TRIAL_LIST = data.importConditions(fileName = "%s_test.xlsx" % (blockName))
+    TRIAL_LIST = psychopy.data.importConditions(fileName = "%s_test.xlsx" % (blockName))
     totalTrials = len(TRIAL_LIST)
     TRIAL_LIST_RAND = TRIAL_LIST
     random.shuffle(TRIAL_LIST_RAND)
-    
+    for index in range(len(TRIAL_LIST_RAND)):
+        stim = visual.ImageStim(win, pos = [0,0], size = [600,600], image = parent_dir + TRIAL_LIST_RAND[index]['Stim'] + ".png")
+        keypress = visual.TextStim(win,
+        text = "X - " + yesresp[blockName] + "            " + "N - " + noresp[blockName],
+        pos = [0.0,-400],
+        color = "black", height = 32, alignHoriz='center', alignVert='center',
+        font = "Arial", autoLog=True, wrapWidth= 1200)
+        stim.draw()
+        keypress.draw()
+        win.flip()
 
 
 # close everything
