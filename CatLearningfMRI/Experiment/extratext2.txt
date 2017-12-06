@@ -1,0 +1,78 @@
+# Set up text displays
+ScannerWait_txt = visual.TextStim(win, text = "Waiting for scanner....",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 50,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        autoLog=True)
+
+FinalThankYou_txt = visual.TextStim(win, text = "Thank you!",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 50,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        autoLog=True)
+
+null_txt = visual.TextStim(win, text = "+",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 50,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        autoLog=True)
+                        
+instruct_txt = visual.TextStim(win, text = " In this experiment you will be learning new items. \nPress the left button when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 24,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1000,
+                        autoLog=True)
+
+sparse_unsup_instruct_txt = visual.TextStim(win, text = "SPARSE UNSUP INSTR. \nPress the left button when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 24,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1000,
+                        autoLog=True)
+
+
+sparse_sup_instruct_txt = visual.TextStim(win, text = "SPARSE SUP INSTR. \nPress the left button when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 24,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1000,
+                        autoLog=True)
+
+dense_unsup_instruct_txt = visual.TextStim(win, text = "DENSE UNSUP INSTR. \nPress the left button when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 24,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1000,
+                        autoLog=True)
+
+dense_sup_instruct_txt = visual.TextStim(win, text = "DENSE SUP INSTR. \nPress the left button when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 24,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1000,
+                        autoLog=True)
