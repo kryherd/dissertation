@@ -1,6 +1,0 @@
-Block	StimType	Stimulus	KEY	RESP	Accuracy	RT
-US	target	test2	d	target	1	9.988
-US	target	test1	j	nottarget	0	9.858
-US	target	test3	d	target	1	9.681
-US	nottarget	catch1	j	nottarget	1	9.670
-US	nottarget	contr1	d	target	0	9.786
