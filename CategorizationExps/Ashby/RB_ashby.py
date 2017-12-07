@@ -8,12 +8,14 @@ import random
 parent_dir = "/Users/kryherd/dissertation/CategorizationExps/Ashby"
 
 #get some startup information from the user
-info = {'participant_id':''}
+info = {'ID Number':'', 'Run':''}
 dlg = gui.DlgFromDict(info, title = 'Ashby Task Startup')
 if not dlg.OK:
     core.quit()
 
-win = visual.Window([2560,1440], monitor='LabDesktop')
+### CHANGE 'MacScreen' to visual angle parameters for the computer you are using
+### For Kayleigh's laptop: 30cm away
+win = visual.Window([1440,900], monitor='MacScreen')
 
 instruct_txt = visual.TextStim(win, text = "Today you will be learning about two categories. Each category is equally likely. \n\
 Perfect performance is possible. You will receive feedback to help you learn the categories. \n\
@@ -25,7 +27,7 @@ Press SPACE to continue.",
                         alignHoriz='center',
                         alignVert='center',
                         font = "Arial",
-                        wrapWidth= 2000,
+                        wrapWidth= 1200,
                         autoLog=True)
 
 instruct_txt2 = visual.TextStim(win, text = "When you see the picture, press the D key for Category A and the J key for Category B.\n \n\
@@ -36,7 +38,7 @@ Press SPACE to continue.",
                         alignHoriz='center',
                         alignVert='center',
                         font = "Arial",
-                        wrapWidth= 2000,
+                        wrapWidth= 1200,
                         autoLog=True)
 
 right_txt = visual.TextStim(win, text = "Correct",
@@ -46,7 +48,7 @@ right_txt = visual.TextStim(win, text = "Correct",
                         alignHoriz='center',
                         alignVert='center',
                         font = "Arial",
-                        wrapWidth= 2000,
+                        wrapWidth= 1200,
                         autoLog=True)
 
 wrong_txt = visual.TextStim(win, text = "Incorrect",
@@ -56,7 +58,7 @@ wrong_txt = visual.TextStim(win, text = "Incorrect",
                         alignHoriz='center',
                         alignVert='center',
                         font = "Arial",
-                        wrapWidth= 2000,
+                        wrapWidth= 1200,
                         autoLog=True)
 
 slow_txt = visual.TextStim(win, text = "Too Slow",
@@ -66,10 +68,10 @@ slow_txt = visual.TextStim(win, text = "Too Slow",
                         alignHoriz='center',
                         alignVert='center',
                         font = "Arial",
-                        wrapWidth= 2000,
+                        wrapWidth= 1200,
                         autoLog=True)
 
-prefix = 'AshbyTask-RB-sub%s' % (info['participant_id'])
+prefix = 'AshbyTask-RB-sub%s-bl%s' % (info['ID Number'], info['Run'])
 
 #logging data 
 # overwrite (filemode='w') a detailed log of the last run in this dir
@@ -104,8 +106,6 @@ random.shuffle(TRIAL_LIST_RAND)
 # header for data log
 data = np.hstack(("Type","Category", "KEY", "RESP", "Accuracy", "RT"))
 
-############## II BLOCK GOES FIRST
-
 for index in range(len(TRIAL_LIST_RAND)):
     #draw so we are ready to flip
     
@@ -115,7 +115,7 @@ for index in range(len(TRIAL_LIST_RAND)):
     check_exit()
     stim = visual.GratingStim(win, tex='sin', mask='gauss', 
                     sf=TRIAL_LIST_RAND[index]['rb_freq'], 
-                    size=5, 
+                    size=11, 
                     ori=TRIAL_LIST_RAND[index]['rb_or'], 
                     units='deg',
                     autoLog=True)
