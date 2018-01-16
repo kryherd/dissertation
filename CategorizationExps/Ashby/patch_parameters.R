@@ -2,38 +2,82 @@
 
 setwd("~/dissertation/CategorizationExps/Ashby")
 
-ii.freqa <- as.integer(rnorm(20, mean = 272, sd = 4538))
-ii.freqa = .25*(ii.freqa/50)
-ii.ora <- as.integer(rnorm(20, mean = 153, sd = 4538))
-ii.ora <- ii.ora*(pi/500)
+library(ggplot2)
+library(MASS)
+library(cowplot)
 
-rb.freqa <- as.integer(rnorm(20, mean = 260, sd = 75))
-rb.freqa = .25*(rb.freqa/50)
-rb.ora <- as.integer(rnorm(20, mean = 125, sd = 9000))
-rb.ora <- rb.ora*(pi/500)
-paramsa <- data.frame(cbind(ii.freqa, ii.ora, rb.freqa, rb.ora))
+# create vectors containing mean frequencies and orientations for categories A and B
+rb.mean.a <- c(260, 125)
+rb.mean.b <- c(340, 125)
+# create covariance matrices
+rb.cov.a = matrix(c(75,0,0, 9000), nrow=2, ncol=2)
+rb.cov.b = matrix(c(75,0,0, 9000), nrow=2, ncol=2)
+# sample from bivariate normal distribution using above parameters
+rba <- data.frame(mvrnorm(40, mu = rb.mean.a, Sigma = rb.cov.a)) 
+colnames(rba) <- c("freq","orientation")
+rba$Category <- "A"
+rbb <- data.frame(mvrnorm(40, mu = rb.mean.b, Sigma = rb.cov.b))
+colnames(rbb) <- c("freq","orientation")
+rbb$Category <- "B"
 
+rb <-rbind(rba, rbb)
 
-ii.freqb <- as.integer(rnorm(20, mean = 327, sd = 4538))
-ii.freqb = .25*(ii.freqb/50)
-ii.orb <- as.integer(rnorm(20, mean = 97, sd = 4538))
-ii.orb <- ii.orb*(pi/500)
+# transform parameters using formulae from paper
+## frequency is modified to make differences more visible
+rb$freq.tr <- .25+(rb$freq/100)
+rb$orient.tr <- rb$orientation*(pi/500) 
 
-rb.freqb <- as.integer(rnorm(20, mean = 340, sd = 75))
-rb.freqb = .25*(rb.freqb/50)
-rb.orb <- as.integer(rnorm(20, mean = 125, sd = 9000))
-rb.orb <- rb.orb*(pi/500)
-paramsb <- data.frame(cbind(ii.freqb, ii.orb, rb.freqb, rb.orb))
+# create function for 45 degree rotation
+rotate <- function(df, degree) {
+  dfr <- df
+  degree <- pi * degree / 180
+  l <- sqrt(dfr$freq^2 + df$orientation^2)
+  teta <- atan(df$orientation / df$freq)
+  dfr$freq <- round(l * cos(teta - degree))
+  dfr$orientation <- round(l * sin(teta - degree))
+  return(dfr)
+}
 
-paramsa$category <- "a"
-paramsb$category <- "b"
+# rotate RB parameters by 45 degrees
+rb.rotate <- rb[,c(1,2)]
+ii <- rotate(rb.rotate, 45)
 
-names(paramsa) <- c("ii_freq", "ii_or", "rb_freq", "rb_or", "category")
-names(paramsb) <- c("ii_freq", "ii_or", "rb_freq", "rb_or", "category")
+ii <- cbind(ii, rb$Category)
+colnames(ii)[3] <- "Category"
 
-params <- rbind(paramsa, paramsb)
-params.ii <- params[,c(1,2,5)]
-params.rb <- params[,c(3,4,5)]
+# transform variables
+ii$freq.tr <- .25+(ii$freq/100)
+ii$orient.tr <- ii$orientation*(pi/500) 
 
-write.csv(params.ii, "II_PatchParameters.csv", row.names=FALSE)
-write.csv(params.rb, "RB_PatchParameters.csv", row.names=FALSE)
+# change radians to degrees
+rad2deg <- function(rad) {(rad * 180) / (pi)}
+
+rb$orient.tr <- rad2deg(rb$orient.tr)
+ii$orient.tr <- rad2deg(ii$orient.tr)
+
+## Plot the parameters
+
+ii$type <- "Information Integration"
+rb$type <- "Rule Based"
+
+all <- rbind(ii,rb)
+all$type = factor(all$type,levels = c("Rule Based", "Information Integration"))
+
+p1 <- ggplot(all, aes(freq.tr, orient.tr, shape = Category)) + geom_point(size = 2) + theme_bw() +
+  xlab("Frequency (cycles/degree)") + ylab("Orientation (degrees)") + ggtitle("Stimulus Parameters") +
+  facet_grid(.~type)
+p1
+
+## Save parameters
+
+ii.save <- ii[,c(4:5, 3)]
+names(ii.save) <- c("ii_freq", "ii_or", "category")
+levels(ii.save$category) <- c("a", "b")
+write.csv(ii.save, "II_PatchParameters.csv", row.names = FALSE)
+
+rb.save <- rb[,c(4:5, 3)]
+names(rb.save) <- c("rb_freq", "rb_or", "category")
+rb.save$category <- as.factor(rb.save$category)
+levels(rb.save$category) <- c("a", "b")
+write.csv(rb.save, "RB_PatchParameters.csv", row.names = FALSE)
+
