@@ -9,7 +9,7 @@ Welcome to the repository for my dissertation. Here is where I will keep documen
 
 #### Methods
 
-**Category learning task:** The main design for this experiment comes from [Kloos and Sloutsky (2008)](http://psycnet.apa.org/doiLanding?doi=10.1037%2F0096-3445.137.1.52). See the documentation for this task [here](./CategorizationExps/Sloutsky/catlearning.md).
+**Category learning task:** The main design for this experiment comes from [Kloos and Sloutsky (2008)](http://psycnet.apa.org/doiLanding?doi=10.1037%2F0096-3445.137.1.52). See the documentation for this task [here](./CategorizationExps/Sloutsky/README.md).
 
 **Individual difference measures:** I am using multiple measures of individual differences, loosely based on the [epiSLI criteria](http://jslhr.pubs.asha.org/article.aspx?articleid=1781254). These include:
 
