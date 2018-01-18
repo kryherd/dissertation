@@ -1,4 +1,4 @@
-# Category Learning (fMRI)
+# Sloutsky Category Learning Task
 
 ## Design
 
@@ -158,11 +158,4 @@ This analysis, as well as prior studies, show that the optimal order to avoid tr
 2. Unsupervised Dense
 3. Supervised Dense/Supervised Sparse
 
-To preserve the sparse-before-dense order seen in the unsupervised blocks, the final order for this experiment is:
-
-1. Unsupervised Sparse
-2. Unsupervised Dense
-3. Supervised Sparse
-4. Supervised Dense
-
-In this way, if we get any effects of training type, we don't have to worry about it being a real effect of statistical density.
+However, we will be running a much more extensive order analysis as Experiment 1 of the dissertation.
