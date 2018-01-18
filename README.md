@@ -18,6 +18,8 @@ Welcome to the repository for my dissertation. Here is where I will keep documen
 * Nelson-Denny vocabulary (vocabulary)
 * CELF recalling sentences (grammar, expression)
 
+You can find a pre-registration for this study [here](https://osf.io/3kqwu/).
+
 ### Experiment 2: Comparability of category learning approaches
 
 **Aim:** To directly compare different approaches to a dual-systems model of category learning.
@@ -48,4 +50,4 @@ Welcome to the repository for my dissertation. Here is where I will keep documen
 
 The last three tasks (executive function) are built and presented using the [Psychology Experiment Building Language](http://pebl.sourceforge.net/) (PEBL). They are included in the main download of PEBL. The only change we made was to the Switcher task; instead of seeing whole words, participants see single letters (e.g., Color --> C).
 
-
+You can find a pre-registration for Experiments 2 and 3 [here](https://osf.io/m7bkp/).
