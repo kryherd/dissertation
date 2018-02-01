@@ -1,0 +1,183 @@
+# import psychopy modules
+import psychopy
+from psychopy import visual, core, event, sound, gui, data, logging
+# import math (for rounding function)
+import math
+import numpy as np 
+import random
+import pandas as pd
+
+#set parent directory
+parent_dir = "./"
+
+#get some startup information from the user
+info = {'ID Number':'', 'Order': ''}
+dlg = gui.DlgFromDict(info, title='Category Learning Task')
+if not dlg.OK:
+    core.quit()
+
+#### Code for selecting the block order
+#create dictionary for which type of block matches to which number
+block = {1: "UnsupervisedSparse", 2: "UnsupervisedDense", 3: "SupervisedSparse", 4: "SupervisedDense"}
+# create dictionary that allows you to run in order
+order = {1: "Block1", 2: "Block2"}
+# read in whole order spreadsheet
+order_list = pd.read_table('blockOrders_orderpilot.csv', sep=',')
+# select the row that has the order entered in initially
+sel_order = order_list.loc[order_list['Order'] == int(info['Order'])]
+
+
+#### EXPERIMENT SETUP
+#set log prefixes
+prefix = 'sub-%s_order%s' % (info['ID Number'], info['Order'])
+#logging data 
+errorLog=logging.LogFile(prefix + "_errorlog.log", level=logging.DATA, filemode='w')
+
+def check_exit():
+#abort if esc was pressed
+    if event.getKeys('escape'):
+        win.close()
+        core.quit()
+
+#create clock
+globalClock = core.Clock()
+logging.setDefaultClock(globalClock)
+
+#info about the screen
+win = visual.Window(size = [1440,900],
+                    color = "white",
+                    fullscr = True, allowGUI=False,
+                    units = "pix")
+
+block_instr = "BLANK"
+instruct_txt = visual.TextStim(win, text = "In this experiment you will be learning new items.\n" + block_instr + "\nPress SPACE when you are ready to continue.",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 32,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1400,
+                        autoLog=True)
+
+
+test_instr = visual.TextStim(win, pos = [0.0,0.0],
+                        color = "black",
+                        height = 32,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        wrapWidth= 1400,
+                        autoLog=True)
+
+FinalThankYou_txt = visual.TextStim(win, text = "Thank you!",
+                        pos = [0.0,0.0],
+                        color = "black",
+                        height = 50,
+                        alignHoriz='center',
+                        alignVert='center',
+                        font = "Arial",
+                        autoLog=True)
+
+blockInstr = pd.read_table('blockInstr.csv', sep=',')
+
+# header for data log
+data = np.hstack(("Block","StimType", "Stimulus", "KEY", "RESP", "Accuracy", "RT"))
+
+yesresp = {"UnsupervisedSparse":"Allied", "UnsupervisedDense":"Friendly", "SupervisedSparse":"Will Eat Garden", "SupervisedDense":"Will Like"}
+noresp = {"UnsupervisedSparse":"Enemy", "UnsupervisedDense":"Aggressive", "SupervisedSparse":"Won't Eat Garden", "SupervisedDense":"Won't Like"}
+stimdict = {"UnsupervisedSparse":"Flags", "UnsupervisedDense":"Aliens", "SupervisedSparse":"Bugs", "SupervisedDense":"Flowers"}
+
+#### EXPERIMENT RUNNING
+# run through the blocks in order
+for i in range(1, 3):
+    blockName = block[sel_order.iloc[0][order[i]]]
+    sel_instr = blockInstr.loc[blockInstr['BlockName'] == blockName, 'Instr']
+    block_instr = sel_instr.iloc[0][0:]
+    instruct_txt.text = "In this experiment you will be learning new items.\n \n" + block_instr + "\n \nPress SPACE when you are ready to continue."
+    #showing instructions first 
+    instruct_txt.draw()
+    win.flip() 
+    #waiting for space bar to continue
+    keys =event.waitKeys(keyList=['space'], timeStamped=globalClock)
+    #### TRAINING
+    PRACTICE_LIST = psychopy.data.importConditions(fileName = "%s_prac.xlsx" % (blockName))
+    for index in range(len(PRACTICE_LIST)):
+        check_exit()
+        prac = visual.ImageStim(win, pos = [0,0], image = parent_dir + "Stimuli/" + stimdict[blockName] + "/" + PRACTICE_LIST[index]['Stim'] + ".png")
+        keypress = visual.TextStim(win,
+        text = "Press SPACE to continue.",
+        pos = [0.0,-400],
+        color = "black", height = 32, alignHoriz='center', alignVert='center',
+        font = "Arial", autoLog=True, wrapWidth= 1200)
+        prac.draw()
+        keypress.draw()
+        win.flip()
+        keys = event.waitKeys(keyList=['space'], timeStamped=globalClock)
+    test_instr.text = "Now you will see many items. Your task is to indicate which group they belong to.\n\nPress X for " + yesresp[blockName] + ". Press N for " + noresp[blockName] + ". \n \nPress SPACE to continue."
+    test_instr.draw()
+    win.flip()
+    keys =event.waitKeys(keyList=['space'], timeStamped=globalClock)
+    #### TESTING
+    TRIAL_LIST = psychopy.data.importConditions(fileName = "%s_test.xlsx" % (blockName))
+    totalTrials = len(TRIAL_LIST)
+    TRIAL_LIST_RAND = TRIAL_LIST
+    random.shuffle(TRIAL_LIST_RAND)
+    for index in range(len(TRIAL_LIST_RAND)):
+        check_exit()
+        stim = visual.ImageStim(win, pos = [0,0], image = parent_dir + "Stimuli/" + stimdict[blockName] + "/" + TRIAL_LIST_RAND[index]['Stim'] + ".png")
+        keypress = visual.TextStim(win,
+        text = "X - " + yesresp[blockName] + "            " + "N - " + noresp[blockName],
+        pos = [0.0,-400],
+        color = "black", height = 32, alignHoriz='center', alignVert='center',
+        font = "Arial", autoLog=True, wrapWidth= 1200)
+        stim.draw()
+        keypress.draw()
+        win.flip()
+        t1 = globalClock.getTime()
+        while globalClock.getTime()-t1 <= 5:
+        #abort if esc was pressed
+            check_exit()
+            KEY = event.getKeys(keyList=["x","n"])
+            if KEY != []:
+                t2 = globalClock.getTime()
+                win.flip()
+                break
+        # map keypress to meaningful response type
+        if KEY == []:
+            KEY = "None"
+            RESP = "None"
+        elif KEY == ["x"]:
+            RESP = "target"
+        elif KEY == ["n"]:
+            RESP = "nottarget"
+        # determine the accuracy of the response, calculate reaction time
+        if RESP == "None":
+            ACC = 0; RT = 9999
+            win.flip(); core.wait(1)
+        elif RESP == TRIAL_LIST_RAND[index]["StimType"]:
+            ACC = 1; RT = t2-t1
+            win.flip(); core.wait(1)
+        elif RESP != TRIAL_LIST_RAND[index]["StimType"]:
+            ACC = 0; RT = t2-t1
+            win.flip(); core.wait(1)
+        # store data into the numpy array
+        data = np.vstack((data, np.hstack((blockName, 
+        TRIAL_LIST_RAND[index]['StimType'],
+        TRIAL_LIST_RAND[index]['Stim'], 
+        KEY,
+        RESP,
+        ACC,
+        "%.3f" %RT))))
+
+np.savetxt(prefix + "_orderpil_results.tsv", data, fmt='%s', delimiter='\t', newline='\n', header='', footer='', comments='# ')
+
+#display a Thank You message
+FinalThankYou_txt.draw()
+win.flip()
+core.wait(2)
+win.flip()
+
+# close everything
+win.close()
+core.quit()
