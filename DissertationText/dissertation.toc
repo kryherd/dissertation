@@ -1,0 +1,23 @@
+\contentsline {section}{\numberline {1}General Introduction}{1}
+\contentsline {subsection}{\numberline {1.1}Dual-systems model for category learning}{1}
+\contentsline {subsection}{\numberline {1.2}Vocabulary/labels and category learning}{1}
+\contentsline {subsection}{\numberline {1.3}Executive function and category learning}{1}
+\contentsline {section}{\numberline {2}Experiment 1}{2}
+\contentsline {subsection}{\numberline {2.1}Methods}{2}
+\contentsline {subsubsection}{\numberline {2.1.1}Participants}{2}
+\contentsline {subsubsection}{\numberline {2.1.2}Category Learning Task}{2}
+\contentsline {subsubsection}{\numberline {2.1.3}Behavioral Measures}{2}
+\contentsline {subsection}{\numberline {2.2}Procedure}{2}
+\contentsline {subsection}{\numberline {2.3}Results}{2}
+\contentsline {subsection}{\numberline {2.4}Discussion}{2}
+\contentsline {section}{\numberline {3}Experiment 2}{3}
+\contentsline {subsection}{\numberline {3.1}Methods}{3}
+\contentsline {subsubsection}{\numberline {3.1.1}Participants}{3}
+\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{3}
+\contentsline {subsubsection}{\numberline {3.1.3}Behavioral Measures}{3}
+\contentsline {subsection}{\numberline {3.2}Procedure}{3}
+\contentsline {subsection}{\numberline {3.3}Results}{3}
+\contentsline {subsection}{\numberline {3.4}Discussion}{3}
+\contentsline {section}{\numberline {4}General Discussion}{4}
+\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{5}
+\contentsline {section}{References}{6}

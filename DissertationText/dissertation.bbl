@@ -1,0 +1,36 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Lund%
+\ \BBA {} Burgess%
+}{%
+Lund%
+\ \BBA {} Burgess%
+}{%
+{\protect \APACyear {1996}}%
+}]{%
+Lund1996}
+\APACinsertmetastar {%
+Lund1996}%
+\begin{APACrefauthors}%
+Lund, K.%
+\BCBT {}\ \BBA {} Burgess, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1996}{jun}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Producing high-dimensional semantic spaces from lexical
+  co-occurrence}} {{Producing high-dimensional semantic spaces from lexical
+  co-occurrence}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Behavior Research Methods, Instruments, {\&}
+  Computers}{28}{2}{203--208}.
+\newblock
+\begin{APACrefURL} \url{http://www.springerlink.com/index/10.3758/BF03204766}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.3758/BF03204766} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
