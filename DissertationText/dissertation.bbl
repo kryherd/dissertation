@@ -1,36 +1,28 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
-Lund%
-\ \BBA {} Burgess%
+Sloutsky%
 }{%
-Lund%
-\ \BBA {} Burgess%
+Sloutsky%
 }{%
-{\protect \APACyear {1996}}%
+{\protect \APACyear {2010}}%
 }]{%
-Lund1996}
+Sloutsky2010}
 \APACinsertmetastar {%
-Lund1996}%
+Sloutsky2010}%
 \begin{APACrefauthors}%
-Lund, K.%
-\BCBT {}\ \BBA {} Burgess, C.%
+Sloutsky, V\BPBI M.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{1996}{jun}{}.
+\APACrefYearMonthDay{2010}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {{Producing high-dimensional semantic spaces from lexical
-  co-occurrence}} {{Producing high-dimensional semantic spaces from lexical
-  co-occurrence}}.{\BBCQ}
+{\BBOQ}\APACrefatitle {{From Perceptual Categories to Concepts: What
+  Develops?}} {{From Perceptual Categories to Concepts: What Develops?}}{\BBCQ}
 \newblock
-\APACjournalVolNumPages{Behavior Research Methods, Instruments, {\&}
-  Computers}{28}{2}{203--208}.
+\APACjournalVolNumPages{Cognitive Science}{34}{7}{1244--1286}.
 \newblock
-\begin{APACrefURL} \url{http://www.springerlink.com/index/10.3758/BF03204766}
-  \end{APACrefURL}
-\newblock
-\begin{APACrefDOI} \doi{10.3758/BF03204766} \end{APACrefDOI}
+\begin{APACrefDOI} \doi{10.1111/j.1551-6709.2010.01129.x} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}

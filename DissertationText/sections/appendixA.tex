@@ -4,5 +4,24 @@
 
 \section{Appendix A: Statistical Density Calculations}
 
+Statistical density is the method that Sloutsky and colleagues use to define categories \cite{Sloutsky2010}. Dense categories have multiple intercorrelated features, while sparse categories have few relevant features. Statistical density can vary between 0 and 1. Higher values (closer to 1) are dense, while lower values (closer to 0) are sparse. We calculate statistical density (\textit{D}) with the following formula, where $H_{within}$ is the entropy within the category and $H_{between}$ is the entropy between the category and contrasting categories.
+
+\begin{align*}
+D = 1 - \frac{H_{within}}{H_{between}}
+\end{align*}
+
+To find total entropy(\textit{H}), we sum entropy due to varying dimension and entropy due to varying relations among dimensions.
+
+\begin{align*}
+H = H^{dim} + H^{rel}
+\end{align*}
+
+This equation is the same whether you are calculating within-category entropy or between-category entropy. To find entropy due to dimensions, you use the following formulas.
+
+\begin{align*}
+H^{dim}_{within} &= \sum_{i=1}^{M}w_{i}[\sum_{j=0,1}within(p_{j}log_{2}p_{j})]\\
+H^{dim}_{between} &= \sum_{i=1}^{M}w_{i}[\sum_{j=0,1}between(p_{j}log_{2}p_{j})]
+\end{align*}
+
 \end{document}
 

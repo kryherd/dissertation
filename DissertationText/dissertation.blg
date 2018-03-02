@@ -12,45 +12,47 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: bib.bib
+Warning--I didn't find a database entry for "Lund1996"
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
 You've used 1 entry,
             6951 wiz_defined-function locations,
-            1278 strings with 10907 characters,
-and the built_in function-call counts, 1980 in all, are:
-= -- 229
-> -- 14
-< -- 97
-+ -- 94
+            1279 strings with 10834 characters,
+and the built_in function-call counts, 1640 in all, are:
+= -- 198
+> -- 10
+< -- 71
++ -- 72
 - -- 2
-* -- 141
-:= -- 412
+* -- 106
+:= -- 323
 add.period$ -- 4
 call.type$ -- 1
-change.case$ -- 19
+change.case$ -- 17
 chr.to.int$ -- 0
 cite$ -- 2
-duplicate$ -- 45
-empty$ -- 81
-format.name$ -- 24
-if$ -- 357
+duplicate$ -- 37
+empty$ -- 70
+format.name$ -- 14
+if$ -- 308
 int.to.chr$ -- 0
 int.to.str$ -- 3
 missing$ -- 0
-newline$ -- 32
+newline$ -- 27
 num.names$ -- 8
-pop$ -- 23
+pop$ -- 22
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 4
 quote$ -- 0
-skip$ -- 121
+skip$ -- 118
 stack$ -- 0
-substring$ -- 101
-swap$ -- 32
-text.length$ -- 4
+substring$ -- 79
+swap$ -- 27
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 1
 type$ -- 80
 warning$ -- 0
-while$ -- 9
+while$ -- 5
 width$ -- 0
-write$ -- 37
+write$ -- 28
+(There was 1 warning)
