@@ -4,6 +4,8 @@
 
 \section{Appendix A: Statistical Density Calculations}
 
+\subsection{Statistical Density Formulae}
+
 Statistical density is the method that Sloutsky and colleagues use to define categories \cite{Sloutsky2010}. Dense categories have multiple intercorrelated features, while sparse categories have few relevant features. Statistical density can vary between 0 and 1. Higher values (closer to 1) are dense, while lower values (closer to 0) are sparse. We calculate statistical density (\textit{D}) with the following formula, where $H_{within}$ is the entropy within the category and $H_{between}$ is the entropy between the category and contrasting categories.
 
 \begin{align*}
@@ -16,12 +18,111 @@ To find total entropy(\textit{H}), we sum entropy due to varying dimension and e
 H = H^{dim} + H^{rel}
 \end{align*}
 
-This equation is the same whether you are calculating within-category entropy or between-category entropy. To find entropy due to dimensions, you use the following formulas.
+This equation is the same whether you are calculating within-category entropy or between-category entropy. To find entropy due to dimensions, you use the following formulas, where \textit{M} is the total number of varying dimensions, $w_{i}$ is the attentional weight of a particular dimension (assumed to be 1), and $p_{j}$ is the probability of value \textit{j} on dimension \textit{i}.
 
 \begin{align*}
 H^{dim}_{within} &= \sum_{i=1}^{M}w_{i}[\sum_{j=0,1}within(p_{j}log_{2}p_{j})]\\
 H^{dim}_{between} &= \sum_{i=1}^{M}w_{i}[\sum_{j=0,1}between(p_{j}log_{2}p_{j})]
 \end{align*}
 
-\end{document}
+To find entropy due to relations, you use a similar set of formulas, where \textit{O} is the total number of possible dyadic relations among the varying dimensions, $w_{k}$ is the attentional weight of a relation (assumed to be 0.5), and $p_{mn}$ is the probability of the co-occurrence of values \textit{m} and \textit{n} on dimension \textit{k}.
 
+\begin{align*}
+H^{rel}_{within} &= -\sum_{k=1}^{O}w_{k}[\sum_{\substack{\text{m=0,1} \\ \text{n=0,1}}}within(p_{mn}log_{2}p_{mn})]\\
+H^{rel}_{between} &= -\sum_{k=1}^{O}w_{k}[\sum_{\substack{\text{m=0,1} \\ \text{n=0,1}}}between(p_{mn}log_{2}p_{mn})]
+\end{align*}
+
+All categories have 7 dimensions. For dense categories, 6 of these dimensions are correlated. The seventh dimensions is allowed to vary randomly. For sparse categories, 6 of the dimensions vary randomly. The seventh dimension is category-relevant and defines the category. All dimensions have two levels (e.g., for hair shape in aliens -- curly and straight). 
+
+\subsection{Statistical Density Calculations -- Sparse}
+
+First, we calculate the entropy due to dimensions. We have 7 dimensions, so \textit{M} = 7. Between categories (i.e., across all categories), each level of each dimension has a 0.5 probability of being present.
+
+\begin{align*}
+H^{dim}_{between} &= -7 * 1(2 * 0.5log_{2}0.5)\\
+H^{dim}_{between} &= -7log_{2}0.5\\
+H^{dim}_{between} &= 7
+\end{align*}
+
+Within categories, the relevant dimension does not vary -- thus it does not contribute to the entropy. Its value goes to zero, leading to the following calculations.
+
+\begin{align*}
+H^{dim}_{within} &= -6 * 1(2 * 0.5log_{2}0.5)\\
+H^{dim}_{within} &= -6log_{2}0.5\\
+H^{dim}_{within} &= 6
+\end{align*}
+
+To find the entropy due to relations, we start by calculating \textit{O}.
+
+\begin{align*}
+O &= \frac{M!}{(M-2)!*2!}\\
+O &= 21
+\end{align*}
+
+Between categories, all dyadic relations have the same probability of co-occurrence (0.25). For each relation between dimensions, there are 4 possible combinations of the levels of those dimensions. They're all equally probable. Recall that for relations, we use an attentional weight of 0.5. So, we end up with the following.
+
+\begin{align*}
+H^{rel}_{between} &= -21 * 0.5(4 * 0.25log_{2}0.25)\\
+H^{rel}_{between} &= -10.5log_{2}0.25\\
+H^{rel}_{between} &= 21
+\end{align*}
+
+Within the target category, 15 of the dyadic relationships don't include the relevant feature. Thus, their probability of co-occurrence is .25. For 6 of the dyadic relations (any including the relevant feature), there is perfect co-occurrence: probability is either 0 or 1. This makes these terms go to zero, because $log_{2}1 = 0$, and anything multiplied by zero is zero.
+
+\begin{align*}
+H^{rel}_{within} &= -15 * 0.5(4 * 0.25log_{2}0.25)\\
+H^{rel}_{within} &= -7.5log_{2}0.25\\
+H^{rel}_{within} &= 15
+\end{align*}
+
+Now, we use these calculated values to find entropy between and within categories.
+
+\begin{align*}
+H_{within} &= 6 + 15\\
+H_{within} &= 21\\
+H_{between} &= 7 + 21\\
+H_{between} &= 28
+\end{align*}
+
+Finally, we use the within- and between-category entropy to calculate the density.
+
+\begin{align*}
+D &= 1 - \frac{21}{28}\\
+D &= 0.25
+\end{align*}
+
+\subsection{Statistical Density Calculations -- Dense}
+
+The between category entropy for dense categories is the same as for sparse categories. $H_{between} = 28$ \newline
+
+Next, we will consider within-category entropy due to dimensions. Six of the seven dimensions do not vary, so they do not contribute to the entropy. Their value goes to zero.
+
+\begin{align*}
+H^{dim}_{within} &= -1 * 1(2 * 0.5log_{2}0.5)\\
+H^{dim}_{within} &= -log_{2}0.5\\
+H^{dim}_{within} &= 1
+\end{align*}
+
+Entropy due to relations is similar. Within the target category, 6 of the dyadic relationships don't include the relevant feature. Thus, their probability of co-occurrence is .25. For 15 of the dyadic relations, there is perfect co-occurrence, so their values go to zero.
+
+\begin{align*}
+H^{rel}_{between} &= -6 * 0.5(4 * 0.25log_{2}0.25)\\
+H^{rel}_{between} &= -3log_{2}0.25\\
+H^{rel}_{between} &= 6
+\end{align*}
+
+Next, we calculate the within-category entropy.
+
+\begin{align*}
+H_{within} &= 1 + 6\\
+H_{within} &= 7\\
+\end{align*}
+
+Finally, we use the within- and between-category entropy to calculate the density.
+
+\begin{align*}
+D &= 1 - \frac{7}{28}\\
+D &= 0.75
+\end{align*}
+
+\end{document}

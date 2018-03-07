@@ -20,4 +20,7 @@
 \contentsline {subsection}{\numberline {3.4}Discussion}{3}
 \contentsline {section}{\numberline {4}General Discussion}{4}
 \contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{5}
-\contentsline {section}{References}{6}
+\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{5}
+\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{6}
+\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{7}
+\contentsline {section}{References}{9}
