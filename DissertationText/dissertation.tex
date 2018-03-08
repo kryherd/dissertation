@@ -8,12 +8,24 @@
 \usepackage{apacite}
 \usepackage{etoolbox}
 \usepackage{amsmath}
+\usepackage{multirow}
 \makeatletter
 \patchcmd{\nocite}{\ifx\@onlypreamble\document}{\iftrue}{}{}
 \makeatother
 \renewcommand\thesection{\arabic{section}}
 \newcommand{\ptitle}{Exploring the Role of Language in Two Systems for Categorization}
 \newcommand{\pauthor}{Kayleigh Ryherd}
+\usepackage[margin=1in]{geometry}
+\usepackage{caption}
+\captionsetup[table]{labelsep=period, skip=0pt}
+\captionsetup[figure]{labelsep=period, skip=0pt}
+\usepackage{natbib}
+\usepackage{float}
+\usepackage{wrapfig,lipsum,booktabs}
+\usepackage{arydshln}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
 
 \begin{document}
 \pagenumbering{roman}
@@ -28,6 +40,10 @@
 \subfile{sections/acknowledge}
 \newpage
 \tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
 \newpage
 \pagenumbering{arabic}
 \subfile{sections/ch1}

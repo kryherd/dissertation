@@ -1,6 +1,226 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
+Boudewyn%
+\ \protect \BOthers {.}}{%
+Boudewyn%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+Boudewyn2015}
+\APACinsertmetastar {%
+Boudewyn2015}%
+\begin{APACrefauthors}%
+Boudewyn, M\BPBI A.%
+, Long, D\BPBI L.%
+, Traxler, M\BPBI J.%
+, Lesh, T\BPBI A.%
+, Dave, S.%
+, Mangun, G\BPBI R.%
+\BDBL {}Swaab, T\BPBI Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Sensitivity to Referential Ambiguity in Discourse: The
+  Role of Attention, Working Memory, and Verbal Ability}} {{Sensitivity to
+  Referential Ambiguity in Discourse: The Role of Attention, Working Memory,
+  and Verbal Ability}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Cognitive Neuroscience}{27}{12}{2309--2323}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Brown%
+, Bennett%
+\BCBL {}\ \BBA {} Hanna%
+}{%
+Brown%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1981}}%
+}]{%
+Brown1981}
+\APACinsertmetastar {%
+Brown1981}%
+\begin{APACrefauthors}%
+Brown, J\BPBI I.%
+, Bennett, J\BPBI M.%
+\BCBL {}\ \BBA {} Hanna, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1981}.
+\newblock
+\APACrefbtitle {{The Nelson-Denny Reading Test}} {{The Nelson-Denny Reading
+  Test}}.
+\newblock
+\APACaddressPublisher{Chicago, IL}{Riverside Publishing}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Catts%
+, Adlof%
+\BCBL {}\ \BBA {} Weismer%
+}{%
+Catts%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+Catts2006}
+\APACinsertmetastar {%
+Catts2006}%
+\begin{APACrefauthors}%
+Catts, H\BPBI W.%
+, Adlof, S\BPBI M.%
+\BCBL {}\ \BBA {} Weismer, S\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Language deficits in poor comprehenders: a case for the
+  simple view of reading.}} {{Language deficits in poor comprehenders: a case
+  for the simple view of reading.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Speech, Language, and Hearing
+  Research}{49}{2}{278--293}.
+\newblock
+\begin{APACrefDOI} \doi{10.1044/1092-4388(2006/023)} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kaufman%
+\ \BBA {} Kaufman%
+}{%
+Kaufman%
+\ \BBA {} Kaufman%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+Kaufman2004}
+\APACinsertmetastar {%
+Kaufman2004}%
+\begin{APACrefauthors}%
+Kaufman, A\BPBI S.%
+\BCBT {}\ \BBA {} Kaufman, N\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2004}.
+\newblock
+\APACrefbtitle {{Kaufman test of educational achievement - comprehensive
+  form.}} {{Kaufman test of educational achievement - comprehensive form.}}
+\newblock
+\APACaddressPublisher{}{American Guidance Service}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kloos%
+\ \BBA {} Sloutsky%
+}{%
+Kloos%
+\ \BBA {} Sloutsky%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+Kloos2008}
+\APACinsertmetastar {%
+Kloos2008}%
+\begin{APACrefauthors}%
+Kloos, H.%
+\BCBT {}\ \BBA {} Sloutsky, V\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{What's behind different kinds of kinds: effects of
+  statistical density on learning and representation of categories.}} {{What's
+  behind different kinds of kinds: effects of statistical density on learning
+  and representation of categories.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology:
+  General}{137}{1}{52--72}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0096-3445.137.1.52} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Peirce%
+}{%
+Peirce%
+}{%
+{\protect \APACyear {2007}}%
+}]{%
+Peirce2007}
+\APACinsertmetastar {%
+Peirce2007}%
+\begin{APACrefauthors}%
+Peirce, J\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{PsychoPy—Psychophysics software in Python}}
+  {{PsychoPy—Psychophysics software in Python}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Neuroscience Methods}{162}{1-2}{8--13}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.jneumeth.2006.11.017} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Raven%
+}{%
+Raven%
+}{%
+{\protect \APACyear {1998}}%
+}]{%
+Raven1998}
+\APACinsertmetastar {%
+Raven1998}%
+\begin{APACrefauthors}%
+Raven, J\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1998}.
+\newblock
+\APACrefbtitle {{Raven's progressive matrices}} {{Raven's progressive
+  matrices}}.
+\newblock
+\APACaddressPublisher{Oxford}{Oxford Psychologists Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Schneider%
+, Eschman%
+\BCBL {}\ \BBA {} Zuccolotto%
+}{%
+Schneider%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2002}}%
+}]{%
+schneider2002prime}
+\APACinsertmetastar {%
+schneider2002prime}%
+\begin{APACrefauthors}%
+Schneider, W.%
+, Eschman, A.%
+\BCBL {}\ \BBA {} Zuccolotto, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2002}.
+\newblock
+\APACrefbtitle {E-Prime: User's guide} {E-prime: User's guide}.
+\newblock
+\APACaddressPublisher{}{Psychology Software Incorporated}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Sloutsky%
 }{%
 Sloutsky%
@@ -23,6 +243,123 @@ Sloutsky, V\BPBI M.%
 \APACjournalVolNumPages{Cognitive Science}{34}{7}{1244--1286}.
 \newblock
 \begin{APACrefDOI} \doi{10.1111/j.1551-6709.2010.01129.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Stafura%
+\ \BBA {} Perfetti%
+}{%
+Stafura%
+\ \BBA {} Perfetti%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+Stafura2014}
+\APACinsertmetastar {%
+Stafura2014}%
+\begin{APACrefauthors}%
+Stafura, J\BPBI Z.%
+\BCBT {}\ \BBA {} Perfetti, C\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Word-to-text integration: Message level and lexical
+  level influences in ERPs}} {{Word-to-text integration: Message level and
+  lexical level influences in ERPs}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Neuropsychologia}{64}{11}{41--53}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.neuropsychologia.2014.09.012}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Tomblin%
+, Records%
+\BCBL {}\ \BBA {} Zhang%
+}{%
+Tomblin%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1996}}%
+}]{%
+Tomblin1996}
+\APACinsertmetastar {%
+Tomblin1996}%
+\begin{APACrefauthors}%
+Tomblin, J\BPBI B.%
+, Records, N\BPBI L.%
+\BCBL {}\ \BBA {} Zhang, X.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1996}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{A System for the Diagnosis of Specific Language
+  Impairment in Kindergarten Children}} {{A System for the Diagnosis of
+  Specific Language Impairment in Kindergarten Children}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Speech Language and Hearing
+  Research}{39}{6}{1284--1294}.
+\newblock
+\begin{APACrefDOI} \doi{10.1044/jshr.3906.1284} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Torgesen%
+, Wagner%
+\BCBL {}\ \BBA {} Rashotte%
+}{%
+Torgesen%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1992}}%
+}]{%
+Torgesen1992}
+\APACinsertmetastar {%
+Torgesen1992}%
+\begin{APACrefauthors}%
+Torgesen, J\BPBI K.%
+, Wagner, R.%
+\BCBL {}\ \BBA {} Rashotte, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1992}.
+\newblock
+\APACrefbtitle {{TOWRE-2: test of word reading efficiency}} {{TOWRE-2: test of
+  word reading efficiency}}.
+\newblock
+\APACaddressPublisher{Austin, TX}{Pro-Ed}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Woodcock%
+, McGrew%
+, Mather%
+\BCBL {}\ \BBA {} Schrank%
+}{%
+Woodcock%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2001}}%
+}]{%
+Woodcock2001}
+\APACinsertmetastar {%
+Woodcock2001}%
+\begin{APACrefauthors}%
+Woodcock, R\BPBI W.%
+, McGrew, K\BPBI S.%
+, Mather, N.%
+\BCBL {}\ \BBA {} Schrank, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2001}.
+\newblock
+\APACrefbtitle {{Woodcock-Johnson III NU tests of achievement}}
+  {{Woodcock-Johnson III NU tests of achievement}}.
+\newblock
+\APACaddressPublisher{Rolling Meadows, IL}{Riverside Publishing}.
 \PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}
