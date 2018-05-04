@@ -18,6 +18,8 @@ Welcome to the repository for my dissertation. Here is where I will keep documen
 * Nelson-Denny vocabulary (vocabulary)
 * CELF recalling sentences (grammar, expression)
 
+Information about how to score these assessments is [here](./Scoring/README.md)
+
 You can find a pre-registration for this study [here](https://osf.io/3kqwu/).
 
 ### Experiment 2: Comparability of category learning approaches
