@@ -9,10 +9,39 @@ Both experiments have multiple individual difference measures that must be score
 Scoring for this experiment requires access to three sets of data.
 
 1. The BehavioralScores_Exp1 google sheet. This is where you will record the scores. To gain access, email kayleigh.ryherd@uconn.edu. Once you have access to this file, you will find it in your Google Drive.
-2. The audio recordings for WA, CELF, and TOWRE. These will be stored in a TBA place.
+2. The audio recordings for WA, CELF, and TOWRE. These will be stored in a folder on Gordon (see below).
 3. The response form binders for WA, CELF, TOWRE, and Raven's. These can be found at Kayleigh's desk.
 
 Each assessment must be scored twice. You can be scorer 1 or scorer 2 for any assessment, but not both. So, if you were the first person to score an assessment, you may not re-score it and be scorer 2.
+
+### Accessing audio recordings
+
+The recordings are kept on a server named Gordon. To access it, you must either be on Yale WiFi, which is what we have at Haskins, or on the [Yale VPN](https://its.yale.edu/services/accounts-and-access/campus-access-vpn). If you want to use the VPN, you will need a Yale NetID. We use the Cisco AnyConnect client.
+
+Once you are on Yale WiFi or the Yale VPN, you will need to mount the server as a volume. To do this, you will need an MRI login that is separate from your NetID. Talk to Einar to get one.
+
+#### Mac Instructions
+
+1. Open Finder.
+2. Press &#8984;K.
+3. Type `afp://Gordon.haskins.yale.internal` into the Server Address bar.
+4. Log in using your MRI login (not your Yale NetID).
+5. Select the folder `a40p4` and press OK.
+
+#### Windows Instructions
+
+*Note: I haven't actually tested these, since I don't have a Windows PC. We can troubleshoot with Kraig if needed.*  
+
+1. Open File Explorer.
+2. Select This PC. On the Computer Tab, select Map Network Drive.
+3. In the Drive list, select a drive letter. (Any available letter will do.)
+4. In the Folder box, type `\\Gordon.haskins.yale.internal`. 
+5. Select `connect using a different user name` and input your MRI login credentials.
+5. Select Finish.
+
+Once you have mounted the `a40p4` volume, you will see a folder labeled `Ryherd_Recordings`. In that folder there are three folders: `CELF`, `WA`, and `TOWRE`. These folders contain the audio recordings for their respective assessments.
+
+**Recording note:** In each audio recording, participants say their subject number first and then begin the assessment. Sometimes this number does not match the filename. This is because some participants said their number wrong. I have gone through and made sure that the filenames all contain the correct subject number, so trust that first.
 
 ### CELF
 
