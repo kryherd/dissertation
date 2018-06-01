@@ -9,17 +9,23 @@
 \contentsline {subsubsection}{\numberline {2.1.3}Behavioral Measures}{3}
 \contentsline {subsection}{\numberline {2.2}Procedure}{4}
 \contentsline {subsection}{\numberline {2.3}Results}{4}
-\contentsline {subsection}{\numberline {2.4}Discussion}{4}
-\contentsline {section}{\numberline {3}Experiment 2}{5}
-\contentsline {subsection}{\numberline {3.1}Methods}{5}
-\contentsline {subsubsection}{\numberline {3.1.1}Participants}{5}
-\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{5}
-\contentsline {subsubsection}{\numberline {3.1.3}Behavioral Measures}{5}
-\contentsline {subsection}{\numberline {3.2}Procedure}{5}
-\contentsline {subsection}{\numberline {3.3}Results}{5}
-\contentsline {subsection}{\numberline {3.4}Discussion}{5}
-\contentsline {section}{\numberline {4}General Discussion}{6}
-\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{7}
-\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{7}
-\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{7}
-\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{8}
+\contentsline {subsubsection}{\numberline {2.3.1}Order Effect 1: Matching Conditions}{4}
+\contentsline {subsubsection}{\numberline {2.3.2}Order Effect 2: Dense Stimuli}{5}
+\contentsline {subsubsection}{\numberline {2.3.3}Order Effect 3: Sparse Stimuli}{5}
+\contentsline {subsubsection}{\numberline {2.3.4}Exploratory Order Analyses}{5}
+\contentsline {subsection}{\numberline {2.4}Discussion}{6}
+\contentsline {subsubsection}{\numberline {2.4.1}Order Effects}{6}
+\contentsline {subsubsection}{\numberline {2.4.2}Individual Differences}{6}
+\contentsline {section}{\numberline {3}Experiment 2}{7}
+\contentsline {subsection}{\numberline {3.1}Methods}{7}
+\contentsline {subsubsection}{\numberline {3.1.1}Participants}{7}
+\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{7}
+\contentsline {subsubsection}{\numberline {3.1.3}Behavioral Measures}{7}
+\contentsline {subsection}{\numberline {3.2}Procedure}{7}
+\contentsline {subsection}{\numberline {3.3}Results}{7}
+\contentsline {subsection}{\numberline {3.4}Discussion}{7}
+\contentsline {section}{\numberline {4}General Discussion}{8}
+\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{9}
+\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{9}
+\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{9}
+\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{10}

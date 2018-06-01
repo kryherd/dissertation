@@ -90,6 +90,33 @@ Catts, H\BPBI W.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Hautus%
+}{%
+Hautus%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+Hautus1995}
+\APACinsertmetastar {%
+Hautus1995}%
+\begin{APACrefauthors}%
+Hautus, M\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Corrections for extreme proportions and their biasing
+  effects on estimated values ofd′}} {{Corrections for extreme proportions
+  and their biasing effects on estimated values ofd′}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Behavior Research Methods, Instruments, {\&}
+  Computers}{27}{1}{46--51}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/BF03203619} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Kaufman%
 \ \BBA {} Kaufman%
 }{%
@@ -144,6 +171,60 @@ Kloos, H.%
   General}{137}{1}{52--72}.
 \newblock
 \begin{APACrefDOI} \doi{10.1037/0096-3445.137.1.52} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Macmillan%
+\ \BBA {} Creelman%
+}{%
+Macmillan%
+\ \BBA {} Creelman%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+macmillan2004}
+\APACinsertmetastar {%
+macmillan2004}%
+\begin{APACrefauthors}%
+Macmillan, N\BPBI A.%
+\BCBT {}\ \BBA {} Creelman, C\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2004}.
+\newblock
+\APACrefbtitle {Detection theory: A user's guide} {Detection theory: A user's
+  guide}.
+\newblock
+\APACaddressPublisher{}{Psychology press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Makowski%
+}{%
+Makowski%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+neuropsych}
+\APACinsertmetastar {%
+neuropsych}%
+\begin{APACrefauthors}%
+Makowski, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Package '{neuropsychology}': An R Toolbox for
+  Psychologists, Neuropsychologists and Neuroscientists} {Package
+  '{neuropsychology}': An r toolbox for psychologists, neuropsychologists and
+  neuroscientists}{\BBCQ}\ [\bibcomputersoftwaremanual].
+\newblock
+\begin{APACrefURL} \url{https://github.com/neuropsychology/neuropsychology.R}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{0.5.0}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -218,6 +299,33 @@ Schneider, W.%
 \APACrefbtitle {E-Prime: User's guide} {E-prime: User's guide}.
 \newblock
 \APACaddressPublisher{}{Psychology Software Incorporated}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Semel%
+, Wiig%
+\BCBL {}\ \BBA {} Secord%
+}{%
+Semel%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+Semel2006}
+\APACinsertmetastar {%
+Semel2006}%
+\begin{APACrefauthors}%
+Semel, E\BPBI M.%
+, Wiig, E\BPBI H.%
+\BCBL {}\ \BBA {} Secord, W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2006}.
+\newblock
+\APACrefbtitle {{CELF 4: clinical evaluation of language fundamentals}} {{CELF
+  4: clinical evaluation of language fundamentals}}.
+\newblock
+\APACaddressPublisher{}{Pearson: Psychological Corporation}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
