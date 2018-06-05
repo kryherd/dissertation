@@ -1,6 +1,38 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
+Ashby%
+, Alfonso-Reese%
+, Turken%
+\BCBL {}\ \BBA {} Waldron%
+}{%
+Ashby%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1998}}%
+}]{%
+Ashby1998}
+\APACinsertmetastar {%
+Ashby1998}%
+\begin{APACrefauthors}%
+Ashby, F\BPBI G.%
+, Alfonso-Reese, L\BPBI A.%
+, Turken, U.%
+\BCBL {}\ \BBA {} Waldron, E\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1998}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{A neuropsychological theory of multiple systems in
+  category learning.}} {{A neuropsychological theory of multiple systems in
+  category learning.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Review}{105}{3}{442--481}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0033-295X.105.3.442} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Boudewyn%
 \ \protect \BOthers {.}}{%
 Boudewyn%
@@ -174,6 +206,36 @@ Kloos, H.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Lupyan%
+}{%
+Lupyan%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+Lupyan2012}
+\APACinsertmetastar {%
+Lupyan2012}%
+\begin{APACrefauthors}%
+Lupyan, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{What Do Words Do? Toward a Theory of Language-Augmented
+  Thought}} {{What Do Words Do? Toward a Theory of Language-Augmented
+  Thought}}.{\BBCQ}
+\newblock
+\BIn{} B.~Ross\ (\BED), \APACrefbtitle {Psychology of Learning and Motivation -
+  Advances in Research and Theory} {Psychology of learning and motivation -
+  advances in research and theory}\ (\BVOL~57, \BPGS\ 255--297).
+\newblock
+\APACaddressPublisher{}{Academic Press}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/B978-0-12-394293-7.00007-8} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Macmillan%
 \ \BBA {} Creelman%
 }{%
@@ -225,6 +287,39 @@ Makowski, D.%
   \end{APACrefURL}
 \newblock
 \APACrefnote{0.5.0}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Minda%
+\ \BBA {} Miles%
+}{%
+Minda%
+\ \BBA {} Miles%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+Minda2010}
+\APACinsertmetastar {%
+Minda2010}%
+\begin{APACrefauthors}%
+Minda, J\BPBI P.%
+\BCBT {}\ \BBA {} Miles, S\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The influence of verbal and nonverbal processing on
+  category learning}} {{The influence of verbal and nonverbal processing on
+  category learning}}.{\BBCQ}
+\newblock
+\BIn{} B\BPBI H.~Ross\ (\BED), \APACrefbtitle {The psychology of learning and
+  motivation} {The psychology of learning and motivation}\ (\BVOL~52, \BPGS\
+  117--162).
+\newblock
+\APACaddressPublisher{Burlington}{Academic Press}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/S0079-7421(10)52003-6} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
