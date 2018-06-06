@@ -30,14 +30,16 @@ dat$response_type[dat$StimType == "target" & dat$RESP == "target"] <- "Hit"
 dat$response_type[dat$StimType == "target" & dat$RESP == "nottarget"] <- "Miss"
 dat$response_type[dat$StimType == "nottarget" & dat$RESP == "nottarget"] <- "CorRej"
 dat$response_type[dat$StimType == "nottarget" & dat$RESP == "target"] <- "FalseAlarm"
+dat$response_type[substr(dat$Stimulus,1,5) == "catch" & dat$Accuracy == 1] <- "CatchGood"
 
-counts <- count(dat, c('Subject', 'Block', 'response_type'))
+counts <- plyr::count(dat, c('Subject', 'Block', 'response_type'))
 counts_cast <- data.frame(dcast(data = counts, formula = Subject + Block ~ response_type, value.var="freq"))
-counts_cast <- counts_cast[,-7]
+counts_cast <- counts_cast[,-8]
 counts_cast[is.na(counts_cast)] <- 0
 
 dprime <- data.frame(dprime(counts_cast$Hit, counts_cast$Miss, counts_cast$FalseAlarm, counts_cast$CorRej))
 dprime <- cbind(dprime, counts_cast$Subject, counts_cast$Block)
+
 dprime_all <- dprime[,c(6,7,1)]
 names(dprime_all) <- c("Subject", "Block", "d.prime")
 dprime_all <- merge(dprime_all, ord, by = "Subject")
@@ -69,6 +71,23 @@ dprime_ages <- merge(dprime_all, sub_info, by.x = "Subject", by.y = "Subject.Num
 
 catch_remove_ord <- merge(catch_remove, ord, by = "Subject")
 table(catch_remove_ord$Order, catch_remove_ord$Block)
+
+
+pcts <- data.frame(counts_cast$Hit, counts_cast$Miss, counts_cast$FalseAlarm, counts_cast$CorRej, counts_cast$CatchGood)
+pcts <- cbind(pcts, counts_cast$Subject, counts_cast$Block)
+pcts$Hit.p <- pcts$counts_cast.Hit/16
+pcts$FA.p <- pcts$counts_cast.FalseAlarm/16
+pcts$Miss.p <- pcts$counts_cast.Miss/16
+pcts$CorRej.p <- pcts$counts_cast.CorRej/16
+pcts$acc <- pcts$Hit.p - pcts$FA.p
+pcts$catch.p <- pcts$counts_cast.CatchGood/8
+names(pcts) <- c("Hit", "Miss","FA", "CorRej", "CatchGood", "Subject", "Block", "Hit.p" ,"FA.p", "Miss.p", "CorRej.p", "acc", "catch.p")
+
+pcts.good <- subset(pcts, catch.p >=0.75)
+p1 <- ggplot(aes(Block, acc), data = pcts.good) + geom_violin() + geom_point()
+p1
+
+by(pcts.good$acc, pcts.good$Block, mean, na.rm= TRUE)
 
 
 ### basic info
