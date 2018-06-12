@@ -33,6 +33,35 @@ Ashby, F\BPBI G.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Ashby%
+\ \BBA {} Maddox%
+}{%
+Ashby%
+\ \BBA {} Maddox%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+Ashby2005}
+\APACinsertmetastar {%
+Ashby2005}%
+\begin{APACrefauthors}%
+Ashby, F\BPBI G.%
+\BCBT {}\ \BBA {} Maddox, W\BPBI T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Human Category Learning}} {{Human Category
+  Learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Annual Review of Psychology}{56}{1}{149--178}.
+\newblock
+\begin{APACrefDOI} \doi{10.1146/annurev.psych.56.091103.070217}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Boudewyn%
 \ \protect \BOthers {.}}{%
 Boudewyn%
