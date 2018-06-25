@@ -34,6 +34,35 @@ Ashby, F\BPBI G.%
 
 \bibitem [\protect \citeauthoryear {%
 Ashby%
+\ \BBA {} Crossley%
+}{%
+Ashby%
+\ \BBA {} Crossley%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+Ashby2010}
+\APACinsertmetastar {%
+Ashby2010}%
+\begin{APACrefauthors}%
+Ashby, F\BPBI G.%
+\BCBT {}\ \BBA {} Crossley, M\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Interactions between declarative and
+  procedural-learning categorization systems}} {{Interactions between
+  declarative and procedural-learning categorization systems}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Neurobiology of Learning and Memory}{94}{1}{1--12}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.nlm.2010.03.001} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ashby%
 \ \BBA {} Maddox%
 }{%
 Ashby%
@@ -59,6 +88,68 @@ Ashby, F\BPBI G.%
 \newblock
 \begin{APACrefDOI} \doi{10.1146/annurev.psych.56.091103.070217}
   \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ashby%
+\ \BBA {} Maddox%
+}{%
+Ashby%
+\ \BBA {} Maddox%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+Ashby2011}
+\APACinsertmetastar {%
+Ashby2011}%
+\begin{APACrefauthors}%
+Ashby, F\BPBI G.%
+\BCBT {}\ \BBA {} Maddox, W\BPBI T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Human category learning 2.0}} {{Human category learning
+  2.0}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Annals of the New York Academy of
+  Sciences}{1224}{1}{147--161}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.1749-6632.2010.05874.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ashby%
+, Noble%
+, Filoteo%
+, Waldron%
+\BCBL {}\ \BBA {} Ell%
+}{%
+Ashby%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2003}}%
+}]{%
+Ashby2003b}
+\APACinsertmetastar {%
+Ashby2003b}%
+\begin{APACrefauthors}%
+Ashby, F\BPBI G.%
+, Noble, S.%
+, Filoteo, J\BPBI V.%
+, Waldron, E\BPBI M.%
+\BCBL {}\ \BBA {} Ell, S\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2003}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Category learning deficits in Parkinson's disease.}}
+  {{Category learning deficits in Parkinson's disease.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Neuropsychology}{17}{1}{115--124}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0894-4105.17.1.115} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -120,6 +211,39 @@ Brown, J\BPBI I.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Carpenter%
+, Wills%
+, Benattayallah%
+\BCBL {}\ \BBA {} Milton%
+}{%
+Carpenter%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Carpenter2016}
+\APACinsertmetastar {%
+Carpenter2016}%
+\begin{APACrefauthors}%
+Carpenter, K\BPBI L.%
+, Wills, A\BPBI J.%
+, Benattayallah, A.%
+\BCBL {}\ \BBA {} Milton, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{A Comparison of the neural correlates that underlie
+  rule-based and information-integration category learning}} {{A Comparison of
+  the neural correlates that underlie rule-based and information-integration
+  category learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Human Brain Mapping}{37}{10}{3557--3574}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/hbm.23259} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Catts%
 , Adlof%
 \BCBL {}\ \BBA {} Weismer%
@@ -148,6 +272,125 @@ Catts, H\BPBI W.%
   Research}{49}{2}{278--293}.
 \newblock
 \begin{APACrefDOI} \doi{10.1044/1092-4388(2006/023)} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Chandrasekaran%
+, Yi%
+\BCBL {}\ \BBA {} Maddox%
+}{%
+Chandrasekaran%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+Chandrasekaran2014}
+\APACinsertmetastar {%
+Chandrasekaran2014}%
+\begin{APACrefauthors}%
+Chandrasekaran, B.%
+, Yi, H\BHBI G.%
+\BCBL {}\ \BBA {} Maddox, W\BPBI T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Dual-learning systems during speech category
+  learning.}} {{Dual-learning systems during speech category learning.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychonomic bulletin {\&} review}{21}{2}{488--95}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/s13423-013-0501-5} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Chandrasekaran%
+, Yi%
+, Smayda%
+\BCBL {}\ \BBA {} Maddox%
+}{%
+Chandrasekaran%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Chandrasekaran2016}
+\APACinsertmetastar {%
+Chandrasekaran2016}%
+\begin{APACrefauthors}%
+Chandrasekaran, B.%
+, Yi, H\BHBI G.%
+, Smayda, K\BPBI E.%
+\BCBL {}\ \BBA {} Maddox, W\BPBI T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Effect of explicit dimensional instruction on speech
+  category learning}} {{Effect of explicit dimensional instruction on speech
+  category learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Attention, Perception, {\&}
+  Psychophysics}{78}{2}{566--582}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/s13414-015-0999-x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Erickson%
+}{%
+Erickson%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+Erickson2008}
+\APACinsertmetastar {%
+Erickson2008}%
+\begin{APACrefauthors}%
+Erickson, M\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Executive attention and task switching in category
+  learning: Evidence for stimulus-dependent representation}} {{Executive
+  attention and task switching in category learning: Evidence for
+  stimulus-dependent representation}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Memory {\&} Cognition}{36}{4}{749--761}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/MC.36.4.749} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Foerde%
+, Knowlton%
+\BCBL {}\ \BBA {} Poldrack%
+}{%
+Foerde%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+Foerde2006}
+\APACinsertmetastar {%
+Foerde2006}%
+\begin{APACrefauthors}%
+Foerde, K.%
+, Knowlton, B\BPBI J.%
+\BCBL {}\ \BBA {} Poldrack, R\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Modulation of competing memory systems by distraction}}
+  {{Modulation of competing memory systems by distraction}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Proceedings of the National Academy of
+  Sciences}{103}{31}{11778--11783}.
+\newblock
+\begin{APACrefDOI} \doi{10.1073/pnas.0602659103} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -352,6 +595,68 @@ Minda, J\BPBI P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Nomura%
+\ \protect \BOthers {.}}{%
+Nomura%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2007}}%
+}]{%
+Nomura2007}
+\APACinsertmetastar {%
+Nomura2007}%
+\begin{APACrefauthors}%
+Nomura, E\BPBI M.%
+, Maddox, W\BPBI T.%
+, Filoteo, J\BPBI V.%
+, Ing, A\BPBI D.%
+, Gitelman, D\BPBI R.%
+, Parrish, T\BPBI B.%
+\BDBL {}Reber, P\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Neural correlates of rule-based and
+  information-integration visual category learning}} {{Neural correlates of
+  rule-based and information-integration visual category learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cerebral Cortex}{17}{1}{37--43}.
+\newblock
+\begin{APACrefDOI} \doi{10.1093/cercor/bhj122} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Packard%
+\ \BBA {} McGaugh%
+}{%
+Packard%
+\ \BBA {} McGaugh%
+}{%
+{\protect \APACyear {1996}}%
+}]{%
+Packard1996}
+\APACinsertmetastar {%
+Packard1996}%
+\begin{APACrefauthors}%
+Packard, M\BPBI G.%
+\BCBT {}\ \BBA {} McGaugh, J\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1996}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Inactivation of Hippocampus or Caudate Nucleus with
+  Lidocaine Differentially Affects Expression of Place and Response Learning}}
+  {{Inactivation of Hippocampus or Caudate Nucleus with Lidocaine
+  Differentially Affects Expression of Place and Response Learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Neurobiology of Learning and Memory}{65}{1}{65--72}.
+\newblock
+\begin{APACrefDOI} \doi{10.1006/nlme.1996.0007} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Peirce%
 }{%
 Peirce%
@@ -397,6 +702,40 @@ Raven, J\BPBI C.%
   matrices}}.
 \newblock
 \APACaddressPublisher{Oxford}{Oxford Psychologists Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Robinson%
+, Heaton%
+, Lehman%
+\BCBL {}\ \BBA {} Stilson%
+}{%
+Robinson%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1980}}%
+}]{%
+Robinson1980}
+\APACinsertmetastar {%
+Robinson1980}%
+\begin{APACrefauthors}%
+Robinson, A\BPBI L.%
+, Heaton, R\BPBI K.%
+, Lehman, R\BPBI A.%
+\BCBL {}\ \BBA {} Stilson, D\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1980}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The utility of the Wisconsin Card Sorting Test in
+  detecting and localizing frontal lobe lesions.}} {{The utility of the
+  Wisconsin Card Sorting Test in detecting and localizing frontal lobe
+  lesions.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Consulting and Clinical
+  Psychology}{48}{5}{605--614}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037//0022-006X.48.5.605} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -475,6 +814,40 @@ Sloutsky, V\BPBI M.%
 \APACjournalVolNumPages{Cognitive Science}{34}{7}{1244--1286}.
 \newblock
 \begin{APACrefDOI} \doi{10.1111/j.1551-6709.2010.01129.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Soto%
+, Waldschmidt%
+, Helie%
+\BCBL {}\ \BBA {} Ashby%
+}{%
+Soto%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+Soto2013}
+\APACinsertmetastar {%
+Soto2013}%
+\begin{APACrefauthors}%
+Soto, F\BPBI A.%
+, Waldschmidt, J\BPBI G.%
+, Helie, S.%
+\BCBL {}\ \BBA {} Ashby, F\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Brain activity across the development of automatic
+  categorization: A comparison of categorization tasks using multi-voxel
+  pattern analysis}} {{Brain activity across the development of automatic
+  categorization: A comparison of categorization tasks using multi-voxel
+  pattern analysis}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{NeuroImage}{71}{}{284--297}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.neuroimage.2013.01.008} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -563,6 +936,66 @@ Torgesen, J\BPBI K.%
   word reading efficiency}}.
 \newblock
 \APACaddressPublisher{Austin, TX}{Pro-Ed}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Turner%
+, Crossley%
+\BCBL {}\ \BBA {} Ashby%
+}{%
+Turner%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+Turner2017}
+\APACinsertmetastar {%
+Turner2017}%
+\begin{APACrefauthors}%
+Turner, B\BPBI O.%
+, Crossley, M\BPBI J.%
+\BCBL {}\ \BBA {} Ashby, F\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Hierarchical control of procedural and declarative
+  category-learning systems}} {{Hierarchical control of procedural and
+  declarative category-learning systems}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{NeuroImage}{150}{}{150--161}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.neuroimage.2017.02.039} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Waldschmidt%
+\ \BBA {} Ashby%
+}{%
+Waldschmidt%
+\ \BBA {} Ashby%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+Waldschmidt2011}
+\APACinsertmetastar {%
+Waldschmidt2011}%
+\begin{APACrefauthors}%
+Waldschmidt, J\BPBI G.%
+\BCBT {}\ \BBA {} Ashby, F\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Cortical and striatal contributions to automaticity in
+  information-integration categorization}} {{Cortical and striatal
+  contributions to automaticity in information-integration
+  categorization}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{NeuroImage}{56}{3}{1791--1802}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.neuroimage.2011.02.011} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
