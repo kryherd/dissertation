@@ -84,7 +84,8 @@ pcts$catch.p <- pcts$counts_cast.CatchGood/8
 names(pcts) <- c("Hit", "Miss","FA", "CorRej", "CatchGood", "Subject", "Block", "Hit.p" ,"FA.p", "Miss.p", "CorRej.p", "acc", "catch.p")
 
 pcts.good <- subset(pcts, catch.p >=0.75)
-p1 <- ggplot(aes(Block, acc), data = pcts.good) + geom_violin() + geom_point()
+p1 <- ggplot(aes(Block, acc), data = pcts.good) + geom_violin() + geom_jitter(width = 0.25) + theme_bw() + 
+  ylab("Accuracy (Hit - FA)")  + ggtitle("Performance by block (collapsed across orders)")
 p1
 
 by(pcts.good$acc, pcts.good$Block, mean, na.rm= TRUE)
