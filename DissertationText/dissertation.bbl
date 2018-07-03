@@ -482,6 +482,33 @@ Lupyan%
 }{%
 Lupyan%
 }{%
+{\protect \APACyear {2009}}%
+}]{%
+Lupyan2009}
+\APACinsertmetastar {%
+Lupyan2009}%
+\begin{APACrefauthors}%
+Lupyan, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Extracommunicative functions of language: verbal
+  interference causes selective categorization impairments.}}
+  {{Extracommunicative functions of language: verbal interference causes
+  selective categorization impairments.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychonomic bulletin {\&} review}{16}{4}{711--718}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/PBR.16.5.986} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lupyan%
+}{%
+Lupyan%
+}{%
 {\protect \APACyear {2012}}%
 }]{%
 Lupyan2012}
@@ -505,6 +532,68 @@ Lupyan, G.%
 \APACaddressPublisher{}{Academic Press}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/B978-0-12-394293-7.00007-8} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lupyan%
+\ \BBA {} Mirman%
+}{%
+Lupyan%
+\ \BBA {} Mirman%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+Lupyan2013}
+\APACinsertmetastar {%
+Lupyan2013}%
+\begin{APACrefauthors}%
+Lupyan, G.%
+\BCBT {}\ \BBA {} Mirman, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Linking language and categorization: Evidence from
+  aphasia}} {{Linking language and categorization: Evidence from
+  aphasia}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cortex}{49}{5}{1187--1194}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.cortex.2012.06.006} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lupyan%
+, Mirman%
+, Hamilton%
+\BCBL {}\ \BBA {} Thompson-Schill%
+}{%
+Lupyan%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+Lupyan2012b}
+\APACinsertmetastar {%
+Lupyan2012b}%
+\begin{APACrefauthors}%
+Lupyan, G.%
+, Mirman, D.%
+, Hamilton, R.%
+\BCBL {}\ \BBA {} Thompson-Schill, S\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Categorization is modulated by transcranial direct
+  current stimulation over left prefrontal cortex}} {{Categorization is
+  modulated by transcranial direct current stimulation over left prefrontal
+  cortex}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognition}{124}{1}{36--49}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.cognition.2012.04.002} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -679,6 +768,37 @@ Peirce, J\BPBI W.%
 \APACjournalVolNumPages{Journal of Neuroscience Methods}{162}{1-2}{8--13}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.jneumeth.2006.11.017} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Perry%
+\ \BBA {} Lupyan%
+}{%
+Perry%
+\ \BBA {} Lupyan%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+Perry2014}
+\APACinsertmetastar {%
+Perry2014}%
+\begin{APACrefauthors}%
+Perry, L\BPBI K.%
+\BCBT {}\ \BBA {} Lupyan, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The role of language in multi-dimensional
+  categorization: Evidence from transcranial direct current stimulation and
+  exposure to verbal labels}} {{The role of language in multi-dimensional
+  categorization: Evidence from transcranial direct current stimulation and
+  exposure to verbal labels}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Brain and Language}{135}{}{66--72}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.bandl.2014.05.005} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
