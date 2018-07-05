@@ -153,6 +153,38 @@ Ashby, F\BPBI G.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Best%
+, Yim%
+\BCBL {}\ \BBA {} Sloutsky%
+}{%
+Best%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+Best2013}
+\APACinsertmetastar {%
+Best2013}%
+\begin{APACrefauthors}%
+Best, C\BPBI A.%
+, Yim, H.%
+\BCBL {}\ \BBA {} Sloutsky, V\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The cost of selective attention in category learning:
+  Developmental differences between adults and infants}} {{The cost of
+  selective attention in category learning: Developmental differences between
+  adults and infants}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Child
+  Psychology}{116}{2}{105--119}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.jecp.2013.05.002} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Boudewyn%
 \ \protect \BOthers {.}}{%
 Boudewyn%
@@ -364,6 +396,43 @@ Erickson, M\BPBI A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Eshel%
+, Nelson%
+, Blair%
+, Pine%
+\BCBL {}\ \BBA {} Ernst%
+}{%
+Eshel%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2007}}%
+}]{%
+Eshel2007}
+\APACinsertmetastar {%
+Eshel2007}%
+\begin{APACrefauthors}%
+Eshel, N.%
+, Nelson, E\BPBI E.%
+, Blair, R\BPBI J.%
+, Pine, D\BPBI S.%
+\BCBL {}\ \BBA {} Ernst, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Neural substrates of choice selection in adults and
+  adolescents: Development of the ventrolateral prefrontal and anterior
+  cingulate cortices}} {{Neural substrates of choice selection in adults and
+  adolescents: Development of the ventrolateral prefrontal and anterior
+  cingulate cortices}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Neuropsychologia}{45}{6}{1270--1279}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.neuropsychologia.2006.10.004}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Foerde%
 , Knowlton%
 \BCBL {}\ \BBA {} Poldrack%
@@ -475,6 +544,33 @@ Kloos, H.%
   General}{137}{1}{52--72}.
 \newblock
 \begin{APACrefDOI} \doi{10.1037/0096-3445.137.1.52} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lewis%
+}{%
+Lewis%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+Lewis1997}
+\APACinsertmetastar {%
+Lewis1997}%
+\begin{APACrefauthors}%
+Lewis, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Development of the Prefrontal Cortex during
+  Adolescence: Insights into Vulnerable Neural Circuits in Schizophrenia}}
+  {{Development of the Prefrontal Cortex during Adolescence: Insights into
+  Vulnerable Neural Circuits in Schizophrenia}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Neuropsychopharmacology}{16}{6}{385--398}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/S0893-133X(96)00277-1} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -802,6 +898,66 @@ Perry, L\BPBI K.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Perry%
+\ \BBA {} Lupyan%
+}{%
+Perry%
+\ \BBA {} Lupyan%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+Perry2016}
+\APACinsertmetastar {%
+Perry2016}%
+\begin{APACrefauthors}%
+Perry, L\BPBI K.%
+\BCBT {}\ \BBA {} Lupyan, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Recognising a zebra from its stripes and the stripes
+  from “zebra”: the role of verbal labels in selecting category relevant
+  information}} {{Recognising a zebra from its stripes and the stripes from
+  “zebra”: the role of verbal labels in selecting category relevant
+  information}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Language, Cognition and Neuroscience}{3798}{}{1--19}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/23273798.2016.1154974} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Plebanek%
+\ \BBA {} Sloutsky%
+}{%
+Plebanek%
+\ \BBA {} Sloutsky%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+Plebanek2017}
+\APACinsertmetastar {%
+Plebanek2017}%
+\begin{APACrefauthors}%
+Plebanek, D\BPBI J.%
+\BCBT {}\ \BBA {} Sloutsky, V\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Costs of Selective Attention: When Children Notice What
+  Adults Miss}} {{Costs of Selective Attention: When Children Notice What
+  Adults Miss}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Science}{28}{6}{723--732}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/0956797617693005} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Raven%
 }{%
 Raven%
@@ -859,6 +1015,31 @@ Robinson, A\BPBI L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Rodman%
+}{%
+Rodman%
+}{%
+{\protect \APACyear {1994}}%
+}]{%
+Rodman1994}
+\APACinsertmetastar {%
+Rodman1994}%
+\begin{APACrefauthors}%
+Rodman, H\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1994}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Development of Inferior Temporal Cortex in the Monkey}}
+  {{Development of Inferior Temporal Cortex in the Monkey}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cerebral Cortex}{4}{5}{484--498}.
+\newblock
+\begin{APACrefDOI} \doi{10.1093/cercor/4.5.484} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Schneider%
 , Eschman%
 \BCBL {}\ \BBA {} Zuccolotto%
@@ -882,6 +1063,35 @@ Schneider, W.%
 \APACrefbtitle {E-Prime: User's guide} {E-prime: User's guide}.
 \newblock
 \APACaddressPublisher{}{Psychology Software Incorporated}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Segalowitz%
+\ \BBA {} Davies%
+}{%
+Segalowitz%
+\ \BBA {} Davies%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+Segalowitz2004}
+\APACinsertmetastar {%
+Segalowitz2004}%
+\begin{APACrefauthors}%
+Segalowitz, S\BPBI J.%
+\BCBT {}\ \BBA {} Davies, P\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Charting the maturation of the frontal lobe: An
+  electrophysiological strategy}} {{Charting the maturation of the frontal
+  lobe: An electrophysiological strategy}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Brain and Cognition}{55}{1}{116--133}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/S0278-2626(03)00283-5} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
