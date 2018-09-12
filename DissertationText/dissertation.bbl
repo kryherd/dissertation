@@ -153,6 +153,34 @@ Ashby, F\BPBI G.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Baddeley%
+\ \BBA {} Hitch%
+}{%
+Baddeley%
+\ \BBA {} Hitch%
+}{%
+{\protect \APACyear {1974}}%
+}]{%
+Baddeley1974}
+\APACinsertmetastar {%
+Baddeley1974}%
+\begin{APACrefauthors}%
+Baddeley, A\BPBI D.%
+\BCBT {}\ \BBA {} Hitch, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1974}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Working Memory}} {{Working Memory}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {The Psychology of Learning and Motivation} {The
+  psychology of learning and motivation}\ (\BVOL~8, \BPGS\ 47--89).
+\newblock
+\begin{APACrefDOI} \doi{10.1016/S0079-7421(08)60452-1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Best%
 , Yim%
 \BCBL {}\ \BBA {} Sloutsky%
@@ -574,6 +602,35 @@ Lewis, D.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Lin%
+\ \BBA {} Murphy%
+}{%
+Lin%
+\ \BBA {} Murphy%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+Lin2001}
+\APACinsertmetastar {%
+Lin2001}%
+\begin{APACrefauthors}%
+Lin, E\BPBI L.%
+\BCBT {}\ \BBA {} Murphy, G\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Thematic relations in adults' concepts.}} {{Thematic
+  relations in adults' concepts.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology:
+  General}{130}{1}{3--28}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0096-3445.130.1.3} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Lupyan%
 }{%
 Lupyan%
@@ -744,6 +801,38 @@ Makowski, D.%
   \end{APACrefURL}
 \newblock
 \APACrefnote{0.5.0}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Minda%
+, Desroches%
+\BCBL {}\ \BBA {} Church%
+}{%
+Minda%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+Minda2008}
+\APACinsertmetastar {%
+Minda2008}%
+\begin{APACrefauthors}%
+Minda, J\BPBI P.%
+, Desroches, A\BPBI S.%
+\BCBL {}\ \BBA {} Church, B\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Learning rule-described and non-rule-described
+  categories: A comparison of children and adults.}} {{Learning rule-described
+  and non-rule-described categories: A comparison of children and
+  adults.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology: Learning, Memory,
+  and Cognition}{34}{6}{1518--1533}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/a0013355} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -926,6 +1015,34 @@ Perry, L\BPBI K.%
 \APACjournalVolNumPages{Language, Cognition and Neuroscience}{3798}{}{1--19}.
 \newblock
 \begin{APACrefDOI} \doi{10.1080/23273798.2016.1154974} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Piaget%
+, Inhelder%
+\BCBL {}\ \BBA {} Lunzer%
+}{%
+Piaget%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1964}}%
+}]{%
+piaget1964early}
+\APACinsertmetastar {%
+piaget1964early}%
+\begin{APACrefauthors}%
+Piaget, J.%
+, Inhelder, B.%
+\BCBL {}\ \BBA {} Lunzer, E\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1964}.
+\newblock
+\APACrefbtitle {The early growth of logic in the child: Classification and
+  seriation} {The early growth of logic in the child: Classification and
+  seriation}.
+\newblock
+\APACaddressPublisher{}{Routledge \& Kegan Paul}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1147,6 +1264,37 @@ Sloutsky, V\BPBI M.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Smiley%
+\ \BBA {} Brown%
+}{%
+Smiley%
+\ \BBA {} Brown%
+}{%
+{\protect \APACyear {1979}}%
+}]{%
+Smiley1979}
+\APACinsertmetastar {%
+Smiley1979}%
+\begin{APACrefauthors}%
+Smiley, S\BPBI S.%
+\BCBT {}\ \BBA {} Brown, A\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1979}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Conceptual preference for thematic or taxonomic
+  relations: A nonmonotonic age trend from preschool to old age}} {{Conceptual
+  preference for thematic or taxonomic relations: A nonmonotonic age trend from
+  preschool to old age}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Child
+  Psychology}{28}{2}{249--257}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/0022-0965(79)90087-0} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Soto%
 , Waldschmidt%
 , Helie%
@@ -1296,6 +1444,29 @@ Turner, B\BPBI O.%
 \APACjournalVolNumPages{NeuroImage}{150}{}{150--161}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.neuroimage.2017.02.039} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Vygotsky%
+}{%
+Vygotsky%
+}{%
+{\protect \APACyear {1962}}%
+}]{%
+vygotsky1962language}
+\APACinsertmetastar {%
+vygotsky1962language}%
+\begin{APACrefauthors}%
+Vygotsky, L\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1962}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Language and thought} {Language and thought}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Massachusetts Institute of Technology Press, Ontario,
+  Canada}{}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

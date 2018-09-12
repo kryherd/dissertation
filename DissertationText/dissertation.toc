@@ -4,7 +4,7 @@
 \contentsline {subsubsection}{\numberline {1.1.2}COVIS}{1}
 \contentsline {subsubsection}{\numberline {1.1.3}Dimensionality}{3}
 \contentsline {subsubsection}{\numberline {1.1.4}Statistical Density}{4}
-\contentsline {subsubsection}{\numberline {1.1.5}Verbal/nonverbal}{6}
+\contentsline {subsubsection}{\numberline {1.1.5}Verbal/nonverbal}{5}
 \contentsline {subsubsection}{\numberline {1.1.6}Taxonomic/thematic}{6}
 \contentsline {subsection}{\numberline {1.2}Vocabulary/labels and category learning}{6}
 \contentsline {subsection}{\numberline {1.3}Executive function and category learning}{6}
