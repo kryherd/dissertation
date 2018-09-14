@@ -11,7 +11,7 @@ import pandas as pd
 parent_dir = "./"
 
 #get some startup information from the user
-info = {'ID Number':'', 'Order': ''}
+info = {'ID Number':''}
 dlg = gui.DlgFromDict(info, title='Category Learning Task')
 if not dlg.OK:
     core.quit()
@@ -23,13 +23,15 @@ block = {1: "UnsupervisedSparse", 2: "UnsupervisedDense", 3: "SupervisedSparse",
 order = {1: "Block1", 2: "Block2", 3: "Block3", 4: "Block4"}
 # read in whole order spreadsheet
 order_list = pd.read_table('blockOrders.csv', sep=',')
-# select the row that has the order entered in initially
+# randomly generate a number between 1 and 24
+order_rand = random.randint(1,24)
+# select the row with that order
 sel_order = order_list.loc[order_list['Order'] == int(info['Order'])]
 
 
 #### EXPERIMENT SETUP
 #set log prefixes
-prefix = 'sub-%s_order%s' % (info['ID Number'], info['Order'])
+prefix = 'sub-%s_order%s' % (info['ID Number'], order_rand)
 #logging data 
 errorLog=logging.LogFile(prefix + "_errorlog.log", level=logging.DATA, filemode='w')
 
