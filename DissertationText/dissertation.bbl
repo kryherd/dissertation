@@ -213,6 +213,37 @@ Best, C\BPBI A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Blaye%
+\ \BBA {} Bonthoux%
+}{%
+Blaye%
+\ \BBA {} Bonthoux%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+Blaye2001}
+\APACinsertmetastar {%
+Blaye2001}%
+\begin{APACrefauthors}%
+Blaye, A.%
+\BCBT {}\ \BBA {} Bonthoux, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Thematic and taxonomic relations in preschoolers: The
+  development of flexibility in categorization choices}} {{Thematic and
+  taxonomic relations in preschoolers: The development of flexibility in
+  categorization choices}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{British Journal of Developmental
+  Psychology}{19}{3}{395--412}.
+\newblock
+\begin{APACrefDOI} \doi{10.1348/026151001166173} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Boudewyn%
 \ \protect \BOthers {.}}{%
 Boudewyn%
@@ -801,6 +832,35 @@ Makowski, D.%
   \end{APACrefURL}
 \newblock
 \APACrefnote{0.5.0}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Markman%
+\ \BBA {} Hutchinson%
+}{%
+Markman%
+\ \BBA {} Hutchinson%
+}{%
+{\protect \APACyear {1984}}%
+}]{%
+Markman1984}
+\APACinsertmetastar {%
+Markman1984}%
+\begin{APACrefauthors}%
+Markman, E\BPBI M.%
+\BCBT {}\ \BBA {} Hutchinson, J\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1984}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Children's sensitivity to constraints on word meaning:
+  Taxonomic versus thematic relations}} {{Children's sensitivity to constraints
+  on word meaning: Taxonomic versus thematic relations}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognitive Psychology}{16}{1}{1--27}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/0010-0285(84)90002-1} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1497,6 +1557,35 @@ Waldschmidt, J\BPBI G.%
 \APACjournalVolNumPages{NeuroImage}{56}{3}{1791--1802}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.neuroimage.2011.02.011} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Waxman%
+\ \BBA {} Namy%
+}{%
+Waxman%
+\ \BBA {} Namy%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+Waxman1997}
+\APACinsertmetastar {%
+Waxman1997}%
+\begin{APACrefauthors}%
+Waxman, S\BPBI R.%
+\BCBT {}\ \BBA {} Namy, L\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Challenging the notion of a thematic preference in
+  young children.}} {{Challenging the notion of a thematic preference in young
+  children.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Developmental Psychology}{33}{3}{555--567}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0012-1649.33.3.555} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
