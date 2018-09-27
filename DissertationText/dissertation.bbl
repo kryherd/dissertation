@@ -1,6 +1,39 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
+Anderson%
+, Deane%
+, Lindley%
+, Loucks%
+\BCBL {}\ \BBA {} Veach%
+}{%
+Anderson%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+Anderson2012}
+\APACinsertmetastar {%
+Anderson2012}%
+\begin{APACrefauthors}%
+Anderson, K.%
+, Deane, K.%
+, Lindley, D.%
+, Loucks, B.%
+\BCBL {}\ \BBA {} Veach, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+\APACrefbtitle {{The effects of time of day and practice on cognitive
+  abilities: The PEBL Tower of London, Trail-making, and Switcher tasks}} {{The
+  effects of time of day and practice on cognitive abilities: The PEBL Tower of
+  London, Trail-making, and Switcher tasks}}\ \APACbVolEdTR{}{\BTR{}}.
+\newblock
+\APACaddressInstitution{}{Michigan Technological University}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Ashby%
 , Alfonso-Reese%
 , Turken%
@@ -455,6 +488,35 @@ Erickson, M\BPBI A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Eriksen%
+\ \BBA {} Schultz%
+}{%
+Eriksen%
+\ \BBA {} Schultz%
+}{%
+{\protect \APACyear {1979}}%
+}]{%
+Eriksen1979}
+\APACinsertmetastar {%
+Eriksen1979}%
+\begin{APACrefauthors}%
+Eriksen, C\BPBI W.%
+\BCBT {}\ \BBA {} Schultz, D\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1979}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Information processing in visual search: A continuous
+  flow conception and experimental results}} {{Information processing in visual
+  search: A continuous flow conception and experimental results}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Perception {\&} Psychophysics}{25}{4}{249--263}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/BF03198804} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Eshel%
 , Nelson%
 , Blair%
@@ -549,6 +611,38 @@ Hautus, M\BPBI J.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Kal{\'{e}}nine%
+\ \protect \BOthers {.}}{%
+Kal{\'{e}}nine%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+Kalenine2009}
+\APACinsertmetastar {%
+Kalenine2009}%
+\begin{APACrefauthors}%
+Kal{\'{e}}nine, S.%
+, Peyrin, C.%
+, Pichat, C.%
+, Segebarth, C.%
+, Bonthoux, F.%
+\BCBL {}\ \BBA {} Baciu, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The sensory-motor specificity of taxonomic and thematic
+  conceptual relations: A behavioral and fMRI study}} {{The sensory-motor
+  specificity of taxonomic and thematic conceptual relations: A behavioral and
+  fMRI study}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{NeuroImage}{44}{3}{1152--1162}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.neuroimage.2008.09.043} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Kaufman%
 \ \BBA {} Kaufman%
 }{%
@@ -603,6 +697,68 @@ Kloos, H.%
   General}{137}{1}{52--72}.
 \newblock
 \begin{APACrefDOI} \doi{10.1037/0096-3445.137.1.52} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Konkle%
+, Brady%
+, Alvarez%
+\BCBL {}\ \BBA {} Oliva%
+}{%
+Konkle%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2010}}%
+}]{%
+Konkle2010}
+\APACinsertmetastar {%
+Konkle2010}%
+\begin{APACrefauthors}%
+Konkle, T.%
+, Brady, T\BPBI F.%
+, Alvarez, G\BPBI A.%
+\BCBL {}\ \BBA {} Oliva, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Conceptual distinctiveness supports detailed visual
+  long-term memory for real-world objects.}} {{Conceptual distinctiveness
+  supports detailed visual long-term memory for real-world objects.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology:
+  General}{139}{3}{558--578}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/a0019165} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Landrigan%
+\ \BBA {} Mirman%
+}{%
+Landrigan%
+\ \BBA {} Mirman%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+Landrigan2016}
+\APACinsertmetastar {%
+Landrigan2016}%
+\begin{APACrefauthors}%
+Landrigan, J\BHBI F.%
+\BCBT {}\ \BBA {} Mirman, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Taxonomic and Thematic Relatedness Ratings for 659 Word
+  Pairs}} {{Taxonomic and Thematic Relatedness Ratings for 659 Word
+  Pairs}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Open Psychology Data}{4}{1}{2}.
+\newblock
+\begin{APACrefDOI} \doi{10.5334/jopd.24} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -807,6 +963,37 @@ Macmillan, N\BPBI A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Maddox%
+, Ashby%
+\BCBL {}\ \BBA {} Bohil%
+}{%
+Maddox%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2003}}%
+}]{%
+Maddox2003}
+\APACinsertmetastar {%
+Maddox2003}%
+\begin{APACrefauthors}%
+Maddox, W\BPBI T.%
+, Ashby, F\BPBI G.%
+\BCBL {}\ \BBA {} Bohil, C\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2003}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Delayed feedback effects on rule-based and
+  information-integration category learning.}} {{Delayed feedback effects on
+  rule-based and information-integration category learning.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology: Learning, Memory,
+  and Cognition}{29}{4}{650--662}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0278-7393.29.4.650} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Makowski%
 }{%
 Makowski%
@@ -926,6 +1113,32 @@ Minda, J\BPBI P.%
 \APACaddressPublisher{Burlington}{Academic Press}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/S0079-7421(10)52003-6} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Murphy%
+}{%
+Murphy%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+Murphy2001}
+\APACinsertmetastar {%
+Murphy2001}%
+\begin{APACrefauthors}%
+Murphy, G\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Causes of taxonomic sorting by adults: A test of the
+  thematic-to-taxonomic shift}} {{Causes of taxonomic sorting by adults: A test
+  of the thematic-to-taxonomic shift}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychonomic Bulletin {\&} Review}{8}{4}{834--839}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/BF03196225} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1416,6 +1629,39 @@ Stafura, J\BPBI Z.%
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.neuropsychologia.2014.09.012}
   \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Stins%
+, Polderman%
+, Boomsma%
+\BCBL {}\ \BBA {} de Geus%
+}{%
+Stins%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2007}}%
+}]{%
+Stins2007}
+\APACinsertmetastar {%
+Stins2007}%
+\begin{APACrefauthors}%
+Stins, J\BPBI F.%
+, Polderman, J\BPBI C\BPBI T.%
+, Boomsma, D\BPBI I.%
+\BCBL {}\ \BBA {} de Geus, E\BPBI J\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Conditional accuracy in response interference tasks:
+  Evidence from the Eriksen flanker task and the spatial conflict task}}
+  {{Conditional accuracy in response interference tasks: Evidence from the
+  Eriksen flanker task and the spatial conflict task}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Advances in Cognitive Psychology}{3}{3}{409--417}.
+\newblock
+\begin{APACrefDOI} \doi{10.2478/v10053-008-0005-4} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
