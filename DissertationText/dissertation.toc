@@ -27,12 +27,12 @@
 \contentsline {subsubsection}{\numberline {3.1.1}Participants}{13}
 \contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{13}
 \contentsline {subsubsection}{\numberline {3.1.3}Executive Function Tasks}{14}
-\contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{14}
-\contentsline {subsection}{\numberline {3.2}Procedure}{14}
-\contentsline {subsection}{\numberline {3.3}Results}{14}
-\contentsline {subsection}{\numberline {3.4}Discussion}{14}
-\contentsline {section}{\numberline {4}General Discussion}{15}
-\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{16}
-\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{16}
-\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{16}
-\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{18}
+\contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{15}
+\contentsline {subsection}{\numberline {3.2}Procedure}{15}
+\contentsline {subsection}{\numberline {3.3}Results}{15}
+\contentsline {subsection}{\numberline {3.4}Discussion}{15}
+\contentsline {section}{\numberline {4}General Discussion}{16}
+\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{17}
+\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{17}
+\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{17}
+\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{19}

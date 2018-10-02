@@ -1116,6 +1116,69 @@ Minda, J\BPBI P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Miyake%
+, Emerson%
+, Padilla%
+\BCBL {}\ \BBA {} Ahn%
+}{%
+Miyake%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2004}}%
+}]{%
+Miyake2004}
+\APACinsertmetastar {%
+Miyake2004}%
+\begin{APACrefauthors}%
+Miyake, A.%
+, Emerson, M\BPBI J.%
+, Padilla, F.%
+\BCBL {}\ \BBA {} Ahn, J\BHBI c.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Inner speech as a retrieval aid for task goals: the
+  effects of cue type and articulatory suppression in the random task cuing
+  paradigm}} {{Inner speech as a retrieval aid for task goals: the effects of
+  cue type and articulatory suppression in the random task cuing
+  paradigm}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Acta Psychologica}{115}{2-3}{123--142}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.actpsy.2003.12.004} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mueller%
+\ \BBA {} Piper%
+}{%
+Mueller%
+\ \BBA {} Piper%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+Mueller2014}
+\APACinsertmetastar {%
+Mueller2014}%
+\begin{APACrefauthors}%
+Mueller, S\BPBI T.%
+\BCBT {}\ \BBA {} Piper, B\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The Psychology Experiment Building Language (PEBL) and
+  PEBL Test Battery}} {{The Psychology Experiment Building Language (PEBL) and
+  PEBL Test Battery}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Neuroscience Methods}{222}{1}{250--259}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.jneumeth.2013.10.024} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Murphy%
 }{%
 Murphy%
@@ -1509,6 +1572,32 @@ Semel, E\BPBI M.%
   4: clinical evaluation of language fundamentals}}.
 \newblock
 \APACaddressPublisher{}{Pearson: Psychological Corporation}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Shallice%
+}{%
+Shallice%
+}{%
+{\protect \APACyear {1982}}%
+}]{%
+Shallice1982}
+\APACinsertmetastar {%
+Shallice1982}%
+\begin{APACrefauthors}%
+Shallice, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1982}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Specific Impairments of Planning}} {{Specific
+  Impairments of Planning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Philosophical Transactions of the Royal Society B:
+  Biological Sciences}{298}{1089}{199--209}.
+\newblock
+\begin{APACrefDOI} \doi{10.1098/rstb.1982.0082} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
