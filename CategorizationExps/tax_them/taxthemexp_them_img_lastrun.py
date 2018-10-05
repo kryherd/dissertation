@@ -1,8 +1,8 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on Thu Sep 27 11:08:29 2018
+This experiment was created using PsychoPy2 Experiment Builder (v1.84.2),
+    on Fri Oct  5 10:53:13 2018
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,7 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = 'taxthemexp_tax_img'  # from the Builder filename that created this script
+expName = u'taxthemexp_tax_img'  # from the Builder filename that created this script
 expInfo = {u'session': u'01', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
@@ -35,12 +35,12 @@ expInfo['date'] = data.getDateStr()  # add a simple timestamp
 expInfo['expName'] = expName
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
-filename = _thisDir + os.sep + u'data' + os.sep + '%s_%s' % (expInfo['participant'], expInfo['date'])
+filename = _thisDir + os.sep + u'data' + os.sep + 'thematic_%s_%s' % (expInfo['participant'], expInfo['date'])
 
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath=u'/Users/Kayleigh/dissertation/CategorizationExps/tax_them/taxthemexp_them_img.psyexp',
+    originPath=u'/Users/eeglab/Documents/CategorizationExps/tax_them/taxthemexp_them_img.psyexp',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -53,9 +53,9 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Setup the Window
 win = visual.Window(
-    size=(1440, 900), fullscr=True, screen=0,
+    size=(2560, 1440), fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color='white', colorSpace='rgb',
+    monitor=u'testMonitor', color=u'white', colorSpace='rgb',
     blendMode='avg', useFBO=True,
     units='norm')
 # store frame rate of monitor if we can measure it
@@ -68,8 +68,8 @@ else:
 # Initialize components for Routine "learningInstruct"
 learningInstructClock = core.Clock()
 instrText = visual.TextStim(win=win, name='instrText',
-    text=u'In this part, you will learn to categorize some animals and objects.\n\nOn each trial, you will see a target object and three options. \n\nYour job is to select the option that goes best with the target.\n\nPress the left arrow for the leftmost option, the down arrow for the middle option, and the right arrow for the rightmost option.\n\nYou will receive feedback when you categorize correctly or incorrectly.\n\nWhen you are ready, press the space key.',
-    font=u'Arial',
+    text='In this part, you will learn to categorize some animals and objects.\n\nOn each trial, you will see a target object and three options. \n\nYour job is to select the option that goes best with the target.\n\nPress the left arrow for the leftmost option, the down arrow for the middle option, and the right arrow for the rightmost option.\n\nYou will receive feedback when you categorize correctly or incorrectly.\n\nWhen you are ready, press the space key.',
+    font='Arial',
     pos=[0, 0], height=0.06, wrapWidth=None, ori=0, 
     color=[0, 0, 0], colorSpace='rgb', opacity=1,
     depth=0.0);
@@ -118,10 +118,10 @@ text = visual.TextStim(win=win, name='text',
 # Initialize components for Routine "testInstruct"
 testInstructClock = core.Clock()
 testText = visual.TextStim(win=win, name='testText',
-    text=u'Now you should know how to categorize the objects.\n\nIn this next part, you will be tested on your new category knowledge.\n\nPlease try to answer as accurately as possible.\n\nPress the space key when you are ready to begin.',
-    font=u'Arial',
+    text='Now you should know how to categorize the objects.\n\nIn this next part, you will be tested on your new category knowledge.\n\nPlease try to answer as accurately as possible.\n\nPress the space key when you are ready to begin.',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'black', colorSpace='rgb', opacity=1,
+    color='black', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "trial"
