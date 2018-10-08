@@ -29,6 +29,8 @@
 \usepackage{helvet}
 \usepackage{gensymb}
 \renewcommand{\familydefault}{\sfdefault}
+\usepackage{setspace}
+\doublespacing
 
 \graphicspath{ {images/} }
 
@@ -45,11 +47,13 @@
 \newpage
 \subfile{sections/acknowledge}
 \newpage
+\begin{spacing}{1}
 \tableofcontents
 \newpage
 \listoffigures
 \newpage
 \listoftables
+\end{spacing}
 \newpage
 \pagenumbering{arabic}
 \subfile{sections/ch1}

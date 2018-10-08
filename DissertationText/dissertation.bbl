@@ -1,6 +1,35 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
+Althaus%
+\ \BBA {} Mareschal%
+}{%
+Althaus%
+\ \BBA {} Mareschal%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+Althaus2014}
+\APACinsertmetastar {%
+Althaus2014}%
+\begin{APACrefauthors}%
+Althaus, N.%
+\BCBT {}\ \BBA {} Mareschal, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Labels Direct Infants' Attention to Commonalities
+  during Novel Category Learning}} {{Labels Direct Infants' Attention to
+  Commonalities during Novel Category Learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PLoS ONE}{9}{7}{e99670}.
+\newblock
+\begin{APACrefDOI} \doi{10.1371/journal.pone.0099670} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Anderson%
 , Deane%
 , Lindley%
@@ -31,6 +60,35 @@ Anderson, K.%
   London, Trail-making, and Switcher tasks}}\ \APACbVolEdTR{}{\BTR{}}.
 \newblock
 \APACaddressInstitution{}{Michigan Technological University}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Armstrong%
+, Gleitman%
+\BCBL {}\ \BBA {} Gleitman%
+}{%
+Armstrong%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1983}}%
+}]{%
+Armstrong1983}
+\APACinsertmetastar {%
+Armstrong1983}%
+\begin{APACrefauthors}%
+Armstrong, S\BPBI L.%
+, Gleitman, L\BPBI R.%
+\BCBL {}\ \BBA {} Gleitman, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1983}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{What some concepts might not be}} {{What some concepts
+  might not be}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognition}{13}{3}{263--308}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/0010-0277(83)90012-4} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -461,6 +519,34 @@ Chandrasekaran, B.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Edmiston%
+\ \BBA {} Lupyan%
+}{%
+Edmiston%
+\ \BBA {} Lupyan%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+Edmiston2015}
+\APACinsertmetastar {%
+Edmiston2015}%
+\begin{APACrefauthors}%
+Edmiston, P.%
+\BCBT {}\ \BBA {} Lupyan, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{What makes words special? Words as unmotivated cues}}
+  {{What makes words special? Words as unmotivated cues}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognition}{143}{}{93--100}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.cognition.2015.06.008} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Erickson%
 }{%
 Erickson%
@@ -584,6 +670,37 @@ Foerde, K.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Gillette%
+, Gleitman%
+, Gleitman%
+\BCBL {}\ \BBA {} Lederer%
+}{%
+Gillette%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1999}}%
+}]{%
+Gillette1999}
+\APACinsertmetastar {%
+Gillette1999}%
+\begin{APACrefauthors}%
+Gillette, J.%
+, Gleitman, H.%
+, Gleitman, L.%
+\BCBL {}\ \BBA {} Lederer, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1999}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Human simulations of vocabulary learning}} {{Human
+  simulations of vocabulary learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognition}{73}{2}{135--176}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/S0010-0277(99)00036-0} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Hautus%
 }{%
 Hautus%
@@ -601,8 +718,8 @@ Hautus, M\BPBI J.%
 \APACrefYearMonthDay{1995}{}{}.
 \newblock
 {\BBOQ}\APACrefatitle {{Corrections for extreme proportions and their biasing
-  effects on estimated values ofd′}} {{Corrections for extreme proportions
-  and their biasing effects on estimated values ofd′}}.{\BBCQ}
+  effects on estimated values of d'}} {{Corrections for extreme proportions and
+  their biasing effects on estimated values of d'}}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Behavior Research Methods, Instruments, {\&}
   Computers}{27}{1}{46--51}.
@@ -876,6 +993,59 @@ Lupyan, G.%
 
 \bibitem [\protect \citeauthoryear {%
 Lupyan%
+}{%
+Lupyan%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+Lupyan2013a}
+\APACinsertmetastar {%
+Lupyan2013a}%
+\begin{APACrefauthors}%
+Lupyan, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The difficulties of executing simple algorithms: Why
+  brains make mistakes computers don't}} {{The difficulties of executing simple
+  algorithms: Why brains make mistakes computers don't}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognition}{129}{3}{615--636}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.cognition.2013.08.015} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lupyan%
+}{%
+Lupyan%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+Lupyan2017}
+\APACinsertmetastar {%
+Lupyan2017}%
+\begin{APACrefauthors}%
+Lupyan, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The paradox of the universal triangle: Concepts,
+  language, and prototypes}} {{The paradox of the universal triangle: Concepts,
+  language, and prototypes}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Quarterly Journal of Experimental
+  Psychology}{70}{3}{389--412}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/17470218.2015.1130730} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lupyan%
 \ \BBA {} Mirman%
 }{%
 Lupyan%
@@ -934,6 +1104,65 @@ Lupyan, G.%
 \APACjournalVolNumPages{Cognition}{124}{1}{36--49}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.cognition.2012.04.002} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lupyan%
+, Rakison%
+\BCBL {}\ \BBA {} McClelland%
+}{%
+Lupyan%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2007}}%
+}]{%
+Lupyan2007}
+\APACinsertmetastar {%
+Lupyan2007}%
+\begin{APACrefauthors}%
+Lupyan, G.%
+, Rakison, D\BPBI H.%
+\BCBL {}\ \BBA {} McClelland, J\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Language is not Just for Talking: Redundant Labels
+  Facilitate Learning of Novel Categories}} {{Language is not Just for Talking:
+  Redundant Labels Facilitate Learning of Novel Categories}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Science}{18}{12}{1077--1083}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.1467-9280.2007.02028.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lupyan%
+\ \BBA {} Spivey%
+}{%
+Lupyan%
+\ \BBA {} Spivey%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+Lupyan2010}
+\APACinsertmetastar {%
+Lupyan2010}%
+\begin{APACrefauthors}%
+Lupyan, G.%
+\BCBT {}\ \BBA {} Spivey, M\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Making the Invisible Visible: Verbal but Not Visual
+  Cues Enhance Visual Detection}} {{Making the Invisible Visible: Verbal but
+  Not Visual Cues Enhance Visual Detection}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PLoS ONE}{5}{7}{e11452}.
+\newblock
+\begin{APACrefDOI} \doi{10.1371/journal.pone.0011452} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1411,6 +1640,40 @@ Plebanek, D\BPBI J.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Plunkett%
+, Hu%
+\BCBL {}\ \BBA {} Cohen%
+}{%
+Plunkett%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+Plunkett2008}
+\APACinsertmetastar {%
+Plunkett2008}%
+\begin{APACrefauthors}%
+Plunkett, K.%
+, Hu, J\BHBI F.%
+\BCBL {}\ \BBA {} Cohen, L\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Labels can override perceptual categories in early
+  infancy}} {{Labels can override perceptual categories in early
+  infancy}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognition}{106}{2}{665--681}.
+\newblock
+\begin{APACrefURL}
+  \url{http://linkinghub.elsevier.com/retrieve/pii/S0010027707001084}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.cognition.2007.04.003} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Raven%
 }{%
 Raven%
@@ -1657,6 +1920,69 @@ Smiley, S\BPBI S.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Smith%
+, Jones%
+, Landau%
+, Gershkoff-Stowe%
+\BCBL {}\ \BBA {} Samuelson%
+}{%
+Smith%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2002}}%
+}]{%
+Smith2002}
+\APACinsertmetastar {%
+Smith2002}%
+\begin{APACrefauthors}%
+Smith, L\BPBI B.%
+, Jones, S\BPBI S.%
+, Landau, B.%
+, Gershkoff-Stowe, L.%
+\BCBL {}\ \BBA {} Samuelson, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Object Name Learning Provides On-the-Job Training for
+  Attention}} {{Object Name Learning Provides On-the-Job Training for
+  Attention}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Science}{13}{1}{13--19}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/1467-9280.00403} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Snedeker%
+\ \BBA {} Gleitman%
+}{%
+Snedeker%
+\ \BBA {} Gleitman%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+Snedeker2004}
+\APACinsertmetastar {%
+Snedeker2004}%
+\begin{APACrefauthors}%
+Snedeker, J.%
+\BCBT {}\ \BBA {} Gleitman, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Why It Is Hard To Label Our Concepts}} {{Why It Is Hard
+  To Label Our Concepts}}.{\BBCQ}
+\newblock
+\BIn{} D\BPBI G.~Hall\ \BBA {} S\BPBI R.~Waxman\ (\BEDS), \APACrefbtitle
+  {Weaving a lexicon} {Weaving a lexicon}\ (\BPGS\ 257--294).
+\newblock
+\APACaddressPublisher{Cambridge, MA}{MIT Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Soto%
 , Waldschmidt%
 , Helie%
@@ -1896,6 +2222,35 @@ Waldschmidt, J\BPBI G.%
 
 \bibitem [\protect \citeauthoryear {%
 Waxman%
+\ \BBA {} Markow%
+}{%
+Waxman%
+\ \BBA {} Markow%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+Waxman1995}
+\APACinsertmetastar {%
+Waxman1995}%
+\begin{APACrefauthors}%
+Waxman, S\BPBI R.%
+\BCBT {}\ \BBA {} Markow, D\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Words as Invitations to Form Categories: Evidence from
+  12- to 13-Month-Old Infants}} {{Words as Invitations to Form Categories:
+  Evidence from 12- to 13-Month-Old Infants}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognitive Psychology}{29}{3}{257--302}.
+\newblock
+\begin{APACrefDOI} \doi{10.1006/cogp.1995.1016} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Waxman%
 \ \BBA {} Namy%
 }{%
 Waxman%
@@ -1950,6 +2305,34 @@ Woodcock, R\BPBI W.%
   {{Woodcock-Johnson III NU tests of achievement}}.
 \newblock
 \APACaddressPublisher{Rolling Meadows, IL}{Riverside Publishing}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Yoshida%
+\ \BBA {} Smith%
+}{%
+Yoshida%
+\ \BBA {} Smith%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+Yoshida2005}
+\APACinsertmetastar {%
+Yoshida2005}%
+\begin{APACrefauthors}%
+Yoshida, H.%
+\BCBT {}\ \BBA {} Smith, L\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Linguistic Cues Enhance the Learning of Perceptual
+  Cues}} {{Linguistic Cues Enhance the Learning of Perceptual Cues}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Science}{16}{2}{90--95}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.0956-7976.2005.00787.x} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}
