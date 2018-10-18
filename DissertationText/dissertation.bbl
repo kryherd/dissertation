@@ -547,6 +547,37 @@ Edmiston, P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Engle%
+\ \BBA {} Kane%
+}{%
+Engle%
+\ \BBA {} Kane%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+Engle2004}
+\APACinsertmetastar {%
+Engle2004}%
+\begin{APACrefauthors}%
+Engle, R\BPBI W.%
+\BCBT {}\ \BBA {} Kane, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Executive Attention, Working Memory Capacity, and a
+  Two-Factor Theory of Cognitive Control}} {{Executive Attention, Working
+  Memory Capacity, and a Two-Factor Theory of Cognitive Control}}.{\BBCQ}
+\newblock
+\BIn{} B\BPBI H.~Ross\ (\BED), \APACrefbtitle {The Psychology of Learning and
+  Motivation: Advances in Research and Theory} {The psychology of learning and
+  motivation: Advances in research and theory}\ (\BPGS\ 145--199).
+\newblock
+\APACaddressPublisher{New York}{Elseview Science}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Erickson%
 }{%
 Erickson%
