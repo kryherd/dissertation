@@ -244,10 +244,41 @@ Ashby, F\BPBI G.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Baddeley%
+A.~Baddeley%
+, Chincotta%
+\BCBL {}\ \BBA {} Adlam%
+}{%
+A.~Baddeley%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2001}}%
+}]{%
+Baddeley2001}
+\APACinsertmetastar {%
+Baddeley2001}%
+\begin{APACrefauthors}%
+Baddeley, A.%
+, Chincotta, D.%
+\BCBL {}\ \BBA {} Adlam, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Working memory and the control of action: Evidence from
+  task switching.}} {{Working memory and the control of action: Evidence from
+  task switching.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology:
+  General}{130}{4}{641--657}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037//0096-3445.130.4.641} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+A\BPBI D.~Baddeley%
 \ \BBA {} Hitch%
 }{%
-Baddeley%
+A\BPBI D.~Baddeley%
 \ \BBA {} Hitch%
 }{%
 {\protect \APACyear {1974}}%
@@ -269,6 +300,70 @@ Baddeley, A\BPBI D.%
   psychology of learning and motivation}\ (\BVOL~8, \BPGS\ 47--89).
 \newblock
 \begin{APACrefDOI} \doi{10.1016/S0079-7421(08)60452-1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Barnhart%
+, Rivera%
+\BCBL {}\ \BBA {} Robinson%
+}{%
+Barnhart%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Barnhart2018}
+\APACinsertmetastar {%
+Barnhart2018}%
+\begin{APACrefauthors}%
+Barnhart, W\BPBI R.%
+, Rivera, S.%
+\BCBL {}\ \BBA {} Robinson, C\BPBI W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Effects of Linguistic Labels on Visual Attention in
+  Children and Young Adults}} {{Effects of Linguistic Labels on Visual
+  Attention in Children and Young Adults}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Frontiers in Psychology}{9}{}{1--11}.
+\newblock
+\begin{APACrefDOI} \doi{10.3389/fpsyg.2018.00358} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Berninger%
+, Abbott%
+, Cook%
+\BCBL {}\ \BBA {} Nagy%
+}{%
+Berninger%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+Berninger2017}
+\APACinsertmetastar {%
+Berninger2017}%
+\begin{APACrefauthors}%
+Berninger, V.%
+, Abbott, R.%
+, Cook, C\BPBI R.%
+\BCBL {}\ \BBA {} Nagy, W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Relationships of Attention and Executive Functions to
+  Oral Language, Reading, and Writing Skills and Systems in Middle Childhood
+  and Early Adolescence}} {{Relationships of Attention and Executive Functions
+  to Oral Language, Reading, and Writing Skills and Systems in Middle Childhood
+  and Early Adolescence}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Learning Disabilities}{50}{4}{434--449}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/0022219415617167} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -519,6 +614,34 @@ Chandrasekaran, B.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Cragg%
+\ \BBA {} Nation%
+}{%
+Cragg%
+\ \BBA {} Nation%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+Cragg2010}
+\APACinsertmetastar {%
+Cragg2010}%
+\begin{APACrefauthors}%
+Cragg, L.%
+\BCBT {}\ \BBA {} Nation, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Language and the Development of Cognitive Control}}
+  {{Language and the Development of Cognitive Control}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Topics in Cognitive Science}{2}{4}{631--642}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.1756-8765.2009.01080.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Edmiston%
 \ \BBA {} Lupyan%
 }{%
@@ -544,6 +667,35 @@ Edmiston, P.%
 \APACjournalVolNumPages{Cognition}{143}{}{93--100}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.cognition.2015.06.008} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Emerson%
+\ \BBA {} Miyake%
+}{%
+Emerson%
+\ \BBA {} Miyake%
+}{%
+{\protect \APACyear {2003}}%
+}]{%
+Emerson2003}
+\APACinsertmetastar {%
+Emerson2003}%
+\begin{APACrefauthors}%
+Emerson, M\BPBI J.%
+\BCBT {}\ \BBA {} Miyake, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2003}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The role of inner speech in task switching: A dual-task
+  investigation}} {{The role of inner speech in task switching: A dual-task
+  investigation}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Memory and Language}{48}{1}{148--168}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/S0749-596X(02)00511-9} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -671,6 +823,66 @@ Eshel, N.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Fatzer%
+\ \BBA {} Roebers%
+}{%
+Fatzer%
+\ \BBA {} Roebers%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+Fatzer2012}
+\APACinsertmetastar {%
+Fatzer2012}%
+\begin{APACrefauthors}%
+Fatzer, S\BPBI T.%
+\BCBT {}\ \BBA {} Roebers, C\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Language and Executive Functions: The Effect of
+  Articulatory Suppression on Executive Functioning in Children}} {{Language
+  and Executive Functions: The Effect of Articulatory Suppression on Executive
+  Functioning in Children}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Cognition and Development}{13}{4}{454--472}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/15248372.2011.608322} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Figueras%
+, Edwards%
+\BCBL {}\ \BBA {} Langdon%
+}{%
+Figueras%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+Figueras2008}
+\APACinsertmetastar {%
+Figueras2008}%
+\begin{APACrefauthors}%
+Figueras, B.%
+, Edwards, L.%
+\BCBL {}\ \BBA {} Langdon, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Executive Function and Language in Deaf Children}}
+  {{Executive Function and Language in Deaf Children}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Deaf Studies and Deaf
+  Education}{13}{3}{362--377}.
+\newblock
+\begin{APACrefDOI} \doi{10.1093/deafed/enm067} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Foerde%
 , Knowlton%
 \BCBL {}\ \BBA {} Poldrack%
@@ -732,6 +944,41 @@ Gillette, J.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Gooch%
+, Thompson%
+, Nash%
+, Snowling%
+\BCBL {}\ \BBA {} Hulme%
+}{%
+Gooch%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Gooch2016}
+\APACinsertmetastar {%
+Gooch2016}%
+\begin{APACrefauthors}%
+Gooch, D.%
+, Thompson, P.%
+, Nash, H\BPBI M.%
+, Snowling, M\BPBI J.%
+\BCBL {}\ \BBA {} Hulme, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The development of executive function and language
+  skills in the early school years}} {{The development of executive function
+  and language skills in the early school years}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Child Psychology and
+  Psychiatry}{57}{2}{180--187}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/jcpp.12458} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Hautus%
 }{%
 Hautus%
@@ -756,6 +1003,37 @@ Hautus, M\BPBI J.%
   Computers}{27}{1}{46--51}.
 \newblock
 \begin{APACrefDOI} \doi{10.3758/BF03203619} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Im-Bolter%
+, Johnson%
+\BCBL {}\ \BBA {} Pascual-Leone%
+}{%
+Im-Bolter%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+Im-Bolter2006}
+\APACinsertmetastar {%
+Im-Bolter2006}%
+\begin{APACrefauthors}%
+Im-Bolter, N.%
+, Johnson, J.%
+\BCBL {}\ \BBA {} Pascual-Leone, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Processing Limitations in Children With Specific
+  Language Impairment: The Role of Executive Function}} {{Processing
+  Limitations in Children With Specific Language Impairment: The Role of
+  Executive Function}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Child Development}{77}{6}{1822--1841}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.1467-8624.2006.00976.x} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -878,6 +1156,41 @@ Konkle, T.%
   General}{139}{3}{558--578}.
 \newblock
 \begin{APACrefDOI} \doi{10.1037/a0019165} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kuhn%
+, Willoughby%
+, Wilbourn%
+, Vernon-Feagans%
+\BCBL {}\ \BBA {} Blair%
+}{%
+Kuhn%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+Kuhn2014}
+\APACinsertmetastar {%
+Kuhn2014}%
+\begin{APACrefauthors}%
+Kuhn, L\BPBI J.%
+, Willoughby, M\BPBI T.%
+, Wilbourn, M\BPBI P.%
+, Vernon-Feagans, L.%
+\BCBL {}\ \BBA {} Blair, C\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Early Communicative Gestures Prospectively Predict
+  Language Development and Executive Function in Early Childhood}} {{Early
+  Communicative Gestures Prospectively Predict Language Development and
+  Executive Function in Early Childhood}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Child Development}{196}{5}{1898--1914}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/cdev.12249} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1705,6 +2018,35 @@ Plunkett, K.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Rabi%
+\ \BBA {} Minda%
+}{%
+Rabi%
+\ \BBA {} Minda%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+Rabi2014}
+\APACinsertmetastar {%
+Rabi2014}%
+\begin{APACrefauthors}%
+Rabi, R.%
+\BCBT {}\ \BBA {} Minda, J\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Rule-Based Category Learning in Children: The Role of
+  Age and Executive Functioning}} {{Rule-Based Category Learning in Children:
+  The Role of Age and Executive Functioning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PLoS ONE}{9}{1}{e85316}.
+\newblock
+\begin{APACrefDOI} \doi{10.1371/journal.pone.0085316} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Raven%
 }{%
 Raven%
@@ -1725,6 +2067,37 @@ Raven, J\BPBI C.%
   matrices}}.
 \newblock
 \APACaddressPublisher{Oxford}{Oxford Psychologists Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Reetzke%
+, Maddox%
+\BCBL {}\ \BBA {} Chandrasekaran%
+}{%
+Reetzke%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Reetzke2016}
+\APACinsertmetastar {%
+Reetzke2016}%
+\begin{APACrefauthors}%
+Reetzke, R.%
+, Maddox, W\BPBI T.%
+\BCBL {}\ \BBA {} Chandrasekaran, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The role of age and executive function in auditory
+  category learning}} {{The role of age and executive function in auditory
+  category learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Child
+  Psychology}{142}{3}{48--65}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.jecp.2015.09.018} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
