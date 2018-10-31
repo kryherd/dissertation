@@ -8,32 +8,33 @@
 \contentsline {subsubsection}{\numberline {1.1.6}Taxonomic/thematic}{6}
 \contentsline {subsection}{\numberline {1.2}Vocabulary/labels and category learning}{7}
 \contentsline {subsection}{\numberline {1.3}Executive function and category learning}{9}
-\contentsline {subsection}{\numberline {1.4}Overview of the current studies}{9}
-\contentsline {section}{\numberline {2}Experiment 1}{10}
-\contentsline {subsection}{\numberline {2.1}Method}{10}
-\contentsline {subsubsection}{\numberline {2.1.1}Participants}{10}
-\contentsline {subsubsection}{\numberline {2.1.2}Category Learning Task}{10}
-\contentsline {subsubsection}{\numberline {2.1.3}Behavioral Measures}{11}
-\contentsline {subsection}{\numberline {2.2}Procedure}{12}
-\contentsline {subsection}{\numberline {2.3}Results}{12}
-\contentsline {subsubsection}{\numberline {2.3.1}Order Effect 1: Matching Conditions}{12}
-\contentsline {subsubsection}{\numberline {2.3.2}Order Effect 2: Dense Stimuli}{13}
-\contentsline {subsubsection}{\numberline {2.3.3}Order Effect 3: Sparse Stimuli}{13}
-\contentsline {subsubsection}{\numberline {2.3.4}Exploratory Order Analyses}{14}
-\contentsline {subsection}{\numberline {2.4}Discussion}{14}
-\contentsline {subsubsection}{\numberline {2.4.1}Order Effects}{14}
-\contentsline {subsubsection}{\numberline {2.4.2}Individual Differences}{14}
-\contentsline {section}{\numberline {3}Experiment 2}{15}
-\contentsline {subsection}{\numberline {3.1}Method}{15}
-\contentsline {subsubsection}{\numberline {3.1.1}Participants}{15}
-\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{15}
-\contentsline {subsubsection}{\numberline {3.1.3}Executive Function Tasks}{16}
-\contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{17}
-\contentsline {subsection}{\numberline {3.2}Procedure}{17}
-\contentsline {subsection}{\numberline {3.3}Results}{17}
-\contentsline {subsection}{\numberline {3.4}Discussion}{17}
-\contentsline {section}{\numberline {4}General Discussion}{18}
-\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{19}
-\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{19}
-\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{19}
-\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{21}
+\contentsline {subsection}{\numberline {1.4}Interaction between category learning systems}{9}
+\contentsline {subsection}{\numberline {1.5}Overview of the current study}{9}
+\contentsline {section}{\numberline {2}Experiment 1}{11}
+\contentsline {subsection}{\numberline {2.1}Method}{11}
+\contentsline {subsubsection}{\numberline {2.1.1}Participants}{11}
+\contentsline {subsubsection}{\numberline {2.1.2}Category Learning Task}{11}
+\contentsline {subsubsection}{\numberline {2.1.3}Behavioral Measures}{12}
+\contentsline {subsection}{\numberline {2.2}Procedure}{13}
+\contentsline {subsection}{\numberline {2.3}Results}{13}
+\contentsline {subsubsection}{\numberline {2.3.1}Order Effect 1: Matching Conditions}{13}
+\contentsline {subsubsection}{\numberline {2.3.2}Order Effect 2: Dense Stimuli}{14}
+\contentsline {subsubsection}{\numberline {2.3.3}Order Effect 3: Sparse Stimuli}{14}
+\contentsline {subsubsection}{\numberline {2.3.4}Exploratory Order Analyses}{15}
+\contentsline {subsection}{\numberline {2.4}Discussion}{15}
+\contentsline {subsubsection}{\numberline {2.4.1}Order Effects}{15}
+\contentsline {subsubsection}{\numberline {2.4.2}Individual Differences}{15}
+\contentsline {section}{\numberline {3}Experiment 2}{16}
+\contentsline {subsection}{\numberline {3.1}Method}{16}
+\contentsline {subsubsection}{\numberline {3.1.1}Participants}{16}
+\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{16}
+\contentsline {subsubsection}{\numberline {3.1.3}Executive Function Tasks}{17}
+\contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{18}
+\contentsline {subsection}{\numberline {3.2}Procedure}{18}
+\contentsline {subsection}{\numberline {3.3}Results}{18}
+\contentsline {subsection}{\numberline {3.4}Discussion}{18}
+\contentsline {section}{\numberline {4}General Discussion}{19}
+\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{20}
+\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{20}
+\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{20}
+\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{22}
