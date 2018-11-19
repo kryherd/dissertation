@@ -883,36 +883,6 @@ Figueras, B.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Foerde%
-, Knowlton%
-\BCBL {}\ \BBA {} Poldrack%
-}{%
-Foerde%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2006}}%
-}]{%
-Foerde2006}
-\APACinsertmetastar {%
-Foerde2006}%
-\begin{APACrefauthors}%
-Foerde, K.%
-, Knowlton, B\BPBI J.%
-\BCBL {}\ \BBA {} Poldrack, R\BPBI A.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2006}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {{Modulation of competing memory systems by distraction}}
-  {{Modulation of competing memory systems by distraction}}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Proceedings of the National Academy of
-  Sciences}{103}{31}{11778--11783}.
-\newblock
-\begin{APACrefDOI} \doi{10.1073/pnas.0602659103} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Gillette%
 , Gleitman%
 , Gleitman%
@@ -1810,36 +1780,6 @@ Nomura, E\BPBI M.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Packard%
-\ \BBA {} McGaugh%
-}{%
-Packard%
-\ \BBA {} McGaugh%
-}{%
-{\protect \APACyear {1996}}%
-}]{%
-Packard1996}
-\APACinsertmetastar {%
-Packard1996}%
-\begin{APACrefauthors}%
-Packard, M\BPBI G.%
-\BCBT {}\ \BBA {} McGaugh, J\BPBI L.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1996}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {{Inactivation of Hippocampus or Caudate Nucleus with
-  Lidocaine Differentially Affects Expression of Place and Response Learning}}
-  {{Inactivation of Hippocampus or Caudate Nucleus with Lidocaine
-  Differentially Affects Expression of Place and Response Learning}}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Neurobiology of Learning and Memory}{65}{1}{65--72}.
-\newblock
-\begin{APACrefDOI} \doi{10.1006/nlme.1996.0007} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Peirce%
 }{%
 Peirce%
@@ -2539,36 +2479,6 @@ Torgesen, J\BPBI K.%
   word reading efficiency}}.
 \newblock
 \APACaddressPublisher{Austin, TX}{Pro-Ed}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Turner%
-, Crossley%
-\BCBL {}\ \BBA {} Ashby%
-}{%
-Turner%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2017}}%
-}]{%
-Turner2017}
-\APACinsertmetastar {%
-Turner2017}%
-\begin{APACrefauthors}%
-Turner, B\BPBI O.%
-, Crossley, M\BPBI J.%
-\BCBL {}\ \BBA {} Ashby, F\BPBI G.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2017}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {{Hierarchical control of procedural and declarative
-  category-learning systems}} {{Hierarchical control of procedural and
-  declarative category-learning systems}}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{NeuroImage}{150}{}{150--161}.
-\newblock
-\begin{APACrefDOI} \doi{10.1016/j.neuroimage.2017.02.039} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
