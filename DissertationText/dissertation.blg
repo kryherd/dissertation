@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2016)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: dissertation.aux
 The style file: apacite.bst
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -14,45 +14,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: bib.bib
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
 Warning--No address in Anderson2012
-You've used 89 entries,
+You've used 90 entries,
             6951 wiz_defined-function locations,
-            1936 strings with 29062 characters,
-and the built_in function-call counts, 187649 in all, are:
-= -- 23099
-> -- 1543
-< -- 9564
-+ -- 10241
-- -- 178
-* -- 12680
-:= -- 35105
-add.period$ -- 365
-call.type$ -- 89
-change.case$ -- 1518
+            1942 strings with 29240 characters,
+and the built_in function-call counts, 189462 in all, are:
+= -- 23321
+> -- 1562
+< -- 9644
++ -- 10317
+- -- 180
+* -- 12793
+:= -- 35410
+add.period$ -- 369
+call.type$ -- 90
+change.case$ -- 1535
 chr.to.int$ -- 0
-cite$ -- 179
-duplicate$ -- 5153
-empty$ -- 6847
-format.name$ -- 2619
-if$ -- 34807
+cite$ -- 181
+duplicate$ -- 5208
+empty$ -- 6928
+format.name$ -- 2651
+if$ -- 35168
 int.to.chr$ -- 0
-int.to.str$ -- 267
+int.to.str$ -- 270
 missing$ -- 0
-newline$ -- 2436
-num.names$ -- 720
-pop$ -- 2605
+newline$ -- 2464
+num.names$ -- 728
+pop$ -- 2689
 preamble$ -- 1
-purify$ -- 356
+purify$ -- 360
 quote$ -- 0
-skip$ -- 11495
+skip$ -- 11564
 stack$ -- 0
-substring$ -- 11156
-swap$ -- 3003
-text.length$ -- 215
+substring$ -- 11238
+swap$ -- 3037
+text.length$ -- 217
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 7440
+type$ -- 7520
 warning$ -- 1
-while$ -- 886
+while$ -- 898
 width$ -- 0
-write$ -- 3080
+write$ -- 3117
 (There was 1 warning)

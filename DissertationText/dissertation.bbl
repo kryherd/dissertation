@@ -2622,6 +2622,37 @@ Woodcock, R\BPBI W.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Wuertz%
+, Setz%
+\BCBL {}\ \BBA {} Chalabi%
+}{%
+Wuertz%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+fBasics}
+\APACinsertmetastar {%
+fBasics}%
+\begin{APACrefauthors}%
+Wuertz, D.%
+, Setz, T.%
+\BCBL {}\ \BBA {} Chalabi, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {fBasics: Rmetrics - Markets and Basic Statistics}
+  {fbasics: Rmetrics - markets and basic statistics}{\BBCQ}\
+  [\bibcomputersoftwaremanual].
+\newblock
+\begin{APACrefURL} \url{https://CRAN.R-project.org/package=fBasics}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{R package version 3042.89}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Yoshida%
 \ \BBA {} Smith%
 }{%

@@ -1,40 +1,41 @@
 \contentsline {section}{\numberline {1}General Introduction}{1}
 \contentsline {subsection}{\numberline {1.1}Dual-systems model for category learning}{1}
 \contentsline {subsubsection}{\numberline {1.1.1}Proposed model}{1}
-\contentsline {subsubsection}{\numberline {1.1.2}COVIS}{2}
-\contentsline {subsubsection}{\numberline {1.1.3}Dimensionality}{4}
-\contentsline {subsubsection}{\numberline {1.1.4}Statistical Density}{6}
-\contentsline {subsubsection}{\numberline {1.1.5}Verbal/nonverbal}{8}
-\contentsline {subsubsection}{\numberline {1.1.6}Taxonomic/thematic}{9}
-\contentsline {subsection}{\numberline {1.2}Vocabulary/labels and category learning}{11}
-\contentsline {subsection}{\numberline {1.3}Executive function and category learning}{13}
-\contentsline {subsection}{\numberline {1.4}Interaction between category learning systems}{15}
-\contentsline {subsection}{\numberline {1.5}Overview of the current study}{15}
-\contentsline {section}{\numberline {2}Experiment 1}{17}
-\contentsline {subsection}{\numberline {2.1}Method}{17}
-\contentsline {subsubsection}{\numberline {2.1.1}Participants}{17}
-\contentsline {subsubsection}{\numberline {2.1.2}Category Learning Task}{17}
-\contentsline {subsubsection}{\numberline {2.1.3}Behavioral Measures}{18}
-\contentsline {subsection}{\numberline {2.2}Procedure}{20}
-\contentsline {subsection}{\numberline {2.3}Results}{20}
-\contentsline {subsubsection}{\numberline {2.3.1}Order Effect 1: Matching Conditions}{20}
-\contentsline {subsubsection}{\numberline {2.3.2}Order Effect 2: Dense Stimuli}{21}
-\contentsline {subsubsection}{\numberline {2.3.3}Order Effect 3: Sparse Stimuli}{22}
-\contentsline {subsubsection}{\numberline {2.3.4}Exploratory Order Analyses}{22}
-\contentsline {subsection}{\numberline {2.4}Discussion}{23}
-\contentsline {subsubsection}{\numberline {2.4.1}Order Effects}{23}
-\contentsline {subsubsection}{\numberline {2.4.2}Individual Differences}{24}
-\contentsline {section}{\numberline {3}Experiment 2}{25}
-\contentsline {subsection}{\numberline {3.1}Method}{25}
-\contentsline {subsubsection}{\numberline {3.1.1}Participants}{25}
-\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{25}
-\contentsline {subsubsection}{\numberline {3.1.3}Executive Function Tasks}{26}
-\contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{28}
-\contentsline {subsection}{\numberline {3.2}Procedure}{28}
-\contentsline {subsection}{\numberline {3.3}Results}{28}
-\contentsline {subsection}{\numberline {3.4}Discussion}{28}
-\contentsline {section}{\numberline {4}General Discussion}{29}
-\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{30}
-\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{30}
-\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{31}
-\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{33}
+\contentsline {subsubsection}{\numberline {1.1.2}COVIS}{1}
+\contentsline {subsubsection}{\numberline {1.1.3}Dimensionality}{3}
+\contentsline {subsubsection}{\numberline {1.1.4}Statistical Density}{4}
+\contentsline {subsubsection}{\numberline {1.1.5}Verbal/nonverbal}{5}
+\contentsline {subsubsection}{\numberline {1.1.6}Taxonomic/thematic}{6}
+\contentsline {subsection}{\numberline {1.2}Vocabulary/labels and category learning}{7}
+\contentsline {subsection}{\numberline {1.3}Executive function and category learning}{8}
+\contentsline {subsection}{\numberline {1.4}Interaction between category learning systems}{9}
+\contentsline {subsection}{\numberline {1.5}Overview of the current study}{10}
+\contentsline {section}{\numberline {2}Experiment 1}{11}
+\contentsline {subsection}{\numberline {2.1}Method}{11}
+\contentsline {subsubsection}{\numberline {2.1.1}Participants}{11}
+\contentsline {subsubsection}{\numberline {2.1.2}Category Learning Task}{11}
+\contentsline {subsubsection}{\numberline {2.1.3}Behavioral Measures}{12}
+\contentsline {subsection}{\numberline {2.2}Procedure}{13}
+\contentsline {subsection}{\numberline {2.3}Results}{13}
+\contentsline {subsubsection}{\numberline {2.3.1}Behavioral Measures}{14}
+\contentsline {subsubsection}{\numberline {2.3.2}Order Effect 1: Matching Conditions}{14}
+\contentsline {subsubsection}{\numberline {2.3.3}Order Effect 2: Dense Stimuli}{15}
+\contentsline {subsubsection}{\numberline {2.3.4}Order Effect 3: Sparse Stimuli}{15}
+\contentsline {subsubsection}{\numberline {2.3.5}Exploratory Order Analyses}{15}
+\contentsline {subsection}{\numberline {2.4}Discussion}{16}
+\contentsline {subsubsection}{\numberline {2.4.1}Order Effects}{16}
+\contentsline {subsubsection}{\numberline {2.4.2}Individual Differences}{16}
+\contentsline {section}{\numberline {3}Experiment 2}{17}
+\contentsline {subsection}{\numberline {3.1}Method}{17}
+\contentsline {subsubsection}{\numberline {3.1.1}Participants}{17}
+\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{17}
+\contentsline {subsubsection}{\numberline {3.1.3}Executive Function Tasks}{18}
+\contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{19}
+\contentsline {subsection}{\numberline {3.2}Procedure}{19}
+\contentsline {subsection}{\numberline {3.3}Results}{19}
+\contentsline {subsection}{\numberline {3.4}Discussion}{19}
+\contentsline {section}{\numberline {4}General Discussion}{20}
+\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{21}
+\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{21}
+\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{21}
+\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{23}
