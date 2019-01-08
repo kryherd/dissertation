@@ -17,25 +17,25 @@
 \contentsline {subsubsection}{\numberline {2.1.3}Behavioral Measures}{12}
 \contentsline {subsection}{\numberline {2.2}Procedure}{13}
 \contentsline {subsection}{\numberline {2.3}Results}{13}
-\contentsline {subsubsection}{\numberline {2.3.1}Behavioral Measures}{14}
+\contentsline {subsubsection}{\numberline {2.3.1}Behavioral Assessment Results}{13}
 \contentsline {subsubsection}{\numberline {2.3.2}Order Effect 1: Matching Conditions}{14}
 \contentsline {subsubsection}{\numberline {2.3.3}Order Effect 2: Dense Stimuli}{15}
 \contentsline {subsubsection}{\numberline {2.3.4}Order Effect 3: Sparse Stimuli}{15}
 \contentsline {subsubsection}{\numberline {2.3.5}Exploratory Order Analyses}{15}
 \contentsline {subsection}{\numberline {2.4}Discussion}{16}
 \contentsline {subsubsection}{\numberline {2.4.1}Order Effects}{16}
-\contentsline {subsubsection}{\numberline {2.4.2}Individual Differences}{16}
-\contentsline {section}{\numberline {3}Experiment 2}{17}
-\contentsline {subsection}{\numberline {3.1}Method}{17}
-\contentsline {subsubsection}{\numberline {3.1.1}Participants}{17}
-\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{17}
-\contentsline {subsubsection}{\numberline {3.1.3}Executive Function Tasks}{18}
-\contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{19}
-\contentsline {subsection}{\numberline {3.2}Procedure}{19}
-\contentsline {subsection}{\numberline {3.3}Results}{19}
-\contentsline {subsection}{\numberline {3.4}Discussion}{19}
-\contentsline {section}{\numberline {4}General Discussion}{20}
-\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{21}
-\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{21}
-\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{21}
-\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{23}
+\contentsline {subsubsection}{\numberline {2.4.2}Individual Differences}{17}
+\contentsline {section}{\numberline {3}Experiment 2}{18}
+\contentsline {subsection}{\numberline {3.1}Method}{18}
+\contentsline {subsubsection}{\numberline {3.1.1}Participants}{18}
+\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{18}
+\contentsline {subsubsection}{\numberline {3.1.3}Executive Function Tasks}{19}
+\contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{20}
+\contentsline {subsection}{\numberline {3.2}Procedure}{20}
+\contentsline {subsection}{\numberline {3.3}Results}{20}
+\contentsline {subsection}{\numberline {3.4}Discussion}{20}
+\contentsline {section}{\numberline {4}General Discussion}{21}
+\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{22}
+\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{22}
+\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{22}
+\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{24}

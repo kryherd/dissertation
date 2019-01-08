@@ -1129,13 +1129,13 @@ Konkle, T.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Kuhn%
+L\BPBI J.~Kuhn%
 , Willoughby%
 , Wilbourn%
 , Vernon-Feagans%
 \BCBL {}\ \BBA {} Blair%
 }{%
-Kuhn%
+L\BPBI J.~Kuhn%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2014}}%
 }]{%
@@ -1161,6 +1161,32 @@ Kuhn, L\BPBI J.%
 \APACjournalVolNumPages{Child Development}{196}{5}{1898--1914}.
 \newblock
 \begin{APACrefDOI} \doi{10.1111/cdev.12249} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+M.~Kuhn%
+}{%
+M.~Kuhn%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+caret}
+\APACinsertmetastar {%
+caret}%
+\begin{APACrefauthors}%
+Kuhn, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {caret: Classification and Regression Training} {caret:
+  Classification and regression training}{\BBCQ}\ [\bibcomputersoftwaremanual].
+\newblock
+\begin{APACrefURL} \url{https://CRAN.R-project.org/package=caret}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{R package version 6.0-76}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

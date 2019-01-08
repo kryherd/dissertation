@@ -39,7 +39,8 @@
 \label{sloutskymanip}
 \end{figure}
 	This task is within-subjects. Based on the group they were placed into, participants completed two of the four possible learning-category type combinations. In this experiment, I tested three main order effects. First, I tested order effects for the matching conditions (unsupervised-dense and supervised-sparse).The second order effect used unsupervised-dense and supervised-dense blocks. Finally, the third order effect tested the same sparse stimuli, testing unsupervised-dense and supervised-sparse blocks. This design led to six possible order groups that each participant could be placed into. See Table \ref{exp1order} for a summary. 
-	\begin{wraptable}[11]{r}{0.6\linewidth}
+
+\begin{wraptable}[11]{r}{0.6\linewidth}
 \caption{Block orders for statistical density task}
 %\vspace{-10pt}
 \begin{center}
@@ -64,7 +65,7 @@
  In each block, participants were introduced to the task through a short cover story. They were told to learn which items go with a certain property (e.g., which aliens are friendly). Crucially, no labels were attached to the categories (e.g., some aliens are Ziblets). Then, participants completed a training block (either supervised or unsupervised). After training, participants completed 40 test trials (16 target, 16 distractor, 8 catch), following the design of \citet{Kloos2008} . In each trial, participants saw a single item and used the keyboard to indicate whether the item matched the category they had just learned (e.g., if the alien is friendly). Catch items looked significantly different than both the target and competing categories, so participants should have always rejected them as members of the learned category. This experiment was presented using PsychoPy v.1.84.2 \citep{Peirce2007}. \par
 
 \subsubsection{Behavioral Measures}
-	I used multiple assessments to test participants' language ability. The choice of assessments was based on the epiSLI criteria for language impairment \citep{Tomblin1996}, which includes comprehension, expression, vocabulary, grammar, and narrative. I adapted these requirements from a kindergarten population to a college-aged population. The epiSLI criteria have been shown to be robust for diagnosis of specific language impairment (SLI). In addition, other studies of language impairment more broadly have adapted a similar multidimensional approach to measuring language ability, sometimes including measures of phonological skills \citep{Catts2006}. Thus, using assessments that the many domains of language outlined in epiSLI criteria will allow me to get a fuller picture of individual differences in language ability. See Table \ref{slitable} for a summary of the assessments and which domains of the epiSLI criteria they cover. The specific tests used in this experiment are detailed below. \par
+	I used multiple assessments to test participants' language ability.  The choice of assessments was based on the epiSLI criteria for language impairment \citep{Tomblin1996}, which includes comprehension, expression, vocabulary, grammar, and narrative. I adapted these requirements from a kindergarten population to a college-aged population. The epiSLI criteria have been shown to be robust for diagnosis of specific language impairment (SLI). In addition, other studies of language impairment more broadly have adapted a similar multidimensional approach to measuring language ability, sometimes including measures of phonological skills \citep{Catts2006}. Thus, using assessments that the many domains of language outlined in epiSLI criteria will allow me to get a fuller picture of individual differences in language ability. See Table \ref{slitable} for a summary of the assessments and which domains of the epiSLI criteria they cover. The specific tests used in this experiment are detailed below. \par
 	\textbf{Test of word reading efficiency (TOWRE) phonemic decoding subtest.} TOWRE is a test of nonword fluency \citep{Torgesen1992}. This test is a part of the comprehension aspect of epiSLI, since the comprehension measure is reading-based. In the TOWRE, individuals have 45 seconds to read as many nonwords as possible. The nonwords become longer and more difficult as the list goes on. The raw score from the TOWRE is calculated by counting the number of words correctly pronounced before the time limit. These raw scores are then converted to standard scores using age-based norms. The standard scores are based on a distribution with a mean of 100 and a standard deviation of 15. In the current age range, a perfect raw score (63) on the TOWRE returns a standard score of "\textgreater 120." For the purposes of this study, scores of "\textgreater 120" will be trimmed to simply 120. \par
 	\textbf{Woodcock Johnson-III word attack (WA) subtest.} This task measures nonword decoding ability \citep{Woodcock2001}. Like the TOWRE, it is helpful for measuring the comprehension aspect of epiSLI. However, while the TOWRE measures word fluency, this task measures decoding accuracy. Participants read a list of nonwords out loud at their own pace. Raw scores are calculated by counting the number of words the participant said correctly. Raw scores are converted to standard scores using age-based norms. The standard score distribution has a mean of 100 and a standard deviation of 15. \par
 	\textbf{Computerized reading comprehension.} This test covers the comprehension and narrative aspects of epiSLI. This computerized reading comprehension (CRC) test is based on the Kaufman Test of Educational Achievement (KTEA) reading comprehension subtest \citep{Kaufman2004}. To create this test, I copied the passages and questions contained in the KTEA reading comprehension subtest into E-Prime \citep{schneider2002prime} for presentation on a computer. Then, I created multiple choice answers for the KTEA questions that did not already have them. In this task, participants read short expository and narrative texts and answer multiple-choice comprehension questions about them. Some questions are literal, while others require participants to make an inference. Participants completed as many questions as they could in 10 minutes. Once 10 minutes had elapsed, the participant was allowed to answer the question currently on the screen and then the assessment closed. Because this task is a modified version of the KTEA, I use raw scores in analysis rather than standardized scores based on the KTEA norms. Raw scores are calculated by counting the number of correctly answered questions for each participant.  \par
@@ -82,7 +83,7 @@
  \hline
  TOWRE & \multirow{2}{*}{Comprehension (decoding aspect)}\\ 
  WA & \\ 
- CRC, narrative \\
+ CRC & Comprehension, narrative \\
  ND Vocab & Vocabulary \\ 
  CELF RS & Grammar, expression \\ 
  \hline
@@ -98,43 +99,70 @@
 \subsection{Results}
 	For all analyses shown below, accuracy was converted to \textit{d'} values \citep{macmillan2004} using the R package \textbf{neuropsychology} \citep{neuropsych}. Correction for extreme values was done following \citep{Hautus1995}. Following prior research, all blocks where 5 or fewer catch items were correctly rejected were dropped from analysis. This resulted in 22 total missing blocks (out of 458 total), including both blocks from a single subject in group 5. \par
 
-\subsubsection{Behavioral Measures}
-	First, I used the D'Agostino normality test from the R package \textbf{fBasics} \citep{fBasics}. Four measures (CRC, ND Vocab, CELF RS, RAM) were significantly skewed. These measures were centered, scaled, and transformed using Yeo-Johnson transformations. Transformation was done using the R package \textbf{caret}. The remaining measures (TOWRE, WA) were not skewed and thus were simply scaled and centered. \par
-	Next, I constructed a correlation matrix between all of the behavioral measures. All of the measures were significantly positively correlated, with the exception of CELF RS and RAM. To further test whether the behavioral measures could be combined into a single composite, I ran a principal components analysis (PCA) on the 5 assessments related to epiSLI (i.e., all assessments except RAM). The Kaiser-Meyer-Olkin overall measure of sampling adequacy was 0.69, above the commonly accepted threshold of 0.6. Bartlett's test of sphericity was also significant $\chi^{2}(10)$  = 239.14, \textit{p} \textless 0.001. These measures suggest that the measures were suitable for a PCA.
-	The first component in the PCA accounted for 47.86\% of the variance and had an eigenvalue of 2.39. All of the factor loadings for these measures were quite similar, ranging from -0.41 to -0.51. The second factor accounted for an additional 20.6\% of the variance and had an eigenvalue of 1.03. This factor separated the two measures involved in decoding (TOWRE and WA) from the other measures (CRC, ND Vocab, and CELF RS). The remaining components had eigenvalues below 1. Thus, of the two significant components, the first component explained almost half of the variance and had an eigenvalue more than double the second component, which largely represented decoding ability. Since the first component indicated that most of the measures loaded similarly, I decided to take a simple means approach to creating a language composite measure. \par
-	The language composite measure was created by averaging the 5 scaled, centered, and/or transformed measures. For participants with missing behavioral measures, the composite was created by averaging the available measures. 	No subject was missing more than 1 measure. This composite measure was then scaled but not centered.
+\subsubsection{Behavioral Assessment Results}
+\begin{wraptable}[14]{r}{0.6\linewidth}
+\begin{center}
+\caption{Descriptive Statistics for Behavioral Measures}
+\begin{tabular}{L|c|c|c}
+Assessment                         & Mean & SD   & Range   \\
+\hline 
+CELF Recalling Sentences SS        & 10.7 & 1.86 & 3-14    \\
+Computerized Reading Comprehension & 21.7 & 5.12 & 7-48    \\
+Nelson-Denny Vocabulary SS         & 229  & 14.0 & 175-255 \\
+TOWRE SS                           & 96.2 & 9.86 & 59-120  \\
+Word Attack SS                     & 99.7 & 9.04 & 75-120  \\
+Raven's Advanced Matrices          & 15.1 & 4.58 & 0-26   
+\end{tabular}
+\label{exp1behdesc}
+\end{center}
+\end{wraptable}
+\par
+	For basic descriptive statistics on the behavioral measures, see Table \ref{exp1behdesc}. Before performing any statistical analyses, I checked the normality of the measures using the D'Agostino normality test from the R package \textbf{fBasics} \citep{fBasics}. Four measures (CRC, ND Vocab, CELF RS, RAM) were significantly skewed. These measures were centered, scaled, and transformed using Yeo-Johnson transformations from R package \textbf{caret} \citep{caret}. The remaining measures (TOWRE, WA) were not skewed and thus were simply scaled and centered. \par
+	Since my goal was to create a composite measure of language ability, I investigated the relationship between the behavioral measures. First, I constructed a correlation matrix between all of the behavioral measures (see Table \ref{exp1behcorr}). All pairs of measures had a significant positve correlation with the exception of CELF RS and RAM. To further test whether the behavioral measures could be combined into a single composite, I ran a principal components analysis (PCA) on the 5 assessments related to epiSLI (i.e., all assessments except RAM). The Kaiser-Meyer-Olkin overall measure of sampling adequacy was 0.69, above the commonly accepted threshold of 0.6. Bartlett's test of sphericity was also significant $\chi^{2}(10)$  = 239.14, \textit{p} \textless 0.001. These measures suggest that the measures were suitable for a PCA.
+	The first component in the PCA accounted for 47.86\% of the variance and had an eigenvalue of 2.39. All of the factor loadings were quite similar, ranging from -0.41 to -0.51. The second factor accounted for an additional 20.6\% of the variance and had an eigenvalue of 1.03. This factor separated the two measures involved in decoding (TOWRE and WA) from the other measures (CRC, ND Vocab, and CELF RS). The remaining components had eigenvalues below 1. Thus, of the two significant components, the first component explained almost half of the variance and had an eigenvalue more than double the second component, which largely represented decoding ability. Since the first component indicated that most of the measures loaded similarly, I decided to take a simple means approach to creating a language composite measure. \par
+	The language composite measure was created by averaging the 5 scaled, centered, and/or transformed measures. For participants with missing behavioral measures, the composite was created by averaging the remaining available measures. No subject was missing more than 1 measure. This composite measure was then scaled but not centered. This language composite measure and the centered, scaled, and transformed RAM measure are used in the analyses investigating order effects reported below.
+	
+\begin{table}[H]
+\caption{Correlations between behavioral measures.}
+\vspace{-10pt}
+\begin{center}
+\begin{tabular}{l|l|l|l|l|l|l}
+                                      & 1       & 2       & 3       & 4      & 5       & 6 \\
+1. Computerized Reading Comprehension & -       &         &         &        &         &   \\
+2. Nelson-Denny Vocabulary            & 0.57*** & -       &         &        &         &   \\
+3. CELF Recalling Sentences           & 0.31*** & 0.40*** & -       &        &         &   \\
+4. Raven's Advanced Matrices          & 0.31*** & 0.34*** & 0.09    & -      &         &   \\
+5. TOWRE                              & 0.22**  & 0.29*** & 0.27*** & 0.17** & -       &   \\
+6. Word Attack                        & 0.21**  & 0.38*** & 0.28*** & 0.21** & 0.53*** & -
+\end{tabular}
+\label{exp1behcorr}
+\end{center}
+\vspace{-10pt}
+\caption*{*\textit{p} \textless 0.05, **\textit{p} \textless 0.001, ***\textit{p} \textless 0.0001}
+\end{table}
+
 		
 \subsubsection{Order Effect 1: Matching Conditions}
-\begin{wrapfigure}{r}{0.5\textwidth}
-\vspace{-10pt}
-\includegraphics[width=0.5\textwidth]{oe1.png}
-\caption[Accuracy plot for order effect 1]{Accuracy (d') for each block completed by each group for the first order effect. Colors indicate which block was encountered first by each group. Points indicate means with error bars reflecting standard error. Shaded portions represent the distribution of accuracy values; wider portions indicate more subjects with that accuracy value.}
-\label{oe1}
-\vspace{-10pt}
-\end{wrapfigure}	
-	The first analysis investigated order effects for blocks in which the learning type (supervised vs. unsupervised) and category type (sparse vs. dense) both engaged the same category learning system (hypothesis testing vs. associative). Participants completed supervised-sparse and unsupervised-dense blocks. \par
-	I used linear mixed-effects models to examine the effects of block and order on accuracy at test. The relationship between accuracy and block/order showed significant variance in intercepts across participants \textit{SD} = 0.26. Adding block and order as fixed effects significantly increased model fit, $\chi^{2}(2)$ = 13.04,  \textit{p} = 0.001. Adding the interaction between block and order further improved model fit $\chi^{2}(1)$ = 6.05,  \textit{p} = 0.014. Thus, the final model had fixed effects of block, order, and the interaction between block and order as well as random intercepts for subject. \par
-	The final model revealed three significant effects. First, there was not a significant main effect of block, \textit{b} = -0.52, \textit{SE} = 0.32, \textit{t}(74) = -1.60, \textit{p} = 0.12. This model also showed a significant main effect of order, \textit{b} = -0.59, \textit{SE} = 0.16, \textit{t}(141) = -3.76, \textit{p} = 0.0002. Finally, there was a significant interaction between block and order, \textit{b} = 0.51, \textit{SE} = 0.20, \textit{t}(72) = 2.48, \textit{p} = 0.016. This interaction was broken down by conducting two separate models for each of the orders (unsupervised-dense first and supervised-sparse first). These analyses showed that when the associative system was engaged first (unsupervised-dense first), there was no significant main effect of block, \textit{b} = -0.0064, \textit{SE} = 0.11, \textit{t}(34) = -0.057, \textit{p} = 0.95. When the hypothesis testing system was used first (supervised-sparse first), there is a significant effect of block, \textit{b} = 0.50, \textit{SE} = 0.17, \textit{t}(37) = 2.92, \textit{p} = 0.0059. Inspection of means shows that when participants complete the supervised-sparse block first, performance on the supervised-sparse block is lower than in the unsupervised-dense block (see Figure \ref{oe1}).
+	The first analysis investigated order effects for blocks in which the learning type (supervised vs. unsupervised) and category type (sparse vs. dense) both engaged the same category learning system (hypothesis testing vs. associative). Participants completed supervised-sparse and unsupervised-dense blocks. First, I will report results from models looking just at the experimental conditions and then I will report results from models including individual difference measures. \par
+	I used linear mixed-effects models to examine the effects of block and order on accuracy at test. The base model included random intercepts for subject. Adding block and order as fixed effects significantly increased model fit, $\chi^{2}(2)$ = 13.21,  \textit{p} = 0.001. Adding the interaction between block and order further improved model fit $\chi^{2}(1)$ = 6.03,  \textit{p} = 0.014. Thus, the final model including only experimental conditions had fixed effects of block, order, and the interaction between block and order as well as random intercepts for subject. \par
+	This model revealed three significant effects. First, there was not a significant main effect of block, \textit{F}(1,76) = 2.6, \textit{p} = 0.11. This model also showed a significant main effect of order, \textit{F}(1,75) = 8.60, \textit{p} = 0.004. Finally, there was a significant interaction between block and order, \textit{F}(1,74) = 6.10, \textit{p} = 0.02. This interaction was broken down by conducting two separate models for each of the orders (unsupervised-dense first and supervised-sparse first). These analyses showed that when the associative system was engaged first (unsupervised-dense first), there was no significant main effect of block, \textit{F}(1,36) = 0.014, \textit{p} = 0.91. When the hypothesis testing system was used first (supervised-sparse first), there is a significant effect of block, \textit{F}(1,37) = 7.52, \textit{p} = 0.009. Inspection of means shows that when participants complete the supervised-sparse block first, performance on the supervised-sparse block is lower than in the unsupervised-dense block (see Figure \ref{oes}). \par
+	To investigate the effect of individual differences in language ability on the order effect, I used the final model above, including main effects for block and order as well as their interaction, and added the language composite measure as a fixed effect. I also added RAM to control for nonverbal IQ. This model revealed no significant effects for RAM or the language composite; there remained a significant interaction between block and order.
 
 \subsubsection{Order Effect 2: Dense Stimuli}
-\begin{wrapfigure}{R}{0.5\textwidth}
-\vspace{-10pt}
-\includegraphics[width=0.5\textwidth]{oe2.png}
-\caption[Accuracy plot for order effect 2]{Accuracy (d') for each block completed by each group for the second order effect.}
-\label{oe2}
-\vspace{-10pt}
-\end{wrapfigure}	
-	The second order effect analysis compared groups 3 and 4. All participants learned only dense categories, with the order of learning types differing between groups. Again, I used linear-mixed effects models to investigate the effects of block and order on accuracy at test. The variance in intercepts across participants had a standard deviation of 0.62. Adding the fixed effects to the model did not significantly improve fit $\chi^{2}(2)$ = 0.24,  \textit{p} = 0.89. Inspection of coefficients confirmed this finding. Block was not a significant predictor of accuracy, \textit{b} = 0.03, \textit{SE} = 0.10, \textit{t}(145) = 0.27, \textit{p} = 0.79. Similarly, order was not a significant predictor of accuracy, \textit{b} = -0.04, \textit{SE} = 0.10, \textit{t}(145) = -0.11, \textit{p} = 0.68. Thus, accuracy at test on dense categories was similar regardless of training type or block order (see Figure \ref{oe2}).
+	The second order effect analysis compared groups 3 and 4. All participants learned only dense categories, with the order of learning types differing between groups. Again, I used linear-mixed effects models to investigate the effects of block and order on accuracy at test. The base model included random intercepts for subject. Adding the fixed effects to the model did not significantly improve fit $\chi^{2}(2)$ = 0.07,  \textit{p} = 0.97. Indeed, neither block, \textit{F}(1,145) = 0.053, \textit{p} = 0.82, nor order, \textit{F}(1,145) = 0.016, \textit{p} = 0.90, were significant predictors of accuracy. Thus, accuracy at test on dense categories was similar regardless of training type or block order (see Figure \ref{oes}).
+	Next, I conducted the individual differences analysis. Since the goal of this investigation was to see whether the relationship between order and accuracy in each block changed as a function of language ability, I created a model with fixed effects for block, order, and language ability as well as RAM. The model included interactions between block, order, and language ability. Similar to the model above, none of the effects were significant.
 
 \subsubsection{Order Effect 3: Sparse Stimuli}
-\begin{wrapfigure}{L}{0.5\textwidth}
+	The third order effect investigated differences in learning sparse categories based on learning type order, using data from groups 5 and 6. I used the same type of linear mixed-effect models as the prior two order effects, with random intercepts for subject. Adding block as a fixed effect significantly increased model fit, $\chi^{2}(1)$ = 57.53,  \textit{p} \textless 0.0001. Adding order to this model did not further improve model fit $\chi^{2}(1)$ \textless 0.001,  \textit{p} = 0.98. Thus, the final model had a fixed effects of block as well as random intercepts for subject, but no fixed effect of order or interaction between block and order. This model revealed a significant main effect of block,\textit{F}(1,67) = 75.69, \textit{p} \textless 0.0001. Inspection of means showed that participants exhibited better performance in supervised-sparse blocks than in unsupervised-dense blocks (see Figure \ref{oes}).
+	For the individual differences analysis, I ran the same model as in the previous two order effects. This model revealed no significant effects.
+	
+\begin{figure}
 \vspace{-10pt}
-\includegraphics[width=0.5\textwidth]{oe3.png}
-\caption[Accuracy plot for order effect 3]{Accuracy (d') for each block completed by each group for the third order effect.}
-\label{oe3}
+\includegraphics[width=\textwidth]{exp1_ordereffects.png}
+\caption[Accuracy plot for all order effects]{Accuracy (d') for each block completed by each group for all order effects. Colors indicate which block was encountered first by each group. Points indicate means with error bars reflecting standard error. Shaded portions represent the distribution of accuracy values; wider portions indicate more subjects with that accuracy value.}
+\label{oes}
 \vspace{-10pt}
-\end{wrapfigure}	
-	The third order effect investigated differences in learning sparse categories based on learning type order, using data from groups 5 and 6. I used the same type of linear mixed-effect models as the prior two order effects. Random intercepts for subject had a standard deviation of 0.11. Adding block as a fixed effect significantly increased model fit, $\chi^{2}(1)$ = 59.44,  \textit{p} \textless 0.00001. Adding order to this model  did not further improve model fit $\chi^{2}(1)$ = 0.05,  \textit{p} = 0.82. Thus, the final model had a fixed effects of block as well as random intercepts for subject, but no fixed effect of order or interaction between block and order. This model revealed a significant main effect of block, \textit{b} = -1.14, \textit{SE} = 0.13, \textit{t}(72) = -8.91, \textit{p} \textless  0.00001. Inspection of means showed that participants exhibited better performance in supervised-sparse blocks than in unsupervised-dense blocks (see Figure \ref{oe3}).
+\end{figure}	
 	
 \subsubsection{Exploratory Order Analyses}
 An interesting feature of this experimental design is that both manipulations (learning type and category type) push individuals towards a certain category learning system. Supervised and sparse blocks encourage use of the hypothesis-testing system, while unsupervised and dense blocks evoke the associative system. Thus, mismatch blocks (i.e., unsupervised-sparse and supervised-dense) have conflicting information on which category learning system to use and thus likely are less effective at evoking that system. To investigate this possibility, I completed some exploratory analyses.\par
