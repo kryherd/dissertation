@@ -1,4 +1,4 @@
-setwd("~/dissertation/DataAnalysis/Exp1_Sloutsky")
+setwd("~/dissertation/DataAnalysis/Exp1")
 dat <- read.table("fulldata.tsv", header = TRUE)
 library(tidyverse)
 library(lme4)
@@ -165,12 +165,13 @@ table(all_beh$gender)
 table(all_beh$Order)
 
 #### ACCURACY
-# descriptives by block (across orders)
+# descriptives by block
 acc_counts %>%
-  group_by(Subject, Block) %>%
+  inner_join(., ord, by = "Subject") %>%
+  group_by(Subject, Block, Order) %>%
   filter(CatchGood > 5) %>%
   summarise(acc = Hit/16 - FalseAlarm/16) %>%
-  group_by(Block) %>%
+  group_by(Order, Block) %>%
   summarise(m_acc = mean(acc),
             sd_acc = sd(acc))
 
@@ -186,9 +187,9 @@ acc_counts %>%
 #### REACTION TIME
 # descriptives by block (across orders)
 rt %>%
-  group_by(Block) %>%
-  summarise(m_rt = mean(RT),
-            sd_rt = sd(RT))
+  group_by(Order, Block) %>%
+  summarise(m_rt = mean(RT)*1000,
+            sd_rt = sd(RT)*1000)
 
 # plot RTs by block (across orders)
 rt %>%
@@ -260,7 +261,7 @@ m1 <- lmer(d.prime ~ 1 + (1|Subject), data = acc1) # base model
 m2 <- lmer(d.prime ~ Block + (1|Subject), data = acc1) # add effect of block
 anova(m1,m2)
 m3 <-  lmer(d.prime ~ Block + Order + (1|Subject), data = acc1) # add effect of order
-anova(m2,m3)
+anova(m1,m3)
 m4 <-  lmer(d.prime ~ Block * Order + (1|Subject), data = acc1) # final model
 anova(m3,m4)
 anova(m4)
@@ -290,12 +291,11 @@ anova(m1)
 rt1 <- base::subset(rt, rt$Order <=2)
 
 # build up model
-m1 <- lmer(RT ~ 1 + (1|Subject), data = rt1) # base model
+m1 <- lmer(RT ~ 1 + (1|Subject)+ (1|Subject:Block), data = rt1) # base model
 m2 <- lmer(RT ~ Block + (1|Subject), data = rt1) # add effect of block
-anova(m1,m2)
-m3 <-  lmer(RT ~ Block + Order + (1|Subject), data = rt1) # add effect of order
-anova(m2,m3)
-m4 <-  lmer(RT ~ Block * Order + (1|Subject), data = rt1) # final model
+m3 <-  lmer(RT ~ Block + Order + (1|Subject) + (1|Subject:Block), data = rt1) # add effect of order
+anova(m1,m3)
+m4 <-  lmer(RT ~ Block * Order + (1|Subject) + (1|Subject:Block), data = rt1) # final model
 anova(m3,m4)
 anova(m4)
 
@@ -303,17 +303,17 @@ anova(m4)
 ud.dat <- rt1$Order=="1"
 ss.dat <- rt1$Order=="2"
 
-m4.1 <- lmer(RT ~ Block + (1|Subject), data = rt1, subset = ud.dat)
+m4.1 <- lmer(RT ~ Block + (1|Subject) + (1|Subject:Block), data = rt1, subset = ud.dat)
 anova(m4.1)
-m4.2 <- lmer(RT ~ Block + (1|Subject), data = rt1, subset = ss.dat)
+m4.2 <- lmer(RT ~ Block + (1|Subject) + (1|Subject:Block), data = rt1, subset = ss.dat)
 anova(m4.2)
 
 #### Individual Differences
 
 rt1_beh <- merge(rt1, all_beh, by.x = "Subject", by.y = "SubjectID")
 
-m0 <-  lmer(RT ~ ravens + Block * Order.x + (1|Subject), data = rt1_beh)
-m1 <- lmer(RT ~ ravens + Block * Order.x + lang_composite + (1|Subject), data = rt1_beh)
+m0 <-  lmer(RT ~ ravens + Block * Order.x + (1|Subject) + (1|Subject:Block), data = rt1_beh)
+m1 <- lmer(RT ~ ravens + Block * Order.x + lang_composite + (1|Subject) + (1|Subject:Block), data = rt1_beh)
 anova(m0,m1)
 anova(m1)
 
@@ -327,9 +327,8 @@ acc2 <- base::subset(dprime, dprime$Order == 3 | dprime$Order == 4)
 # build up model
 m1 <- lmer(d.prime ~ 1 + (1|Subject), data = acc2) # base model
 m2 <- lmer(d.prime ~ Block + (1|Subject), data = acc2) # add effect of block
-anova(m1,m2)
 m3 <-  lmer(d.prime ~ Block + Order + (1|Subject), data = acc2) # add effect of order
-anova(m2,m3)
+anova(m1,m3)
 anova(m3)
 
 #### Individual Differences
@@ -348,19 +347,18 @@ anova(m1)
 rt2 <- base::subset(rt, rt$Order == 3 | rt$Order == 4)
 
 # build up model
-m1 <- lmer(RT ~ 1 + (1|Subject), data = rt2) # base model
-m2 <- lmer(RT ~ Block + (1|Subject), data = rt2) # add effect of block
-anova(m1,m2)
-m3 <-  lmer(RT ~ Block + Order + (1|Subject), data = rt2) # add effect of order
-anova(m2,m3)
+m1 <- lmer(RT ~ 1 + (1|Subject) + (1|Subject:Block), data = rt2) # base model
+m2 <- lmer(RT ~ Block + (1|Subject) + (1|Subject:Block), data = rt2) # add effect of block
+m3 <-  lmer(RT ~ Block + Order + (1|Subject) + (1|Subject:Block), data = rt2) # add effect of order
+anova(m1,m3)
 anova(m3)
 
 #### Individual Differences
 
 rt2_beh <- merge(rt2, all_beh, by.x = "Subject", by.y = "SubjectID")
 
-m0 <-  lmer(RT ~ ravens + Block + Order.x + (1|Subject), data = rt2_beh)
-m1 <- lmer(RT ~ ravens + Block + Order.x + lang_composite + (1|Subject), data = rt2_beh)
+m0 <-  lmer(RT ~ ravens + Block + Order.x + (1|Subject) + (1|Subject:Block), data = rt2_beh)
+m1 <- lmer(RT ~ ravens + Block + Order.x + lang_composite + (1|Subject) + (1|Subject:Block), data = rt2_beh)
 anova(m0,m1)
 anova(m1)
 
@@ -374,9 +372,8 @@ acc3 <- base::subset(dprime, dprime$Order == 5 | dprime$Order == 6)
 # build up model
 m1 <- lmer(d.prime ~ 1 + (1|Subject), data = acc3) # base model
 m2 <- lmer(d.prime ~ Block + (1|Subject), data = acc3) # add effect of block
-anova(m1,m2)
 m3 <-  lmer(d.prime ~ Block + Order + (1|Subject), data = acc3) # add effect of order
-anova(m2,m3)
+anova(m1,m3)
 m4 <-  lmer(d.prime ~ Block * Order + (1|Subject), data = acc3) # final model
 anova(m3,m4)
 anova(m3)
@@ -388,7 +385,7 @@ acc3_beh <- merge(acc3, all_beh, by.x = "Subject", by.y = "SubjectID")
 m0 <-  lmer(d.prime ~ ravens + Block + Order.x + (1|Subject), data = acc3_beh)
 m1 <- lmer(d.prime ~ ravens + Block + Order.x + lang_composite + (1|Subject), data = acc3_beh)
 anova(m0,m1)
-m2 <- lmer(d.prime ~ ravens + Block + Order.x * lang_composite + (1|Subject), data = acc3_beh)
+m2 <- lmer(d.prime ~ ravens + (Block + Order.x) * lang_composite + (1|Subject), data = acc3_beh)
 anova(m1,m2)
 anova(m1)
 
@@ -399,12 +396,11 @@ anova(m1)
 rt3 <- base::subset(rt, rt$Order == 5 | rt$Order == 6)
 
 # build up model
-m1 <- lmer(RT ~ 1 + (1|Subject), data = rt3) # base model
-m2 <- lmer(RT ~ Block + (1|Subject), data = rt3) # add effect of block
-anova(m1,m2)
-m3 <-  lmer(RT ~ Block + Order + (1|Subject), data = rt3) # add effect of order
-anova(m2,m3)
-m4 <-  lmer(RT ~ Block * Order + (1|Subject), data = rt3) # final model
+m1 <- lmer(RT ~ 1 + (1|Subject) + (1|Subject:Block), data = rt3) # base model
+m2 <- lmer(RT ~ Block + (1|Subject) + (1|Subject:Block), data = rt3) # add effect of block
+m3 <-  lmer(RT ~ Block + Order + (1|Subject) + (1|Subject:Block), data = rt3) # add effect of order
+anova(m1,m3)
+m4 <-  lmer(RT ~ Block * Order + (1|Subject) + (1|Subject:Block), data = rt3) # final model
 anova(m3,m4)
 anova(m4)
 
@@ -412,44 +408,18 @@ anova(m4)
 ss.dat <- rt3$Order=="5"
 sd.dat <- rt3$Order=="6"
 
-m4.1 <- lmer(RT ~ Block + (1|Subject), data = rt3, subset = ss.dat)
+m4.1 <- lmer(RT ~ Block + (1|Subject) + (1|Subject:Block), data = rt3, subset = ss.dat)
 anova(m4.1)
-m4.2 <- lmer(RT ~ Block + (1|Subject), data = rt3, subset = sd.dat)
+m4.2 <- lmer(RT ~ Block + (1|Subject) + (1|Subject:Block), data = rt3, subset = sd.dat)
 anova(m4.2)
 
 #### Individual Differences
 rt3_beh <- merge(rt3, all_beh, by.x = "Subject", by.y = "SubjectID")
 
-m0 <-  lmer(m_rt ~ ravens + Block * Order.x + (1|Subject), data = rt3_beh)
-m1 <- lmer(m_rt ~ ravens + Block * Order.x * lang_composite + (1|Subject), data = rt3_beh)
+m0 <-  lmer(RT ~ ravens + Block * Order.x + (1|Subject) + (1|Subject:Block), data = rt3_beh)
+m1 <- lmer(RT ~ ravens + Block * Order.x + lang_composite + (1|Subject) + (1|Subject:Block), data = rt3_beh)
 anova(m0,m1)
 anova(m1)
-
-# investigate 3-way interaction between block, order, and language ability
-ss.dat <- rt3_beh$Block == "Supervised\nSparse"
-us.dat <- rt3_beh$Block == "Unsupervised\nSparse"
-
-m4.1 <- lmer(RT ~ Block * lang_composite + (1|Subject), data = rt3_beh, subset = ss.dat)
-anova(m4.1)
-
-# investigate 2-way interaction between block and language ability
-ss.first.dat <- rt3_beh$Order.x=="5" & rt3_beh$Block == "Supervised\nSparse"
-ss.second.dat <- rt3_beh$Order.x=="6" & rt3_beh$Block == "Supervised\nSparse"
-m4.1.1 <- lmer(RT ~ lang_composite + (1|Subject), data = rt3_beh, subset = ss.first.dat)
-anova(m4.1.1)
-m4.1.2 <- lmer(RT ~ lang_composite + (1|Subject), data = rt3_beh, subset = ss.second.dat)
-anova(m4.1.2)
-
-m4.2 <- lmer(RT ~ Block * lang_composite + (1|Subject), data = rt3_beh, subset = us.dat)
-anova(m4.2)
-
-# investigate 2-way interaction between block and language ability
-us.first.dat <- rt3_beh$Order.x=="6" & rt3_beh$Block == "Unsupervised\nSparse"
-us.second.dat <- rt3_beh$Order.x=="5" & rt3_beh$Block == "Unsupervised\nSparse"
-m4.2.1 <- lmer(RT ~ lang_composite + (1|Subject), data = rt3_beh, subset = us.first.dat)
-anova(m4.2.1)
-m4.2.2 <- lmer(RT ~ lang_composite + (1|Subject), data = rt3_beh, subset = us.second.dat)
-anova(m4.2.2)
 
 ################################ END OF DATA ANALYSIS PART 2: Order Effects
 
@@ -566,5 +536,79 @@ p3 <- grid.arrange(arrangeGrob(oe1 + theme(legend.position="none"),
                                oe3 + theme(legend.position="none"),
                                nrow=1),
                    mylegend, nrow=2,heights=c(10, 1))
+
+######### RT
+
+# set up plot for effect 1
+rt1$FirstBlock <- NA
+rt1$FirstBlock[rt1$Order == 1 & rt1$Block == "Unsupervised\nDense"] <- "First"
+rt1$FirstBlock[rt1$Order == 2 & rt1$Block == "Unsupervised\nDense"] <- "Second"
+rt1$FirstBlock[rt1$Order == 2 & rt1$Block == "Supervised\nSparse"] <- "First"
+rt1$FirstBlock[rt1$Order == 1 & rt1$Block == "Supervised\nSparse"] <- "Second"
+
+rt1_plot <- rt1 %>%
+  group_by(Block, Order, FirstBlock) %>%
+  summarise(sd_rt = sd(RT),
+            se_rt = sd_rt/sqrt(n()),
+            RT = mean(RT))
+
+oe1 <- ggplot(rt1, aes(Block, RT, fill = FirstBlock)) + geom_violin() + 
+  facet_grid(.~Order) + theme_bw() + geom_point(aes(y=RT), data=rt1_plot) +
+  geom_errorbar(aes(ymin=RT-se_rt, ymax=RT+se_rt), width = 0.2, data=rt1_plot) +
+  ylab("Reaction Time (s)") + xlab("Block") + ggtitle("Order Effect 1: Matching Conditions") +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Order")
+oe1
+
+# set up plot for effect 2
+rt2$FirstBlock <- NA
+rt2$FirstBlock[rt2$Order == 3 & rt2$Block == "Unsupervised\nDense"] <- "First"
+rt2$FirstBlock[rt2$Order == 4 & rt2$Block == "Unsupervised\nDense"] <- "Second"
+rt2$FirstBlock[rt2$Order == 4 & rt2$Block == "Supervised\nDense"] <- "First"
+rt2$FirstBlock[rt2$Order == 3 & rt2$Block == "Supervised\nDense"] <- "Second"
+
+rt2_plot <- rt2 %>%
+  group_by(Block, Order, FirstBlock) %>%
+  summarise(sd_rt = sd(RT),
+            se_rt = sd_rt/sqrt(n()),
+            RT = mean(RT))
+
+# set up plot for effect 3
+oe2 <- ggplot(rt2, aes(Block, RT, fill = FirstBlock)) + geom_violin() + 
+  facet_grid(.~Order) + theme_bw() + geom_point(aes(y=RT), data=rt2_plot) +
+  geom_errorbar(aes(ymin=RT-se_rt, ymax=RT+se_rt), width = 0.2, data=rt2_plot) +
+  ylab("Reaction Time (s)") + xlab("Block") + ggtitle("Order Effect 2: Dense Stimuli") +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Order")
+oe2
+
+rt3$FirstBlock <- NA
+rt3$FirstBlock[rt3$Order == 5 & rt3$Block == "Unsupervised\nSparse"] <- "First"
+rt3$FirstBlock[rt3$Order == 6 & rt3$Block == "Unsupervised\nSparse"] <- "Second"
+rt3$FirstBlock[rt3$Order == 6 & rt3$Block == "Supervised\nSparse"] <- "First"
+rt3$FirstBlock[rt3$Order == 5 & rt3$Block == "Supervised\nSparse"] <- "Second"
+
+rt3_plot <- rt3 %>%
+  group_by(Block, Order, FirstBlock) %>%
+  summarise(sd_rt = sd(RT),
+            se_rt = sd_rt/sqrt(n()),
+            RT = mean(RT))
+
+oe3 <- ggplot(rt3, aes(Block, RT, fill = FirstBlock)) + geom_violin() + 
+  facet_grid(.~Order) + theme_bw() + geom_point(aes(y=RT), data=rt3_plot) +
+  geom_errorbar(aes(ymin=RT-se_rt, ymax=RT+se_rt), width = 0.2, data=rt3_plot) +
+  ylab("Reaction Time (s)") + xlab("Block") + ggtitle("Order Effect 3: Sparse Stimuli") +
+  theme(plot.title = element_text(hjust = 0.5), legend.position="bottom") + 
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Order")
+oe3
+
+# make full plot
+mylegend<-g_legend(oe3)
+p3 <- grid.arrange(arrangeGrob(oe1 + theme(legend.position="none"),
+                               oe2 + theme(legend.position="none"),
+                               oe3 + theme(legend.position="none"),
+                               nrow=1),
+                   mylegend, nrow=2,heights=c(10, 1))
+
 
 ################################ END OF DATA ANALYSIS PART 4: Plots
