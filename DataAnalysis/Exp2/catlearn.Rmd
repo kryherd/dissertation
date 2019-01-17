@@ -1,0 +1,703 @@
+---
+title: "The role of language and executive function in two systems for category learning"
+author: "Charles Davis"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r packages and setup, message=FALSE, warning=FALSE}
+
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+
+library(ggplot2)
+library(lme4)
+library(WRS2)
+library(knitr)
+library(reshape2)
+library(plyr)
+library(dplyr)
+library(stringr)
+library(sjPlot)
+library(cowplot)
+library(fmsb)
+library(ggthemes)
+library(effects)
+library(grid)
+library(gridExtra)
+library(magick)
+library(data.table)
+
+```
+
+
+```{r ef prelims}
+
+### FLANKER ### 
+
+# set working directory - where R will look for our data
+
+setwd("/Volumes/GoogleDrive/My Drive/UCONN/experiments/catlearn/data/Exp2/Flanker")
+
+# create a list of file names for R to search through when compiling data
+
+file_names_Flanker <- dir(pattern = "flanker-[0-9+].*.csv", recursive=TRUE)
+
+# create an empty data frame into which the compiled data will be entered
+
+raw_Flanker <- data.frame(matrix(vector(), 0, 11,
+                           dimnames=list(c(),
+                                         c("subnum", "block", "trial", "practice", "targdir", "flankercoherence", 
+                                           "flankerdir", "time0", "resp", "corr", "rt"))), 
+                  stringsAsFactors=FALSE)
+
+
+# for each file in our file names structure, add it to an empty data frame 
+# and bind to the raw empty data frame produced above
+
+for (i in file_names_Flanker) {
+  data_Flanker <- fread(i, header = TRUE, sep = ",", na.strings="NR")
+  data_Flanker <- `colnames<-`(data_Flanker, c("subnum", "block", "trial", "practice", "targdir", "flankercoherence", 
+                                               "flankerdir", "time0", "resp", "corr", "rt"))
+  raw_Flanker <- rbind(raw_Flanker, data_Flanker)
+}
+
+### TOL ###
+
+# set working directory - where R will look for our data
+
+setwd("/Volumes/GoogleDrive/My Drive/UCONN/experiments/catlearn/data/Exp2/ToL")
+
+# create a list of file names for R to search through when compiling data
+
+file_names_TOL <- dir(pattern = "tol-summary-[0-9+].*.csv", recursive=TRUE)
+
+# create an empty data frame into which the compiled data will be entered
+
+raw_TOL <- data.frame(matrix(vector(), 0, 16,
+                           dimnames=list(c(),
+                                         c("sub", "trial", "size", "shortest", "startlab", "endlab",
+                                           "startconf", "endconf", "success", "tries", "score", "steps",
+                                           "roundstart", "starttime", "firsttime", "time"))), 
+                  stringsAsFactors=FALSE)
+
+# for each file in our file names structure, add it to an empty data frame 
+# and bind to the raw empty data frame produced above
+
+for (i in file_names_TOL) {
+  data_TOL <- fread(i, header = TRUE, sep = ",", na.strings="NR")
+  data_TOL <- `colnames<-`(data_TOL, c("sub", "trial", "size", "shortest", "startlab", "endlab",
+                                           "startconf", "endconf", "success", "tries", "score", "steps",
+                                           "roundstart", "starttime", "firsttime", "time"))
+  raw_TOL <- rbind(raw_TOL, data_TOL)
+}
+
+
+### SWITCHER ### 
+
+# set working directory - where R will look for our data
+
+setwd("/Volumes/GoogleDrive/My Drive/UCONN/experiments/catlearn/data/Exp2/Switcher")
+
+# create a list of file names for R to search through when compiling data
+
+file_names_Switcher <- dir(pattern = "switch-summary-[0-9+].*.csv", recursive=TRUE)
+
+# create an empty data frame into which the compiled data will be entered
+
+raw_Switcher <- data.frame(matrix(vector(), 0, 11,
+                           dimnames=list(c(),
+                                         c("subNum", "timestamp", "testtype", "numcues", "numerr", 
+                                           "matchlast", "matchany", "tooslow", "waittime", "perftime", "medtime"))), 
+                  stringsAsFactors=FALSE)
+
+# for each file in our file names structure, add it to an empty data frame 
+# and bind to the raw empty data frame produced above
+
+for (i in file_names_Switcher) {
+  data_Switcher <- fread(i, header = TRUE, sep = ",", na.strings="NR")
+  data_Switcher <- `colnames<-`(data_Switcher, c("subNum", "timestamp", "testtype", "numcues", "numerr", 
+                                           "matchlast", "matchany", "tooslow", "waittime", "perftime", "medtime"))
+  raw_Switcher <- rbind(raw_Switcher, data_Switcher)
+}
+
+```
+
+```{r flanker proc}
+
+### FLANKER ###
+
+#raw_Flanker produces a data frame wherein...
+# targdir = -1 means left; +1 means right
+# flankerdir = same coding
+# flankercoherence = -1 means mismatch; 0 means neutral, +1 means match
+
+## SUMMARIZING ACCURACY AND RT ##
+
+#remove practice trials
+data_Flanker <- subset(raw_Flanker, practice==0)
+
+## QUICK CLEAN 
+
+# fix subnums
+
+data_Flanker$subnum[data_Flanker$subnum==1] <- 8076
+data_Flanker$subnum[data_Flanker$subnum==7] <- 8001
+data_Flanker$subnum[data_Flanker$subnum==9] <- 8002
+data_Flanker$subnum[data_Flanker$subnum==4] <- 8003
+data_Flanker$subnum[data_Flanker$subnum==11] <- 8114
+data_Flanker$subnum[data_Flanker$subnum==21] <- 8021
+data_Flanker$subnum[data_Flanker$subnum==29] <- 8036
+data_Flanker$subnum[data_Flanker$subnum==44] <- 8054
+data_Flanker$subnum[data_Flanker$subnum==50] <- 8064
+data_Flanker$subnum[data_Flanker$subnum==84] <- 8124
+data_Flanker$subnum[data_Flanker$subnum==86] <- 8125
+data_Flanker$subnum[data_Flanker$subnum==87] <- 8126
+
+#remoove non-responses
+data_Flanker <- subset(data_Flanker, resp=="<lshift>" | resp=="<rshift>")
+
+#summarize data by targdir and flankercoherence
+data_Flanker_sum <- with(data_Flanker, aggregate(list(corr, rt), list(flankercoherence), 
+                                                      mean, na.rm=TRUE))
+colnames(data_Flanker_sum) <- c("flankerCoherence", "acc", "rt")
+kable(data_Flanker_sum, format="html")
+
+data_Flanker_sub <- with(data_Flanker, aggregate(list(corr, rt), list(subnum, flankercoherence),
+                                                 mean, na.rm=TRUE))
+colnames(data_Flanker_sub) <- c("subject", "flankerCoherence", "acc", "rt")
+
+data_Flanker_sub.1 <- subset(data_Flanker_sub, flankerCoherence==-1)
+
+hist(data_Flanker_sub.1$acc)
+hist(data_Flanker_sub.1$rt)
+
+## PROCESSING AND CALCULATING FLANKER EFFECTS
+
+#remove incorrect responses
+data_Flanker_cor <- subset(data_Flanker, corr==1)
+
+#subset for only coherent and incoherent trials
+data_Flanker_trim <- subset(data_Flanker_cor, flankercoherence=="-1" | flankercoherence=="1")
+data_Flanker_trim$flankercoherence <- ifelse(data_Flanker_trim$flankercoherence=="1", "flank_Congruent", "flank_Incongruent")
+
+#reduce to by-subject data-frame
+
+data_Flanker_trim_sub <- with(data_Flanker_trim, aggregate(list(rt), list(subnum, flankercoherence),
+                                                 mean, na.rm=TRUE))
+colnames(data_Flanker_trim_sub) <- c("subject", "flank_Coherence", "flank_rt")
+
+#melt and cast for calculating flanker effect
+
+data_Flanker_trim_melt <- melt(data_Flanker_trim_sub, id.vars=c("subject", "flank_Coherence"))
+data_Flanker_trim_cast <- dcast(data_Flanker_trim_melt, subject ~ flank_Coherence)
+
+data_Flanker_trim_cast$flank_eff <- data_Flanker_trim_cast$flank_Incongruent - data_Flanker_trim_cast$flank_Congruent
+hist(data_Flanker_trim_cast$flank_eff)
+
+```
+
+
+```{r TOL proc}
+### TOL ###
+
+#sub indicates the subject code
+#trial indicates which trial in the test
+#size is the number of disks in the problem
+#shortest is the least number of moves needed to solve the problem (may not be available in all tests)
+#startlab is a node within an internal matrix indicating the starting configuration
+#endlab is a nod within an internal matrix indicating ending configuration.
+#startconf is the configuration of disks at the beginning
+#endconf is the configuration at the end.
+#success is whether the participant completed the task (may be 0 when a time or move limit is used)
+#tries is how many attempts were made (how many times it was reset, not used in all versions)
+#score is a running total score, which is just one point per number of disks in correctly solved problems
+#steps is the number of moves used to solve the problem
+#roundstart is the absolute timer time when the problem was given (in ms)
+#starttime is a second measure of this that resets if multiple attempts are given
+#firstime is the first move time in ms
+#time is the total time for the problem in ms, including first move time.
+
+## SUMMARIZE DATA BY SUBJECT AND TRIAL ##
+
+#exclude subject 9, who for some reasoon completed 30 trials of TOL...
+data_TOL <- subset(raw_TOL, sub != 9 & sub != 8057)
+
+#rename 
+
+data_TOL$sub[data_TOL$sub==1] <- 8076
+data_TOL$sub[data_TOL$sub==7] <- 8001
+data_TOL$sub[data_TOL$sub==9] <- 8002
+data_TOL$sub[data_TOL$sub==4] <- 8003
+data_TOL$sub[data_TOL$sub==11] <- 8114
+data_TOL$sub[data_TOL$sub==21] <- 8021
+data_TOL$sub[data_TOL$sub==29] <- 8036
+data_TOL$sub[data_TOL$sub==44] <- 8054
+data_TOL$sub[data_TOL$sub==50] <- 8064
+data_TOL$sub[data_TOL$sub==84] <- 8124
+data_TOL$sub[data_TOL$sub==86] <- 8125
+data_TOL$sub[data_TOL$sub==87] <- 8126
+
+#collapse data for individual subject data
+data_TOL_sub <- with(data_TOL, aggregate(list(success, time), list(sub), 
+                                         mean, na.rm=TRUE))
+colnames(data_TOL_sub) <- c("subject", "TOL_success", "TOL_time")
+
+hist(data_TOL_sub$TOL_success)
+hist(data_TOL_sub$TOL_time)
+
+#examine first-trial data only
+data_TOL_sub.1 <- with(data_TOL, aggregate(list(success, time), list(sub, trial), 
+                                         mean, na.rm=TRUE))
+colnames(data_TOL_sub.1) <- c("subject", "TOL_trial", "TOL_success", "TOL_time")
+
+data_TOL_sub.1 <- subset(data_TOL_sub.1, TOL_trial==1)
+
+#collapse data for trial-level data
+data_TOL_trial <- with(data_TOL, aggregate(list(success, firsttime, time), list(trial),
+                                           mean, na.rm=TRUE))
+colnames(data_TOL_trial) <- c("TOL_trial", "TOL_success", "TOL_first", "TOL_time")
+
+data_TOL_move <- with(data_TOL, aggregate(list(success, time), list(shortest),
+                                           mean, na.rm=TRUE))
+colnames(data_TOL_move) <- c("TOL_minMoves", "TOL_success", "TOL_time")
+
+#collapse data to overall success rate
+data_TOL_success <- with(data_TOL, aggregate(list(success, firsttime, time), list(sub),
+                                           mean, na.rm=TRUE))
+colnames(data_TOL_success) <- c("subject", "TOL_acc", "TOL_first", "TOL_time")
+hist(data_TOL_success$TOL_acc)
+
+#plot data as a function of successes and RTs (a) over time (trials) and (b) over min number of moves
+TOLtrialPlot.success <- ggplot(data_TOL_trial, aes(x=TOL_trial, y=TOL_success)) +
+  geom_point() + 
+  geom_line() + 
+  scale_x_continuous(name="trial", breaks=c(1:12)) +
+  ggtitle("Success by trial") + 
+  ylab("success") +
+  theme_few()
+TOLtrialPlot.success
+
+TOLtrialPlot.time <- ggplot(data_TOL_trial, aes(x=TOL_trial, y=TOL_time)) +
+  geom_point() + 
+  geom_line() + 
+  scale_x_continuous(name="trial", breaks=c(1:12)) +
+  ggtitle("Response time by trial") + 
+  ylab("response time") +
+  theme_few()
+TOLtrialPlot.time
+
+TOLtrialPlot.first <- ggplot(data_TOL_trial, aes(x=TOL_trial, y=TOL_first)) +
+  geom_point() + 
+  geom_line() + 
+  scale_x_continuous(name="trial", breaks=c(1:12)) +
+  ggtitle("Response time by trial") + 
+  ylab("time to first move") +
+  theme_few()
+TOLtrialPlot.first
+
+TOLmovePlot.success <- ggplot(data_TOL_move, aes(x=TOL_minMoves, y=TOL_success)) +
+  geom_point() + 
+  geom_line() + 
+  scale_x_continuous(name="moves", breaks=c(1:12)) +
+  ggtitle("Success by minimum number of moves (i.e., difficulty)") + 
+  ylab("success") +
+  theme_few()
+TOLmovePlot.success
+
+TOLmovePlot.time <- ggplot(data_TOL_move, aes(x=TOL_minMoves, y=TOL_time)) +
+  geom_point() + 
+  geom_line() + 
+  scale_x_continuous(name="moves", breaks=c(1:12)) +
+  ggtitle("Response time by minimum number of moves (i.e., difficulty)") + 
+  ylab("response time") +
+  theme_few()
+TOLmovePlot.time
+
+## ANALYZE DATA FOR MIN MOVES, ETC ##
+
+successMod <- glmer(success ~ (1|sub), data_TOL, binomial)
+summary(successMod)
+
+successMod.1 <- glmer(success ~ as.factor(shortest) + (1|sub), data_TOL, binomial)
+summary(successMod.1)
+
+
+```
+
+
+```{r switch proc}
+
+### SWITCHER ###
+# raw_Switcher produces a dataframe wherein...
+# testtype is the main IV of interest, where the different codes indicate the different rounds of the test (1=2-feature, 2=3-feature, 3=3-feature random)
+# numcues tells you how many stimuli were on the screen
+# numerr is how many errors were made
+# matchlast is how many times the error matched the previous feature
+# matchany is how many times the error matched on any feature
+# tooslow is how often the response was
+# waittime is how long they took before making their first move.
+# perftime is how long they took once they made their first move to complete the round
+# medtime is the median RT in ms for each response (i.e., after the first)
+# Of greatest interest are two DVS: perftime and numerr (how long they took and how many mistakes they made. Matchlast records how many times did an error match the previous rule, which is sort of like a perseveration error found in many tasks
+
+# difference score between two different types 
+
+# summarize data by subject, testtype
+
+data_Switcher <- raw_Switcher
+
+data_Switcher$subnum[data_Switcher$subnum==1] <- 8076
+data_Switcher$subnum[data_Switcher$subnum==7] <- 8001
+data_Switcher$subnum[data_Switcher$subnum==9] <- 8002
+data_Switcher$subnum[data_Switcher$subnum==4] <- 8003
+data_Switcher$subnum[data_Switcher$subnum==11] <- 8114
+data_Switcher$subnum[data_Switcher$subnum==21] <- 8021
+data_Switcher$subnum[data_Switcher$subnum==29] <- 8036
+data_Switcher$subnum[data_Switcher$subnum==44] <- 8054
+data_Switcher$subnum[data_Switcher$subnum==50] <- 8064
+data_Switcher$subnum[data_Switcher$subnum==84] <- 8124
+data_Switcher$subnum[data_Switcher$subnum==86] <- 8125
+data_Switcher$subnum[data_Switcher$subnum==87] <- 8126
+
+data_Switcher_type <- with(data_Switcher, aggregate(list(numerr, perftime, tooslow), 
+                                                    list(testtype), 
+                                                    mean, na.rm=TRUE))
+colnames(data_Switcher_type) <- c("switch_type", "switch_err", "switch_rt", "switch_slow")
+
+switcherTypeErr <- ggplot(data_Switcher_type, aes(x=as.factor(switch_type), y=switch_err)) +
+  geom_bar(stat="identity", width=0.4) + 
+  ggtitle("Number of errors by trial type (1=2-feature, 2=3-feature, 3=3-feature random)") + 
+  ylab("Average number of errors") + 
+  xlab("Trial type") +
+  theme_few()
+switcherTypeErr
+
+switcherTypeRT <- ggplot(data_Switcher_type, aes(x=as.factor(switch_type), y=switch_rt)) +
+  geom_bar(stat="identity", width=0.4) + 
+  ggtitle("Response time by trial type (1=2-feature, 2=3-feature, 3=3-feature random)") + 
+  ylab("Response time") + 
+  xlab("Trial type") +
+  theme_few()
+switcherTypeRT
+
+switcherTypeSlow <- ggplot(data_Switcher_type, aes(x=as.factor(switch_type), y=switch_slow)) +
+  geom_bar(stat="identity", width=0.4) + 
+  ggtitle("Slow responses by trial type (1=2-feature, 2=3-feature, 3=3-feature random)") + 
+  ylab("# of too-slow responses") + 
+  xlab("Trial type") +
+  theme_few()
+switcherTypeSlow
+
+data_Switcher_sub <- with(data_Switcher, aggregate(list(numerr, perftime, tooslow), 
+                                                    list(subNum, testtype), 
+                                                    mean, na.rm=TRUE))
+colnames(data_Switcher_sub) <- c("subject", "switch_type", "switch_err", "switch_rt", "switch_slow")
+
+data_Switcher_melt <- melt(data_Switcher_sub, id.vars=c("subject", "switch_type"))
+data_Switcher_cast <- dcast(data_Switcher_melt, subject ~ switch_type + variable)
+
+colnames(data_Switcher_cast) <- c("subject", "switch_err_1", "switch_rt_1", "switch_slow_1", 
+                                  "switch_err_2", "switch_rt_2", "switch_slow_2",
+                                  "switch_err_3", "switch_rt_3", "switch_slow_3")
+
+data_Switcher_cast$switchEff <- data_Switcher_cast$switch_rt_3 - data_Switcher_cast$switch_rt_2
+hist(data_Switcher_cast$switchEff)
+
+```
+
+```{r all analysis}
+### COMBINE ALL INTO ONE ###
+
+data_All <- merge(data_Flanker_trim_cast, data_TOL_success, by="subject", all=TRUE)
+data_All <- merge(data_All, data_Switcher_cast, by="subject", all=TRUE)   
+
+# run correlations on main measures across tests
+
+flank.TOL.cor <- ggplot(data_All, aes(x=flank_eff, y=TOL_acc)) + 
+  geom_point() +
+  geom_smooth(method="lm", color="purple") + 
+  ggtitle("Correlation between flanker effect and Tower of London overall accuracy") +
+  xlab("Flanker effect (Incongruent - Congruent RT)") +
+  ylab("Tower of London overall accuracy") +
+  theme_few()
+flank.TOL.cor
+
+cor.test(data_All$flank_eff, data_All$TOL_acc)
+
+flank.TOLfirst.cor <- ggplot(data_All, aes(x=flank_eff, y=TOL_first)) + 
+  geom_point() +
+  geom_smooth(method="lm", color="purple") + 
+  ggtitle("Correlation between flanker effect and Tower of London first move time") +
+  xlab("Flanker effect (Incongruent - Congruent RT)") +
+  ylab("Tower of London overall first move time") +
+  theme_few()
+flank.TOLfirst.cor
+
+flank.TOLtime.cor <- ggplot(data_All, aes(x=flank_eff, y=TOL_time)) + 
+  geom_point() +
+  geom_smooth(method="lm", color="purple") + 
+  ggtitle("Correlation between flanker effect and Tower of London response time") +
+  xlab("Flanker effect (Incongruent - Congruent RT)") +
+  ylab("Tower of London overall respnose time") +
+  theme_few()
+flank.TOLtime.cor
+
+cor.test(data_All$flank_eff, data_All$TOL_time)
+
+flank.Switch.cor <- ggplot(data_All, aes(x=flank_eff, y=switchEff)) + 
+  geom_point() +
+  geom_smooth(method="lm", color="purple") + 
+  ggtitle("Correlation between flanker effect and switcher effect") +
+  xlab("Flanker effect (Incongruent - Congruent RT)") +
+  ylab("Switcher effect (Predictable RT - Random RT)") +
+  theme_few()
+flank.Switch.cor
+
+cor.test(data_All$flank_eff, data_All$switchEff)
+
+TOL.Switch.cor <- ggplot(data_All, aes(x=TOL_acc, y=switchEff)) + 
+  geom_point() +
+  geom_smooth(method="lm", color="purple") + 
+  ggtitle("Correlation between Tower of London accuracy and switcher effect") +
+  xlab("Tower of London overall accuracy") +
+  ylab("Switcher effect (Predictable RT - Random RT)") +
+  theme_few()
+TOL.Switch.cor
+
+cor.test(data_All$TOL_acc, data_All$switchEff)
+
+# center all key variables
+# first convert to tibble
+
+colnames(data_All)[1] <- "Subject"
+data_All <- merge(data_All, rt_wide, by="Subject")
+
+data_All <- as_tibble(data_All)
+
+data_All$flanker_cent <- scale(data_All$flank_eff)
+data_All$TOL_acc_cent <- scale(data_All$TOL_acc)
+data_All$TOL_time_cent <- scale(data_All$TOL_time)
+data_All$TOL_first_cent <- scale(data_All$TOL_first)
+data_All$switch_cent <- scale(data_All$switchEff)
+
+```
+
+```{r correlations bw ids and catlearn}
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=flanker_cent, y=ashby.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=flanker_cent, y=ashby.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=TOL_acc_cent, y=ashby.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=TOL_acc_cent, y=ashby.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=TOL_time_cent, y=ashby.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=TOL_time_cent, y=ashby.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=TOL_first_cent, y=ashby.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=TOL_first_cent, y=ashby.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=switch_cent, y=ashby.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=switch_cent, y=ashby.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=flanker_cent, y=sloutsky.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=flanker_cent, y=sloutsky.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=TOL_acc_cent, y=sloutsky.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=TOL_acc_cent, y=sloutsky.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=TOL_time_cent, y=sloutsky.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=TOL_time_cent, y=sloutsky.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=TOL_first_cent, y=sloutsky.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=TOL_first_cent, y=sloutsky.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=switch_cent, y=sloutsky.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=switch_cent, y=sloutsky.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=flanker_cent, y=tt.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=flanker_cent, y=tt.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=TOL_acc_cent, y=tt.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=TOL_acc_cent, y=tt.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=TOL_time_cent, y=tt.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=TOL_time_cent, y=tt.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=TOL_first_cent, y=tt.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=TOL_first_cent, y=tt.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="hypothesis-testing") %>% 
+  ggplot(. , aes(x=switch_cent, y=tt.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+
+dplyr::filter(data_All, System=="associative") %>% 
+  ggplot(. , aes(x=switch_cent, y=tt.t)) + 
+  geom_point() + 
+  geom_smooth(method="lm", se=FALSE)
+```
+
+
+```{r models}
+
+# ashby models
+
+ashby.mod.0 <- lmer(ashby.t ~ (1|Subject), data_All)
+summary(ashby.mod.0)
+
+ashby.mod.1 <- lmer(ashby.t ~ System + 
+                             (1|Subject), data_All)
+summary(ashby.mod.1)
+
+ashby.mod.2 <- lmer(ashby.t ~ System + 
+                             flanker_cent + switch_cent + TOL_acc_cent + TOL_time_cent + TOL_first_cent + 
+                             (1|Subject), data_All)
+summary(ashby.mod.2)
+
+ashby.mod.3 <- lmer(ashby.t ~ System + 
+                             flanker_cent + switch_cent + TOL_acc_cent +  
+                             (System:flanker_cent) + (System:switch_cent) + (System:TOL_acc_cent) + 
+                             (1|Subject), data_All)
+summary(ashby.mod.3)
+
+# sloutsky models
+
+sloutsky.mod.0 <- lmer(sloutsky.t ~ (1|Subject), data_All)
+summary(sloutsky.mod.0)
+
+sloutsky.mod.1 <- lmer(sloutsky.t ~ System + 
+                             (1|Subject), data_All)
+summary(sloutsky.mod.1)
+
+sloutsky.mod.2 <- lmer(sloutsky.t ~ System + 
+                             flanker_cent + switch_cent + TOL_acc_cent + TOL_time_cent + TOL_first_cent + 
+                             (1|Subject), data_All)
+summary(sloutsky.mod.2)
+
+sloutsky.mod.3 <- lmer(sloutsky.t ~ System + 
+                             flanker_cent + switch_cent + TOL_acc_cent +  
+                             (System:flanker_cent) + (System:switch_cent) + (System:TOL_acc_cent) + 
+                             (1|Subject), data_All)
+summary(sloutsky.mod.3)
+
+# tax-them models
+
+tt.mod.0 <- lmer(tt.t ~ (1|Subject), data_All)
+summary(tt.mod.0)
+
+tt.mod.1 <- lmer(tt.t ~ System + 
+                             (1|Subject), data_All)
+summary(tt.mod.1)
+
+tt.mod.2 <- lmer(tt.t ~ System + 
+                             flanker_cent + switch_cent + TOL_acc_cent + TOL_time_cent + TOL_first_cent + 
+                             (1|Subject), data_All)
+summary(tt.mod.2)
+
+tt.mod.3 <- lmer(tt.t ~ System + 
+                             flanker_cent + switch_cent + TOL_acc_cent +  
+                             (System:flanker_cent) + (System:switch_cent) + (System:TOL_acc_cent) + 
+                             (1|Subject), data_All)
+summary(tt.mod.3)
+
+
+```
