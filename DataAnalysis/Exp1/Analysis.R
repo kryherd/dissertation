@@ -610,5 +610,13 @@ p3 <- grid.arrange(arrangeGrob(oe1 + theme(legend.position="none"),
                                nrow=1),
                    mylegend, nrow=2,heights=c(10, 1))
 
+## Language ability & Accuracy in effect 3
+
+acc3_beh %>%
+  ggplot(aes(lang_composite, d.prime)) + geom_point() + geom_smooth(method = "lm", se = FALSE) +
+  theme_bw() + xlab("Language Ability") + ylab("d'") + ggtitle("Language Ability and Accuracy in Sparse Blocks")
+
+cor.test(acc3_beh$lang_composite, acc3_beh$d.prime)
+
 
 ################################ END OF DATA ANALYSIS PART 4: Plots

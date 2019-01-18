@@ -853,6 +853,37 @@ Fatzer, S\BPBI T.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Ferguson%
+, Havy%
+\BCBL {}\ \BBA {} Waxman%
+}{%
+Ferguson%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+Ferguson2015}
+\APACinsertmetastar {%
+Ferguson2015}%
+\begin{APACrefauthors}%
+Ferguson, B.%
+, Havy, M.%
+\BCBL {}\ \BBA {} Waxman, S\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The precision of 12-month-old infants' link between
+  language and categorization predicts vocabulary size at 12 and 18 months}}
+  {{The precision of 12-month-old infants' link between language and
+  categorization predicts vocabulary size at 12 and 18 months}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Frontiers in Psychology}{6}{}{1--6}.
+\newblock
+\begin{APACrefDOI} \doi{10.3389/fpsyg.2015.01319} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Figueras%
 , Edwards%
 \BCBL {}\ \BBA {} Langdon%
@@ -1004,6 +1035,33 @@ Im-Bolter, N.%
 \APACjournalVolNumPages{Child Development}{77}{6}{1822--1841}.
 \newblock
 \begin{APACrefDOI} \doi{10.1111/j.1467-8624.2006.00976.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Jaswal%
+}{%
+Jaswal%
+}{%
+{\protect \APACyear {2007}}%
+}]{%
+Jaswal2007}
+\APACinsertmetastar {%
+Jaswal2007}%
+\begin{APACrefauthors}%
+Jaswal, V\BPBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The Effect of Vocabulary Size on Toddlers'
+  Receptiveness to Unexpected Testimony About Category Membership}} {{The
+  Effect of Vocabulary Size on Toddlers' Receptiveness to Unexpected Testimony
+  About Category Membership}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Infancy}{12}{2}{169--187}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.1532-7078.2007.tb00239.x} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1771,6 +1829,36 @@ Murphy, G\BPBI L.%
 \APACjournalVolNumPages{Psychonomic Bulletin {\&} Review}{8}{4}{834--839}.
 \newblock
 \begin{APACrefDOI} \doi{10.3758/BF03196225} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Nazzi%
+\ \BBA {} Gopnik%
+}{%
+Nazzi%
+\ \BBA {} Gopnik%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+Nazzi2001}
+\APACinsertmetastar {%
+Nazzi2001}%
+\begin{APACrefauthors}%
+Nazzi, T.%
+\BCBT {}\ \BBA {} Gopnik, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Linguistic and cognitive abilities in infancy: when
+  does language become a tool for categorization?}} {{Linguistic and cognitive
+  abilities in infancy: when does language become a tool for
+  categorization?}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognition}{80}{3}{B11--B20}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/S0010-0277(01)00112-3} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
