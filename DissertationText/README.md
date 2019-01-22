@@ -25,9 +25,8 @@ On hold until next planning date.
 
 **Current timeline**:
 
-* 1/18/19: Draft discussion and create remaining figures
-* 1/21/19: Do final edits, send draft to advisor
-* 1/22/19: Hopefully, discuss results with advisor
+* ~~1/18/19: Draft discussion and create remaining figures~~
+* ~~1/21/19: Do final edits, send draft to advisor~~
 * 1/24/19: Start to prepare slides for exp 1 talk shop presentation
 * 1/28/19: Send slides to advisor for talk shop presentation
 * 1/29/19: Discuss slides with advisor for talk shop presentation
