@@ -42,7 +42,7 @@ On hold until next planning date.
 
 **Current timeline**:
 
-* 1/22/19: Tidy Hypothesis 1 analysis.
+* ~~1/22/19: Tidy Hypothesis 1 analysis.~~
 * 1/23/19: Explore Charles' Hypothesis 2 analysis.
 * 1/25/19: Meet with Charles to discuss analysis and paper writing plans.
 
