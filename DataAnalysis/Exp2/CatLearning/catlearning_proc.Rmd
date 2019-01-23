@@ -535,6 +535,8 @@ anova(ASmodel)
 summary(glht(ASmodel, linfct = mcp(CatLearn = "Tukey")), test = adjusted("holm"))
 
 # no differences here
+
+write.csv(rt_wide, "rt_standardized.csv")
 ```
 
 

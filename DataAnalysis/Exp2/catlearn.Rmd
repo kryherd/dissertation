@@ -26,7 +26,7 @@ library(ggthemes)
 library(effects)
 library(grid)
 library(gridExtra)
-library(magick)
+#library(magick)
 library(data.table)
 
 ```
@@ -38,7 +38,7 @@ library(data.table)
 
 # set working directory - where R will look for our data
 
-setwd("/Volumes/GoogleDrive/My Drive/UCONN/experiments/catlearn/data/Exp2/Flanker")
+setwd("/Volumes/EEG/CategoryLearning/Data/Exp2/Flanker")
 
 # create a list of file names for R to search through when compiling data
 
@@ -67,7 +67,7 @@ for (i in file_names_Flanker) {
 
 # set working directory - where R will look for our data
 
-setwd("/Volumes/GoogleDrive/My Drive/UCONN/experiments/catlearn/data/Exp2/ToL")
+setwd("/Volumes/EEG/CategoryLearning/Data/Exp2/ToL")
 
 # create a list of file names for R to search through when compiling data
 
@@ -98,7 +98,7 @@ for (i in file_names_TOL) {
 
 # set working directory - where R will look for our data
 
-setwd("/Volumes/GoogleDrive/My Drive/UCONN/experiments/catlearn/data/Exp2/Switcher")
+setwd("/Volumes/EEG/CategoryLearning/Data/Exp2/Switcher")
 
 # create a list of file names for R to search through when compiling data
 
@@ -472,6 +472,7 @@ cor.test(data_All$TOL_acc, data_All$switchEff)
 # first convert to tibble
 
 colnames(data_All)[1] <- "Subject"
+rt_wide <- read.csv("/Users/Kayleigh/dissertation/DataAnalysis/Exp2/CatLearning/rt_standardized.csv")
 data_All <- merge(data_All, rt_wide, by="Subject")
 
 data_All <- as_tibble(data_All)
