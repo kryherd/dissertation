@@ -1,0 +1,313 @@
+---
+title: "Individual Differences Analysis"
+author: "Kayleigh Ryherd"
+date: "1/28/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+```{r load_data}
+setwd("~/dissertation/DataAnalysis/Exp2/IndividualDiffs")
+catlearn_acc <- read.csv("../CatLearning/catlearn_proc_acc.csv")
+catlearn_rt <- read.csv("../CatLearning/catlearn_proc_rt.csv")
+tol <- read.csv("tol_concat_01-28-19_1533.csv")
+switcher <- read.csv("switcher_concat_01-28-19_1533.csv")
+flanker <- read.csv("flanker_concat_01-28-19_1533.csv")
+ravens <- read.csv("ravens_1-28-19.csv")
+nd <- read.csv("ND_scores.csv")
+nd_norms <- read.csv("nd_norms.csv")
+```
+
+```{r libraries}
+library(tidyverse)
+library(ggcorrplot)
+library(lme4)
+library(lmerTest)
+```
+
+
+# Data Cleaning
+
+## Executive Function Measures
+
+### Flanker
+```{r flanker_calc}
+# fix subject numbers
+flanker$subnum[flanker$subnum==1] <- 8076
+flanker$subnum[flanker$subnum==7] <- 8001
+flanker$subnum[flanker$subnum==9] <- 8002
+flanker$subnum[flanker$subnum==4] <- 8003
+flanker$subnum[flanker$subnum==11] <- 8114
+flanker$subnum[flanker$subnum==21] <- 8021
+flanker$subnum[flanker$subnum==29] <- 8036
+flanker$subnum[flanker$subnum==44] <- 8054
+flanker$subnum[flanker$subnum==50] <- 8064
+flanker$subnum[flanker$subnum==84] <- 8124
+flanker$subnum[flanker$subnum==86] <- 8125
+flanker$subnum[flanker$subnum==87] <- 8126
+flanker$subnum[flanker$subnum==95] <- 8144
+
+# remove non-responses
+flanker <- subset(flanker, resp=="<lshift>" | resp=="<rshift>")
+
+#remove incorrect responses
+flanker_cor <- subset(flanker, corr==1)
+
+#subset for only coherent and incoherent trials
+flanker_trim <- subset(flanker_cor, flankercoherence=="-1" | flankercoherence=="1")
+flanker_trim$flankercoherence <- ifelse(flanker_trim$flankercoherence=="1", "flanker_congruent", "flanker_incongruent")
+
+# calculate flanker effect
+flanker_subject <- flanker_trim %>%
+  group_by(subnum, flankercoherence) %>%
+  summarise(flank_rt = mean(rt, na.rm = TRUE)) %>%
+  spread(key = flankercoherence, value = flank_rt) %>%
+  mutate(flanker_eff = flanker_incongruent - flanker_congruent)
+```
+
+### Switcher
+
+```{r switcher_calc}
+# fix subject numbers
+switcher$subNum[switcher$subNum==1] <- 8076
+switcher$subNum[switcher$subNum==7] <- 8001
+switcher$subNum[switcher$subNum==9] <- 8002
+switcher$subNum[switcher$subNum==4] <- 8003
+switcher$subNum[switcher$subNum==11] <- 8114
+switcher$subNum[switcher$subNum==21] <- 8021
+switcher$subNum[switcher$subNum==29] <- 8036
+switcher$subNum[switcher$subNum==44] <- 8054
+switcher$subNum[switcher$subNum==50] <- 8064
+switcher$subNum[switcher$subNum==84] <- 8124
+switcher$subNum[switcher$subNum==86] <- 8125
+switcher$subNum[switcher$subNum==87] <- 8126
+switcher$subNum[switcher$subNum==95] <- 8144
+
+switcher_subject <- switcher %>%
+  group_by(subNum, testtype) %>%
+  summarise(total_err = sum(numerr),
+            total_time = sum(perftime),
+            m_rt = mean(medtime))
+
+switcher_totaltime <- switcher_subject %>%
+  dplyr::select(subNum, testtype, total_time) %>%
+  spread(key = testtype, value = total_time) %>%
+  mutate(switcher_twofeat = `1`,
+         switcher_threefeat = `2`,
+         switcher_threefeatrand = `3`,
+         switch_eff = `3` - `2`) %>% # basically the same as incongruent - congruent
+  dplyr::select(subNum, switcher_twofeat:switch_eff)
+
+```
+
+### Tower of London
+
+```{r tol_calc}
+# fix subject numbers
+tol$sub[tol$sub==1] <- 8076
+tol$sub[tol$sub==7] <- 8001
+tol$sub[tol$sub==9] <- 8002
+tol$sub[tol$sub==4] <- 8003
+tol$sub[tol$sub==11] <- 8114
+tol$sub[tol$sub==21] <- 8021
+tol$sub[tol$sub==29] <- 8036
+tol$sub[tol$sub==44] <- 8054
+tol$sub[tol$sub==50] <- 8064
+tol$sub[tol$sub==84] <- 8124
+tol$sub[tol$sub==86] <- 8125
+tol$sub[tol$sub==87] <- 8126
+tol$sub[tol$sub==95] <- 8144
+
+tol_acc <- tol %>%
+  group_by(sub) %>%
+  summarise(m_acc = mean(success))
+
+tol_time <- tol %>%
+  dplyr::filter(success == 1) %>%
+  group_by(sub) %>%
+  summarise(m_time_to_first = mean(firsttime, na.rm = TRUE))
+
+tol_calc <- inner_join(tol_acc,tol_time)
+```
+
+## Nelson-Denny
+
+```{r nd_calc}
+nd_standard <- nd %>%
+  inner_join(.,nd_norms, by = c("Score" = "Raw.Score")) %>%
+  rename(nd_raw = Score, nd_ss = Standard.score)
+```
+
+## Merge all ID measures together
+
+```{r merge_ids}
+fl_sw <- full_join(flanker_subject, switcher_totaltime, by = c("subnum" = "subNum"))
+sw_tol <- full_join(fl_sw, tol_calc, by = c("subnum" = "sub"))
+tol_nd <- full_join(sw_tol, nd_standard, by = c("subnum" = "Subject")) %>%
+  rename(tol_acc = m_acc, tol_time = m_time_to_first)
+id <- full_join(tol_nd, ravens, by = c("subnum" = "Subject.Number")) %>%
+  rename(Subject = subnum, ravens = Score)
+```
+
+```{r check_transform}
+for (i in 2:13){
+  name <- names(id)[i]
+  plot <- hist(id[,i], main = name)
+  plot
+  dago <- fBasics::dagoTest(as.data.frame(id)[,i])
+  skewp <- dago@test$p.value[[2]]
+  if (skewp <= 0.05){
+    cat(name, " is skewed. p = ", round(skewp, 6), "\n")
+  } else{
+    cat(name, " is not skewed. p = ", round(skewp, 6), "\n")
+  }
+}
+
+# transform switch_eff, tol_acc, tol_time, nd_ss, ravens
+vars_tf <- c("switch_eff", "tol_acc", "tol_time", "nd_ss", "ravens")
+pp_md_tf <- preProcess(as.data.frame(id)[,vars_tf], method = c("center", "scale", "YeoJohnson"), na.remove=T)
+tf_data <- predict(pp_md_tf, as.data.frame(id)[,vars_tf])
+names(tf_data) <- c("switch_eff_tf", "tol_acc_tf", "tol_time_tf", "nd_tf", "ravens_tf")
+id <- cbind(as.data.frame(id),tf_data)
+
+# scale and center flanker
+id$flanker_eff_cs <- scale(id$flanker_eff)[,1]
+```
+
+
+```{r cor_plot}
+# correlation matrix
+cor_plot_dat <- dplyr::select(id, flanker_eff_cs, switch_eff_tf,tol_acc_tf, tol_time_tf, nd_tf, ravens_tf)
+cor.mat <- cor(cor_plot_dat[,-1], use = "complete.obs")
+p.mat <- cor_pmat(cor_plot_dat[,-1])
+# plot
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE)
+```
+
+
+# Accuracy Analysis
+
+## Ashby
+
+```{r ashby_acc}
+acc_id <- full_join(catlearn_acc, id, by = "Subject")
+
+ashby_dat <- acc_id %>%
+  dplyr::select(Subject, System, ashby.cs, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% na.omit
+
+
+m0 <- lmer(ashby.cs ~ 1 + (1|Subject), data = ashby_dat)
+m1 <- lmer(ashby.cs ~ System + (1|Subject), data = ashby_dat)
+anova(m0,m1)
+m2 <- lmer(ashby.cs ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf + (1|Subject), data = ashby_dat)
+anova(m1,m2)
+anova(m2)
+m3 <- lmer(ashby.cs ~ System + nd_tf + (1|Subject), data = ashby_dat)
+anova(m1,m3)
+anova(m3)
+```
+
+
+## Sloutsky
+
+```{r sloutsky_acc}
+acc_id <- full_join(catlearn_acc, id, by = "Subject")
+
+sloutsky_dat <- acc_id %>%
+  dplyr::select(Subject, System, sloutsky.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% na.omit
+
+
+m0 <- lmer(sloutsky.t ~ 1 + (1|Subject), data = sloutsky_dat)
+m1 <- lmer(sloutsky.t ~ System + (1|Subject), data = sloutsky_dat)
+anova(m0,m1)
+m2 <- lmer(sloutsky.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf + (1|Subject), data = sloutsky_dat)
+anova(m1,m2)
+anova(m2)
+m3 <- lmer(sloutsky.t ~ System + switch_eff_tf + (1|Subject), data = sloutsky_dat)
+anova(m1,m3)
+anova(m3)
+```
+
+
+## TT
+
+```{r tt_acc}
+acc_id <- full_join(catlearn_acc, id, by = "Subject")
+
+tt_dat <- acc_id %>%
+  dplyr::select(Subject, System, tt.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% na.omit
+
+m0 <- lmer(tt.t ~ 1 + (1|Subject), data = tt_dat)
+m1 <- lmer(tt.t ~ System + (1|Subject), data = tt_dat)
+anova(m0,m1)
+m2 <- lmer(tt.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf + (1|Subject), data = tt_dat)
+anova(m1,m2)
+anova(m2)
+m3 <- lmer(tt.t ~ System + ravens_tf  + (1|Subject), data = tt_dat)
+anova(m1,m3)
+anova(m3)
+```
+
+# RT Analysis
+
+## Ashby
+
+```{r ashby_rt}
+rt_id <- full_join(catlearn_rt, id, by = "Subject")
+
+ashby_dat <- rt_id %>%
+  dplyr::select(Subject, System, ashby.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% na.omit
+
+
+m0 <- lmer(ashby.t ~ 1 + (1|Subject), data = ashby_dat)
+m1 <- lmer(ashby.t ~ System + (1|Subject), data = ashby_dat)
+anova(m0,m1)
+m2 <- lmer(ashby.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf + (1|Subject), data = ashby_dat)
+anova(m1,m2)
+anova(m2)
+m3 <- lmer(ashby.t ~ System * tol_time_tf + (1|Subject), data = ashby_dat)
+anova(m1,m3)
+anova(m3)
+```
+
+
+## Sloutsky
+
+```{r sloutsky_rt}
+rt_id <- full_join(catlearn_rt, id, by = "Subject")
+
+sloutsky_dat <- rt_id %>%
+  dplyr::select(Subject, System, sloutsky.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% na.omit
+
+
+m0 <- lmer(sloutsky.t ~ 1 + (1|Subject), data = sloutsky_dat)
+m1 <- lmer(sloutsky.t ~ System + (1|Subject), data = sloutsky_dat)
+anova(m0,m1)
+m2 <- lmer(sloutsky.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf + (1|Subject), data = sloutsky_dat)
+anova(m1,m2)
+anova(m2)
+m3 <- lmer(sloutsky.t ~ System * tol_time_tf + (1|Subject), data = sloutsky_dat)
+anova(m1,m3)
+anova(m3)
+```
+
+
+## TT
+
+```{r tt_rt}
+rt_id <- full_join(catlearn_rt, id, by = "Subject")
+
+tt_dat <- rt_id %>%
+  dplyr::select(Subject, System, tt.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% na.omit
+
+m0 <- lmer(tt.t ~ 1 + (1|Subject), data = tt_dat)
+m1 <- lmer(tt.t ~ System + (1|Subject), data = tt_dat)
+anova(m0,m1)
+m2 <- lmer(tt.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf + (1|Subject), data = tt_dat)
+anova(m1,m2)
+anova(m2)
+```

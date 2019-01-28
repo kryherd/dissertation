@@ -373,6 +373,8 @@ acc_wide$tt.t <- tf_data$tt
 # center and scale ashby (because we did that with the tf data)
 acc_wide$ashby.cs <- scale(acc_wide$ashby)
 
+write.csv(acc_wide, "catlearn_proc_acc.csv")
+
 # only select first 84 subjects (per preregistration)
 acc_sel <- acc_wide[c(1:(2*84)),]
 
@@ -475,6 +477,8 @@ rt_wide$ashby.t <- tf_data$ashby
 rt_wide$sloutsky.t <- tf_data$sloutsky
 rt_wide$tt.t <- tf_data$tt
 
+write.csv(rt_wide, "catlearn_proc_rt.csv")
+
 # select only first 84 subjects (per preregistration)
 rt_sel <- rt_wide[c(1:(2*84)),]
 
@@ -536,7 +540,6 @@ summary(glht(ASmodel, linfct = mcp(CatLearn = "Tukey")), test = adjusted("holm")
 
 # no differences here
 
-write.csv(rt_wide, "rt_standardized.csv")
 ```
 
 
