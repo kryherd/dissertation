@@ -31,17 +31,34 @@ sel_order = order_list.loc[order_list['Order'] == int(info['Order'])]
 #set log prefixes
 prefix = 'sub-%s_order%s' % (info['ID Number'], info['Order'])
 #logging data 
-errorLog=logging.LogFile(prefix + "_errorlog.log", level=logging.DATA, filemode='w')
+errorLog=logging.LogFile("results/" + prefix + "_errorlog.log", level=logging.DATA, filemode='w')
+
+#create clock
+globalClock = core.Clock()
+logging.setDefaultClock(globalClock)
+
+# function for getting key presses
+def get_keypress():
+    keys = event.getKeys(timeStamped=globalClock)
+    # if escape was pressed...
+    if keys and keys[0][0] == 'escape':
+        # save the data in a modified format named "early_quit"
+        np.savetxt(parent_dir + "results/early_quit_order_pilot" + prefix + ".tsv", data, fmt='%s', delimiter='\t', newline='\n', header='', footer='', comments='# ')
+        # and exit
+        win.close()
+        core.quit()
+    # otherwise, return the keypress object
+    elif keys:
+        return keys
+    # if no keys were pressed, return None
+    else:
+        return None
 
 def check_exit():
 #abort if esc was pressed
     if event.getKeys('escape'):
         win.close()
         core.quit()
-
-#create clock
-globalClock = core.Clock()
-logging.setDefaultClock(globalClock)
 
 #info about the screen
 win = visual.Window(size = [1440,900],
@@ -137,40 +154,42 @@ for i in range(1, 3):
         t1 = globalClock.getTime()
         while globalClock.getTime()-t1 <= 5:
         #abort if esc was pressed
-            check_exit()
-            KEY = event.getKeys(keyList=["x","n"])
-            if KEY != []:
-                t2 = globalClock.getTime()
-                win.flip()
+            KEY = get_keypress()
+            if KEY != None:
                 break
         # map keypress to meaningful response type
-        if KEY == []:
-            KEY = "None"
+        if KEY != None:
+            resp = KEY[0][0] # save key that was pressed
+            RT = KEY[0][1] - t1 # calculate RT
+            if resp == "x":
+                RESP = "target"
+            elif resp == "n":
+                RESP = "nottarget"
+            else:
+                RESP = "invalid key"
+        elif KEY == None:
+            resp = "None"
             RESP = "None"
-        elif KEY == ["x"]:
-            RESP = "target"
-        elif KEY == ["n"]:
-            RESP = "nottarget"
         # determine the accuracy of the response, calculate reaction time
         if RESP == "None":
             ACC = 0; RT = 9999
             win.flip(); core.wait(1)
         elif RESP == TRIAL_LIST_RAND[index]["StimType"]:
-            ACC = 1; RT = t2-t1
+            ACC = 1;
             win.flip(); core.wait(1)
         elif RESP != TRIAL_LIST_RAND[index]["StimType"]:
-            ACC = 0; RT = t2-t1
+            ACC = 0;
             win.flip(); core.wait(1)
         # store data into the numpy array
         data = np.vstack((data, np.hstack((blockName, 
         TRIAL_LIST_RAND[index]['StimType'],
         TRIAL_LIST_RAND[index]['Stim'], 
-        KEY,
+        resp,
         RESP,
         ACC,
         "%.3f" %RT))))
 
-np.savetxt(prefix + "_orderpil_results.tsv", data, fmt='%s', delimiter='\t', newline='\n', header='', footer='', comments='# ')
+np.savetxt("results/" + prefix + "_orderpil_results.tsv", data, fmt='%s', delimiter='\t', newline='\n', header='', footer='', comments='# ')
 
 #display a Thank You message
 FinalThankYou_txt.draw()

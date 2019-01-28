@@ -480,7 +480,7 @@ acc1_plot <- acc1 %>%
             d.prime = mean(d.prime))
 
 oe1 <- ggplot(acc1, aes(Block, d.prime, fill = FirstBlock)) + geom_violin() + 
-  facet_grid(.~Order) + theme_bw() + geom_point(aes(y=d.prime), data=acc1_plot) +
+  facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=d.prime), data=acc1_plot) +
   geom_errorbar(aes(ymin=d.prime-se_dpr, ymax=d.prime+se_dpr), width = 0.2, data=acc1_plot) +
   ylab("d'") + xlab("Block") + ggtitle("Order Effect 1: Matching Conditions") +
   theme(plot.title = element_text(hjust = 0.5)) + 
@@ -502,7 +502,7 @@ acc2_plot <- acc2 %>%
 
 # set up plot for effect 3
 oe2 <- ggplot(acc2, aes(Block, d.prime, fill = FirstBlock)) + geom_violin() + 
-  facet_grid(.~Order) + theme_bw() + geom_point(aes(y=d.prime), data=acc2_plot) +
+  facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=d.prime), data=acc2_plot) +
   geom_errorbar(aes(ymin=d.prime-se_dpr, ymax=d.prime+se_dpr), width = 0.2, data=acc2_plot) +
   ylab("d'") + xlab("Block") + ggtitle("Order Effect 2: Dense Stimuli") +
   theme(plot.title = element_text(hjust = 0.5)) + 
@@ -522,7 +522,7 @@ acc3_plot <- acc3 %>%
             d.prime = mean(d.prime))
 
 oe3 <- ggplot(acc3, aes(Block, d.prime, fill = FirstBlock)) + geom_violin() + 
-  facet_grid(.~Order) + theme_bw() + geom_point(aes(y=d.prime), data=acc3_plot) +
+  facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=d.prime), data=acc3_plot) +
   geom_errorbar(aes(ymin=d.prime-se_dpr, ymax=d.prime+se_dpr), width = 0.2, data=acc3_plot) +
   ylab("d'") + xlab("Block") + ggtitle("Order Effect 3: Sparse Stimuli") +
   theme(plot.title = element_text(hjust = 0.5), legend.position="bottom") + 
@@ -553,7 +553,7 @@ rt1_plot <- rt1 %>%
             RT = mean(RT))
 
 oe1 <- ggplot(rt1, aes(Block, RT, fill = FirstBlock)) + geom_violin() + 
-  facet_grid(.~Order) + theme_bw() + geom_point(aes(y=RT), data=rt1_plot) +
+  facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=RT), data=rt1_plot) +
   geom_errorbar(aes(ymin=RT-se_rt, ymax=RT+se_rt), width = 0.2, data=rt1_plot) +
   ylab("Reaction Time (s)") + xlab("Block") + ggtitle("Order Effect 1: Matching Conditions") +
   theme(plot.title = element_text(hjust = 0.5)) + 
@@ -575,7 +575,7 @@ rt2_plot <- rt2 %>%
 
 # set up plot for effect 3
 oe2 <- ggplot(rt2, aes(Block, RT, fill = FirstBlock)) + geom_violin() + 
-  facet_grid(.~Order) + theme_bw() + geom_point(aes(y=RT), data=rt2_plot) +
+  facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=RT), data=rt2_plot) +
   geom_errorbar(aes(ymin=RT-se_rt, ymax=RT+se_rt), width = 0.2, data=rt2_plot) +
   ylab("Reaction Time (s)") + xlab("Block") + ggtitle("Order Effect 2: Dense Stimuli") +
   theme(plot.title = element_text(hjust = 0.5)) + 
@@ -595,7 +595,7 @@ rt3_plot <- rt3 %>%
             RT = mean(RT))
 
 oe3 <- ggplot(rt3, aes(Block, RT, fill = FirstBlock)) + geom_violin() + 
-  facet_grid(.~Order) + theme_bw() + geom_point(aes(y=RT), data=rt3_plot) +
+  facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=RT), data=rt3_plot) +
   geom_errorbar(aes(ymin=RT-se_rt, ymax=RT+se_rt), width = 0.2, data=rt3_plot) +
   ylab("Reaction Time (s)") + xlab("Block") + ggtitle("Order Effect 3: Sparse Stimuli") +
   theme(plot.title = element_text(hjust = 0.5), legend.position="bottom") + 
@@ -614,7 +614,7 @@ p3 <- grid.arrange(arrangeGrob(oe1 + theme(legend.position="none"),
 
 acc3_beh %>%
   ggplot(aes(lang_composite, d.prime)) + geom_point() + geom_smooth(method = "lm", se = FALSE) +
-  theme_bw() + xlab("Language Ability") + ylab("d'") + ggtitle("Language Ability and Accuracy in Sparse Blocks")
+  theme_bw(15) + xlab("Language Ability") + ylab("d'") + ggtitle("Language Ability and Accuracy in Sparse Blocks")
 
 cor.test(acc3_beh$lang_composite, acc3_beh$d.prime)
 

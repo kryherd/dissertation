@@ -26,14 +26,32 @@ order_list = pd.read_table('blockOrders.csv', sep=',')
 # randomly generate a number between 1 and 24
 order_rand = random.randint(1,24)
 # select the row with that order
-sel_order = order_list.loc[order_list['Order'] == int(info['Order'])]
+sel_order = order_list.loc[order_list['Order'] == order_rand]
 
 
 #### EXPERIMENT SETUP
 #set log prefixes
 prefix = 'sub-%s_order%s' % (info['ID Number'], order_rand)
 #logging data 
-errorLog=logging.LogFile(prefix + "_errorlog.log", level=logging.DATA, filemode='w')
+errorLog=logging.LogFile("results/" + prefix + "_errorlog.log", level=logging.DATA, filemode='w')
+
+# function for getting key presses
+def get_keypress():
+    keys = event.getKeys(timeStamped=globalClock)
+    # if escape was pressed...
+    if keys and keys[0][0] == 'escape':
+        # save the data in a modified format named "early_quit"
+        np.savetxt(parent_dir + "results/early_quit_catlearn_" + prefix + ".tsv", data, fmt='%s', delimiter='\t', newline='\n', header='', footer='', comments='# ')
+        # and exit
+        win.close()
+        core.quit()
+    # otherwise, return the keypress object
+    elif keys:
+        return keys
+    # if no keys were pressed, return None
+    else:
+        return None
+
 
 def check_exit():
 #abort if esc was pressed
@@ -84,11 +102,12 @@ FinalThankYou_txt = visual.TextStim(win, text = "Thank you!",
 blockInstr = pd.read_table('blockInstr.csv', sep=',')
 
 # header for data log
-data = np.hstack(("Block","StimType", "Stimulus", "KEY", "RESP", "Accuracy", "RT"))
+data = np.hstack(("Block","StimType", "Stimulus", "key_pressed", "RESP", "Accuracy", "RT"))
 
 yesresp = {"UnsupervisedSparse":"Allied", "UnsupervisedDense":"Friendly", "SupervisedSparse":"Will Eat Garden", "SupervisedDense":"Will Like"}
 noresp = {"UnsupervisedSparse":"Enemy", "UnsupervisedDense":"Aggressive", "SupervisedSparse":"Won't Eat Garden", "SupervisedDense":"Won't Like"}
 stimdict = {"UnsupervisedSparse":"Flags", "UnsupervisedDense":"Aliens", "SupervisedSparse":"Bugs", "SupervisedDense":"Flowers"}
+
 
 #### EXPERIMENT RUNNING
 # run through the blocks in order
@@ -139,35 +158,37 @@ for i in range(1, 5):
         t1 = globalClock.getTime()
         while globalClock.getTime()-t1 <= 5:
         #abort if esc was pressed
-            check_exit()
-            KEY = event.getKeys(keyList=["x","n"])
-            if KEY != []:
-                t2 = globalClock.getTime()
-                win.flip()
+            KEY = get_keypress()
+            if KEY != None:
                 break
         # map keypress to meaningful response type
-        if KEY == []:
-            KEY = "None"
+        if KEY != None:
+            resp = KEY[0][0] # save key that was pressed
+            RT = KEY[0][1] - t1 # calculate RT
+            if resp == "x":
+                RESP = "target"
+            elif resp == "n":
+                RESP = "nottarget"
+            else:
+                RESP = "invalid key"
+        elif KEY == None:
+            resp = "None"
             RESP = "None"
-        elif KEY == ["x"]:
-            RESP = "target"
-        elif KEY == ["n"]:
-            RESP = "nottarget"
         # determine the accuracy of the response, calculate reaction time
         if RESP == "None":
             ACC = 0; RT = 9999
             win.flip(); core.wait(1)
         elif RESP == TRIAL_LIST_RAND[index]["StimType"]:
-            ACC = 1; RT = t2-t1
+            ACC = 1;
             win.flip(); core.wait(1)
         elif RESP != TRIAL_LIST_RAND[index]["StimType"]:
-            ACC = 0; RT = t2-t1
+            ACC = 0;
             win.flip(); core.wait(1)
         # store data into the numpy array
         data = np.vstack((data, np.hstack((blockName, 
         TRIAL_LIST_RAND[index]['StimType'],
         TRIAL_LIST_RAND[index]['Stim'], 
-        KEY,
+        resp,
         RESP,
         ACC,
         "%.3f" %RT))))
