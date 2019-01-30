@@ -30,6 +30,7 @@ setwd("~/dissertation/DataAnalysis/Exp2/CatLearning")
 ashby <- read.csv("Ashby_concat_12-07-18_1019.csv")
 sloutsky <- read.csv("Sloutsky_concat_12-07-18_1019.csv")
 taxthem <- read.csv("taxthem_concat_12-07-18_1020.csv")
+age_gender <- read.csv("../age_gender.csv")
 ```
 
 # Processing/Standardizing Ashby Data
@@ -149,7 +150,7 @@ Look at data by block and condition.
 
 ```{r}
 ashby_rt_block <- ashby_full %>%
-  dplyr::filter(Accuracy == 1) %>% 
+  dplyr::filter(Accuracy == 1, RT > 0.250) %>% 
   group_by(Subject, Type, Block) %>%
   summarise(m_rt = mean(RT))
 ashby_rt_block$Block <- as.factor(ashby_rt_block$Block)
@@ -375,8 +376,29 @@ acc_wide$ashby.cs <- scale(acc_wide$ashby)
 
 write.csv(acc_wide, "catlearn_proc_acc.csv")
 
+# merge in age and gender
+acc_demo <- acc_wide %>%
+  inner_join(.,age_gender, by = "Subject")
+
 # only select first 84 subjects (per preregistration)
-acc_sel <- acc_wide[c(1:(2*84)),]
+acc_sel <- acc_demo[c(1:(2*84)),]
+
+
+acc_sel$Gender[acc_sel$Gender == "female"] <- "Female"
+acc_sel$Gender[acc_sel$Gender == "male"] <- "Male"
+# demographics for this sample
+acc_sel %>%
+  distinct(Subject, Age, Gender) %>%
+  group_by(Gender) %>%
+  dplyr::count(Gender)
+
+acc_sel %>%
+  distinct(Subject, Age, Gender) %>%
+  ungroup() %>%
+  summarise(m_age = mean(Age),
+            sd_age = sd(Age),
+            min_age = min(Age),
+            max_age = max(Age))
 
 # select only the hypothesis testing data and see their correlation
 ht <- subset(acc_sel, System == "hypothesis-testing")

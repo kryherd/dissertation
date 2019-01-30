@@ -613,6 +613,8 @@ p3 <- grid.arrange(arrangeGrob(oe1 + theme(legend.position="none"),
 ## Language ability & Accuracy in effect 3
 
 acc3_beh %>%
+  group_by(Subject, lang_composite) %>%
+  summarise(d.prime = mean(d.prime)) %>%
   ggplot(aes(lang_composite, d.prime)) + geom_point() + geom_smooth(method = "lm", se = FALSE) +
   theme_bw(15) + xlab("Language Ability") + ylab("d'") + ggtitle("Language Ability and Accuracy in Sparse Blocks")
 
