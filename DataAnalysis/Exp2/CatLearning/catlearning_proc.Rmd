@@ -23,7 +23,6 @@ library(lmerTest)
 library(fBasics)
 library(caret)
 library(multcomp)
-library(picante)
 library(ggcorrplot)
 library(multcomp)
 setwd("~/dissertation/DataAnalysis/Exp2/CatLearning")
@@ -63,34 +62,35 @@ ashby_full <- ashby_filt %>%
 
 ## Accuracy
 
-Look at data by condition.
 
 ```{r}
+# mean accuracy by subject and system
 ashby_acc_long <- ashby_full %>%
   group_by(Subject, Type) %>%
   summarise(m_acc = mean(Accuracy))
 
+# plot relationship between systems
 ashby_acc_wide <- spread(ashby_acc_long, Type, m_acc)
 ggplot(ashby_acc_wide, aes(RB, II)) + geom_point() + theme_bw() + geom_smooth(method = "lm", se = FALSE) +
-  ggtitle("Relationship Between Ashby Conditions - Accuracy")
+  ggtitle("Relationship Between Ashby Systems - Accuracy")
 
+# test correlation
 cor.test(ashby_acc_wide$RB, ashby_acc_wide$II)
 
+# violin plot by system
 ashby_acc_plot <- summarySE(ashby_acc_long, "m_acc", "Type")
 ggplot(ashby_acc_long, aes(Type, m_acc)) + geom_violin() + 
   geom_point(aes(y = m_acc), size = 2, position = position_dodge((width = 0.90)), data = ashby_acc_plot) +
   geom_errorbar(aes(ymin = m_acc-se, ymax = m_acc+se), width = 0.20, position = position_dodge((width = 0.90)), data = ashby_acc_plot) +
   theme_bw() + xlab("Condition") + ylab("Accuracy") + ggtitle("Ashby Performance")
-```
 
-Look at data by block and condition.
-
-```{r}
+# summarize by block, system, and subject
 ashby_acc_block <- ashby_full %>%
   group_by(Subject, Type, Block) %>%
   summarise(m_acc = mean(Accuracy))
 ashby_acc_block$Block <- as.factor(ashby_acc_block$Block)
 
+# plot by system and block
 ashby_acc_plot <- summarySE(ashby_acc_block, "m_acc", c("Type", "Block"))
 ggplot(ashby_acc_block, aes(Block, m_acc)) + geom_violin() +
   geom_point(aes(y = m_acc), size = 2, position = position_dodge((width = 0.90)), data = ashby_acc_plot) +
@@ -102,30 +102,57 @@ ggplot(ashby_acc_block, aes(Block, m_acc)) + geom_violin() +
 Create *z*-scores for accuracy.
 
 ```{r}
-ashby_acc_long$acc_z <- scale(ashby_acc_long$m_acc)
-ashby_acc_long$System <- NA
-ashby_acc_long$System[ashby_acc_long$Type == "II"] <- "associative"
-ashby_acc_long$System[ashby_acc_long$Type == "RB"] <- "hypothesis-testing"
-ashby_acc_long$CatLearn <- "ashby"
-ashby_acc_long <- ashby_acc_long[,-c(2,3)]
+# select new data frame
+ashby_acc_stand <- ashby_acc_long
+# z-scores
+ashby_acc_stand$acc_z <- scale(ashby_acc_stand$m_acc)
+# create column for system
+ashby_acc_stand$System <- NA
+ashby_acc_stand$System[ashby_acc_stand$Type == "II"] <- "associative"
+ashby_acc_stand$System[ashby_acc_stand$Type == "RB"] <- "hypothesis-testing"
+# create column for paradigm
+ashby_acc_stand$CatLearn <- "ashby"
+# create df with raw ACC values
+ashby_acc <- ashby_acc_stand[,-c(2,4)]
+# create df with ACC z-scores
+ashby_acc_stand <- ashby_acc_stand[,-c(2,3)]
 ```
 
 ## RT
 
-Look at data by condition.
+RT Filtering (Lachaud & Renaud, 2011)
+
+- ideal: +/- 2SD by item and by subject
+- can't do by item, but we can do by subject nd type (RB vs II).
 
 ```{r}
+# filter RTs and then calculate mean RT by subject
 ashby_rt_long <- ashby_full %>%
-  dplyr::filter(Accuracy == 1 & RT > 0.250) %>% # filtering only correct trials and removing RTs faster than 250ms
+  dplyr::filter(Accuracy == 1) %>% # selecting correct trials only
   group_by(Subject, Type) %>%
+  mutate(mean_rt = mean(RT),
+         sd_rt = sd(RT),
+         diff = RT-mean_rt,
+         remove = ifelse(abs(diff) > 2*sd_rt, 1, 0)) %>% # if any trial has an RT more than 2SD away from the mean, flag it for removal
+  dplyr::filter(remove == 0) %>% # remove those trials
   summarise(m_rt = mean(RT))
 
 ashby_rt_wide <- spread(ashby_rt_long, Type, m_rt)
 ggplot(ashby_rt_wide, aes(RB, II)) + geom_point() + theme_bw() + geom_smooth(method = "lm", se = FALSE) +
   ggtitle("Relationship Between Ashby Conditions - RT")
+
+# check for subjects who are total outliers within a given system
+
+is_outlier <- function(x) {
+  return(x < quantile(x, 0.25) - 1.5 * IQR(x) | x > quantile(x, 0.75) + 1.5 * IQR(x))
+}
+ashby_rt_long %>%
+  group_by(Type) %>%
+  mutate(outlier = ifelse(is_outlier(m_rt), Subject, as.numeric(NA))) %>%
+  ggplot(., aes(Type, m_rt)) + geom_boxplot() + geom_text(aes(label = outlier), na.rm = TRUE, hjust = -0.3) + theme_bw()
 ```
 
-One subject has weirdly long RTs. I'm going to remove them from the analysis.
+One subject has weirdly long RTs for both systems. I'm going to remove them from the analysis.
 
 ```{r}
 ashby_rt_long <- ashby_rt_long %>%
@@ -134,27 +161,33 @@ ashby_rt_long <- ashby_rt_long %>%
 ashby_rt_wide <- ashby_rt_wide %>%
   dplyr::filter(Subject != 8088)
 
+# plot relationship between two systems
 ggplot(ashby_rt_wide, aes(RB, II)) + geom_point() + theme_bw() + geom_smooth(method = "lm", se = FALSE) +
-  ggtitle("Relationship Between Ashby Conditions - RT")
+  ggtitle("Relationship Between Ashby Systems - RT")
 
+# test correlation
 cor.test(ashby_rt_wide$RB, ashby_rt_wide$II)
 
+# violin plot of RTs by system
 ashby_rt_plot <- summarySE(ashby_rt_long, "m_rt", "Type")
 ggplot(ashby_rt_long, aes(Type, m_rt)) + geom_violin() + 
   geom_point(aes(y = m_rt), size = 2, position = position_dodge((width = 0.90)), data = ashby_rt_plot) +
   geom_errorbar(aes(ymin = m_rt-se, ymax = m_rt+se), width = 0.20, position = position_dodge((width = 0.90)), data = ashby_rt_plot) +
   theme_bw() + xlab("Condition") + ylab("RT") + ggtitle("Ashby Performance")
-```
 
-Look at data by block and condition.
-
-```{r}
+# summarise by subject, system, and block
 ashby_rt_block <- ashby_full %>%
-  dplyr::filter(Accuracy == 1, RT > 0.250) %>% 
+  dplyr::filter(Accuracy == 1, Subject != 8088) %>% # selecting correct trials only, removing outlier subject
   group_by(Subject, Type, Block) %>%
+  mutate(mean_rt = mean(RT),
+         sd_rt = sd(RT),
+         diff = RT-mean_rt,
+         remove = ifelse(abs(diff) > 2*sd_rt, 1, 0)) %>%
+  dplyr::filter(remove == 0) %>%
   summarise(m_rt = mean(RT))
 ashby_rt_block$Block <- as.factor(ashby_rt_block$Block)
 
+# plot by block and system
 ashby_rt_plot <- summarySE(ashby_rt_block, "m_rt", c("Type", "Block"))
 ggplot(ashby_rt_block, aes(Block, m_rt)) + geom_violin() +
   geom_point(aes(y = m_rt), size = 2, position = position_dodge((width = 0.90)), data = ashby_rt_plot) +
@@ -166,12 +199,20 @@ ggplot(ashby_rt_block, aes(Block, m_rt)) + geom_violin() +
 Create *z*-scores for accuracy.
 
 ```{r}
-ashby_rt_long$rt_z <- scale(ashby_rt_long$m_rt)
-ashby_rt_long$System <- NA
-ashby_rt_long$System[ashby_rt_long$Type == "II"] <- "associative"
-ashby_rt_long$System[ashby_rt_long$Type == "RB"] <- "hypothesis-testing"
-ashby_rt_long$CatLearn <- "ashby"
-ashby_rt_long <- ashby_rt_long[,-c(2:3)]
+# select new df
+ashby_rt_stand <- ashby_rt_long
+# create z-scores
+ashby_rt_stand$rt_z <- scale(ashby_rt_stand$m_rt)
+# create column for system
+ashby_rt_stand$System <- NA
+ashby_rt_stand$System[ashby_rt_stand$Type == "II"] <- "associative"
+ashby_rt_stand$System[ashby_rt_stand$Type == "RB"] <- "hypothesis-testing"
+# create column for paradigm
+ashby_rt_stand$CatLearn <- "ashby"
+# df with raw RTs
+ashby_rt <- ashby_rt_stand[,-c(2,4)]
+# df with RT z-scores
+ashby_rt_stand <- ashby_rt_stand[,-c(2:3)]
 ```
 
 
@@ -179,80 +220,91 @@ ashby_rt_long <- ashby_rt_long[,-c(2:3)]
 
 ## Accuracy
 
+I have used d' in the past, but I want this to be totally relatable between tasks. I'm going to calculate regular accuracy here.
+
 ```{r}
-# label each type of response to create d'
-sloutsky$response_type[sloutsky$StimType == "target" & sloutsky$RESP == "target"] <- "Hit"
-sloutsky$response_type[sloutsky$StimType == "target" & sloutsky$RESP == "nottarget"] <- "Miss"
-sloutsky$response_type[sloutsky$StimType == "nottarget" & sloutsky$RESP == "nottarget"] <- "CorRej"
-sloutsky$response_type[sloutsky$StimType == "nottarget" & sloutsky$RESP == "target"] <- "FalseAlarm"
-sloutsky$response_type[substr(sloutsky$Stimulus,1,5) == "catch" & sloutsky$Accuracy == 1] <- "CatchGood"
+# summarize ACCs by subject and system
+sloutsky_acc_long <- sloutsky %>%
+  group_by(Subject, Block) %>%
+  summarise(m_acc = mean(Accuracy))
 
-# count them
-counts <- plyr::count(sloutsky, c('Subject', 'Block', 'response_type'))
+# plot relationship between systems
+sloutsky_acc_wide <- spread(sloutsky_acc_long, Block, m_acc)
+ggplot(sloutsky_acc_wide, aes(SupervisedSparse, UnsupervisedDense)) + geom_point() + theme_bw() + geom_smooth(method = "lm", se = FALSE) +
+  ggtitle("Relationship Between Sloutsky Conditions - Accuracy")
 
-# spread them
-slout_counts <- sloutsky %>%
-  group_by(Subject, Block, response_type) %>%
-  count() %>%
-  spread(key = response_type, value = n) 
+# test correlation
+cor.test(sloutsky_acc_wide$SupervisedSparse, sloutsky_acc_wide$UnsupervisedDense)
 
-slout_counts[is.na(slout_counts)] <- 0
-
-# create d'
-slout_dpr <- slout_counts %>%
-  mutate(dpr = dprime(Hit, Miss, FalseAlarm, CorRej)$dprime)
-
-sl_plot_acc <- summarySE(slout_dpr, "dpr", "Block")
-ggplot(slout_dpr, aes(Block, dpr)) + geom_violin() + 
-  geom_point(aes(y = dpr), size = 2, position = position_dodge((width = 0.90)), data = sl_plot_acc) +
-  geom_errorbar(aes(ymin = dpr-se, ymax = dpr+se), width = 0.20, position = position_dodge((width = 0.90)), data = sl_plot_acc) +
-  theme_bw() + xlab("Block") + ylab("Accuracy (d')") + ggtitle("Sloutsky Performance")
+# violin plot of systems
+sloutsky_acc_plot <- summarySE(sloutsky_acc_long, "m_acc", "Block")
+ggplot(sloutsky_acc_long, aes(Block, m_acc)) + geom_violin() + 
+  geom_point(aes(y = m_acc), size = 2, position = position_dodge((width = 0.90)), data = sloutsky_acc_plot) +
+  geom_errorbar(aes(ymin = m_acc-se, ymax = m_acc+se), width = 0.20, position = position_dodge((width = 0.90)), data = sloutsky_acc_plot) +
+  theme_bw() + xlab("Condition") + ylab("Accuracy") + ggtitle("Sloutsky Performance")
 ```
 
 Create *z*-scores for accuracy.
 
 ```{r}
-slout_acc <- slout_dpr %>%
+# select only relevant blocks, create new df
+slout_acc_stand <- sloutsky_acc_long %>%
   dplyr::filter(Block == "SupervisedSparse" | Block == "UnsupervisedDense") %>%
-  dplyr::select(Subject, Block, dpr)
-slout_acc$acc_z <- scale(slout_acc$dpr)
-slout_acc$System <- NA
-slout_acc$System[slout_acc$Block == "UnsupervisedDense"] <- "associative"
-slout_acc$System[slout_acc$Block == "SupervisedSparse"] <- "hypothesis-testing"
-slout_acc$CatLearn <- "sloutsky"
-slout_acc <- slout_acc[,-c(2,3)]
+  dplyr::select(Subject, Block, m_acc)
+# z-scores
+slout_acc_stand$acc_z <- scale(slout_acc_stand$m_acc)
+# create column for system
+slout_acc_stand$System <- NA
+slout_acc_stand$System[slout_acc_stand$Block == "UnsupervisedDense"] <- "associative"
+slout_acc_stand$System[slout_acc_stand$Block == "SupervisedSparse"] <- "hypothesis-testing"
+# create column for paradigm
+slout_acc_stand$CatLearn <- "sloutsky"
+# df with raw acc
+slout_acc <- slout_acc_stand[,-c(2,4)]
+# df with acc z-scores
+slout_acc_stand <- slout_acc_stand[,-c(2,3)]
 ```
 
 ## RT
 
 ```{r}
-# recode non-answers
+# recode non-answers to missing
 sloutsky$RT[sloutsky$RT == 9999] <- NA
-sl_rt <- sloutsky %>%
-  dplyr::filter(Accuracy == 1 & RT > 0.250) %>%
-  group_by(Subject, Block) %>%
-  summarise(m_RT = mean(RT, na.rm = TRUE))
 
-sl_plot_rt <- summarySE(sl_rt, "m_RT", "Block", na.rm = TRUE)
-ggplot(sl_rt, aes(Block, m_RT)) + geom_violin() + 
-  geom_point(aes(y = m_RT), size = 2, position = position_dodge((width = 0.90)), data = sl_plot_rt) +
-  geom_errorbar(aes(ymin = m_RT-se, ymax = m_RT+se), width = 0.20, position = position_dodge((width = 0.90)), data = sl_plot_rt) +
+# same RT processing as above
+sl_rt <- sloutsky %>%
+  dplyr::filter(Accuracy == 1) %>%
+  group_by(Subject, Block) %>%
+  mutate(mean_rt = mean(RT),
+         sd_rt = sd(RT),
+         diff = RT-mean_rt,
+         remove = ifelse(abs(diff) > 2*sd_rt, 1, 0)) %>%
+  dplyr::filter(remove == 0) %>%
+  summarise(m_rt = mean(RT))
+
+# plot by system
+sl_plot_rt <- summarySE(sl_rt, "m_rt", "Block", na.rm = TRUE)
+ggplot(sl_rt, aes(Block, m_rt)) + geom_violin() + 
+  geom_point(aes(y = m_rt), size = 2, position = position_dodge((width = 0.90)), data = sl_plot_rt) +
+  geom_errorbar(aes(ymin = m_rt-se, ymax = m_rt+se), width = 0.20, position = position_dodge((width = 0.90)), data = sl_plot_rt) +
   theme_bw() + xlab("Block") + ylab("RT") + ggtitle("Sloutsky Performance")
+
+# plot to look for outliers
+sl_rt %>%
+  group_by(Block) %>%
+  mutate(outlier = ifelse(is_outlier(m_rt), Subject, as.numeric(NA))) %>%
+  ggplot(., aes(Block, m_rt)) + geom_boxplot() + geom_text(aes(label = outlier), na.rm = TRUE, hjust = -0.3) + theme_bw()
 ```
 
-Comparing SS to UD. It doesn't look like ACC is helpful here.
+Here the RTs make sense -- Supervised (hypothesis-testing) is faster than unsupervised (associative), and match (SS and UD) are faster than mismatch (SD and US).
+
+No single subject is an outlier across all conditions, so I won't be removing anyone.
+
 
 ```{r}
-sl_filt <- slout_dpr %>% 
-  dplyr::filter(Block %in% c("SupervisedSparse","UnsupervisedDense")) %>%
-  dplyr::select(Subject, Block, dpr)
-sl_wide <- spread(sl_filt, Block, dpr)
-ggplot(sl_wide, aes(UnsupervisedDense, SupervisedSparse)) + geom_point() + theme_bw() + 
-  geom_smooth(method = "lm", se = FALSE) +
-  ggtitle("Relationship Between Sloutsky Conditions - ACC")
-
+# select relevant blocks and plot relationship between the two
 sl_filt <- dplyr::filter(sl_rt, Block %in% c("SupervisedSparse","UnsupervisedDense"))
-sl_wide <- spread(sl_filt, Block, m_RT)
+sl_wide <- spread(sl_filt, Block, m_rt)
 ggplot(sl_wide, aes(UnsupervisedDense, SupervisedSparse)) + geom_point() + theme_bw() + 
   geom_smooth(method = "lm", se = FALSE) +
   ggtitle("Relationship Between Sloutsky Conditions - RT")
@@ -261,12 +313,20 @@ ggplot(sl_wide, aes(UnsupervisedDense, SupervisedSparse)) + geom_point() + theme
 Standardizing Sloutsky RTs.
 
 ```{r}
-sl_filt$rt_z <- scale(sl_filt$m_RT)
-sl_filt$System <- NA
-sl_filt$System[sl_filt$Block == "UnsupervisedDense"] <- "associative"
-sl_filt$System[sl_filt$Block == "SupervisedSparse"] <- "hypothesis-testing"
-sl_filt$CatLearn <- "sloutsky"
-sl_filt <- sl_filt[,-c(2,3)]
+# select new df
+slout_rt_stand <- sl_filt
+# z-scores
+slout_rt_stand$rt_z <- scale(slout_rt_stand$m_rt)
+# column for system
+slout_rt_stand$System <- NA
+slout_rt_stand$System[slout_rt_stand$Block == "UnsupervisedDense"] <- "associative"
+slout_rt_stand$System[slout_rt_stand$Block == "SupervisedSparse"] <- "hypothesis-testing"
+# column for paradigm
+slout_rt_stand$CatLearn <- "sloutsky"
+# df for raw RT
+slout_rt <- slout_rt_stand[,-c(2,4)]
+# df for RT z-scores
+slout_rt_stand <- slout_rt_stand[,-c(2,3)]
 ```
 
 # Processing/Standardizing Tax/Them Data
@@ -274,67 +334,109 @@ sl_filt <- sl_filt[,-c(2,3)]
 ## Accuracy
 
 ```{r}
+# select only the test trials
 test_trials <- dplyr::filter(taxthem, !is.na(expTrials.thisTrialN))
 
+# calculate mean acc by participant and system
 tt_acc <- test_trials %>%
   group_by(participant, Experiment) %>%
   summarise(m_acc = mean(resp.corr))
 
+# plot relationship between two systems
+tt_acc_wide <- tt_acc %>%
+  group_by(participant) %>%
+  spread(key = Experiment, value = m_acc) 
+ggplot(tt_acc_wide, aes(taxonomic, thematic)) + geom_point() + geom_smooth(se = FALSE, method = "lm") + theme_bw()
+
+# test correlation
+cor.test(tt_acc_wide$taxonomic, tt_acc_wide$thematic)  
+
+# violin plot of both systems
 tt_plot_acc <- summarySE(tt_acc, "m_acc", "Experiment")
 ggplot(tt_acc, aes(Experiment, m_acc)) + geom_violin() + 
   geom_point(aes(y = m_acc), size = 2, position = position_dodge((width = 0.90)), data = tt_plot_acc) +
   geom_errorbar(aes(ymin = m_acc-se, ymax = m_acc+se), width = 0.20, position = position_dodge((width = 0.90)), data = tt_plot_acc) +
   theme_bw() + xlab("Condition") + ylab("Accuracy") + ggtitle("Tax/Them Performance")
-
-tt_acc_wide <- tt_acc %>%
-  group_by(participant) %>%
-  spread(key = Experiment, value = m_acc) 
-
-ggplot(tt_acc_wide, aes(taxonomic, thematic)) + geom_point() + geom_smooth(se = FALSE, method = "lm") + theme_bw()
-
-cor.test(tt_acc_wide$taxonomic, tt_acc_wide$thematic)  
 ```
 
 Create *z*-scores for accuracy.
 
 ```{r}
-tt_acc$acc_z <- scale(tt_acc$m_acc)
-tt_acc$System <- NA
-tt_acc$System[tt_acc$Experiment == "taxonomic"] <- "hypothesis-testing"
-tt_acc$System[tt_acc$Experiment == "thematic"] <- "associative"
-tt_acc$CatLearn <- "tt"
-tt_acc <- tt_acc[,-c(2,3)]
-colnames(tt_acc)[1] <- "Subject"
+# new df
+tt_acc_stand <- tt_acc
+# rename column
+colnames(tt_acc_stand)[1] <- "Subject"
+# z-score
+tt_acc_stand$acc_z <- scale(tt_acc_stand$m_acc)
+# column for system
+tt_acc_stand$System <- NA
+tt_acc_stand$System[tt_acc_stand$Experiment == "taxonomic"] <- "hypothesis-testing"
+tt_acc_stand$System[tt_acc_stand$Experiment == "thematic"] <- "associative"
+# column for paradigm
+tt_acc_stand$CatLearn <- "tt"
+# df for raw acc
+tt_acc <- tt_acc_stand[,-c(2,4)]
+# df for acc z-score
+tt_acc_stand <- tt_acc_stand[,-c(2,3)]
 ```
 
 ## RT
 
 ```{r}
-# remove RTs that are too short (less than 250ms), incorrect trials
-cor_trials <- dplyr::filter(test_trials, resp.corr == 1 & resp.rt > 0.250)
-
-tt_rt <- cor_trials %>%
+# same RT processing as above
+tt_rt <- test_trials %>%
+  dplyr::filter(resp.corr == 1) %>%
   group_by(participant, Experiment) %>%
-  summarise(m_RT = mean(resp.rt))
+  mutate(mean_rt = mean(resp.rt),
+         sd_rt = sd(resp.rt),
+         diff = resp.rt-mean_rt,
+         remove = ifelse(abs(diff) > 2*sd_rt, 1, 0)) %>%
+  dplyr::filter(remove == 0) %>%
+  summarise(m_rt = mean(resp.rt))
 
-tt_plot_rt <- summarySE(tt_rt, "m_RT", "Experiment")
-ggplot(tt_rt, aes(Experiment, m_RT)) + geom_violin() + 
-  geom_point(aes(y = m_RT), size = 2, position = position_dodge((width = 0.90)), data = tt_plot_rt) +
-  geom_errorbar(aes(ymin = m_RT-se, ymax = m_RT+se), width = 0.20, position = position_dodge((width = 0.90)), data = tt_plot_rt) +
+# violin plots by system
+tt_plot_rt <- summarySE(tt_rt, "m_rt", "Experiment")
+ggplot(tt_rt, aes(Experiment, m_rt)) + geom_violin() + 
+  geom_point(aes(y = m_rt), size = 2, position = position_dodge((width = 0.90)), data = tt_plot_rt) +
+  geom_errorbar(aes(ymin = m_rt-se, ymax = m_rt+se), width = 0.20, position = position_dodge((width = 0.90)), data = tt_plot_rt) +
   theme_bw() + xlab("Condition") + ylab("RT") + ggtitle("Tax/Them Performance")
 
-tt_wide <- spread(tt_rt, Experiment, m_RT)
-ggplot(tt_wide, aes(taxonomic, thematic)) + geom_point() + theme_bw() + 
-  geom_smooth(method = "lm", se = FALSE) +
-  ggtitle("Relationship Between TaxThem Conditions - RT")
+# outlier plot
+tt_rt %>%
+  group_by(Experiment) %>%
+  mutate(outlier = ifelse(is_outlier(m_rt), participant, as.numeric(NA))) %>%
+  ggplot(., aes(Experiment, m_rt)) + geom_boxplot() + geom_text(aes(label = outlier), na.rm = TRUE, hjust = -0.3) + theme_bw()
 
-tt_rt$rt_z <- scale(tt_rt$m_RT)
-tt_rt$System <- NA
-tt_rt$System[tt_rt$Experiment == "taxonomic"] <- "hypothesis-testing"
-tt_rt$System[tt_rt$Experiment == "thematic"] <- "associative"
-tt_rt$CatLearn <- "tt"
-colnames(tt_rt)[1] <- "Subject"
-tt_rt <- tt_rt[,-c(2,3)]
+# 8147 and 8048 are clear outliers in both conditions, so I will remove them.
+tt_rt <- dplyr::filter(tt_rt, participant != 8147, participant != 8048)
+
+# violin plot by system
+tt_plot_rt <- summarySE(tt_rt, "m_rt", "Experiment")
+ggplot(tt_rt, aes(Experiment, m_rt)) + geom_violin() + 
+  geom_point(aes(y = m_rt), size = 2, position = position_dodge((width = 0.90)), data = tt_plot_rt) +
+  geom_errorbar(aes(ymin = m_rt-se, ymax = m_rt+se), width = 0.20, position = position_dodge((width = 0.90)), data = tt_plot_rt) +
+  theme_bw() + xlab("Condition") + ylab("RT") + ggtitle("Tax/Them Performance")
+```
+
+Create *z*-scores for RT
+
+```{r}
+# new df
+tt_rt_stand <- tt_rt
+# rename column
+colnames(tt_rt_stand)[1] <- "Subject"
+# z-score
+tt_rt_stand$rt_z <- scale(tt_rt_stand$m_rt)
+# column for system
+tt_rt_stand$System <- NA
+tt_rt_stand$System[tt_rt_stand$Experiment == "taxonomic"] <- "hypothesis-testing"
+tt_rt_stand$System[tt_rt_stand$Experiment == "thematic"] <- "associative"
+# column for paradigm
+tt_rt_stand$CatLearn <- "tt"
+# df for raw rts
+tt_rt <- tt_rt_stand[,-c(2,4)]
+# df for rt z-scores
+tt_rt_stand <- tt_rt_stand[,-c(2,3)]
 ```
 
 # Combining the 3 experiments
@@ -342,8 +444,8 @@ tt_rt <- tt_rt[,-c(2,3)]
 ## Accuracy
 
 ```{r}
-# binding the data frames together
-acc_long <- dplyr::bind_rows(ashby_acc_long, slout_acc, tt_acc)
+# merge the data frames together
+acc_long <- dplyr::bind_rows(ashby_acc_stand, slout_acc_stand, tt_acc_stand)
 acc_wide <- acc_long %>%
   spread(key = CatLearn, value = acc_z) %>%
   na.omit
@@ -357,8 +459,8 @@ dagoTest(acc_wide$ashby)
 dagoTest(acc_wide$sloutsky)
 dagoTest(acc_wide$tt)
 
-# sloutsky and tt are skewed, so let's transform
-vars_tf <- c("sloutsky", "tt")
+# sloutsky and tt are skewed, so let's transform. ashby is almost skewed, why not.
+vars_tf <- c("ashby","sloutsky", "tt")
 # transformations
 pp_md_tf <- caret::preProcess(as.data.frame(acc_wide[,vars_tf]), method = c("center", "scale", "YeoJohnson"), na.remove=T)
 tf_data <- predict(pp_md_tf, as.data.frame(acc_wide[,vars_tf]))
@@ -369,10 +471,9 @@ dagoTest(tf_data$tt)
 # less skewed at least
 
 # move data into main data frame
+acc_wide$ashby.t <- tf_data$ashby
 acc_wide$sloutsky.t <- tf_data$sloutsky
 acc_wide$tt.t <- tf_data$tt
-# center and scale ashby (because we did that with the tf data)
-acc_wide$ashby.cs <- scale(acc_wide$ashby)
 
 write.csv(acc_wide, "catlearn_proc_acc.csv")
 
@@ -415,8 +516,13 @@ ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, title = "ACC - As
 
 # Plot accuracy
 acc_sel_long <- acc_sel %>%
-  dplyr::select(Subject, System, sloutsky.t:ashby.cs) %>%
-  gather(key ="CatLearn", value = "acc_z", sloutsky.t:ashby.cs)
+  dplyr::select(Subject, System, ashby.t:tt.t) %>%
+  gather(key ="CatLearn", value = "acc_z", ashby.t:tt.t)
+
+acc_sel_long <- acc_sel_long %>%
+  mutate(CatLearn = revalue(CatLearn, c("ashby.t" = "Perceptual\ncategory", "sloutsky.t" = "Statistical\ndensity", "tt.t" = "Taxonomic-\nthematic")),
+         System = revalue(System, c("associative" = "Associative", "hypothesis-testing" = "Hypothesis-testing")))
+
 
 # by system
 acc_all_plot <- summarySE(acc_sel_long, "acc_z", c("System", "CatLearn"))
@@ -431,43 +537,53 @@ ggplot(acc_sel_long, aes(System, acc_z)) + geom_violin() +
   geom_point(aes(y = acc_z), size = 2, position = position_dodge((width = 0.90)), data = acc_all_plot) +
   geom_errorbar(aes(ymin = acc_z-se, ymax = acc_z+se), width = 0.20, position = position_dodge((width = 0.90)), data = acc_all_plot) +
   facet_grid(.~CatLearn) +
-  theme_bw() + xlab("Experiment") + ylab("Accuracy Z-Score (transformed)") + ggtitle("")
+  theme_bw(15) + xlab("Experiment") + ylab("Accuracy Z-Score (transformed)") + ggtitle("")
 
 # run basic models
-m1 <- lmer(acc_z ~ CatLearn * System + (1|Subject), data = acc_sel_long)
-anova(m1)
+m0 <- lmer(acc_z ~ 1 + (1|Subject), data = acc_sel_long)
+ranova(m0)
+m1 <- lmer(acc_z ~ CatLearn + System + (1|Subject), data = acc_sel_long)
+anova(m0,m1)
+m2 <- lmer(acc_z ~ CatLearn * System + (1|Subject), data = acc_sel_long)
+anova(m1,m2)
+summary(m2)
+anova(m2)
 
 # break down interaction between paradigm and system
-HTSubset <- acc_sel_long$System=="hypothesis-testing"
-ASSubset <- acc_sel_long$System=="associative"
+ashby_subset <- acc_sel_long$CatLearn=="Perceptual\ncategory"
+sloutsky_subset <- acc_sel_long$CatLearn=="Statistical\ndensity"
+tt_subset <- acc_sel_long$CatLearn=="Taxonomic-\nthematic"
 
-# check hypothesis testing first
-HTmodel <- lmer(acc_z ~ CatLearn + (1|Subject), data = acc_sel_long, subset = HTSubset)
-summary(HTmodel)
-anova(HTmodel)
+# check ashby first
+ashby_model <- lmer(acc_z ~ System + (1|Subject), data = acc_sel_long, subset = ashby_subset)
+summary(ashby_model)
+anova(ashby_model)
 # look at post hocs
-summary(glht(HTmodel, linfct = mcp(CatLearn = "Tukey")), test = adjusted("holm"))
+summary(glht(ashby_model, linfct = mcp(System = "Tukey")), test = adjusted("holm"))
+
+# sloutsky 
+sloutsky_model <- lmer(acc_z ~ System + (1|Subject), data = acc_sel_long, subset = sloutsky_subset)
+summary(sloutsky_model)
+anova(sloutsky_model)
+# look at post hocs
+summary(glht(sloutsky_model, linfct = mcp(System = "Tukey")), test = adjusted("holm"))
+
+# tt 
+tt_model <- lmer(acc_z ~ System + (1|Subject), data = acc_sel_long, subset = tt_subset)
+summary(tt_model)
+anova(tt_model)
+# look at post hocs
+summary(glht(tt_model, linfct = mcp(System = "Tukey")), test = adjusted("holm"))
 ```
 
-Basically, this is saying that Sloutsky and TT lower (relative) accuracy than Ashby (when standardized).
+There's no main effect of CatLearn, suggesting that average (standardized) ACC across models is the same. The results are really showing a ceiling effect -- we don't see many differences between HT and AS for sloutsky and tax-them because they're easy! So, we can look at RT instead.
 
-
-```{r}
-# now check associative
-ASmodel <- lmer(acc_z ~ CatLearn + (1|Subject), data = acc_sel_long, subset = ASSubset)
-summary(ASmodel)
-anova(ASmodel)
-# check post-hocs
-summary(glht(ASmodel, linfct = mcp(CatLearn = "Tukey")), test = adjusted("holm"))
-```
-
-Here we see the opposite. Sloutsky and TT have higher (relative) accuracy than Ashby. I think these results generally reflect that the difference in ACC between systems is much larger in Ashby than in Sloutsky or TT. Also, Sloutsky and TT show a trend (at least) towards higher accuracy in associative, while Ashby shows that HT is definitely higher accuracy.
 
 ## RT
 
 ```{r}
 # bring together RT data
-rt_long <- dplyr::bind_rows(ashby_rt_long, sl_filt, tt_rt)
+rt_long <- dplyr::bind_rows(ashby_rt_stand, slout_rt_stand, tt_rt_stand)
 
 # make a wide dataset
 rt_wide <- rt_long %>%
@@ -521,6 +637,10 @@ rt_sel_long <- rt_sel %>%
   dplyr::select(Subject, System, ashby.t:tt.t) %>%
   gather(key ="CatLearn", value = "rt_z", ashby.t:tt.t)
 
+rt_sel_long <- rt_sel_long %>%
+  mutate(CatLearn = revalue(CatLearn, c("ashby.t" = "Perceptual\ncategory", "sloutsky.t" = "Statistical\ndensity", "tt.t" = "Taxonomic-\nthematic")),
+         System = revalue(System, c("associative" = "Associative", "hypothesis-testing" = "Hypothesis-testing")))
+
 # now plot
 # first by system
 rt_all_plot <- summarySE(rt_sel_long, "rt_z", c("System", "CatLearn"))
@@ -528,7 +648,7 @@ ggplot(rt_sel_long, aes(CatLearn, rt_z)) + geom_violin() +
   geom_point(aes(y = rt_z), size = 2, position = position_dodge((width = 0.90)), data = rt_all_plot) +
   geom_errorbar(aes(ymin = rt_z-se, ymax = rt_z+se), width = 0.20, position = position_dodge((width = 0.90)), data = rt_all_plot) +
   facet_grid(.~System) +
-  theme_bw() + xlab("Experiment") + ylab("RT Z-Score (transformed)") + ggtitle("")
+  theme_bw(15) + xlab("Experiment") + ylab("RT z-Score") + ggtitle("")
 
 # then by paradigm
 ggplot(rt_sel_long, aes(System, rt_z)) + geom_violin() + 
@@ -537,34 +657,58 @@ ggplot(rt_sel_long, aes(System, rt_z)) + geom_violin() +
   facet_grid(.~CatLearn) +
   theme_bw() + xlab("Experiment") + ylab("RT Z-Score (transformed)") + ggtitle("")
 
-m1 <- lmer(rt_z ~ CatLearn * System + (1|Subject), data = rt_sel_long)
+m0 <- lmer(rt_z ~ 1 + (1|Subject), data = rt_sel_long)
+ranova(m0)
+m1 <- lmer(rt_z ~ CatLearn + System + (1|Subject), data = rt_sel_long)
+anova(m0,m1)
+m2 <- lmer(rt_z ~ CatLearn * System + (1|Subject), data = rt_sel_long)
+anova(m1,m2)
+summary(m2)
 anova(m1)
 
-# check that ineraction
-HTSubset <- rt_sel_long$System=="hypothesis-testing"
-ASSubset <- rt_sel_long$System=="associative"
-
-# check hypothesis testing first
-HTmodel <- lmer(rt_z ~ CatLearn + (1|Subject), data = rt_sel_long, subset = HTSubset)
-summary(HTmodel)
-anova(HTmodel)
-# look at post hocs
-summary(glht(HTmodel, linfct = mcp(CatLearn = "Tukey")), test = adjusted("holm"))
-
-# only difference is that tt z-scores are a little higher than ashby z-scores
-
-# now check associative
-ASmodel <- lmer(rt_z ~ CatLearn + (1|Subject), data = rt_sel_long, subset = ASSubset)
-summary(ASmodel)
-anova(ASmodel)
-# check post-hocs
-summary(glht(ASmodel, linfct = mcp(CatLearn = "Tukey")), test = adjusted("holm"))
-
-# no differences here
-
+summary(glht(m1, linfct = mcp(System = "Tukey")), test = adjusted("holm"))
 ```
 
+We only see a main effect of system -- where associative is consistently slower than hypothesis-testing.
 
+## Descriptives
 
+```{r}
+# bind together raw ACC and RT dfs
+acc <- dplyr::bind_rows(ashby_acc, slout_acc, tt_acc)
+rt <- dplyr::bind_rows(ashby_rt, slout_rt, tt_rt)
 
+# make them into wide dfs, omit missing cells
+acc_wide <- acc %>%
+  spread(key = CatLearn, value = m_acc) %>%
+  na.omit
+
+rt_wide <- rt %>%
+  spread(key = CatLearn, value = m_rt) %>%
+  na.omit
+
+# make them long again, select only first 24 subjects
+acc_group <- acc_wide[c(1:(2*84)),] %>%
+  gather(key = "CatLearn", value = "m_acc", ashby:tt)
+rt_group <- rt_wide[c(1:(2*84)),] %>%
+  gather(key = "CatLearn", value = "m_rt", ashby:tt)
+
+# merge together
+data <- merge(acc_group, rt_group, by = c("Subject", "CatLearn", "System"))
+
+# print out summary statistics
+data %>%
+  gather(key = "measure", value = "value", m_acc:m_rt) %>%
+  group_by(CatLearn, measure, System) %>%
+  summarise(m = mean(value),
+            SD = sd(value), 
+            min = min(value),
+            max = max(value))
+
+# look at ceiling effects
+acc_group %>%
+  dplyr::filter(m_acc >= 0.9) %>%
+  group_by(System, CatLearn) %>%
+  summarise(count = n())
+```
 
