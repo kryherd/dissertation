@@ -244,11 +244,11 @@ Ashby, F\BPBI G.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-A.~Baddeley%
+Baddeley%
 , Chincotta%
 \BCBL {}\ \BBA {} Adlam%
 }{%
-A.~Baddeley%
+Baddeley%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2001}}%
 }]{%
@@ -275,10 +275,10 @@ Baddeley, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-A\BPBI D.~Baddeley%
+Baddeley%
 \ \BBA {} Hitch%
 }{%
-A\BPBI D.~Baddeley%
+Baddeley%
 \ \BBA {} Hitch%
 }{%
 {\protect \APACyear {1974}}%
@@ -287,7 +287,7 @@ Baddeley1974}
 \APACinsertmetastar {%
 Baddeley1974}%
 \begin{APACrefauthors}%
-Baddeley, A\BPBI D.%
+Baddeley, A.%
 \BCBT {}\ \BBA {} Hitch, G.%
 \end{APACrefauthors}%
 \unskip\
