@@ -320,7 +320,7 @@ slout_rt_stand$rt_z <- scale(slout_rt_stand$m_rt)
 # column for system
 slout_rt_stand$System <- NA
 slout_rt_stand$System[slout_rt_stand$Block == "UnsupervisedDense"] <- "associative"
-slout_rt_stand$System[slout_rt_stand$Block == "SupervisedSparse"] <- "hypothesis-testing"
+slout_rt_stand$System[slout_rt_stand$Block == "UnupervisedSparse"] <- "hypothesis-testing"
 # column for paradigm
 slout_rt_stand$CatLearn <- "sloutsky"
 # df for raw RT
