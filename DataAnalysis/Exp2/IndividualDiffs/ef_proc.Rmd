@@ -1,0 +1,238 @@
+---
+title: "Executive Function Data Processing"
+author: "Kayleigh Ryherd"
+date: "2/7/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+setwd("~/dissertation/DataAnalysis/Exp2/IndividualDiffs")
+```
+
+```{r}
+library(tidyverse)
+library(ggcorrplot)
+library(cluster)
+library(fpc)
+```
+
+# Flanker
+
+Congruent-trial RT advantage = Neutral-trial RT / Congruent-trial RT
+* greater than 1: slower on neutral than congruent
+Congruent-trial accuracy advantage = Neutral-trial ACC / Congruent-trial ACC
+* greater than 1: more accurate on neutral
+Incongruent-trial RT cost = Incongruent-trial RT / Neutral-trialRT
+* greater than 1: slower on incongruent
+Incongruent-trial accuracy cost = Incongruent-trialACC / Neutral-trial ACC
+* greater than 1: more accurate on incongruent
+
+
+```{r}
+flanker <- read.csv("flanker_concat_01-28-19_1533.csv")
+
+flanker$subnum[flanker$subnum==1] <- 8076
+flanker$subnum[flanker$subnum==7] <- 8001
+flanker$subnum[flanker$subnum==9] <- 8002
+flanker$subnum[flanker$subnum==4] <- 8003
+flanker$subnum[flanker$subnum==11] <- 8114
+flanker$subnum[flanker$subnum==21] <- 8021
+flanker$subnum[flanker$subnum==29] <- 8036
+flanker$subnum[flanker$subnum==44] <- 8054
+flanker$subnum[flanker$subnum==50] <- 8064
+flanker$subnum[flanker$subnum==84] <- 8124
+flanker$subnum[flanker$subnum==86] <- 8125
+flanker$subnum[flanker$subnum==87] <- 8126
+flanker$subnum[flanker$subnum==95] <- 8144
+
+# 8082 only made like 2 responses throughout the entire task.
+
+flanker_rt <- flanker %>%
+  dplyr::filter(resp == "<lshift>" | resp == "<rshift>", !is.na(flankercoherence), between(rt, 150, 1100), subnum != 8082) %>%
+  mutate(flanker = ifelse(flankercoherence == 1, "cong", ifelse(flankercoherence == 0, "neutral", ifelse(flankercoherence == -1, "incong", "error")))) %>%
+  dplyr::select(subnum, rt, flanker) %>%
+  group_by(subnum, flanker) %>%
+  summarise(m_rt = mean(rt, na.rm = TRUE))  %>%
+  spread(key = flanker, value = m_rt) %>%
+  mutate(cong_rt_adv = neutral/cong,
+         incong_rt_cost = incong/neutral)
+
+flanker_acc <- flanker %>%
+  dplyr::filter(resp == "<lshift>" | resp == "<rshift>", !is.na(flankercoherence), between(rt, 150, 1100), subnum != 8082) %>%
+  mutate(flanker = ifelse(flankercoherence == 1, "cong", ifelse(flankercoherence == 0, "neutral", ifelse(flankercoherence == -1, "incong", "error")))) %>%
+  dplyr::select(subnum, corr, flanker) %>%
+  group_by(subnum, flanker) %>%
+  summarise(m_acc = mean(corr, na.rm = TRUE))  %>%
+  spread(key = flanker, value = m_acc) %>%
+  mutate(cong_acc_adv = neutral/cong,
+         incong_acc_cost = incong/neutral)
+
+flanker_effects <- merge(flanker_acc[,c(1,5,6)], flanker_rt[,c(1,5,6)], by = "subnum")
+
+hist(flanker_effects$cong_acc_adv)
+hist(flanker_effects$incong_acc_cost)
+hist(flanker_effects$cong_rt_adv)
+hist(flanker_effects$incong_rt_cost)
+```
+
+
+# Switcher
+
+```{r}
+switcher <- read.csv("switcher_concat_01-28-19_1533.csv")
+
+switcher$subNum[switcher$subNum==1] <- 8076
+switcher$subNum[switcher$subNum==7] <- 8001
+switcher$subNum[switcher$subNum==9] <- 8002
+switcher$subNum[switcher$subNum==4] <- 8003
+switcher$subNum[switcher$subNum==11] <- 8114
+switcher$subNum[switcher$subNum==21] <- 8021
+switcher$subNum[switcher$subNum==29] <- 8036
+switcher$subNum[switcher$subNum==44] <- 8054
+switcher$subNum[switcher$subNum==50] <- 8064
+switcher$subNum[switcher$subNum==84] <- 8124
+switcher$subNum[switcher$subNum==86] <- 8125
+switcher$subNum[switcher$subNum==87] <- 8126
+switcher$subNum[switcher$subNum==95] <- 8144
+
+switcher_subject <- switcher %>%
+  group_by(subNum, testtype) %>%
+  summarise(total_err = sum(numerr),
+            total_time = sum(perftime),
+            m_rt = mean(medtime))
+
+switcher_totaltime <- switcher_subject %>%
+  dplyr::select(subNum, testtype, total_time) %>%
+  spread(key = testtype, value = total_time) %>%
+  mutate(switcher_twofeat = `1`,
+         switcher_threefeat = `2`,
+         switcher_threefeatrand = `3`,
+         switch_eff_time = `3` - `2`) %>% # basically the same as incongruent - congruent
+  dplyr::select(subNum, switcher_twofeat:switch_eff_time)
+
+switcher_total_err <- switcher_subject %>%
+  dplyr::select(subNum, testtype, total_err) %>%
+  spread(key = testtype, value = total_err) %>%
+  mutate(err_twofeat = `1`,
+         err_threefeat = `2`,
+         err_threefeatrand = `3`,
+         switch_eff_err = `3` - `2`) %>% # basically the same as incongruent - congruent
+  dplyr::select(subNum, err_twofeat:switch_eff_err)
+
+switch_flank <- merge(flanker_effects, switcher_totaltime, by.x = "subnum", by.y = "subNum")
+switch_flank2 <- merge(switch_flank, switcher_total_err, by.x = "subnum", by.y = "subNum")
+
+cor.mat <- cor(switch_flank2[,-1])
+p.mat <- cor_pmat(switch_flank2[,-1])
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE)
+
+```
+
+
+# Tol
+
+```{r}
+tol <- read.csv("tol_concat_01-28-19_1533.csv")
+# fix subject numbers
+tol$sub[tol$sub==1] <- 8076
+tol$sub[tol$sub==7] <- 8001
+tol$sub[tol$sub==9] <- 8002
+tol$sub[tol$sub==4] <- 8003
+tol$sub[tol$sub==11] <- 8114
+tol$sub[tol$sub==21] <- 8021
+tol$sub[tol$sub==29] <- 8036
+tol$sub[tol$sub==44] <- 8054
+tol$sub[tol$sub==50] <- 8064
+tol$sub[tol$sub==84] <- 8124
+tol$sub[tol$sub==86] <- 8125
+tol$sub[tol$sub==87] <- 8126
+tol$sub[tol$sub==95] <- 8144
+
+tol_acc <- tol %>%
+  group_by(sub) %>%
+  summarise(m_acc = mean(success))
+
+tol_time <- tol %>%
+  dplyr::filter(success == 1) %>%
+  group_by(sub) %>%
+  summarise(m_time_to_first = mean(firsttime, na.rm = TRUE))
+
+tol_calc <- inner_join(tol_acc,tol_time)
+
+EF <- merge(switch_flank2, tol_calc, by.x = "subnum", by.y = "sub")
+
+cor.mat <- cor(EF[,-1])
+p.mat <- cor_pmat(EF[,-1])
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE)
+
+EF_scale <- data.frame(scale(EF[-1]))
+clusters <- kmeans(EF_scale, 6)
+EF$cluster <- clusters$cluster
+
+wss <- (nrow(EF_scale)-1)*sum(apply(EF_scale,2,var))
+for (i in 2:15) wss[i] <- sum(kmeans(EF_scale,
+   centers=i)$withinss)
+plot(1:15, wss, type="b", xlab="Number of Clusters",
+  ylab="Within groups sum of squares") 
+
+km    <- kmeans(EF_scale,6)
+dissE <- daisy(EF_scale) 
+dE2   <- dissE^2
+sk2   <- silhouette(km$cl, dE2)
+plot(sk2)
+
+plotcluster(EF_scale, clusters$cluster)
+clusplot(EF_scale, clusters$cluster, color=TRUE, shade=TRUE, 
+         labels=2, lines=0)
+with(EF_scale, pairs(EF_scale, col=c(1:3)[clusters$cluster])) 
+
+EF_selected <- dplyr::select(EF, cong_acc_adv, incong_acc_cost, cong_rt_adv, incong_rt_cost, switch_eff_time, switch_eff_err, m_acc, m_time_to_first)
+
+# make all of the measures be higher = better (more EF)
+
+EF_selected$cong_acc_adv_mod <- -abs(EF_selected$cong_acc_adv - 1)
+EF_selected$incong_acc_cost_mod <- -abs(EF_selected$incong_acc_cost - 1)
+EF_selected$cong_rt_adv_mod <- -abs(EF_selected$cong_rt_adv - 1)
+EF_selected$incong_rt_cost_mod <- -abs(EF_selected$incong_rt_cost - 1)
+EF_selected$switch_eff_time_mod <- -EF_selected$switch_eff_time
+EF_selected$switch_eff_err_mod <- -EF_selected$switch_eff_err
+EF_selected$m_acc_mod <- EF_selected$m_acc
+EF_selected$m_time_to_first_mod <- -EF_selected$m_time_to_first
+
+
+
+
+EF_scale <- data.frame(scale(EF_selected[,9:16]))
+clusters <- kmeans(EF_scale, 3)
+EF$cluster <- clusters$cluster
+
+wss <- (nrow(EF_scale)-1)*sum(apply(EF_scale,2,var))
+for (i in 2:15) wss[i] <- sum(kmeans(EF_scale,
+   centers=i)$withinss)
+plot(1:15, wss, type="b", xlab="Number of Clusters",
+  ylab="Within groups sum of squares") 
+
+
+clust_means <- as.data.frame(clusters$centers)
+clust_means$cluster <- row.names(clust_means)
+clust_means_plot <- clust_means %>%
+  gather(key = "measure", value = "value", cong_acc_adv_mod:m_time_to_first_mod)
+clust_means_plot$task[clust_means_plot$measure == "cong_acc_adv_mod"] <- "flanker"
+clust_means_plot$task[clust_means_plot$measure == "incong_acc_cost_mod"] <- "flanker"
+clust_means_plot$task[clust_means_plot$measure == "cong_rt_adv_mod"] <- "flanker"
+clust_means_plot$task[clust_means_plot$measure == "incong_rt_cost_mod"] <- "flanker"
+clust_means_plot$task[clust_means_plot$measure == "switch_eff_time_mod"] <- "switcher"
+clust_means_plot$task[clust_means_plot$measure == "switch_eff_err_mod"] <- "switcher"
+clust_means_plot$task[clust_means_plot$measure == "m_acc_mod"] <- "tol"
+clust_means_plot$task[clust_means_plot$measure == "m_time_to_first_mod"] <- "tol"
+
+clusplot(EF_scale, clusters$cluster, color=TRUE, shade=TRUE, 
+         labels=2, lines=0)
+
+ggplot(clust_means_plot, aes(measure, value, fill = task)) + geom_bar(stat = "identity") + facet_wrap(.~cluster) + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+```
+
+
