@@ -2214,6 +2214,34 @@ Rodman, H\BPBI R.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Ryherd%
+\ \BBA {} Landi%
+}{%
+Ryherd%
+\ \BBA {} Landi%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+Ryherd2019}
+\APACinsertmetastar {%
+Ryherd2019}%
+\begin{APACrefauthors}%
+Ryherd, K.%
+\BCBT {}\ \BBA {} Landi, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Category Learning in Poor Comprehenders}} {{Category
+  Learning in Poor Comprehenders}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Scientific Studies of Reading}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/10888438.2019.1566908} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Schneider%
 , Eschman%
 \BCBL {}\ \BBA {} Zuccolotto%

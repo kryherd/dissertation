@@ -14,45 +14,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: bib.bib
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
 Warning--No address in Anderson2012
-You've used 94 entries,
+You've used 95 entries,
             6951 wiz_defined-function locations,
-            1967 strings with 29983 characters,
-and the built_in function-call counts, 197543 in all, are:
-= -- 24299
-> -- 1615
-< -- 10105
-+ -- 10760
-- -- 188
-* -- 13362
-:= -- 37043
-add.period$ -- 385
-call.type$ -- 94
-change.case$ -- 1603
+            1974 strings with 30140 characters,
+and the built_in function-call counts, 199120 in all, are:
+= -- 24493
+> -- 1629
+< -- 10167
++ -- 10818
+- -- 190
+* -- 13459
+:= -- 37311
+add.period$ -- 389
+call.type$ -- 95
+change.case$ -- 1620
 chr.to.int$ -- 0
-cite$ -- 189
-duplicate$ -- 5386
-empty$ -- 7220
-format.name$ -- 2735
-if$ -- 36634
+cite$ -- 191
+duplicate$ -- 5432
+empty$ -- 7293
+format.name$ -- 2759
+if$ -- 36951
 int.to.chr$ -- 0
-int.to.str$ -- 282
+int.to.str$ -- 285
 missing$ -- 0
-newline$ -- 2567
-num.names$ -- 760
-pop$ -- 2840
+newline$ -- 2594
+num.names$ -- 768
+pop$ -- 2864
 preamble$ -- 1
-purify$ -- 376
+purify$ -- 380
 quote$ -- 0
-skip$ -- 12006
+skip$ -- 12126
 stack$ -- 0
-substring$ -- 11706
-swap$ -- 3154
-text.length$ -- 225
+substring$ -- 11771
+swap$ -- 3179
+text.length$ -- 227
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 7840
+type$ -- 7920
 warning$ -- 1
-while$ -- 927
+while$ -- 934
 width$ -- 0
-write$ -- 3239
+write$ -- 3272
 (There was 1 warning)
