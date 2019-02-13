@@ -303,7 +303,7 @@ No single subject is an outlier across all conditions, so I won't be removing an
 
 ```{r}
 # select relevant blocks and plot relationship between the two
-sl_filt <- dplyr::filter(sl_rt, Block %in% c("SupervisedSparse","UnsupervisedDense"))
+sl_filt <- dplyr::filter(sl_rt, Block %in% c("UnsupervisedDense","SupervisedSparse"))
 sl_wide <- spread(sl_filt, Block, m_rt)
 ggplot(sl_wide, aes(UnsupervisedDense, SupervisedSparse)) + geom_point() + theme_bw() + 
   geom_smooth(method = "lm", se = FALSE) +
@@ -320,7 +320,7 @@ slout_rt_stand$rt_z <- scale(slout_rt_stand$m_rt)
 # column for system
 slout_rt_stand$System <- NA
 slout_rt_stand$System[slout_rt_stand$Block == "UnsupervisedDense"] <- "associative"
-slout_rt_stand$System[slout_rt_stand$Block == "UnupervisedSparse"] <- "hypothesis-testing"
+slout_rt_stand$System[slout_rt_stand$Block == "SupervisedSparse"] <- "hypothesis-testing"
 # column for paradigm
 slout_rt_stand$CatLearn <- "sloutsky"
 # df for raw RT
@@ -576,7 +576,6 @@ anova(tt_model)
 summary(glht(tt_model, linfct = mcp(System = "Tukey")), test = adjusted("holm"))
 ```
 
-There's no main effect of CatLearn, suggesting that average (standardized) ACC across models is the same. The results are really showing a ceiling effect -- we don't see many differences between HT and AS for sloutsky and tax-them because they're easy! So, we can look at RT instead.
 
 
 ## RT
@@ -664,7 +663,7 @@ anova(m0,m1)
 m2 <- lmer(rt_z ~ CatLearn * System + (1|Subject), data = rt_sel_long)
 anova(m1,m2)
 summary(m2)
-anova(m1)
+anova(m2)
 
 summary(glht(m1, linfct = mcp(System = "Tukey")), test = adjusted("holm"))
 ```
@@ -678,14 +677,22 @@ We only see a main effect of system -- where associative is consistently slower 
 acc <- dplyr::bind_rows(ashby_acc, slout_acc, tt_acc)
 rt <- dplyr::bind_rows(ashby_rt, slout_rt, tt_rt)
 
+
+
 # make them into wide dfs, omit missing cells
 acc_wide <- acc %>%
   spread(key = CatLearn, value = m_acc) %>%
   na.omit
 
+both_systems <- acc_wide$Subject[duplicated(acc_wide$Subject)]
+acc_wide <- dplyr::filter(acc_wide, Subject %in% both_systems)
+
 rt_wide <- rt %>%
   spread(key = CatLearn, value = m_rt) %>%
   na.omit
+
+both_systems <- rt_wide$Subject[duplicated(rt_wide$Subject)]
+rt_wide <- dplyr::filter(rt_wide, Subject %in% both_systems)
 
 # make them long again, select only first 24 subjects
 acc_group <- acc_wide[c(1:(2*84)),] %>%
@@ -710,5 +717,24 @@ acc_group %>%
   dplyr::filter(m_acc >= 0.9) %>%
   group_by(System, CatLearn) %>%
   summarise(count = n())
+
+acc_all_plot <- summarySE(acc_group, "m_acc", c("System", "CatLearn"))
+acc_group %>%
+  ggplot(.,aes(System, m_acc)) + geom_violin() +
+  geom_point(aes(y = m_acc), size = 2, position = position_dodge((width = 0.90)), data = acc_all_plot) +
+  geom_errorbar(aes(ymin = m_acc-se, ymax = m_acc+se), width = 0.20, position = position_dodge((width = 0.90)), data = acc_all_plot) +
+  facet_grid(.~CatLearn) +
+  theme_bw(15) + xlab("Experiment") + ylab("Accuracy") + ggtitle("")
+
+
+rt_group_nott <-subset(rt_group, CatLearn !="tt")
+rt_all_plot <- summarySE(rt_group_nott, "m_rt", c("System", "CatLearn"))
+rt_group_nott %>%
+  ggplot(.,aes(System, m_rt)) + geom_violin() +
+  geom_point(aes(y = m_rt), size = 2, position = position_dodge((width = 0.90)), data = rt_all_plot) +
+  geom_errorbar(aes(ymin = m_rt-se, ymax = m_rt+se), width = 0.20, position = position_dodge((width = 0.90)), data = rt_all_plot) +
+  facet_grid(.~CatLearn) +
+  theme_bw(15) + xlab("Experiment") + ylab("RT") + ggtitle("")
+  
 ```
 
