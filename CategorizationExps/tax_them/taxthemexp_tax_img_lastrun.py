@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.84.2),
-    on Fri Oct  5 10:52:37 2018
+    on Thu Feb 14 10:22:04 2019
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,7 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = u'taxthemexp_tax_img'  # from the Builder filename that created this script
+expName = 'taxthemexp_tax_img'  # from the Builder filename that created this script
 expInfo = {u'session': u'01', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
@@ -40,7 +40,7 @@ filename = _thisDir + os.sep + u'data' + os.sep + 'taxonomic_%s_%s' % (expInfo['
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath=u'/Users/eeglab/Documents/CategorizationExps/tax_them/taxthemexp_tax_img.psyexp',
+    originPath=u'/Users/Kayleigh/dissertation/CategorizationExps/tax_them/taxthemexp_tax_img.psyexp',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -53,9 +53,9 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Setup the Window
 win = visual.Window(
-    size=(2560, 1440), fullscr=True, screen=0,
+    size=(1440, 900), fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
-    monitor=u'testMonitor', color=u'white', colorSpace='rgb',
+    monitor='testMonitor', color='white', colorSpace='rgb',
     blendMode='avg', useFBO=True,
     units='norm')
 # store frame rate of monitor if we can measure it

@@ -22,11 +22,18 @@ for i in range(0,len(filenames)):
 	name = filenames[i][4:8] # find subject number based on location in string
 	subjlist.append(name)
 	
+trial = range(1,41)
+fourblocks = trial + trial + trial + trial
+blocknums = [1]*40 + [2]*40 + [3]*40 + [4]*40
+
+	
 # stack all of the data files together vertically	
 data = pd.DataFrame()
 for i in range(0,len(filenames)):
 	df = pd.read_table(filenames[i], delimiter = '\t') # read data
 	df.insert(loc=0, column = 'Subject', value = subjlist[i]) # add subject column
+	df.insert(loc=2, column = 'BlockNum', value = blocknums) 
+	df.insert(loc=3, column = 'Trial', value = fourblocks) 
 	frames = [data,df]
 	data = pd.concat(frames)
 	

@@ -27,9 +27,10 @@ library(ggcorrplot)
 library(multcomp)
 setwd("~/dissertation/DataAnalysis/Exp2/CatLearning")
 ashby <- read.csv("Ashby_concat_12-07-18_1019.csv")
-sloutsky <- read.csv("Sloutsky_concat_12-07-18_1019.csv")
+sloutsky <- read.csv("Sloutsky_concat_02-14-19_1352.csv")
 taxthem <- read.csv("taxthem_concat_12-07-18_1020.csv")
 age_gender <- read.csv("../age_gender.csv")
+'%!in%' <- function(x,y)!('%in%'(x,y))
 ```
 
 # Processing/Standardizing Ashby Data
@@ -67,6 +68,7 @@ ashby_full <- ashby_filt %>%
 # mean accuracy by subject and system
 ashby_acc_long <- ashby_full %>%
   group_by(Subject, Type) %>%
+  dplyr::filter(Block == 3) %>%
   summarise(m_acc = mean(Accuracy))
 
 # plot relationship between systems
@@ -134,7 +136,7 @@ ashby_rt_long <- ashby_full %>%
          sd_rt = sd(RT),
          diff = RT-mean_rt,
          remove = ifelse(abs(diff) > 2*sd_rt, 1, 0)) %>% # if any trial has an RT more than 2SD away from the mean, flag it for removal
-  dplyr::filter(remove == 0) %>% # remove those trials
+  dplyr::filter(remove == 0, Block == 3) %>% # remove those trials, choose only block 3
   summarise(m_rt = mean(RT))
 
 ashby_rt_wide <- spread(ashby_rt_long, Type, m_rt)
@@ -223,8 +225,18 @@ ashby_rt_stand <- ashby_rt_stand[,-c(2:3)]
 I have used d' in the past, but I want this to be totally relatable between tasks. I'm going to calculate regular accuracy here.
 
 ```{r}
+# remove subjects with less than 6 correct on the catch trials
+poor_blocks <- sloutsky %>%
+  dplyr::filter(substr(Stimulus,1,5) =="catch") %>%
+  group_by(Subject,Block) %>%
+  summarise(catch_acc = mean(Accuracy)) %>%
+  dplyr::filter(catch_acc < 0.75) %>%
+  mutate(subj_block = paste0(as.character(Subject), as.character(Block)))
+
 # summarize ACCs by subject and system
 sloutsky_acc_long <- sloutsky %>%
+  mutate(subj_block = paste0(as.character(Subject), as.character(Block))) %>%
+  dplyr::filter(subj_block %!in% poor_blocks$subj_block) %>%
   group_by(Subject, Block) %>%
   summarise(m_acc = mean(Accuracy))
 
@@ -273,6 +285,8 @@ sloutsky$RT[sloutsky$RT == 9999] <- NA
 
 # same RT processing as above
 sl_rt <- sloutsky %>%
+  mutate(subj_block = paste0(as.character(Subject), as.character(Block))) %>%
+  dplyr::filter(subj_block %!in% poor_blocks$subj_block) %>%
   dplyr::filter(Accuracy == 1) %>%
   group_by(Subject, Block) %>%
   mutate(mean_rt = mean(RT),
@@ -728,8 +742,8 @@ acc_group %>%
 
 
 rt_group_nott <-subset(rt_group, CatLearn !="tt")
-rt_all_plot <- summarySE(rt_group_nott, "m_rt", c("System", "CatLearn"))
-rt_group_nott %>%
+rt_all_plot <- summarySE(rt_group, "m_rt", c("System", "CatLearn"))
+rt_group %>%
   ggplot(.,aes(System, m_rt)) + geom_violin() +
   geom_point(aes(y = m_rt), size = 2, position = position_dodge((width = 0.90)), data = rt_all_plot) +
   geom_errorbar(aes(ymin = m_rt-se, ymax = m_rt+se), width = 0.20, position = position_dodge((width = 0.90)), data = rt_all_plot) +
@@ -737,4 +751,144 @@ rt_group_nott %>%
   theme_bw(15) + xlab("Experiment") + ylab("RT") + ggtitle("")
   
 ```
+
+
+# Learning Over Time
+
+## Ashby
+
+```{r}
+se <- function(x) sqrt(var(x)/length(x))
+
+ashby_full %>%
+  mutate(Block = as.factor(Block)) %>%
+  group_by(Type, Block, Overall_Trial) %>%
+  summarise(m_acc = mean(Accuracy),
+            se_acc = se(Accuracy)) %>%
+  ggplot(.,aes(Overall_Trial, m_acc, color = Block)) + geom_point() + facet_grid(.~Type) +
+  geom_errorbar(aes(ymin = m_acc-se_acc, ymax = m_acc+se_acc), width = 0.20, position = position_dodge((width = 0.90))) +
+  theme_bw() + geom_line() + xlab("Overall Trial") + ylab("Mean Accuracy (across subjects)") + ggtitle("Ashby Task Accuracy over Time")
+
+ashby_full %>%
+  mutate(Block = as.factor(Block)) %>%
+  dplyr::filter(Accuracy == 1) %>% # selecting correct trials only
+  group_by(Subject, Type) %>%
+  mutate(mean_rt = mean(RT),
+         sd_rt = sd(RT),
+         diff = RT-mean_rt,
+         remove = ifelse(abs(diff) > 2*sd_rt, 1, 0)) %>% # if any trial has an RT more than 2SD away from the mean, flag it for removal
+  dplyr::filter(remove == 0, Trial > 1) %>%
+  group_by(Type, Block, Overall_Trial) %>%
+  summarise(m_acc = mean(Accuracy),
+            se_acc = se(Accuracy),
+            m_rt = mean(RT),
+            se_rt = se(RT)) %>%
+  ggplot(.,aes(Overall_Trial, m_rt, color = Block)) + geom_point() + facet_grid(.~Type) +
+  geom_errorbar(aes(ymin = m_rt-se_rt, ymax = m_rt+se_rt), width = 0.20, position = position_dodge((width = 0.90))) +
+  theme_bw() + geom_line()+ xlab("Overall Trial") + ylab("Mean RT (across subjects)") + ggtitle("Ashby Task RT over Time")
+
+```
+
+
+## Sloutsky
+
+```{r}
+sloutsky %>%
+  mutate(subj_block = paste0(as.character(Subject), as.character(Block))) %>%
+  dplyr::filter(subj_block %!in% poor_blocks$subj_block) %>%
+  group_by(Block, Trial) %>%
+  summarise(m_acc = mean(Accuracy),
+            se_acc = se(Accuracy)) %>%
+  ggplot(.,aes(Trial, m_acc, color = Block)) + geom_point()  +
+  geom_errorbar(aes(ymin = m_acc-se_acc, ymax = m_acc+se_acc), width = 0.20) +
+  theme_bw() + geom_line() + xlab("Overall Trial") + ylab("Mean Accuracy (across subjects)") + ggtitle("Sloutsky Task Accuracy over Time")
+
+sloutsky_rt <- sloutsky %>%
+  mutate(subj_block = paste0(as.character(Subject), as.character(Block))) %>%
+  dplyr::filter(subj_block %!in% poor_blocks$subj_block) %>%
+  dplyr::filter(Accuracy == 1) %>% # selecting correct trials only
+  group_by(Subject, Block) %>%
+  mutate(mean_rt = mean(RT),
+         sd_rt = sd(RT),
+         diff = RT-mean_rt,
+         remove = ifelse(abs(diff) > 2*sd_rt, 1, 0)) %>% # if any trial has an RT more than 2SD away from the mean, flag it for removal
+  dplyr::filter(remove == 0) %>%
+  group_by(Block, Trial) %>%
+  summarise(m_rt = mean(RT),
+            se_rt = se(RT)) %>%
+  ggplot(.,aes(Trial, m_rt, color = Block)) + geom_point() +
+  geom_errorbar(aes(ymin = m_rt-se_rt, ymax = m_rt+se_rt), width = 0.20) +
+  theme_bw() + geom_line() + xlab("Overall Trial") + ylab("Mean RT (across subjects)") + ggtitle("Sloutsky Task RT over Time") 
+
+t <- poly((unique(sloutsky_rt$Trial)), 3)
+sloutsky_rt[,paste("ot", 1:3, sep="")] <- t[sloutsky_rt$Trial, 1:3]
+
+m1 <- lmer(RT ~ (ot1+ot2+ot3)*(Block) +
+                                (ot1+ot2+ot3 | Subject) +
+                                (ot1+ot2 | Block:Subject),
+                      control = lmerControl(optimizer = "bobyqa"), 
+                      data = sloutsky_rt, REML = F)
+sloutsky_rt$fitted <- fitted(m1)
+
+
+
+p_GCA <-
+ggplot(sloutsky_rt, aes(Trial, RT, shape = Block)) +
+  stat_summary(aes(y = fitted, linetype = Block, color = Block), fun.y = mean, geom = "line") +
+  #stat_summary(fun.y = mean, geom = "point", size = 4, fill = "white", aes(color = Block)) +
+  #scale_shape_manual(values = c(1,2,3,4)) +
+  scale_linetype_manual(values = c("solid", "longdash", "dotted","twodash")) +
+  scale_fill_manual(values = c("blue", "red", "black", "green")) +
+  scale_color_manual(values = c("blue", "red", "black", "green")) +
+  theme_bw()
+
+ggplot(sloutsky_rt, aes(Trial, ot1)) + geom_point()
+ggplot(sloutsky_rt, aes(Trial, ot2)) + geom_point()
+ggplot(sloutsky_rt, aes(Trial, ot3)) + geom_point()
+```
+
+
+# First-block only for sloutsky
+
+```{r}
+first_block_sl <- sloutsky %>%
+  mutate(subj_block = paste0(as.character(Subject), as.character(Block))) %>%
+  dplyr::filter(subj_block %!in% poor_blocks$subj_block) %>%
+  group_by(Subject) %>%
+  dplyr::filter(BlockNum == 1) %>%
+  group_by(Subject,Block) %>%
+  summarise(m_acc = mean(Accuracy))
+  
+sl_plot <- summarySE(first_block_sl, "m_acc", "Block", na.rm =TRUE)
+ggplot(first_block_sl, aes(Block, m_acc)) + geom_violin() + 
+  geom_point(aes(y = m_acc), size = 2, position = position_dodge((width = 0.90)), data = sl_plot) +
+  geom_errorbar(aes(ymin = m_acc-se, ymax = m_acc+se), width = 0.20, position = position_dodge((width = 0.90)), data = sl_plot) +
+  theme_bw() + xlab("Condition") + ylab("Accuracy (raw)") + ggtitle("") + ylim(0,1)
+
+
+first_block_sl <- sloutsky %>%
+  mutate(subj_block = paste0(as.character(Subject), as.character(Block))) %>%
+  dplyr::filter(subj_block %!in% poor_blocks$subj_block) %>%
+  group_by(Subject) %>%
+  dplyr::filter(BlockNum == 1) %>%
+  group_by(Subject,Block) %>%
+  mutate(acc_type = ifelse(StimType == "target" & RESP == "target", "hit", ifelse(StimType == "nottarget" & RESP =="target", "fa", NA))) %>%
+  group_by(Subject, Block, acc_type) %>%
+  summarise(count = n()) %>%
+  na.omit() %>%
+  spread(key = acc_type, value = count) %>%
+  mutate(fa = replace_na(fa, 0),
+         fa_pct = fa/16,
+         hit_pct = hit/16,
+         hit_fa_pct = hit_pct - fa_pct)
+
+sl_plot <- summarySE(first_block_sl, "hit_fa_pct", "Block", na.rm =TRUE)
+ggplot(first_block_sl, aes(Block, hit_fa_pct)) + geom_violin() + 
+  geom_point(aes(y = hit_fa_pct), size = 2, position = position_dodge((width = 0.90)), data = sl_plot) +
+  geom_errorbar(aes(ymin = hit_fa_pct-se, ymax = hit_fa_pct+se), width = 0.20, position = position_dodge((width = 0.90)), data = sl_plot) +
+  theme_bw() + xlab("Condition") + ylab("Accuracy (Hit - FA)") + ggtitle("") + ylim(0,1)
+
+```
+
+
 
