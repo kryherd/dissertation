@@ -12,7 +12,7 @@ data_dir = os.getcwd()
 
 # change to data directory
 ## change this if data location changes
-os.chdir('/Volumes/EEG/CategoryLearning/Data/Exp2/Ashby/Fall2018')
+os.chdir('/Volumes/EEG/CategoryLearning/Data/Exp2/Ashby')
 
 # make a list of all data filenames
 filenames = glob.glob('*.tsv')
@@ -20,8 +20,6 @@ filenames = glob.glob('*.tsv')
 # create regular expressions to find...
 ## subject number
 subj = re.compile("(\d{4})")
-## block number
-blks = re.compile("bl(\d+)")
 
 # this function uses a regular expression on a list
 # it puts the last match into a new list
@@ -39,14 +37,11 @@ def ext_fn_part(regex, fn_list):
 
 # make a list of subjects and blocks
 subjects = ext_fn_part(subj, filenames)
-blocks = ext_fn_part(blks, filenames)
 	
 # stack all of the data files together vertically		
 data = pd.DataFrame()
 for i in range(0,len(filenames)):
 	df = pd.read_table(filenames[i], delimiter = '\t') # read data
-	df.insert(loc=0, column = 'Subject', value = subjects[i]) # add subject column
-	df.insert(loc=2, column = 'Block', value = blocks[i]) # add block column
 	df.insert(loc=3, column = 'Trial', value = df.index.values.astype(int) + 1) # add trial column based on row index
 	frames = [data,df]
 	data = pd.concat(frames)

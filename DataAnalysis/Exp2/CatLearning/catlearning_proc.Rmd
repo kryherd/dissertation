@@ -538,11 +538,18 @@ cor.mat <- cor(as[,c(6:8)])
 p.mat <- cor_pmat(as[,c(6:8)])
 ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, title = "ACC - Associative")
 
-# Plot accuracy
+
 acc_sel_long <- acc_sel %>%
   dplyr::select(Subject, System, ashby.t:tt.t) %>%
-  gather(key ="CatLearn", value = "acc_z", ashby.t:tt.t)
+  gather(key ="CatLearn", value = "acc_z", ashby.t:tt.t) %>%
+  dplyr::filter(abs(acc_z) <= 3)
 
+acc_outliers <- acc_sel %>%
+  dplyr::select(Subject, System, ashby.t:tt.t) %>%
+  gather(key ="CatLearn", value = "acc_z", ashby.t:tt.t) %>%
+  dplyr::filter(abs(acc_z) >= 3)
+
+# Plot accuracy
 acc_sel_long <- acc_sel_long %>%
   mutate(CatLearn = revalue(CatLearn, c("ashby.t" = "Perceptual\ncategory", "sloutsky.t" = "Statistical\ndensity", "tt.t" = "Taxonomic-\nthematic")),
          System = revalue(System, c("associative" = "Associative", "hypothesis-testing" = "Hypothesis-testing")))
@@ -669,7 +676,13 @@ ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, title = "RTs - As
 
 rt_sel_long <- rt_sel %>%
   dplyr::select(Subject, System, ashby.t:tt.t) %>%
-  gather(key ="CatLearn", value = "rt_z", ashby.t:tt.t)
+  gather(key ="CatLearn", value = "rt_z", ashby.t:tt.t) %>%
+  dplyr::filter(abs(rt_z) <= 3)
+
+rt_outliers<- rt_sel %>%
+  dplyr::select(Subject, System, ashby.t:tt.t) %>%
+  gather(key ="CatLearn", value = "rt_z", ashby.t:tt.t) %>%
+  dplyr::filter(abs(rt_z) > 3)
 
 rt_sel_long <- rt_sel_long %>%
   mutate(CatLearn = revalue(CatLearn, c("ashby.t" = "Perceptual\ncategory", "sloutsky.t" = "Statistical\ndensity", "tt.t" = "Taxonomic-\nthematic")),
@@ -936,4 +949,53 @@ ggplot(first_block_sl, aes(Block, hit_fa_pct)) + geom_violin() +
 ```
 
 
+# Binomial
 
+```{r}
+cols <- c("Subject", "System", "Trial", "Acc", "rt_z", "Paradigm")
+
+ash <- ashby_full %>%
+  dplyr::select(Subject, Type, Overall_Trial, Accuracy, RT) %>%
+  mutate(Paradigm = "ashby",
+         Type = ifelse(Type == "II", "associative", "hypothesis-testing"),
+         RT = scale(RT)[,1])
+names(ash) <- cols
+
+sl <- sloutsky %>%
+  mutate(subj_block = paste0(as.character(Subject), as.character(Block))) %>%
+  dplyr::filter(subj_block %!in% poor_blocks$subj_block) %>%
+  dplyr::select(Subject, Block, Trial, Accuracy, RT) %>%
+  dplyr::filter(Block == "SupervisedSparse" | Block == "UnsupervisedDense") %>%
+  mutate(Paradigm = "sloutsky",
+         Block = ifelse(Block == "UnsupervisedDense", "associative", "hypothesis-testing"),
+         RT = scale(RT)[,1])
+names(sl) <- cols
+
+tt <- test_trials %>%
+  dplyr::select(participant, Experiment, expTrials.thisN, resp.corr, resp.rt) %>%
+  mutate(expTrials.thisN = expTrials.thisN + 1,
+         Paradigm = "tt",
+         Experiment = ifelse(Experiment == "taxonomic", "associative", "hypothesis-testing"),
+         resp.rt = scale(resp.rt)[,1])
+names(tt) <- cols
+
+cat_data <- rbind(ash, sl, tt)
+cat_data$Trial <- as.factor(cat_data$Trial)
+
+m1 <- glmer(Acc ~ 1 + (1|Trial) + (1 + Paradigm|Subject) + (System|Subject:Paradigm), data = cat_data, family = "binomial",
+            nAGQ=0, control=glmerControl(optimizer = "nloptwrap"))
+summary(m1)
+beep()
+
+m2 <- glmer(Acc ~ Paradigm + System + (1|Trial) + (1 + Paradigm|Subject), data = cat_data, family = "binomial")
+summary(m2)
+beep()
+
+
+m1 <- lmer(rt_z ~ 1 + (Paradigm|Subject), data = cat_data, control=lmerControl(optimizer = "nloptwrap"))
+summary(m1)
+
+m2 <- lmer(rt_z ~ Paradigm * System + (Paradigm|Subject), data = cat_data, control=lmerControl(optimizer = "nloptwrap"))
+summary(m2)
+beep()
+```
