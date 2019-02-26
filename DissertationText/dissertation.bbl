@@ -1097,6 +1097,38 @@ Kal{\'{e}}nine, S.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Karr%
+\ \protect \BOthers {.}}{%
+Karr%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Karr2018}
+\APACinsertmetastar {%
+Karr2018}%
+\begin{APACrefauthors}%
+Karr, J\BPBI E.%
+, Areshenkoff, C\BPBI N.%
+, Rast, P.%
+, Hofer, S\BPBI M.%
+, Iverson, G\BPBI L.%
+\BCBL {}\ \BBA {} Garcia-Barrera, M\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The unity and diversity of executive functions: A
+  systematic review and re-analysis of latent variable studies.}} {{The unity
+  and diversity of executive functions: A systematic review and re-analysis of
+  latent variable studies.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Bulletin}{144}{11}{1147--1185}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/bul0000160} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Kaufman%
 \ \BBA {} Kaufman%
 }{%
@@ -1774,6 +1806,39 @@ Miyake, A.%
 \APACjournalVolNumPages{Acta Psychologica}{115}{2-3}{123--142}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.actpsy.2003.12.004} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Miyake%
+\ \protect \BOthers {.}}{%
+Miyake%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2000}}%
+}]{%
+Miyake2000}
+\APACinsertmetastar {%
+Miyake2000}%
+\begin{APACrefauthors}%
+Miyake, A.%
+, Friedman, N\BPBI P.%
+, Emerson, M\BPBI J.%
+, Witzki, A\BPBI H.%
+, Howerter, A.%
+\BCBL {}\ \BBA {} Wager, T\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2000}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The Unity and Diversity of Executive Functions and
+  Their Contributions to Complex “Frontal Lobe” Tasks: A Latent Variable
+  Analysis}} {{The Unity and Diversity of Executive Functions and Their
+  Contributions to Complex “Frontal Lobe” Tasks: A Latent Variable
+  Analysis}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognitive Psychology}{41}{1}{49--100}.
+\newblock
+\begin{APACrefDOI} \doi{10.1006/cogp.1999.0734} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
