@@ -16,17 +16,17 @@ knitr::opts_chunk$set(warning = FALSE)
 
 ```{r load_data}
 setwd("~/dissertation/DataAnalysis/Exp2/IndividualDiffs")
-ashby1 <- read.csv("Ashby_concat_02-25-19_1714.csv")
-ashby2 <- read.csv("Ashby_concat_02-25-19_1722.csv")
-colnames(ashby2)[3] <- "Run"
-colnames(ashby2)[6] <- "key_pressed"
+ashby1 <- read.csv("Ashby_concat_fall2018.csv")
+ashby2 <- read.csv("Ashby_concat_02-27-19_1618.csv")
+colnames(ashby1)[3] <- "Run"
+colnames(ashby1)[6] <- "key_pressed"
 ashby <- rbind(ashby1,ashby2)
-sloutsky <- read.csv("Sloutsky_concat_02-25-19_1716.csv")
-taxthem <- read.csv("taxthem_concat_02-25-19_1725.csv")
-tol <- read.csv("tol_concat_02-25-19_1703.csv")
-switcher <- read.csv("switcher_concat_02-25-19_1703.csv")
-flanker <- read.csv("flanker_concat_02-25-19_1703.csv")
-ravens <- read.csv("ravens_1-28-19.csv")
+sloutsky <- read.csv("Sloutsky_concat_02-27-19_1618.csv")
+taxthem <- read.csv("taxthem_concat_02-27-19_1619.csv")
+tol <- read.csv("tol_concat_02-27-19_1637.csv")
+switcher <- read.csv("switcher_concat_02-27-19_1637.csv")
+flanker <- read.csv("flanker_concat_02-27-19_1637.csv")
+ravens <- read.csv("ravens_2-27-19.csv")
 nd <- read.csv("ND_scores.csv")
 nd_norms <- read.csv("nd_norms.csv")
 celf <- read.csv("celf_scores.csv")
@@ -257,7 +257,7 @@ tt_rt_stand <- tt_rt_stand[,-c(2,3)]
 
 ```{r}
 # merge the data frames together
-acc_long <- dplyr::bind_rows(ashby_acc_stand, slout_acc_stand, tt_acc_stand)
+acc_long <- dplyr::bind_rows(ashby_acc, slout_acc, tt_acc)
 acc_wide <- acc_long %>%
   spread(key = CatLearn, value = acc_z)
 
@@ -305,7 +305,7 @@ tt_acc <- acc_wide %>%
 
 ```{r}
 # merge the data frames together
-rt_long <- dplyr::bind_rows(ashby_rt_stand, slout_rt_stand, tt_rt_stand)
+rt_long <- dplyr::bind_rows(ashby_rt, slout_rt, tt_rt)
 rt_wide <- rt_long %>%
   spread(key = CatLearn, value = rt_z)
 
@@ -534,20 +534,20 @@ ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE)
 ashby_acc_id <- merge(ashby_acc, id, by = "Subject", all.x = TRUE, all.y = FALSE)
 
 ashby_dat <- ashby_acc_id %>%
-  dplyr::select(Subject, System, ashby.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf, rs_tf, fs_tf) %>% 
+  dplyr::select(Subject, System, ashby.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% 
   na.omit %>%
-  head(264)  # take first 132 with full data
+  head(264)  # take first 132 with full data 
 
 m0 <- lmer(ashby.t ~ 1 + (1|Subject), data = ashby_dat)
 m1 <- lmer(ashby.t ~ System + (1|Subject), data = ashby_dat)
 anova(m0,m1)
-m2 <- lmer(ashby.t ~ System + ravens_tf + (1|Subject), data = ashby_dat)
-anova(m1,m2)
-anova(m2)
-m3 <- lmer(ashby.t ~ System + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = ashby_dat)
-anova(m2,m3)
+#m2 <- lmer(ashby.t ~ System + ravens_tf + (1|Subject), data = ashby_dat)
+#anova(m1,m2)
+#anova(m2)
+m3 <- lmer(ashby.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = ashby_dat)
+anova(m1,m3)
 anova(m3)
-m4 <- lmer(ashby.t ~ System * (fs_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = ashby_dat)
+m4 <- lmer(ashby.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = ashby_dat)
 anova(m3,m4)
 anova(m4)
 ```
@@ -559,7 +559,7 @@ anova(m4)
 sloutsky_acc_id <- merge(sloutsky_acc, id, by = "Subject", all.x = TRUE, all.y = FALSE)
 
 sloutsky_dat <- sloutsky_acc_id %>%
-  dplyr::select(Subject, System, sloutsky.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf, rs_tf, fs_tf) %>% 
+  dplyr::select(Subject, System, sloutsky.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% 
   na.omit %>%
   head(264) # take first 132 with full data
 
@@ -567,18 +567,19 @@ sloutsky_dat <- sloutsky_acc_id %>%
 m0 <- lmer(sloutsky.t ~ 1 + (1|Subject), data = sloutsky_dat)
 m1 <- lmer(sloutsky.t ~ System + (1|Subject), data = sloutsky_dat)
 anova(m0,m1)
-m2 <- lmer(sloutsky.t ~ System + ravens_tf + (1|Subject), data = sloutsky_dat)
-anova(m1,m2)
-anova(m2)
-m3 <- lmer(sloutsky.t ~ System + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = sloutsky_dat)
-anova(m2,m3)
+#m2 <- lmer(sloutsky.t ~ System + ravens_tf + (1|Subject), data = sloutsky_dat)
+#anova(m1,m2)
+#anova(m2)
+m3 <- lmer(sloutsky.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = sloutsky_dat)
+anova(m1,m3)
 anova(m3)
-m4 <- lmer(sloutsky.t ~ System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = sloutsky_dat)
+m4 <- lmer(sloutsky.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = sloutsky_dat)
 anova(m3,m4)
 anova(m4)
-m5 <- lmer(sloutsky.t ~ System + rs_tf + fs_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = sloutsky_dat)
-anova(m3,m5)
-anova(m5)
+
+ggplot(sloutsky_dat, aes(flanker_eff_cs, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Flanker Effect") + ylab("Sloutsky Accuracy") + ggtitle("Significant main effect of flanker on Sloutsky accuracy")
+
+ggplot(sloutsky_dat, aes(switch_eff_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Switcher Effect") + ylab("Sloutsky Accuracy") + ggtitle("Significant main effect of switcher on Sloutsky accuracy")
 ```
 
 
@@ -588,25 +589,24 @@ anova(m5)
 tt_acc_id <- merge(tt_acc, id, by = "Subject", all.x = TRUE, all.y = FALSE)
 
 tt_dat <- tt_acc_id %>%
-  dplyr::select(Subject, System, tt.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf, rs_tf, fs_tf) %>% 
+  dplyr::select(Subject, System, tt.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% 
   na.omit %>%
   head(264) # take first 132 with full data
 
 m0 <- lmer(tt.t ~ 1 + (1|Subject), data = tt_dat)
 m1 <- lmer(tt.t ~ System + (1|Subject), data = tt_dat)
 anova(m0,m1)
-m2 <- lmer(tt.t ~ System + ravens_tf + (1|Subject), data = tt_dat)
-anova(m1,m2)
-anova(m2)
+#m2 <- lmer(tt.t ~ System + ravens_tf + (1|Subject), data = tt_dat)
+#anova(m1,m2)
+#anova(m2)
 m3 <- lmer(tt.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = tt_dat)
-anova(m2,m3)
+anova(m1,m3)
 anova(m3)
-m4 <- lmer(tt.t ~ System * (ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = tt_dat)
+m4 <- lmer(tt.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = tt_dat)
 anova(m3,m4)
 anova(m4)
-m5 <- lmer(tt.t ~ System + ravens_tf+ rs_tf + fs_tf + (1|Subject), data = tt_dat)
-anova(m2,m5)
-anova(m5)
+
+ggplot(tt_dat, aes(ravens_tf, tt.t)) + geom_point(alpha = 0.25) + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Nonverbal IQ") + ylab("TT Accuracy") + ggtitle("Significant main effect of nonverbal IQ on TT accuracy")
 ```
 
 # RT Analysis
@@ -617,20 +617,21 @@ anova(m5)
 ashby_rt_id <- merge(ashby_rt, id, by = "Subject", all.x = TRUE, all.y = FALSE)
 
 ashby_dat <- ashby_rt_id %>%
-  dplyr::select(Subject, System, ashby.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf, rs_tf, fs_tf) %>% 
+  dplyr::select(Subject, System, ashby.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) #%>% 
   na.omit %>%
   head(264)  # take first 132 with full data
+
 
 m0 <- lmer(ashby.t ~ 1 + (1|Subject), data = ashby_dat)
 m1 <- lmer(ashby.t ~ System + (1|Subject), data = ashby_dat)
 anova(m0,m1)
-m2 <- lmer(ashby.t ~ System + ravens_tf + (1|Subject), data = ashby_dat)
-anova(m1,m2)
-anova(m2)
-m3 <- lmer(ashby.t ~ System + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = ashby_dat)
+#m2 <- lmer(ashby.t ~ System + ravens_tf + (1|Subject), data = ashby_dat)
+#anova(m1,m2)
+#anova(m2)
+m3 <- lmer(ashby.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = ashby_dat)
 anova(m1,m3)
 anova(m3)
-m4 <- lmer(ashby.t ~ System * (fs_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = ashby_dat)
+m4 <- lmer(ashby.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = ashby_dat)
 anova(m3,m4)
 anova(m4)
 ```
@@ -651,18 +652,20 @@ sloutsky_dat <- sloutsky_rt_id %>%
 m0 <- lmer(sloutsky.t ~ 1 + (1|Subject), data = sloutsky_dat)
 m1 <- lmer(sloutsky.t ~ System + (1|Subject), data = sloutsky_dat)
 anova(m0,m1)
-m2 <- lmer(sloutsky.t ~ System + ravens_tf + (1|Subject), data = sloutsky_dat)
-anova(m1,m2)
-anova(m2)
+#m2 <- lmer(sloutsky.t ~ System + ravens_tf + (1|Subject), data = sloutsky_dat)
+#anova(m1,m2)
+#anova(m2)
 m3 <- lmer(sloutsky.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = sloutsky_dat)
-anova(m2,m3)
+anova(m1,m3)
 anova(m3)
-m4 <- lmer(sloutsky.t ~ System * (ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = sloutsky_dat)
+m4 <- lmer(sloutsky.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = sloutsky_dat)
 anova(m3,m4)
 anova(m4)
-m5 <- lmer(sloutsky.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf + rs_tf + fs_tf + (1|Subject), data = sloutsky_dat)
-anova(m3,m5)
-anova(m5)
+
+ggplot(sloutsky_dat, aes(tol_time_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Tower of London Planning Ratio") + ylab("Sloutsky Reaction Time") + ggtitle("Significant main effect of ToL on Sloutsky RT")
+
+ggplot(sloutsky_dat, aes(ravens_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Nonverbal IQ") + ylab("Sloutsky Reaction Time") + ggtitle("Significant main effect of nonverbal IQ on Sloutsky RT")
+
 ```
 
 
@@ -679,16 +682,14 @@ tt_dat <- tt_rt_id %>%
 m0 <- lmer(tt.t ~ 1 + (1|Subject), data = tt_dat)
 m1 <- lmer(tt.t ~ System + (1|Subject), data = tt_dat)
 anova(m0,m1)
-m2 <- lmer(tt.t ~ System + ravens_tf + (1|Subject), data = tt_dat)
-anova(m1,m2)
-anova(m2)
+#m2 <- lmer(tt.t ~ System + ravens_tf + (1|Subject), data = tt_dat)
+#anova(m1,m2)
+#anova(m2)
 m3 <- lmer(tt.t ~ System + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = tt_dat)
 anova(m1,m3)
 anova(m3)
-m4 <- lmer(tt.t ~ System + rs_tf + fs_tf + (1|Subject), data = tt_dat)
-anova(m1,m4)
+m4 <- lmer(tt.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = tt_dat)
+anova(m3,m4)
 anova(m4)
-m5 <- lmer(tt.t ~ System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf)  + (1|Subject), data = tt_dat)
-anova(m3,m5)
-anova(m5)
+
 ```
