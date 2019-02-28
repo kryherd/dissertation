@@ -8,6 +8,7 @@ library(influence.ME)
 library(lmerTest)
 library(caret)
 library(ggcorrplot)
+library(grid)
 library(gridExtra)
 
 ############### DATA CLEANING
@@ -58,6 +59,11 @@ dprime <- acc_counts %>%
   dplyr::summarise(d.prime = dprime(Hit, Miss, FalseAlarm, CorRej)[[1]]) %>%
   inner_join(.,ord, by = "Subject")
 
+dprime$Order <- as.factor(dprime$Order)
+
+dprime <- dprime %>%
+  mutate(Order = fct_recode(Order, "Group 1" = "1", "Group 2" = "2", "Group 3" = "3", "Group 4" = "4", "Group 5" = "5", "Group 6" = "6"))
+
 #### REACTION TIME
 
 rt <- dat %>%
@@ -66,8 +72,19 @@ rt <- dat %>%
   summarise(catchpct = mean(Accuracy)) %>%
   full_join(.,dat, by=c("Subject", "Block")) %>%
   filter(catchpct >= 0.75) %>%
-  filter(Accuracy == 1 & RT > 0.250)
+  filter(Accuracy == 1) %>%
+  mutate(subj_block = paste0(as.character(Subject), as.character(Block))) %>%
+  group_by(Subject, Block) %>%
+  mutate(mean_rt = mean(RT),
+         sd_rt = sd(RT),
+         diff = RT-mean_rt,
+         remove = ifelse(abs(diff) > 2*sd_rt, 1, 0)) %>%
+  dplyr::filter(remove == 0)
 
+rt$Order <- as.factor(rt$Order)
+
+rt <- rt %>%
+  mutate(Order = fct_recode(Order, "Group 1" = "1", "Group 2" = "2", "Group 3" = "3", "Group 4" = "4", "Group 5" = "5", "Group 6" = "6"))
 #### ID MEASURES
 
 # read in behavioral data
@@ -254,7 +271,7 @@ hist(all_beh$lang_composite)
 #### Experimental Effects
 
 # select data
-acc1 <- base::subset(dprime, dprime$Order <=2)
+acc1 <- base::subset(dprime, dprime$Order == "Group 1" | dprime$Order == "Group 2")
 
 # build up model
 m1 <- lmer(d.prime ~ 1 + (1|Subject), data = acc1) # base model
@@ -288,7 +305,7 @@ anova(m1)
 #### Experimental Effects
 
 # select data
-rt1 <- base::subset(rt, rt$Order <=2)
+rt1 <- base::subset(rt, rt$Order == "Group 1" | rt$Order == "Group 2")
 
 # build up model
 m1 <- lmer(RT ~ 1 + (1|Subject)+ (1|Subject:Block), data = rt1) # base model
@@ -322,7 +339,7 @@ anova(m1)
 #### Experimental Effects
 
 # select data
-acc2 <- base::subset(dprime, dprime$Order == 3 | dprime$Order == 4)
+acc2 <- base::subset(dprime, dprime$Order == "Group 3" | dprime$Order == "Group 4")
 
 # build up model
 m1 <- lmer(d.prime ~ 1 + (1|Subject), data = acc2) # base model
@@ -344,7 +361,7 @@ anova(m1)
 #### Experimental Effects
 
 # select data
-rt2 <- base::subset(rt, rt$Order == 3 | rt$Order == 4)
+rt2 <- base::subset(rt,  rt$Order == "Group 3" | rt$Order == "Group 4")
 
 # build up model
 m1 <- lmer(RT ~ 1 + (1|Subject) + (1|Subject:Block), data = rt2) # base model
@@ -367,7 +384,7 @@ anova(m1)
 #### Experimental Effects
 
 # select data
-acc3 <- base::subset(dprime, dprime$Order == 5 | dprime$Order == 6)
+acc3 <- base::subset(dprime,  dprime$Order == "Group 5" | dprime$Order == "Group 6")
 
 # build up model
 m1 <- lmer(d.prime ~ 1 + (1|Subject), data = acc3) # base model
@@ -393,7 +410,7 @@ anova(m1)
 #### Experimental Effects
 
 # select data
-rt3 <- base::subset(rt, rt$Order == 5 | rt$Order == 6)
+rt3 <- base::subset(rt, rt$Order == "Group 5" | rt$Order == "Group 6")
 
 # build up model
 m1 <- lmer(RT ~ 1 + (1|Subject) + (1|Subject:Block), data = rt3) # base model
@@ -427,28 +444,28 @@ anova(m1)
 
 ### Comparing UD after SS and SD
 
-dat5 <- base::subset(dprime, dprime$Order == 2 | dprime$Order == 4)
+dat5 <- base::subset(dprime, dprime$Order == "Group 2" | dprime$Order == "Group 4")
 dat5_ud <- base::subset(dat5, dat5$Block == "Unsupervised\nDense")
 
 t.test(dat5_ud$d.prime ~ dat5_ud$Order)
 
 ### Comparing SS after UD and US
 
-dat6 <- base::subset(dprime, dprime$Order == 1 | dprime$Order == 5)
+dat6 <- base::subset(dprime, dprime$Order == "Group 1" | dprime$Order == "Group 5")
 dat6_ss <- base::subset(dat6, dat6$Block == "Supervised\nSparse")
 
 t.test(dat6_ss$d.prime ~ dat6_ss$Order)
 
 ### Comparing UD before SS and SD
 
-dat7 <- base::subset(dprime, dprime$Order == 1 | dprime$Order == 3)
+dat7 <- base::subset(dprime, dprime$Order == "Group 1" | dprime$Order == "Group 3")
 dat7_ud <- base::subset(dat7, dat7$Block == "Unsupervised\nDense")
 
 t.test(dat7_ud$d.prime ~ dat7_ud$Order)
 
 ### Comparing SS before UD and US
 
-dat8 <- base::subset(dprime, dprime$Order == 2 | dprime$Order == 6)
+dat8 <- base::subset(dprime, dprime$Order == "Group 2" | dprime$Order == "Group 6")
 dat8_ss <- base::subset(dat8, dat8$Block == "Supervised\nSparse")
 
 t.test(dat8_ss$d.prime ~ dat8_ss$Order)
@@ -464,14 +481,12 @@ g_legend<-function(a.gplot){
   legend <- tmp$grobs[[leg]]
   return(legend)}
 
-######### ACCURACY
-
 # set up plot for effect 1
 acc1$FirstBlock <- NA
-acc1$FirstBlock[acc1$Order == 1 & acc1$Block == "Unsupervised\nDense"] <- "First"
-acc1$FirstBlock[acc1$Order == 2 & acc1$Block == "Unsupervised\nDense"] <- "Second"
-acc1$FirstBlock[acc1$Order == 2 & acc1$Block == "Supervised\nSparse"] <- "First"
-acc1$FirstBlock[acc1$Order == 1 & acc1$Block == "Supervised\nSparse"] <- "Second"
+acc1$FirstBlock[acc1$Order == "Group 1" & acc1$Block == "Unsupervised\nDense"] <- "First"
+acc1$FirstBlock[acc1$Order == "Group 2" & acc1$Block == "Unsupervised\nDense"] <- "Second"
+acc1$FirstBlock[acc1$Order == "Group 2" & acc1$Block == "Supervised\nSparse"] <- "First"
+acc1$FirstBlock[acc1$Order == "Group 1" & acc1$Block == "Supervised\nSparse"] <- "Second"
 
 acc1_plot <- acc1 %>%
   group_by(Block, Order, FirstBlock) %>%
@@ -479,72 +494,19 @@ acc1_plot <- acc1 %>%
             se_dpr = sd_dpr/sqrt(n()),
             d.prime = mean(d.prime))
 
-oe1 <- ggplot(acc1, aes(Block, d.prime, fill = FirstBlock)) + geom_violin() + 
+oe1 <- ggplot(acc1, aes(FirstBlock, d.prime, fill = Block)) + geom_violin() + 
   facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=d.prime), data=acc1_plot) +
   geom_errorbar(aes(ymin=d.prime-se_dpr, ymax=d.prime+se_dpr), width = 0.2, data=acc1_plot) +
-  ylab("d'") + xlab("Block") + ggtitle("Order Effect 1: Matching Conditions") +
+  ylab("d'") + xlab("Block Order") + ggtitle("Sensitivity") +
   theme(plot.title = element_text(hjust = 0.5)) + 
-  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Order")
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Block")
 oe1
 
-# set up plot for effect 2
-acc2$FirstBlock <- NA
-acc2$FirstBlock[acc2$Order == 3 & acc2$Block == "Unsupervised\nDense"] <- "First"
-acc2$FirstBlock[acc2$Order == 4 & acc2$Block == "Unsupervised\nDense"] <- "Second"
-acc2$FirstBlock[acc2$Order == 4 & acc2$Block == "Supervised\nDense"] <- "First"
-acc2$FirstBlock[acc2$Order == 3 & acc2$Block == "Supervised\nDense"] <- "Second"
-
-acc2_plot <- acc2 %>%
-  group_by(Block, Order, FirstBlock) %>%
-  summarise(sd_dpr = sd(d.prime),
-            se_dpr = sd_dpr/sqrt(n()),
-            d.prime = mean(d.prime))
-
-# set up plot for effect 3
-oe2 <- ggplot(acc2, aes(Block, d.prime, fill = FirstBlock)) + geom_violin() + 
-  facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=d.prime), data=acc2_plot) +
-  geom_errorbar(aes(ymin=d.prime-se_dpr, ymax=d.prime+se_dpr), width = 0.2, data=acc2_plot) +
-  ylab("d'") + xlab("Block") + ggtitle("Order Effect 2: Dense Stimuli") +
-  theme(plot.title = element_text(hjust = 0.5)) + 
-  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Order")
-oe2
-
-acc3$FirstBlock <- NA
-acc3$FirstBlock[acc3$Order == 5 & acc3$Block == "Unsupervised\nSparse"] <- "First"
-acc3$FirstBlock[acc3$Order == 6 & acc3$Block == "Unsupervised\nSparse"] <- "Second"
-acc3$FirstBlock[acc3$Order == 6 & acc3$Block == "Supervised\nSparse"] <- "First"
-acc3$FirstBlock[acc3$Order == 5 & acc3$Block == "Supervised\nSparse"] <- "Second"
-
-acc3_plot <- acc3 %>%
-  group_by(Block, Order, FirstBlock) %>%
-  summarise(sd_dpr = sd(d.prime),
-            se_dpr = sd_dpr/sqrt(n()),
-            d.prime = mean(d.prime))
-
-oe3 <- ggplot(acc3, aes(Block, d.prime, fill = FirstBlock)) + geom_violin() + 
-  facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=d.prime), data=acc3_plot) +
-  geom_errorbar(aes(ymin=d.prime-se_dpr, ymax=d.prime+se_dpr), width = 0.2, data=acc3_plot) +
-  ylab("d'") + xlab("Block") + ggtitle("Order Effect 3: Sparse Stimuli") +
-  theme(plot.title = element_text(hjust = 0.5), legend.position="bottom") + 
-  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Order")
-oe3
-
-# make full plot
-mylegend<-g_legend(oe3)
-p3 <- grid.arrange(arrangeGrob(oe1 + theme(legend.position="none"),
-                               oe2 + theme(legend.position="none"),
-                               oe3 + theme(legend.position="none"),
-                               nrow=1),
-                   mylegend, nrow=2,heights=c(10, 1))
-
-######### RT
-
-# set up plot for effect 1
 rt1$FirstBlock <- NA
-rt1$FirstBlock[rt1$Order == 1 & rt1$Block == "Unsupervised\nDense"] <- "First"
-rt1$FirstBlock[rt1$Order == 2 & rt1$Block == "Unsupervised\nDense"] <- "Second"
-rt1$FirstBlock[rt1$Order == 2 & rt1$Block == "Supervised\nSparse"] <- "First"
-rt1$FirstBlock[rt1$Order == 1 & rt1$Block == "Supervised\nSparse"] <- "Second"
+rt1$FirstBlock[rt1$Order == "Group 1" & rt1$Block == "Unsupervised\nDense"] <- "First"
+rt1$FirstBlock[rt1$Order == "Group 2" & rt1$Block == "Unsupervised\nDense"] <- "Second"
+rt1$FirstBlock[rt1$Order == "Group 2" & rt1$Block == "Supervised\nSparse"] <- "First"
+rt1$FirstBlock[rt1$Order == "Group 1" & rt1$Block == "Supervised\nSparse"] <- "Second"
 
 rt1_plot <- rt1 %>%
   group_by(Block, Order, FirstBlock) %>%
@@ -552,20 +514,46 @@ rt1_plot <- rt1 %>%
             se_rt = sd_rt/sqrt(n()),
             RT = mean(RT))
 
-oe1 <- ggplot(rt1, aes(Block, RT, fill = FirstBlock)) + geom_violin() + 
+rt_oe1 <- ggplot(rt1, aes(FirstBlock, RT, fill = Block)) + geom_violin() + 
   facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=RT), data=rt1_plot) +
   geom_errorbar(aes(ymin=RT-se_rt, ymax=RT+se_rt), width = 0.2, data=rt1_plot) +
-  ylab("Reaction Time (s)") + xlab("Block") + ggtitle("Order Effect 1: Matching Conditions") +
+  ylab("Reaction Time (s)") + xlab("Block Order") + ggtitle("Reaction Time") +
   theme(plot.title = element_text(hjust = 0.5)) + 
-  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Order")
-oe1
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Block")
+rt_oe1
+
+mylegend<-g_legend(oe1)
+p3 <- grid.arrange(arrangeGrob(oe1 + theme(legend.position="none"),
+                               rt_oe1 + theme(legend.position="none"),
+                               nrow=2),
+                   mylegend, ncol=2, widths = c(5,2), top = textGrob("Order Analysis 1: Matching Conditions",gp=gpar(fontsize=20)))
 
 # set up plot for effect 2
+acc2$FirstBlock <- NA
+acc2$FirstBlock[acc2$Order == "Group 3" & acc2$Block == "Unsupervised\nDense"] <- "First"
+acc2$FirstBlock[acc2$Order == "Group 4" & acc2$Block == "Unsupervised\nDense"] <- "Second"
+acc2$FirstBlock[acc2$Order == "Group 4" & acc2$Block == "Supervised\nDense"] <- "First"
+acc2$FirstBlock[acc2$Order == "Group 3" & acc2$Block == "Supervised\nDense"] <- "Second"
+
+acc2_plot <- acc2 %>%
+  group_by(Block, Order, FirstBlock) %>%
+  summarise(sd_dpr = sd(d.prime),
+            se_dpr = sd_dpr/sqrt(n()),
+            d.prime = mean(d.prime))
+
+oe2 <- ggplot(acc2, aes(FirstBlock, d.prime, fill = Block)) + geom_violin() + 
+  facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=d.prime), data=acc2_plot) +
+  geom_errorbar(aes(ymin=d.prime-se_dpr, ymax=d.prime+se_dpr), width = 0.2, data=acc2_plot) +
+  ylab("d'") + xlab("Block Order") + ggtitle("Sensitivity") +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Block")
+oe2
+
 rt2$FirstBlock <- NA
-rt2$FirstBlock[rt2$Order == 3 & rt2$Block == "Unsupervised\nDense"] <- "First"
-rt2$FirstBlock[rt2$Order == 4 & rt2$Block == "Unsupervised\nDense"] <- "Second"
-rt2$FirstBlock[rt2$Order == 4 & rt2$Block == "Supervised\nDense"] <- "First"
-rt2$FirstBlock[rt2$Order == 3 & rt2$Block == "Supervised\nDense"] <- "Second"
+rt2$FirstBlock[rt2$Order == "Group 3" & rt2$Block == "Unsupervised\nDense"] <- "First"
+rt2$FirstBlock[rt2$Order == "Group 4" & rt2$Block == "Unsupervised\nDense"] <- "Second"
+rt2$FirstBlock[rt2$Order == "Group 4" & rt2$Block == "Supervised\nDense"] <- "First"
+rt2$FirstBlock[rt2$Order == "Group 3" & rt2$Block == "Supervised\nDense"] <- "Second"
 
 rt2_plot <- rt2 %>%
   group_by(Block, Order, FirstBlock) %>%
@@ -573,20 +561,46 @@ rt2_plot <- rt2 %>%
             se_rt = sd_rt/sqrt(n()),
             RT = mean(RT))
 
-# set up plot for effect 3
-oe2 <- ggplot(rt2, aes(Block, RT, fill = FirstBlock)) + geom_violin() + 
+rt_oe2 <- ggplot(rt2, aes(FirstBlock, RT, fill = Block)) + geom_violin() + 
   facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=RT), data=rt2_plot) +
   geom_errorbar(aes(ymin=RT-se_rt, ymax=RT+se_rt), width = 0.2, data=rt2_plot) +
-  ylab("Reaction Time (s)") + xlab("Block") + ggtitle("Order Effect 2: Dense Stimuli") +
+  ylab("Reaction Time (s)") + xlab("Block Order") + ggtitle("Reaction Time") +
   theme(plot.title = element_text(hjust = 0.5)) + 
-  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Order")
-oe2
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Block")
+rt_oe2
+
+mylegend<-g_legend(oe2)
+p3 <- grid.arrange(arrangeGrob(oe2 + theme(legend.position="none"),
+                               rt_oe2 + theme(legend.position="none"),
+                               nrow=2),
+                   mylegend, ncol=2, widths = c(5,2), top = textGrob("Order Analysis 2: Dense Stimuli",gp=gpar(fontsize=20)))
+
+# set up plot for effect 3
+acc3$FirstBlock <- NA
+acc3$FirstBlock[acc3$Order == "Group 5" & acc3$Block == "Unsupervised\nSparse"] <- "First"
+acc3$FirstBlock[acc3$Order == "Group 6" & acc3$Block == "Unsupervised\nSparse"] <- "Second"
+acc3$FirstBlock[acc3$Order == "Group 6" & acc3$Block == "Supervised\nSparse"] <- "First"
+acc3$FirstBlock[acc3$Order == "Group 5" & acc3$Block == "Supervised\nSparse"] <- "Second"
+
+acc3_plot <- acc3 %>%
+  group_by(Block, Order, FirstBlock) %>%
+  summarise(sd_dpr = sd(d.prime),
+            se_dpr = sd_dpr/sqrt(n()),
+            d.prime = mean(d.prime))
+
+oe3 <- ggplot(acc3, aes(FirstBlock, d.prime, fill = Block)) + geom_violin() + 
+  facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=d.prime), data=acc3_plot) +
+  geom_errorbar(aes(ymin=d.prime-se_dpr, ymax=d.prime+se_dpr), width = 0.2, data=acc3_plot) +
+  ylab("d'") + xlab("Block Order") + ggtitle("Sensitivity") +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Block")
+oe3
 
 rt3$FirstBlock <- NA
-rt3$FirstBlock[rt3$Order == 5 & rt3$Block == "Unsupervised\nSparse"] <- "First"
-rt3$FirstBlock[rt3$Order == 6 & rt3$Block == "Unsupervised\nSparse"] <- "Second"
-rt3$FirstBlock[rt3$Order == 6 & rt3$Block == "Supervised\nSparse"] <- "First"
-rt3$FirstBlock[rt3$Order == 5 & rt3$Block == "Supervised\nSparse"] <- "Second"
+rt3$FirstBlock[rt3$Order == "Group 5" & rt3$Block == "Unsupervised\nSparse"] <- "First"
+rt3$FirstBlock[rt3$Order == "Group 6" & rt3$Block == "Unsupervised\nSparse"] <- "Second"
+rt3$FirstBlock[rt3$Order == "Group 6" & rt3$Block == "Supervised\nSparse"] <- "First"
+rt3$FirstBlock[rt3$Order == "Group 5" & rt3$Block == "Supervised\nSparse"] <- "Second"
 
 rt3_plot <- rt3 %>%
   group_by(Block, Order, FirstBlock) %>%
@@ -594,21 +608,19 @@ rt3_plot <- rt3 %>%
             se_rt = sd_rt/sqrt(n()),
             RT = mean(RT))
 
-oe3 <- ggplot(rt3, aes(Block, RT, fill = FirstBlock)) + geom_violin() + 
+rt_oe3 <- ggplot(rt3, aes(FirstBlock, RT, fill = Block)) + geom_violin() + 
   facet_grid(.~Order) + theme_bw(15) + geom_point(aes(y=RT), data=rt3_plot) +
   geom_errorbar(aes(ymin=RT-se_rt, ymax=RT+se_rt), width = 0.2, data=rt3_plot) +
-  ylab("Reaction Time (s)") + xlab("Block") + ggtitle("Order Effect 3: Sparse Stimuli") +
-  theme(plot.title = element_text(hjust = 0.5), legend.position="bottom") + 
-  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Order")
-oe3
+  ylab("Reaction Time (s)") + xlab("Block Order") + ggtitle("Reaction Time") +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "Block")
+rt_oe3
 
-# make full plot
 mylegend<-g_legend(oe3)
-p3 <- grid.arrange(arrangeGrob(oe1 + theme(legend.position="none"),
-                               oe2 + theme(legend.position="none"),
-                               oe3 + theme(legend.position="none"),
-                               nrow=1),
-                   mylegend, nrow=2,heights=c(10, 1))
+p3 <- grid.arrange(arrangeGrob(oe3 + theme(legend.position="none"),
+                               rt_oe3 + theme(legend.position="none"),
+                               nrow=2),
+                   mylegend, ncol=2, widths = c(5,2), top = textGrob("Order Analysis 3: Sparse Stimuli",gp=gpar(fontsize=20)))
 
 ## Language ability & Accuracy in effect 3
 
@@ -616,7 +628,7 @@ acc3_beh %>%
   group_by(Subject, lang_composite) %>%
   summarise(d.prime = mean(d.prime)) %>%
   ggplot(aes(lang_composite, d.prime)) + geom_point() + geom_smooth(method = "lm", se = FALSE) +
-  theme_bw(15) + xlab("Language Ability") + ylab("d'") + ggtitle("Language Ability and Accuracy in Sparse Blocks")
+  theme_bw(15) + xlab("Language Ability") + ylab("d'") + ggtitle("Language Ability and Sensitivity in Sparse Blocks")
 
 cor.test(acc3_beh$lang_composite, acc3_beh$d.prime)
 

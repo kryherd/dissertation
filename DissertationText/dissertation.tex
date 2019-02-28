@@ -31,8 +31,18 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{setspace}
 \usepackage{array}
-\newcolumntype{L}{>{\centering\arraybackslash}m{4cm}}
-%\doublespacing
+\newcolumntype{L}{>{\centering\arraybackslash}m{5cm}}
+\usepackage{caption}
+\usepackage{tikz}
+\DeclareCaptionLabelSeparator*{spaced}{\\[2ex]}
+\captionsetup[table]{textfont=it,format=plain,justification=justified,
+  singlelinecheck=false,labelsep=spaced,skip=0pt}
+\captionsetup[figure]{labelsep=period,labelfont=it,justification=justified,
+  singlelinecheck=false,font=doublespacing}
+\doublespacing
+\AtBeginEnvironment{tabular}{\singlespacing}
+\AtBeginEnvironment{tabularx}{\singlespacing}
+\usepackage{mathastext}
 
 \graphicspath{ {images/} }
 

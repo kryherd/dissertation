@@ -980,6 +980,34 @@ Gooch, D.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Gough%
+\ \BBA {} Tunmer%
+}{%
+Gough%
+\ \BBA {} Tunmer%
+}{%
+{\protect \APACyear {1986}}%
+}]{%
+Gough1986a}
+\APACinsertmetastar {%
+Gough1986a}%
+\begin{APACrefauthors}%
+Gough, P\BPBI B.%
+\BCBT {}\ \BBA {} Tunmer, W\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1986}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Decoding, Reading, and Reading Disability}} {{Decoding,
+  Reading, and Reading Disability}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Remedial and Special Education}{7}{1}{6--10}.
+\newblock
+\begin{APACrefDOI} \doi{10.1177/074193258600700104} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Hautus%
 }{%
 Hautus%
