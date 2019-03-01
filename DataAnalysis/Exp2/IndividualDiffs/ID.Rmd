@@ -17,16 +17,16 @@ knitr::opts_chunk$set(warning = FALSE)
 ```{r load_data}
 setwd("~/dissertation/DataAnalysis/Exp2/IndividualDiffs")
 ashby1 <- read.csv("Ashby_concat_fall2018.csv")
-ashby2 <- read.csv("Ashby_concat_02-27-19_1618.csv")
+ashby2 <- read.csv("Ashby_concat_03-01-19_1728.csv")
 colnames(ashby1)[3] <- "Run"
 colnames(ashby1)[6] <- "key_pressed"
 ashby <- rbind(ashby1,ashby2)
-sloutsky <- read.csv("Sloutsky_concat_02-27-19_1618.csv")
-taxthem <- read.csv("taxthem_concat_02-27-19_1619.csv")
-tol <- read.csv("tol_concat_02-27-19_1637.csv")
-switcher <- read.csv("switcher_concat_02-27-19_1637.csv")
-flanker <- read.csv("flanker_concat_02-27-19_1637.csv")
-ravens <- read.csv("ravens_2-27-19.csv")
+sloutsky <- read.csv("Sloutsky_concat_03-01-19_1729.csv")
+taxthem <- read.csv("taxthem_concat_03-01-19_1729.csv")
+tol <- read.csv("tol_concat_03-01-19_1731.csv")
+switcher <- read.csv("switcher_concat_03-01-19_1731.csv")
+flanker <- read.csv("flanker_concat_03-01-19_1731.csv")
+ravens <- read.csv("ravens_3-1-19.csv")
 nd <- read.csv("ND_scores.csv")
 nd_norms <- read.csv("nd_norms.csv")
 celf <- read.csv("celf_scores.csv")
@@ -259,7 +259,7 @@ tt_rt_stand <- tt_rt_stand[,-c(2,3)]
 # merge the data frames together
 acc_long <- dplyr::bind_rows(ashby_acc, slout_acc, tt_acc)
 acc_wide <- acc_long %>%
-  spread(key = CatLearn, value = acc_z)
+  spread(key = CatLearn, value = m_acc)
 
 # test the normality of the different variables
 dagoTest(acc_wide$ashby)
@@ -307,7 +307,7 @@ tt_acc <- acc_wide %>%
 # merge the data frames together
 rt_long <- dplyr::bind_rows(ashby_rt, slout_rt, tt_rt)
 rt_wide <- rt_long %>%
-  spread(key = CatLearn, value = rt_z)
+  spread(key = CatLearn, value = m_rt)
 
 # test the normality of the different variables
 dagoTest(rt_wide$ashby)
@@ -617,7 +617,7 @@ ggplot(tt_dat, aes(ravens_tf, tt.t)) + geom_point(alpha = 0.25) + theme_bw() + s
 ashby_rt_id <- merge(ashby_rt, id, by = "Subject", all.x = TRUE, all.y = FALSE)
 
 ashby_dat <- ashby_rt_id %>%
-  dplyr::select(Subject, System, ashby.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) #%>% 
+  dplyr::select(Subject, System, ashby.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% 
   na.omit %>%
   head(264)  # take first 132 with full data
 
