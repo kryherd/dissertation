@@ -550,6 +550,20 @@ anova(m3)
 m4 <- lmer(ashby.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = ashby_dat)
 anova(m3,m4)
 anova(m4)
+
+# CELF ANALYSES
+
+ashby_dat2 <- ashby_acc_id %>%
+  dplyr::select(Subject, System, ashby.t, rs_tf, fs_tf, ravens_tf) %>% 
+  na.omit %>%
+  head(264) # take first 132 with full data
+
+m0 <- lmer(ashby.t ~ 1 + (1|Subject), data = ashby_dat2)
+m1 <- lmer(ashby.t ~ System + ravens_tf + (1|Subject), data = ashby_dat2)
+anova(m0,m1)
+m3 <- lmer(ashby.t ~ System + ravens_tf + rs_tf + fs_tf  + (1|Subject), data = ashby_dat2)
+anova(m1,m3)
+anova(m3)
 ```
 
 
@@ -562,7 +576,6 @@ sloutsky_dat <- sloutsky_acc_id %>%
   dplyr::select(Subject, System, sloutsky.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% 
   na.omit %>%
   head(264) # take first 132 with full data
-
 
 m0 <- lmer(sloutsky.t ~ 1 + (1|Subject), data = sloutsky_dat)
 m1 <- lmer(sloutsky.t ~ System + (1|Subject), data = sloutsky_dat)
@@ -580,6 +593,21 @@ anova(m4)
 ggplot(sloutsky_dat, aes(flanker_eff_cs, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Flanker Effect") + ylab("Sloutsky Accuracy") + ggtitle("Significant main effect of flanker on Sloutsky accuracy")
 
 ggplot(sloutsky_dat, aes(switch_eff_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Switcher Effect") + ylab("Sloutsky Accuracy") + ggtitle("Significant main effect of switcher on Sloutsky accuracy")
+
+
+# CELF ANALYSES
+
+sloutsky_dat2 <- sloutsky_acc_id %>%
+  dplyr::select(Subject, System, sloutsky.t, rs_tf, fs_tf, ravens_tf) %>% 
+  na.omit %>%
+  head(264) # take first 132 with full data
+
+m0 <- lmer(sloutsky.t ~ 1 + (1|Subject), data = sloutsky_dat2)
+m1 <- lmer(sloutsky.t ~ System + ravens_tf + (1|Subject), data = sloutsky_dat2)
+anova(m0,m1)
+m3 <- lmer(sloutsky.t ~ System + ravens_tf + rs_tf + fs_tf  + (1|Subject), data = sloutsky_dat2)
+anova(m1,m3)
+anova(m3)
 ```
 
 
@@ -607,6 +635,20 @@ anova(m3,m4)
 anova(m4)
 
 ggplot(tt_dat, aes(ravens_tf, tt.t)) + geom_point(alpha = 0.25) + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Nonverbal IQ") + ylab("TT Accuracy") + ggtitle("Significant main effect of nonverbal IQ on TT accuracy")
+
+# CELF ANALYSES
+
+tt_dat2 <- tt_acc_id %>%
+  dplyr::select(Subject, System, tt.t, rs_tf, fs_tf, ravens_tf) %>% 
+  na.omit %>%
+  head(264) # take first 132 with full data
+
+m0 <- lmer(tt.t ~ 1 + (1|Subject), data = tt_dat2)
+m1 <- lmer(tt.t ~ System + ravens_tf + (1|Subject), data = tt_dat2)
+anova(m0,m1)
+m3 <- lmer(tt.t ~ System + ravens_tf + rs_tf + fs_tf  + (1|Subject), data = tt_dat2)
+anova(m1,m3)
+anova(m3)
 ```
 
 # RT Analysis
@@ -634,6 +676,20 @@ anova(m3)
 m4 <- lmer(ashby.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = ashby_dat)
 anova(m3,m4)
 anova(m4)
+
+# CELF ANALYSES
+
+ashby_dat2 <- ashby_rt_id %>%
+  dplyr::select(Subject, System, ashby.t, rs_tf, fs_tf, ravens_tf) %>% 
+  na.omit %>%
+  head(264) # take first 132 with full data
+
+m0 <- lmer(ashby.t ~ 1 + (1|Subject), data = ashby_dat2)
+m1 <- lmer(ashby.t ~ System + ravens_tf + (1|Subject), data = ashby_dat2)
+anova(m0,m1)
+m3 <- lmer(ashby.t ~ System + ravens_tf + rs_tf + fs_tf  + (1|Subject), data = ashby_dat2)
+anova(m1,m3)
+anova(m3)
 ```
 
 
@@ -666,6 +722,21 @@ ggplot(sloutsky_dat, aes(tol_time_tf, sloutsky.t)) + geom_point() + theme_bw() +
 
 ggplot(sloutsky_dat, aes(ravens_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Nonverbal IQ") + ylab("Sloutsky Reaction Time") + ggtitle("Significant main effect of nonverbal IQ on Sloutsky RT")
 
+
+# CELF ANALYSES
+
+sloutsky_dat2 <- sloutsky_rt_id %>%
+  dplyr::select(Subject, System, sloutsky.t, rs_tf, fs_tf, ravens_tf) %>% 
+  na.omit %>%
+  head(264) # take first 132 with full data
+
+m0 <- lmer(sloutsky.t ~ 1 + (1|Subject), data = sloutsky_dat2)
+m1 <- lmer(sloutsky.t ~ System + ravens_tf + (1|Subject), data = sloutsky_dat2)
+anova(m0,m1)
+m3 <- lmer(sloutsky.t ~ System + ravens_tf + rs_tf + fs_tf  + (1|Subject), data = sloutsky_dat2)
+anova(m1,m3)
+anova(m3)
+
 ```
 
 
@@ -692,4 +763,17 @@ m4 <- lmer(tt.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_tim
 anova(m3,m4)
 anova(m4)
 
+# CELF ANALYSES
+
+tt_dat2 <- tt_rt_id %>%
+  dplyr::select(Subject, System, tt.t, rs_tf, fs_tf, ravens_tf) %>% 
+  na.omit %>%
+  head(264) # take first 132 with full data
+
+m0 <- lmer(tt.t ~ 1 + (1|Subject), data = tt_dat2)
+m1 <- lmer(tt.t ~ System + ravens_tf + (1|Subject), data = tt_dat2)
+anova(m0,m1)
+m3 <- lmer(tt.t ~ System + ravens_tf + rs_tf + fs_tf  + (1|Subject), data = tt_dat2)
+anova(m1,m3)
+anova(m3)
 ```

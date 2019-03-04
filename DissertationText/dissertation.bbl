@@ -430,6 +430,36 @@ Blaye, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Botella%
+, Joula%
+\BCBL {}\ \BBA {} {Barriopedro Romo}%
+}{%
+Botella%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2002}}%
+}]{%
+Botella2002}
+\APACinsertmetastar {%
+Botella2002}%
+\begin{APACrefauthors}%
+Botella, G\BPBI J.%
+, Joula, J\BPBI F.%
+\BCBL {}\ \BBA {} {Barriopedro Romo}, M\BPBI I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Temporal interactions between target and distractor
+  proccesing: Positive and negative priming effects}} {{Temporal interactions
+  between target and distractor proccesing: Positive and negative priming
+  effects}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psicol{\'{o}}gica: Revista de metodolog{\'{i}}a y
+  psicolog{\'{i}}a experimental}{23}{2}{371--400}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Boudewyn%
 \ \protect \BOthers {.}}{%
 Boudewyn%
