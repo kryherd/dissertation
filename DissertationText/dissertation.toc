@@ -15,41 +15,48 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Participants}{18}
 \contentsline {subsubsection}{\numberline {2.1.2}Category Learning Task}{18}
 \contentsline {subsubsection}{\numberline {2.1.3}Behavioral Measures}{19}
-\contentsline {subsection}{\numberline {2.2}Procedure}{21}
-\contentsline {subsection}{\numberline {2.3}Results}{22}
-\contentsline {subsubsection}{\numberline {2.3.1}Category Learning Task Data Processing}{22}
-\contentsline {subsubsection}{\numberline {2.3.2}Behavioral Measures}{22}
-\contentsline {subsubsection}{\numberline {2.3.3}Order Analysis 1: Matching Conditions}{24}
-\contentsline {subsubsection}{\numberline {2.3.4}Order Analysis 2: Dense Stimuli}{26}
-\contentsline {subsubsection}{\numberline {2.3.5}Order Analysis 3: Sparse Stimuli}{27}
-\contentsline {subsection}{\numberline {2.4}Discussion}{29}
-\contentsline {subsubsection}{\numberline {2.4.1}Order Effects}{29}
-\contentsline {subsubsection}{\numberline {2.4.2}Individual Differences}{30}
+\contentsline {subsubsection}{\numberline {2.1.4}Procedure}{21}
+\contentsline {subsection}{\numberline {2.2}Results}{22}
+\contentsline {subsubsection}{\numberline {2.2.1}Category Learning Task Data Processing}{22}
+\contentsline {subsubsection}{\numberline {2.2.2}Behavioral Measures}{22}
+\contentsline {subsubsection}{\numberline {2.2.3}Order Analysis 1: Matching Conditions}{24}
+\contentsline {subsubsection}{\numberline {2.2.4}Order Analysis 2: Dense Stimuli}{26}
+\contentsline {subsubsection}{\numberline {2.2.5}Order Analysis 3: Sparse Stimuli}{27}
+\contentsline {subsection}{\numberline {2.3}Discussion}{29}
+\contentsline {subsubsection}{\numberline {2.3.1}Order Effects}{29}
+\contentsline {subsubsection}{\numberline {2.3.2}Individual Differences}{30}
+\contentsline {subsubsection}{\numberline {2.3.3}Limitations and conclusions}{31}
 \contentsline {section}{\numberline {3}Experiment 2}{32}
 \contentsline {subsection}{\numberline {3.1}Method}{32}
 \contentsline {subsubsection}{\numberline {3.1.1}Participants}{32}
 \contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{33}
 \contentsline {subsubsection}{\numberline {3.1.3}Executive Function Tasks}{34}
 \contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{36}
-\contentsline {subsection}{\numberline {3.2}Procedure}{36}
-\contentsline {subsection}{\numberline {3.3}Results I: Individual Differences}{36}
-\contentsline {subsubsection}{\numberline {3.3.1}Data Processing}{36}
-\contentsline {subsubsection}{\numberline {3.3.2}Accuracy}{38}
-\contentsline {subsubsection}{\numberline {3.3.3}Reaction Time}{39}
-\contentsline {subsubsection}{\numberline {3.3.4}Exploratory Analyses}{39}
-\contentsline {subsection}{\numberline {3.4}Discussion I: Individual Differences}{40}
-\contentsline {subsection}{\numberline {3.5}Results II: Cross-Paradigm Comparison}{41}
-\contentsline {subsubsection}{\numberline {3.5.1}Data Processing}{41}
-\contentsline {subsubsection}{\numberline {3.5.2}Accuracy}{42}
-\contentsline {subsubsection}{\numberline {3.5.3}Reaction Time}{43}
-\contentsline {subsection}{\numberline {3.6}Discussion II: Cross-Paradigm Comparison}{44}
-\contentsline {section}{\numberline {4}General Discussion}{46}
-\contentsline {subsection}{\numberline {4.1}Language in a dual-systems model: summary of results}{46}
-\contentsline {subsubsection}{\numberline {4.1.1}Language and the interaction between two systems}{46}
-\contentsline {subsubsection}{\numberline {4.1.2}Individual differences and dual-systems category learning}{46}
-\contentsline {subsubsection}{\numberline {4.1.3}Levels of processing and the dual-systems model}{46}
-\contentsline {subsection}{\numberline {4.2}Rethinking the dual-systems model of categorization}{47}
-\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{48}
-\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{48}
-\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{49}
-\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{51}
+\contentsline {subsubsection}{\numberline {3.1.5}Procedure}{36}
+\contentsline {subsection}{\numberline {3.2}Results I: Individual Differences}{36}
+\contentsline {subsubsection}{\numberline {3.2.1}Data Processing}{36}
+\contentsline {subsubsection}{\numberline {3.2.2}Accuracy}{38}
+\contentsline {subsubsection}{\numberline {3.2.3}Reaction Time}{39}
+\contentsline {subsubsection}{\numberline {3.2.4}Exploratory Analyses}{39}
+\contentsline {subsection}{\numberline {3.3}Discussion I: Individual Differences}{40}
+\contentsline {subsubsection}{\numberline {3.3.1}Ashby perceptual category learning task}{40}
+\contentsline {subsubsection}{\numberline {3.3.2}Sloutsky statistical density task}{41}
+\contentsline {subsubsection}{\numberline {3.3.3}Taxonomic/thematic task}{42}
+\contentsline {subsubsection}{\numberline {3.3.4}Limitations and conclusions}{43}
+\contentsline {subsection}{\numberline {3.4}Results II: Cross-Paradigm Comparison}{44}
+\contentsline {subsubsection}{\numberline {3.4.1}Data Processing}{44}
+\contentsline {subsubsection}{\numberline {3.4.2}Accuracy}{46}
+\contentsline {subsubsection}{\numberline {3.4.3}Reaction Time}{47}
+\contentsline {subsection}{\numberline {3.5}Discussion II: Cross-Paradigm Comparison}{47}
+\contentsline {subsubsection}{\numberline {3.5.1}Task differences}{48}
+\contentsline {subsubsection}{\numberline {3.5.2}Limitations and conclusions}{48}
+\contentsline {section}{\numberline {4}General Discussion}{49}
+\contentsline {subsection}{\numberline {4.1}Language in a dual-systems model: summary of results}{49}
+\contentsline {subsubsection}{\numberline {4.1.1}Language and the interaction between two systems}{49}
+\contentsline {subsubsection}{\numberline {4.1.2}Individual differences and dual-systems category learning}{49}
+\contentsline {subsubsection}{\numberline {4.1.3}Levels of processing and the dual-systems model}{49}
+\contentsline {subsection}{\numberline {4.2}Rethinking the dual-systems model of categorization}{50}
+\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{51}
+\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{51}
+\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{52}
+\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{54}

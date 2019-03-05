@@ -430,6 +430,35 @@ Blaye, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Blaye%
+, Chevalier%
+\BCBL {}\ \BBA {} Paour%
+}{%
+Blaye%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2007}}%
+}]{%
+Blaye2007}
+\APACinsertmetastar {%
+Blaye2007}%
+\begin{APACrefauthors}%
+Blaye, A.%
+, Chevalier, N.%
+\BCBL {}\ \BBA {} Paour, J\BHBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The development of intentional control of
+  categorization behaviour: A study of children's relational flexibility}}
+  {{The development of intentional control of categorization behaviour: A study
+  of children's relational flexibility}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognition Brain {\&} Behavior}{11}{4}{791--808}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Botella%
 , Joula%
 \BCBL {}\ \BBA {} {Barriopedro Romo}%
@@ -488,6 +517,37 @@ Boudewyn, M\BPBI A.%
   and Verbal Ability}}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Journal of Cognitive Neuroscience}{27}{12}{2309--2323}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Brooks%
+, Seiger-Gardner%
+\BCBL {}\ \BBA {} Sailor%
+}{%
+Brooks%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+Brooks2014}
+\APACinsertmetastar {%
+Brooks2014}%
+\begin{APACrefauthors}%
+Brooks, P\BPBI J.%
+, Seiger-Gardner, L.%
+\BCBL {}\ \BBA {} Sailor, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Contrasting effects of associates and coordinates in
+  children with and without language impairment: A picture-word interference
+  study}} {{Contrasting effects of associates and coordinates in children with
+  and without language impairment: A picture-word interference study}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Applied Psycholinguistics}{35}{3}{515--545}.
+\newblock
+\begin{APACrefDOI} \doi{10.1017/S0142716412000495} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -669,6 +729,66 @@ Cragg, L.%
 \APACjournalVolNumPages{Topics in Cognitive Science}{2}{4}{631--642}.
 \newblock
 \begin{APACrefDOI} \doi{10.1111/j.1756-8765.2009.01080.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+DeCaro%
+, Thomas%
+\BCBL {}\ \BBA {} Beilock%
+}{%
+DeCaro%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+DeCaro2008}
+\APACinsertmetastar {%
+DeCaro2008}%
+\begin{APACrefauthors}%
+DeCaro, M\BPBI S.%
+, Thomas, R\BPBI D.%
+\BCBL {}\ \BBA {} Beilock, S\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Individual differences in category learning: Sometimes
+  less working memory capacity is better than more}} {{Individual differences
+  in category learning: Sometimes less working memory capacity is better than
+  more}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognition}{107}{1}{284--294}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.cognition.2007.07.001} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Dunham%
+\ \BBA {} Dunham%
+}{%
+Dunham%
+\ \BBA {} Dunham%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+Dunham1995}
+\APACinsertmetastar {%
+Dunham1995}%
+\begin{APACrefauthors}%
+Dunham, P.%
+\BCBT {}\ \BBA {} Dunham, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Developmental Antecedents of Taxonomic and Thematic
+  Strategies at 3 Years of Age}} {{Developmental Antecedents of Taxonomic and
+  Thematic Strategies at 3 Years of Age}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Developmental Psychology}{31}{3}{483--493}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0012-1649.31.3.483} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1367,6 +1487,39 @@ Landrigan, J\BHBI F.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Lewandowsky%
+, Yang%
+, Newell%
+\BCBL {}\ \BBA {} Kalish%
+}{%
+Lewandowsky%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+Lewandowsky2012}
+\APACinsertmetastar {%
+Lewandowsky2012}%
+\begin{APACrefauthors}%
+Lewandowsky, S.%
+, Yang, L\BHBI X.%
+, Newell, B\BPBI R.%
+\BCBL {}\ \BBA {} Kalish, M\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Working memory does not dissociate between different
+  perceptual categorization tasks.}} {{Working memory does not dissociate
+  between different perceptual categorization tasks.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology: Learning, Memory,
+  and Cognition}{38}{4}{881--904}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/a0027298} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Lewis%
 }{%
 Lewis%
@@ -1711,6 +1864,72 @@ Maddox, W\BPBI T.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Maddox%
+, Pacheco%
+, Reeves%
+, Zhu%
+\BCBL {}\ \BBA {} Schnyer%
+}{%
+Maddox%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2010}}%
+}]{%
+Maddox2010}
+\APACinsertmetastar {%
+Maddox2010}%
+\begin{APACrefauthors}%
+Maddox, W\BPBI T.%
+, Pacheco, J.%
+, Reeves, M.%
+, Zhu, B.%
+\BCBL {}\ \BBA {} Schnyer, D\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Rule-based and information-integration category
+  learning in normal aging}} {{Rule-based and information-integration category
+  learning in normal aging}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Neuropsychologia}{48}{10}{2998--3008}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.neuropsychologia.2010.06.008}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Maintenant%
+, Blaye%
+\BCBL {}\ \BBA {} Paour%
+}{%
+Maintenant%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+}]{%
+Maintenant2011}
+\APACinsertmetastar {%
+Maintenant2011}%
+\begin{APACrefauthors}%
+Maintenant, C.%
+, Blaye, A.%
+\BCBL {}\ \BBA {} Paour, J\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Semantic Categorical Flexibility and Aging: Effect of
+  Semantic Relations on Maintenance and Switching}} {{Semantic Categorical
+  Flexibility and Aging: Effect of Semantic Relations on Maintenance and
+  Switching}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychology and Aging}{26}{2}{461--466}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/a0021686} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Makowski%
 }{%
 Makowski%
@@ -1830,6 +2049,36 @@ Minda, J\BPBI P.%
 \APACaddressPublisher{Burlington}{Academic Press}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/S0079-7421(10)52003-6} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Minda%
+\ \BBA {} Rabi%
+}{%
+Minda%
+\ \BBA {} Rabi%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+Minda2015}
+\APACinsertmetastar {%
+Minda2015}%
+\begin{APACrefauthors}%
+Minda, J\BPBI P.%
+\BCBT {}\ \BBA {} Rabi, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Ego depletion interferes with rule-defined category
+  learning but not non-rule-defined category learning}} {{Ego depletion
+  interferes with rule-defined category learning but not non-rule-defined
+  category learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Frontiers in Psychology}{6}{}{1--9}.
+\newblock
+\begin{APACrefDOI} \doi{10.3389/fpsyg.2015.00035} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -2014,6 +2263,37 @@ Nomura, E\BPBI M.%
 \APACjournalVolNumPages{Cerebral Cortex}{17}{1}{37--43}.
 \newblock
 \begin{APACrefDOI} \doi{10.1093/cercor/bhj122} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Noseworthy%
+\ \BBA {} Goode%
+}{%
+Noseworthy%
+\ \BBA {} Goode%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+Noseworthy2011}
+\APACinsertmetastar {%
+Noseworthy2011}%
+\begin{APACrefauthors}%
+Noseworthy, T\BPBI J.%
+\BCBT {}\ \BBA {} Goode, M\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Contrasting rule-based and similarity-based category
+  learning: The effects of mood and prior knowledge on ambiguous
+  categorization}} {{Contrasting rule-based and similarity-based category
+  learning: The effects of mood and prior knowledge on ambiguous
+  categorization}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Consumer Psychology}{21}{3}{362--371}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.jcps.2011.03.003} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

@@ -551,6 +551,8 @@ m4 <- lmer(ashby.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_
 anova(m3,m4)
 anova(m4)
 
+ggplot(ashby_dat, aes(nd_tf, ashby.t)) + geom_point() + theme_bw() + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)
+
 # CELF ANALYSES
 
 ashby_dat2 <- ashby_acc_id %>%
@@ -627,10 +629,10 @@ anova(m0,m1)
 #m2 <- lmer(tt.t ~ System + ravens_tf + (1|Subject), data = tt_dat)
 #anova(m1,m2)
 #anova(m2)
-m3 <- lmer(tt.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = tt_dat)
+m3 <- lmer(tt.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf  + (1|Subject), data = tt_dat)
 anova(m1,m3)
 anova(m3)
-m4 <- lmer(tt.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = tt_dat)
+m4 <- lmer(tt.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf) + (1|Subject), data = tt_dat)
 anova(m3,m4)
 anova(m4)
 
@@ -676,6 +678,10 @@ anova(m3)
 m4 <- lmer(ashby.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = ashby_dat)
 anova(m3,m4)
 anova(m4)
+
+ggplot(ashby_dat, aes(nd_tf, ashby.t)) + geom_point() + theme_bw() + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)
+
+ggplot(ashby_dat, aes(tol_time_tf, ashby.t)) + geom_point() + theme_bw() + stat_smooth(method = "lm", se = FALSE)
 
 # CELF ANALYSES
 
@@ -756,10 +762,10 @@ anova(m0,m1)
 #m2 <- lmer(tt.t ~ System + ravens_tf + (1|Subject), data = tt_dat)
 #anova(m1,m2)
 #anova(m2)
-m3 <- lmer(tt.t ~ System + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = tt_dat)
+m3 <- lmer(tt.t ~ System + flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf  + (1|Subject), data = tt_dat)
 anova(m1,m3)
 anova(m3)
-m4 <- lmer(tt.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = tt_dat)
+m4 <- lmer(tt.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf) + (1|Subject), data = tt_dat)
 anova(m3,m4)
 anova(m4)
 

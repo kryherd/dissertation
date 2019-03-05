@@ -544,6 +544,14 @@ acc_sel_long <- acc_sel %>%
   gather(key ="CatLearn", value = "acc_z", ashby.t:tt.t) %>%
   dplyr::filter(abs(acc_z) <= 3)
 
+acc_sel_wide <- acc_sel_long %>%
+  mutate(measure = paste0(System,"_", CatLearn)) %>%
+  dplyr::select(Subject, measure, acc_z) %>%
+  spread(key = measure, value = acc_z)
+cor.mat <- cor(acc_sel_wide[,-1], use = "complete.obs")
+p.mat <- cor_pmat(acc_sel_wide[,-1], use = "complete.obs")
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, title = "ACC", sig.level = 0.003)
+
 acc_outliers <- acc_sel %>%
   dplyr::select(Subject, System, ashby.t:tt.t) %>%
   gather(key ="CatLearn", value = "acc_z", ashby.t:tt.t) %>%
@@ -678,6 +686,15 @@ rt_sel_long <- rt_sel %>%
   dplyr::select(Subject, System, ashby.t:tt.t) %>%
   gather(key ="CatLearn", value = "rt_z", ashby.t:tt.t) %>%
   dplyr::filter(abs(rt_z) <= 3)
+
+rt_sel_wide <- rt_sel_long %>%
+  mutate(measure = paste0(System,"_", CatLearn)) %>%
+  dplyr::select(Subject, measure, rt_z) %>%
+  spread(key = measure, value = rt_z)
+cor.mat <- cor(rt_sel_wide[,-1], use = "complete.obs")
+p.mat <- cor_pmat(rt_sel_wide[,-1], use = "complete.obs")
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, title = "rt", sig.level = 0.003)
+
 
 rt_outliers<- rt_sel %>%
   dplyr::select(Subject, System, ashby.t:tt.t) %>%
