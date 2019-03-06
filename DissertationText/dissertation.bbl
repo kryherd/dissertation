@@ -459,6 +459,36 @@ Blaye, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Bonin%
+, Gelin%
+\BCBL {}\ \BBA {} Bugaiska%
+}{%
+Bonin%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+Bonin2014}
+\APACinsertmetastar {%
+Bonin2014}%
+\begin{APACrefauthors}%
+Bonin, P.%
+, Gelin, M.%
+\BCBL {}\ \BBA {} Bugaiska, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Animates are better remembered than inanimates: further
+  evidence from word and picture stimuli}} {{Animates are better remembered
+  than inanimates: further evidence from word and picture stimuli}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Memory {\&} Cognition}{42}{3}{370--382}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/s13421-013-0368-8} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Botella%
 , Joula%
 \BCBL {}\ \BBA {} {Barriopedro Romo}%
@@ -761,6 +791,39 @@ Crossley, M\BPBI J.%
 \APACjournalVolNumPages{Psychological Research}{82}{2}{371--384}.
 \newblock
 \begin{APACrefDOI} \doi{10.1007/s00426-016-0828-4} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Davidson%
+, Rainey%
+, Vanegas%
+\BCBL {}\ \BBA {} Hilvert%
+}{%
+Davidson%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Davidson2018}
+\APACinsertmetastar {%
+Davidson2018}%
+\begin{APACrefauthors}%
+Davidson, D.%
+, Rainey, V\BPBI R.%
+, Vanegas, S\BPBI B.%
+\BCBL {}\ \BBA {} Hilvert, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The effects of type of instruction, animacy cues, and
+  dimensionality of objects on the shape bias in 3- to 6-year-old children}}
+  {{The effects of type of instruction, animacy cues, and dimensionality of
+  objects on the shape bias in 3- to 6-year-old children}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Infant and Child Development}{27}{1}{e2044}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/icd.2044} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

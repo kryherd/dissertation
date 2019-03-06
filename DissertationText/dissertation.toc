@@ -26,40 +26,40 @@
 \contentsline {subsubsection}{\numberline {2.3.1}Order effects}{31}
 \contentsline {subsubsection}{\numberline {2.3.2}Individual differences}{32}
 \contentsline {subsubsection}{\numberline {2.3.3}Limitations and conclusions}{32}
-\contentsline {section}{\numberline {3}Experiment 2}{33}
-\contentsline {subsection}{\numberline {3.1}Method}{33}
-\contentsline {subsubsection}{\numberline {3.1.1}Participants}{33}
-\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{34}
-\contentsline {subsubsection}{\numberline {3.1.3}Executive Function Tasks}{35}
-\contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{37}
-\contentsline {subsubsection}{\numberline {3.1.5}Procedure}{37}
-\contentsline {subsection}{\numberline {3.2}Results I: Individual Differences}{37}
-\contentsline {subsubsection}{\numberline {3.2.1}Data Processing}{37}
-\contentsline {subsubsection}{\numberline {3.2.2}Accuracy}{39}
-\contentsline {subsubsection}{\numberline {3.2.3}Reaction Time}{40}
-\contentsline {subsubsection}{\numberline {3.2.4}Exploratory Analyses}{40}
-\contentsline {subsection}{\numberline {3.3}Discussion I: Individual Differences}{41}
-\contentsline {subsubsection}{\numberline {3.3.1}Ashby perceptual category learning task}{41}
-\contentsline {subsubsection}{\numberline {3.3.2}Sloutsky statistical density task}{42}
-\contentsline {subsubsection}{\numberline {3.3.3}Taxonomic/thematic task}{43}
-\contentsline {subsubsection}{\numberline {3.3.4}Limitations and conclusions}{44}
-\contentsline {subsection}{\numberline {3.4}Results II: Cross-Paradigm Comparison}{45}
-\contentsline {subsubsection}{\numberline {3.4.1}Data Processing}{45}
-\contentsline {subsubsection}{\numberline {3.4.2}Accuracy}{47}
-\contentsline {subsubsection}{\numberline {3.4.3}Reaction Time}{48}
-\contentsline {subsection}{\numberline {3.5}Discussion II: Cross-Paradigm Comparison}{48}
-\contentsline {subsubsection}{\numberline {3.5.1}Task differences}{49}
-\contentsline {subsubsection}{\numberline {3.5.2}Limitations and conclusions}{49}
-\contentsline {section}{\numberline {4}General Discussion}{50}
-\contentsline {subsection}{\numberline {4.1}Language in a dual-systems model: summary of results}{50}
-\contentsline {subsubsection}{\numberline {4.1.1}Language and the interaction between two systems}{50}
-\contentsline {subsubsection}{\numberline {4.1.2}Individual differences and dual-systems category learning}{50}
-\contentsline {subsubsection}{\numberline {4.1.3}Levels of processing and the dual-systems model}{50}
-\contentsline {subsection}{\numberline {4.2}Rethinking the dual-systems model of categorization}{51}
-\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{52}
-\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{52}
-\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{52}
-\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{54}
-\contentsline {section}{\numberline {6}Appendix B: Example Stimuli for Sloutsky Statistical Density Task}{55}
-\contentsline {subsection}{\numberline {6.1}Sparse stimuli}{55}
-\contentsline {subsection}{\numberline {6.2}Dense stimuli}{56}
+\contentsline {section}{\numberline {3}Experiment 2}{34}
+\contentsline {subsection}{\numberline {3.1}Method}{34}
+\contentsline {subsubsection}{\numberline {3.1.1}Participants}{34}
+\contentsline {subsubsection}{\numberline {3.1.2}Category Learning Tasks}{35}
+\contentsline {subsubsection}{\numberline {3.1.3}Executive Function Tasks}{36}
+\contentsline {subsubsection}{\numberline {3.1.4}Behavioral Measures}{38}
+\contentsline {subsubsection}{\numberline {3.1.5}Procedure}{38}
+\contentsline {subsection}{\numberline {3.2}Results I: Individual Differences}{38}
+\contentsline {subsubsection}{\numberline {3.2.1}Data Processing}{38}
+\contentsline {subsubsection}{\numberline {3.2.2}Accuracy}{40}
+\contentsline {subsubsection}{\numberline {3.2.3}Reaction Time}{41}
+\contentsline {subsubsection}{\numberline {3.2.4}Exploratory Analyses}{41}
+\contentsline {subsection}{\numberline {3.3}Discussion I: Individual Differences}{42}
+\contentsline {subsubsection}{\numberline {3.3.1}Ashby perceptual category learning task}{43}
+\contentsline {subsubsection}{\numberline {3.3.2}Sloutsky statistical density task}{44}
+\contentsline {subsubsection}{\numberline {3.3.3}Taxonomic/thematic task}{45}
+\contentsline {subsubsection}{\numberline {3.3.4}Limitations and conclusions}{46}
+\contentsline {subsection}{\numberline {3.4}Results II: Cross-Paradigm Comparison}{46}
+\contentsline {subsubsection}{\numberline {3.4.1}Data Processing}{47}
+\contentsline {subsubsection}{\numberline {3.4.2}Accuracy}{49}
+\contentsline {subsubsection}{\numberline {3.4.3}Reaction Time}{50}
+\contentsline {subsection}{\numberline {3.5}Discussion II: Cross-Paradigm Comparison}{50}
+\contentsline {subsubsection}{\numberline {3.5.1}Task differences}{51}
+\contentsline {subsubsection}{\numberline {3.5.2}Limitations and conclusions}{51}
+\contentsline {section}{\numberline {4}General Discussion}{52}
+\contentsline {subsection}{\numberline {4.1}Language in a dual-systems model: summary of results}{52}
+\contentsline {subsubsection}{\numberline {4.1.1}Language and the interaction between two systems}{52}
+\contentsline {subsubsection}{\numberline {4.1.2}Individual differences and dual-systems category learning}{52}
+\contentsline {subsubsection}{\numberline {4.1.3}Levels of processing and the dual-systems model}{52}
+\contentsline {subsection}{\numberline {4.2}Rethinking the dual-systems model of categorization}{53}
+\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{54}
+\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{54}
+\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{54}
+\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{56}
+\contentsline {section}{\numberline {6}Appendix B: Example Stimuli for Sloutsky Statistical Density Task}{57}
+\contentsline {subsection}{\numberline {6.1}Sparse stimuli}{57}
+\contentsline {subsection}{\numberline {6.2}Dense stimuli}{58}

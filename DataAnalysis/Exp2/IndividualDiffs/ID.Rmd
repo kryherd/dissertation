@@ -458,7 +458,7 @@ tol$sub[tol$sub==95] <- 8144
 
 tol_acc <- tol %>%
   group_by(sub) %>%
-  summarise(m_acc = mean(success))
+  summarise(m_acc = sum(success)/12)
 
 tol_time <- tol %>%
   dplyr::filter(success == 1) %>%
@@ -534,7 +534,7 @@ ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE)
 ashby_acc_id <- merge(ashby_acc, id, by = "Subject", all.x = TRUE, all.y = FALSE)
 
 ashby_dat <- ashby_acc_id %>%
-  dplyr::select(Subject, System, ashby.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, tol_time_tf, nd_tf, ravens_tf) %>% 
+  dplyr::select(Subject, System, ashby.t, flanker_eff_cs, switch_eff_tf, tol_acc_tf, nd_tf, ravens_tf) %>% 
   na.omit %>%
   head(264)  # take first 132 with full data 
 
@@ -544,10 +544,10 @@ anova(m0,m1)
 #m2 <- lmer(ashby.t ~ System + ravens_tf + (1|Subject), data = ashby_dat)
 #anova(m1,m2)
 #anova(m2)
-m3 <- lmer(ashby.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = ashby_dat)
+m3 <- lmer(ashby.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf  + (1|Subject), data = ashby_dat)
 anova(m1,m3)
 anova(m3)
-m4 <- lmer(ashby.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = ashby_dat)
+m4 <- lmer(ashby.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf) + (1|Subject), data = ashby_dat)
 anova(m3,m4)
 anova(m4)
 
@@ -585,10 +585,10 @@ anova(m0,m1)
 #m2 <- lmer(sloutsky.t ~ System + ravens_tf + (1|Subject), data = sloutsky_dat)
 #anova(m1,m2)
 #anova(m2)
-m3 <- lmer(sloutsky.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = sloutsky_dat)
+m3 <- lmer(sloutsky.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf  + (1|Subject), data = sloutsky_dat)
 anova(m1,m3)
 anova(m3)
-m4 <- lmer(sloutsky.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = sloutsky_dat)
+m4 <- lmer(sloutsky.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf) + (1|Subject), data = sloutsky_dat)
 anova(m3,m4)
 anova(m4)
 
@@ -636,7 +636,7 @@ m4 <- lmer(tt.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_acc
 anova(m3,m4)
 anova(m4)
 
-ggplot(tt_dat, aes(ravens_tf, tt.t)) + geom_point(alpha = 0.25) + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Nonverbal IQ") + ylab("TT Accuracy") + ggtitle("Significant main effect of nonverbal IQ on TT accuracy")
+ggplot(tt_dat, aes(tol_acc_tf, tt.t)) + geom_point(alpha = 0.25) + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Planning (Tower of London accuracy)") + ylab("TT Accuracy") + ggtitle("Significant main effect of nonverbal IQ on TT accuracy")
 
 # CELF ANALYSES
 
@@ -672,10 +672,10 @@ anova(m0,m1)
 #m2 <- lmer(ashby.t ~ System + ravens_tf + (1|Subject), data = ashby_dat)
 #anova(m1,m2)
 #anova(m2)
-m3 <- lmer(ashby.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = ashby_dat)
+m3 <- lmer(ashby.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf  + (1|Subject), data = ashby_dat)
 anova(m1,m3)
 anova(m3)
-m4 <- lmer(ashby.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = ashby_dat)
+m4 <- lmer(ashby.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf) + (1|Subject), data = ashby_dat)
 anova(m3,m4)
 anova(m4)
 
@@ -717,14 +717,23 @@ anova(m0,m1)
 #m2 <- lmer(sloutsky.t ~ System + ravens_tf + (1|Subject), data = sloutsky_dat)
 #anova(m1,m2)
 #anova(m2)
-m3 <- lmer(sloutsky.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf  + (1|Subject), data = sloutsky_dat)
+m3 <- lmer(sloutsky.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf  + (1|Subject), data = sloutsky_dat)
 anova(m1,m3)
 anova(m3)
-m4 <- lmer(sloutsky.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_time_tf + nd_tf) + (1|Subject), data = sloutsky_dat)
+m4 <- lmer(sloutsky.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf) + (1|Subject), data = sloutsky_dat)
 anova(m3,m4)
 anova(m4)
 
-ggplot(sloutsky_dat, aes(tol_time_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Tower of London Planning Ratio") + ylab("Sloutsky Reaction Time") + ggtitle("Significant main effect of ToL on Sloutsky RT")
+ht <- sloutsky_dat$System=="hypothesis-testing"
+as <- sloutsky_dat$System=="associative"
+
+ht_mod <- lm(sloutsky.t ~ ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf, data = sloutsky_dat, subset = ht)
+summary(ht_mod)
+
+as_mod <- lm(sloutsky.t ~ ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf, data = sloutsky_dat, subset = as)
+summary(as_mod)
+
+ggplot(sloutsky_dat, aes(tol_time_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Planning (Tower of London accuracy)") + ylab("Sloutsky Reaction Time") + ggtitle("Significant interaction between ToL and system on Sloutsky RT") + facet_grid(.~System)
 
 ggplot(sloutsky_dat, aes(ravens_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Nonverbal IQ") + ylab("Sloutsky Reaction Time") + ggtitle("Significant main effect of nonverbal IQ on Sloutsky RT")
 
