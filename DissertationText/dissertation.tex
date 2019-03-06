@@ -1,73 +1,50 @@
 \documentclass{article}
-\usepackage{tocloft}
-\usepackage{graphicx}
-\usepackage{subfiles}
-\graphicspath{{images/}{../images/}}
-\usepackage{blindtext}
-\usepackage{cite}
-\usepackage{apacite}
-\usepackage{etoolbox}
-\usepackage{amsmath}
-\usepackage{multirow}
-\makeatletter
-\patchcmd{\nocite}{\ifx\@onlypreamble\document}{\iftrue}{}{}
-\makeatother
-\renewcommand\thesection{\arabic{section}}
-\newcommand{\ptitle}{Exploring the Role of Language in Two Systems for Categorization}
-\newcommand{\pauthor}{Kayleigh Ryherd}
-\usepackage[margin=1in]{geometry}
-\usepackage{caption}
-\usepackage{tabularx}
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
-\captionsetup[table]{labelsep=period, skip=0pt}
-\captionsetup[figure]{labelsep=period, skip=0pt}
-\usepackage{natbib}
-\usepackage{float}
-\usepackage{wrapfig,lipsum,booktabs}
-\usepackage{arydshln}
-\usepackage{graphicx}
-\usepackage{helvet}
-\usepackage{gensymb}
-\renewcommand{\familydefault}{\sfdefault}
-\usepackage{setspace}
-\usepackage{array}
-\newcolumntype{L}{>{\centering\arraybackslash}m{5cm}}
-\usepackage{caption}
-\usepackage{tikz}
-\DeclareCaptionLabelSeparator*{spaced}{\\[2ex]}
+
+% load packages & set images path
+\usepackage{tocloft, graphicx, subfiles, blindtext, cite, apacite, etoolbox, amsmath, multirow, caption, tabularx, natbib, float, wrapfig, lipsum, booktabs, arydshln, graphicx, helvet, gensymb, setspace, array, tikz, mathastext}
+\graphicspath{{images/}{../images/}} % set path for images
+
+% set defaults for formatting
+\usepackage[margin=1in]{geometry} % set margins to 1 inch
+\renewcommand{\familydefault}{\sfdefault} % set font to Helvetical/Arial
+\DeclareCaptionLabelSeparator*{spaced}{\\[2ex]} % create the "spaced" caption type
 \captionsetup[table]{textfont=it,format=plain,justification=justified,
-  singlelinecheck=false,labelsep=spaced,skip=0pt}
+  singlelinecheck=false,labelsep=spaced,skip=0pt} % set captions for tables
 \captionsetup[figure]{labelsep=period,labelfont=it,justification=justified,
-  singlelinecheck=false,font=doublespacing}
-\doublespacing
-\AtBeginEnvironment{tabular}{\singlespacing}
-\AtBeginEnvironment{tabularx}{\singlespacing}
-\usepackage{mathastext}
+  singlelinecheck=false,font=singlespacing} % set captions for figures
+  \AtBeginEnvironment{tabular}{\singlespacing} % single space tables
+\AtBeginEnvironment{tabularx}{\singlespacing} % single space tabularx tables
+\newcolumntype{Y}{>{\centering\arraybackslash}X} % create centered column type for tabularx
+\newcolumntype{L}{>{\centering\arraybackslash}m{5cm}} % create centered & wide column type for tabular
+\doublespacing % double space the document
 
-\graphicspath{ {images/} }
-
+% set title and author
+\newcommand{\ptitle}{Exploring the Role of Language in Two Systems for Categorization} %  set the title
+\newcommand{\pauthor}{Kayleigh Ryherd} % set the author
 
 \begin{document}
-\pagenumbering{roman}
 \subfile{sections/abstract}
+\thispagestyle{empty} % no page numbers
 \newpage
 \subfile{sections/title}
+\thispagestyle{empty} % no page numbers
 \newpage
+\pagenumbering{roman} % lower case roman numeral numbering
 \subfile{sections/copyright}
 \newpage
 \subfile{sections/approval}
 \newpage
 \subfile{sections/acknowledge}
 \newpage
-\begin{spacing}{1}
+\begin{spacing}{1} % single space
 \tableofcontents
 \newpage
 \listoffigures
 \newpage
 \listoftables
-\end{spacing}
+\end{spacing} % end single space
 \newpage
-\pagenumbering{arabic}
+\pagenumbering{arabic} % switch to arabic numbering
 \subfile{sections/ch1}
 \newpage
 \subfile{sections/ch2}
@@ -76,9 +53,12 @@
 \newpage
 \subfile{sections/ch4}
 \newpage
+\singlespacing % single space
 \subfile{sections/appendixA}
 \newpage
-\bibliography{bib}{}
+\subfile{sections/appendixB}
+\newpage
+\bibliography{bib}{} % print references
 \bibliographystyle{apacite}
 
 \end{document}

@@ -732,6 +732,38 @@ Cragg, L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Crossley%
+, Roeder%
+, Helie%
+\BCBL {}\ \BBA {} Ashby%
+}{%
+Crossley%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Crossley2018}
+\APACinsertmetastar {%
+Crossley2018}%
+\begin{APACrefauthors}%
+Crossley, M\BPBI J.%
+, Roeder, J\BPBI L.%
+, Helie, S.%
+\BCBL {}\ \BBA {} Ashby, F\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Trial-by-trial switching between procedural and
+  declarative categorization systems}} {{Trial-by-trial switching between
+  procedural and declarative categorization systems}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Research}{82}{2}{371--384}.
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s00426-016-0828-4} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 DeCaro%
 , Thomas%
 \BCBL {}\ \BBA {} Beilock%
@@ -1158,6 +1190,37 @@ Gough, P\BPBI B.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Graham%
+, Booth%
+\BCBL {}\ \BBA {} Waxman%
+}{%
+Graham%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+Graham2012}
+\APACinsertmetastar {%
+Graham2012}%
+\begin{APACrefauthors}%
+Graham, S\BPBI A.%
+, Booth, A\BPBI E.%
+\BCBL {}\ \BBA {} Waxman, S\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Words Are Not Merely Features: Only Consistently
+  Applied Nouns Guide 4-year-olds' Inferences About Object Categories}} {{Words
+  Are Not Merely Features: Only Consistently Applied Nouns Guide 4-year-olds'
+  Inferences About Object Categories}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Language Learning and Development}{8}{2}{136--145}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/15475441.2011.599304} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Hautus%
 }{%
 Hautus%
@@ -1182,6 +1245,36 @@ Hautus, M\BPBI J.%
   Computers}{27}{1}{46--51}.
 \newblock
 \begin{APACrefDOI} \doi{10.3758/BF03203619} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Havy%
+\ \BBA {} Waxman%
+}{%
+Havy%
+\ \BBA {} Waxman%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+Havy2016}
+\APACinsertmetastar {%
+Havy2016}%
+\begin{APACrefauthors}%
+Havy, M.%
+\BCBT {}\ \BBA {} Waxman, S\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{nov}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Naming influences 9-month-olds' identification of
+  discrete categories along a perceptual continuum}} {{Naming influences
+  9-month-olds' identification of discrete categories along a perceptual
+  continuum}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognition}{156}{}{41--51}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.cognition.2016.07.011} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1240,6 +1333,35 @@ Jaswal, V\BPBI K.%
 \APACjournalVolNumPages{Infancy}{12}{2}{169--187}.
 \newblock
 \begin{APACrefDOI} \doi{10.1111/j.1532-7078.2007.tb00239.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kaefer%
+\ \BBA {} Neuman%
+}{%
+Kaefer%
+\ \BBA {} Neuman%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+Kaefer2013}
+\APACinsertmetastar {%
+Kaefer2013}%
+\begin{APACrefauthors}%
+Kaefer, T.%
+\BCBT {}\ \BBA {} Neuman, S\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{A Bidirectional Relationship between Conceptual
+  Organization and Word Learning}} {{A Bidirectional Relationship between
+  Conceptual Organization and Word Learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Child Development Research}{2013}{}{1--8}.
+\newblock
+\begin{APACrefDOI} \doi{10.1155/2013/298603} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -2412,6 +2534,39 @@ Piaget, J.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Pickron%
+, Iyer%
+, Fava%
+\BCBL {}\ \BBA {} Scott%
+}{%
+Pickron%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Pickron2018}
+\APACinsertmetastar {%
+Pickron2018}%
+\begin{APACrefauthors}%
+Pickron, C\BPBI B.%
+, Iyer, A.%
+, Fava, E.%
+\BCBL {}\ \BBA {} Scott, L\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Learning to Individuate: The Specificity of Labels
+  Differentially Impacts Infant Visual Attention}} {{Learning to Individuate:
+  The Specificity of Labels Differentially Impacts Infant Visual
+  Attention}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Child Development}{89}{3}{698--710}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/cdev.13004} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Plebanek%
 \ \BBA {} Sloutsky%
 }{%
@@ -2472,6 +2627,34 @@ Plunkett, K.%
   \end{APACrefURL}
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.cognition.2007.04.003} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Poulin-Dubois%
+, Graham%
+\BCBL {}\ \BBA {} Riddle%
+}{%
+Poulin-Dubois%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1995}}%
+}]{%
+Poulin-Dubois1995}
+\APACinsertmetastar {%
+Poulin-Dubois1995}%
+\begin{APACrefauthors}%
+Poulin-Dubois, D.%
+, Graham, S\BPBI A.%
+\BCBL {}\ \BBA {} Riddle, A\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Salient object parts and infants' acquisition of novel
+  object words}} {{Salient object parts and infants' acquisition of novel
+  object words}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{First Language}{15}{}{301--316}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -2969,6 +3152,35 @@ Stins, J\BPBI F.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Switzer%
+\ \BBA {} Graham%
+}{%
+Switzer%
+\ \BBA {} Graham%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+Switzer2017}
+\APACinsertmetastar {%
+Switzer2017}%
+\begin{APACrefauthors}%
+Switzer, J\BPBI L.%
+\BCBT {}\ \BBA {} Graham, S\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{14- To 16-Month-Olds Attend To Distinct Labels in an
+  Inductive Reasoning Task}} {{14- To 16-Month-Olds Attend To Distinct Labels
+  in an Inductive Reasoning Task}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Frontiers in Psychology}{8}{}{1--14}.
+\newblock
+\begin{APACrefDOI} \doi{10.3389/fpsyg.2017.00609} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Tomblin%
 , Records%
 \BCBL {}\ \BBA {} Zhang%
@@ -3024,6 +3236,72 @@ Torgesen, J\BPBI K.%
   word reading efficiency}}.
 \newblock
 \APACaddressPublisher{Austin, TX}{Pro-Ed}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Vivas%
+, {Garc{\'{i}}a Garc{\'{i}}a}%
+, {Perea Bartolom{\'{e}}}%
+, {Leite D'almeida}%
+\BCBL {}\ \BBA {} {Ladera Fern{\'{a}}ndez}%
+}{%
+Vivas%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Vivas2016}
+\APACinsertmetastar {%
+Vivas2016}%
+\begin{APACrefauthors}%
+Vivas, L.%
+, {Garc{\'{i}}a Garc{\'{i}}a}, R.%
+, {Perea Bartolom{\'{e}}}, M\BPBI V.%
+, {Leite D'almeida}, A.%
+\BCBL {}\ \BBA {} {Ladera Fern{\'{a}}ndez}, V.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Recognition of thematic and taxonomic conceptual
+  relations in patients with aphasia}} {{Recognition of thematic and taxonomic
+  conceptual relations in patients with aphasia}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Aphasiology}{30}{6}{657--677}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/02687038.2015.1111996} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Vivas%
+, Garc{\'{i}}a-Garc{\'{i}}a%
+, Vivas%
+\BCBL {}\ \BBA {} Perea-Bartolom{\'{e}}%
+}{%
+Vivas%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+Vivas2014}
+\APACinsertmetastar {%
+Vivas2014}%
+\begin{APACrefauthors}%
+Vivas, L.%
+, Garc{\'{i}}a-Garc{\'{i}}a, R.%
+, Vivas, J.%
+\BCBL {}\ \BBA {} Perea-Bartolom{\'{e}}, M\BPBI V.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Double dissociations in the processing of conceptual
+  relations}} {{Double dissociations in the processing of conceptual
+  relations}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Acta Neuropsychologica}{12}{2}{167--184}.
+\newblock
+\begin{APACrefDOI} \doi{10.5604/17307503.1111844} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
