@@ -212,6 +212,37 @@ Ashby, F\BPBI G.%
 
 \bibitem [\protect \citeauthoryear {%
 Ashby%
+, Maddox%
+\BCBL {}\ \BBA {} Bohil%
+}{%
+Ashby%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2002}}%
+}]{%
+Ashby2002}
+\APACinsertmetastar {%
+Ashby2002}%
+\begin{APACrefauthors}%
+Ashby, F\BPBI G.%
+, Maddox, W\BPBI T.%
+\BCBL {}\ \BBA {} Bohil, C\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Observational versus feedback training in rule-based
+  and information-integration category learning}} {{Observational versus
+  feedback training in rule-based and information-integration category
+  learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Memory {\&} Cognition}{30}{5}{666--677}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/BF03196423} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ashby%
 , Noble%
 , Filoteo%
 , Waldron%
@@ -915,6 +946,69 @@ Edmiston, P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Edmunds%
+, Milton%
+\BCBL {}\ \BBA {} Wills%
+}{%
+Edmunds%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+Edmunds2015}
+\APACinsertmetastar {%
+Edmunds2015}%
+\begin{APACrefauthors}%
+Edmunds, C\BPBI E\BPBI R.%
+, Milton, F.%
+\BCBL {}\ \BBA {} Wills, A\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Feedback can be superior to observational training for
+  both rule-based and information-integration category structures}} {{Feedback
+  can be superior to observational training for both rule-based and
+  information-integration category structures}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Quarterly Journal of Experimental
+  Psychology}{68}{6}{1203--1222}.
+\newblock
+\begin{APACrefDOI} \doi{10.1080/17470218.2014.978875} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Edmunds%
+, Wills%
+\BCBL {}\ \BBA {} Milton%
+}{%
+Edmunds%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Edmunds2016}
+\APACinsertmetastar {%
+Edmunds2016}%
+\begin{APACrefauthors}%
+Edmunds, C\BPBI E\BPBI R.%
+, Wills, A\BPBI J.%
+\BCBL {}\ \BBA {} Milton, F\BPBI N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Memory for exemplars in category learning}} {{Memory
+  for exemplars in category learning}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 38th Annual Conference of the
+  Cognitive Science Society} {Proceedings of the 38th annual conference of the
+  cognitive science society}\ (\BPGS\ 2243--2248).
+\newblock
+\APACaddressPublisher{Philadelphia, PA}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Emerson%
 \ \BBA {} Miyake%
 }{%
@@ -1159,6 +1253,41 @@ Figueras, B.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Gabrieli%
+, Fleischman%
+, Keane%
+, Reminger%
+\BCBL {}\ \BBA {} Morrell%
+}{%
+Gabrieli%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1995}}%
+}]{%
+Gabrieli1995}
+\APACinsertmetastar {%
+Gabrieli1995}%
+\begin{APACrefauthors}%
+Gabrieli, J\BPBI D.%
+, Fleischman, D\BPBI A.%
+, Keane, M\BPBI M.%
+, Reminger, S\BPBI L.%
+\BCBL {}\ \BBA {} Morrell, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Double Dissociation Between Memory Systems Underlying
+  Explicit and Implicit Memory in the Human Brain}} {{Double Dissociation
+  Between Memory Systems Underlying Explicit and Implicit Memory in the Human
+  Brain}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Science}{6}{2}{76--82}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.1467-9280.1995.tb00310.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Gillette%
 , Gleitman%
 , Gleitman%
@@ -1338,6 +1467,37 @@ Havy, M.%
 \APACjournalVolNumPages{Cognition}{156}{}{41--51}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.cognition.2016.07.011} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+H{\'{e}}lie%
+, Waldschmidt%
+\BCBL {}\ \BBA {} Ashby%
+}{%
+H{\'{e}}lie%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2010}}%
+}]{%
+Helie2010}
+\APACinsertmetastar {%
+Helie2010}%
+\begin{APACrefauthors}%
+H{\'{e}}lie, S.%
+, Waldschmidt, J\BPBI G.%
+\BCBL {}\ \BBA {} Ashby, F\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Automaticity in rule-based and information-integration
+  categorization}} {{Automaticity in rule-based and information-integration
+  categorization}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Attention, Perception, {\&}
+  Psychophysics}{72}{4}{1013--1031}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/APP.72.4.1013} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -2015,6 +2175,35 @@ Macmillan, N\BPBI A.%
   guide}.
 \newblock
 \APACaddressPublisher{}{Psychology press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Maddox%
+\ \BBA {} Ashby%
+}{%
+Maddox%
+\ \BBA {} Ashby%
+}{%
+{\protect \APACyear {1993}}%
+}]{%
+Maddox1993}
+\APACinsertmetastar {%
+Maddox1993}%
+\begin{APACrefauthors}%
+Maddox, W\BPBI T.%
+\BCBT {}\ \BBA {} Ashby, F\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1993}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Comparing decision bound and exemplar models of
+  categorization.}} {{Comparing decision bound and exemplar models of
+  categorization.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Perception {\&} Psychophysics}{53}{1}{49--70}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/BF03211715} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

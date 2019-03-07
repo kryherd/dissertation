@@ -1,26 +1,32 @@
 \documentclass{article}
 
 % load packages & set images path
-\usepackage{tocloft, graphicx, subfiles, blindtext, cite, apacite, etoolbox, amsmath, multirow, caption, tabularx, natbib, float, wrapfig, lipsum, booktabs, arydshln, graphicx, helvet, gensymb, setspace, array, tikz, mathastext}
+\usepackage{tocloft, graphicx, subfiles, blindtext, cite, apacite, etoolbox, amsmath, multirow, caption, tabularx, natbib, float, wrapfig, lipsum, booktabs, arydshln, graphicx, helvet, gensymb, setspace, array, tikz}
 \graphicspath{{images/}{../images/}} % set path for images
+
+
+﻿\newcommand{\ptitle}{Exploring the Role of Language in Two Systems for Categorization}
+\newcommand{\pauthor}{Kayleigh Ryherd}
 
 % set defaults for formatting
 \usepackage[margin=1in]{geometry} % set margins to 1 inch
-\renewcommand{\familydefault}{\sfdefault} % set font to Helvetical/Arial
+
 \DeclareCaptionLabelSeparator*{spaced}{\\[2ex]} % create the "spaced" caption type
 \captionsetup[table]{textfont=it,format=plain,justification=justified,
   singlelinecheck=false,labelsep=spaced,skip=0pt} % set captions for tables
 \captionsetup[figure]{labelsep=period,labelfont=it,justification=justified,
   singlelinecheck=false,font=singlespacing} % set captions for figures
-  \AtBeginEnvironment{tabular}{\singlespacing} % single space tables
+\AtBeginEnvironment{tabular}{\singlespacing} % single space tables
 \AtBeginEnvironment{tabularx}{\singlespacing} % single space tabularx tables
 \newcolumntype{Y}{>{\centering\arraybackslash}X} % create centered column type for tabularx
 \newcolumntype{L}{>{\centering\arraybackslash}m{5cm}} % create centered & wide column type for tabular
 \doublespacing % double space the document
 
-% set title and author
-\newcommand{\ptitle}{Exploring the Role of Language in Two Systems for Categorization} %  set the title
-\newcommand{\pauthor}{Kayleigh Ryherd} % set the author
+\renewcommand{\familydefault}{\sfdefault} % set font to Helvetical/Arial
+\usepackage{mathastext}
+
+
+
 
 \begin{document}
 \subfile{sections/abstract}

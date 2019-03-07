@@ -17,16 +17,16 @@ knitr::opts_chunk$set(warning = FALSE)
 ```{r load_data}
 setwd("~/dissertation/DataAnalysis/Exp2/IndividualDiffs")
 ashby1 <- read.csv("Ashby_concat_fall2018.csv")
-ashby2 <- read.csv("Ashby_concat_03-01-19_1728.csv")
+ashby2 <- read.csv("Ashby_concat_03-07-19_0936.csv")
 colnames(ashby1)[3] <- "Run"
 colnames(ashby1)[6] <- "key_pressed"
 ashby <- rbind(ashby1,ashby2)
-sloutsky <- read.csv("Sloutsky_concat_03-01-19_1729.csv")
-taxthem <- read.csv("taxthem_concat_03-01-19_1729.csv")
-tol <- read.csv("tol_concat_03-01-19_1731.csv")
-switcher <- read.csv("switcher_concat_03-01-19_1731.csv")
-flanker <- read.csv("flanker_concat_03-01-19_1731.csv")
-ravens <- read.csv("ravens_3-1-19.csv")
+sloutsky <- read.csv("Sloutsky_concat_03-07-19_0936.csv")
+taxthem <- read.csv("taxthem_concat_03-07-19_0936.csv")
+tol <- read.csv("tol_concat_03-07-19_0937.csv")
+switcher <- read.csv("switcher_concat_03-07-19_0937.csv")
+flanker <- read.csv("flanker_concat_03-07-19_0937.csv")
+ravens <- read.csv("ravens_3-7-19.csv")
 nd <- read.csv("ND_scores.csv")
 nd_norms <- read.csv("nd_norms.csv")
 celf <- read.csv("celf_scores.csv")
@@ -486,7 +486,7 @@ tol_nd <- full_join(sw_tol, nd_standard, by = c("subnum" = "Subject")) %>%
 nd_celf <- full_join(tol_nd, celf, by = c("subnum" = "Subject"))
 #ra1 <- full_join(tol_nd, flanker_acc, by = "subnum")
 #ra2 <- full_join(ra1, switcher_errors, by = c("subnum" = "subNum"))
-id <- full_join(nd_celf, ravens, by = c("subnum" = "Subject.Number")) %>%
+id <- full_join(nd_celf, ravens, by = c("subnum" = "Subject")) %>%
   rename(Subject = subnum, ravens = Score)
 ```
 
@@ -504,7 +504,7 @@ for (i in 2:17){
   }
 }
 
-# transform switch_eff, tol_acc, tol_time, nd_ss
+# transform switch_eff, tol_acc, tol_time, nd_ss, ravens, fs, rs
 vars_tf <- c("switch_eff", "tol_acc", "tol_time", "nd_ss", "ravens", "rs_ss", "fs_ss")
 pp_md_tf <- preProcess(as.data.frame(id)[,vars_tf], method = c("center", "scale", "YeoJohnson"), na.remove=T)
 tf_data <- predict(pp_md_tf, as.data.frame(id)[,vars_tf])
