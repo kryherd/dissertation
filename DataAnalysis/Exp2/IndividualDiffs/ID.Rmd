@@ -17,16 +17,16 @@ knitr::opts_chunk$set(warning = FALSE)
 ```{r load_data}
 setwd("~/dissertation/DataAnalysis/Exp2/IndividualDiffs")
 ashby1 <- read.csv("Ashby_concat_fall2018.csv")
-ashby2 <- read.csv("Ashby_concat_03-07-19_0936.csv")
+ashby2 <- read.csv("Ashby_concat_03-08-19_1626.csv")
 colnames(ashby1)[3] <- "Run"
 colnames(ashby1)[6] <- "key_pressed"
 ashby <- rbind(ashby1,ashby2)
-sloutsky <- read.csv("Sloutsky_concat_03-07-19_0936.csv")
-taxthem <- read.csv("taxthem_concat_03-07-19_0936.csv")
-tol <- read.csv("tol_concat_03-07-19_0937.csv")
-switcher <- read.csv("switcher_concat_03-07-19_0937.csv")
-flanker <- read.csv("flanker_concat_03-07-19_0937.csv")
-ravens <- read.csv("ravens_3-7-19.csv")
+sloutsky <- read.csv("Sloutsky_concat_03-08-19_1638.csv")
+taxthem <- read.csv("taxthem_concat_03-08-19_1637.csv")
+tol <- read.csv("tol_concat_03-08-19_1639.csv")
+switcher <- read.csv("switcher_concat_03-08-19_1639.csv")
+flanker <- read.csv("flanker_concat_03-08-19_1639.csv")
+ravens <- read.csv("ravens_3-8-19.csv")
 nd <- read.csv("ND_scores.csv")
 nd_norms <- read.csv("nd_norms.csv")
 celf <- read.csv("celf_scores.csv")
@@ -777,6 +777,9 @@ anova(m3)
 m4 <- lmer(tt.t ~ ravens_tf + System * (flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf) + (1|Subject), data = tt_dat)
 anova(m3,m4)
 anova(m4)
+
+ggplot(tt_dat, aes(flanker_eff_cs, tt.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Flanker Effect") + ylab("TT Reaction Time") + ggtitle("??") + facet_grid(.~System)
+
 
 # CELF ANALYSES
 
