@@ -7,9 +7,6 @@ import os
 import datetime
 import re
 
-# get current directory
-data_dir = os.getcwd()
-
 # change to data directory
 ## change this if data location changes
 os.chdir('/Volumes/EEG/CategoryLearning/Data/Exp2/')
@@ -34,10 +31,10 @@ def stack_data(filenames):
 	return(data);
 
 flank_dat = stack_data(flanker)
-flank_dat.to_csv(data_dir + '/flanker_concat_' + dt + '.csv', index = False)
+flank_dat.to_csv('~/dissertation/DataAnalysis/Exp2/data_files/flanker_concat_' + dt + '.csv', index = False)
 
 switch_dat = stack_data(switcher)
-switch_dat.to_csv(data_dir + '/switcher_concat_' + dt + '.csv', index = False)
+switch_dat.to_csv('~/dissertation/DataAnalysis/Exp2/data_files/switcher_concat_' + dt + '.csv', index = False)
 
 tol_dat = stack_data(tol)
-tol_dat.to_csv(data_dir + '/tol_concat_' + dt + '.csv', index = False)
+tol_dat.to_csv('~/dissertation/DataAnalysis/Exp2/data_files/tol_concat_' + dt + '.csv', index = False)
