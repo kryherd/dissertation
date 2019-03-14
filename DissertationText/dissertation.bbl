@@ -946,11 +946,42 @@ Edmiston, P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Edmunds%
+C\BPBI E.~Edmunds%
 , Milton%
 \BCBL {}\ \BBA {} Wills%
 }{%
-Edmunds%
+C\BPBI E.~Edmunds%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Edmunds2018}
+\APACinsertmetastar {%
+Edmunds2018}%
+\begin{APACrefauthors}%
+Edmunds, C\BPBI E.%
+, Milton, F.%
+\BCBL {}\ \BBA {} Wills, A\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Due Process in Dual Process: Model-Recovery Simulations
+  of Decision-Bound Strategy Analysis in Category Learning}} {{Due Process in
+  Dual Process: Model-Recovery Simulations of Decision-Bound Strategy Analysis
+  in Category Learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognitive Science}{42}{}{833--860}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/cogs.12607} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+C\BPBI E\BPBI R.~Edmunds%
+, Milton%
+\BCBL {}\ \BBA {} Wills%
+}{%
+C\BPBI E\BPBI R.~Edmunds%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2015}}%
 }]{%
@@ -978,11 +1009,11 @@ Edmunds, C\BPBI E\BPBI R.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Edmunds%
+C\BPBI E\BPBI R.~Edmunds%
 , Wills%
 \BCBL {}\ \BBA {} Milton%
 }{%
-Edmunds%
+C\BPBI E\BPBI R.~Edmunds%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2016}}%
 }]{%
@@ -1253,6 +1284,70 @@ Figueras, B.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Fink%
+\ \protect \BOthers {.}}{%
+Fink%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Fink2018}
+\APACinsertmetastar {%
+Fink2018}%
+\begin{APACrefauthors}%
+Fink, A.%
+, Rominger, C.%
+, Benedek, M.%
+, Perchtold, C\BPBI M.%
+, Papousek, I.%
+, Weiss, E\BPBI M.%
+\BDBL {}Memmert, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{EEG alpha activity during imagining creative moves in
+  soccer decision-making situations}} {{EEG alpha activity during imagining
+  creative moves in soccer decision-making situations}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Neuropsychologia}{114}{}{118--124}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.neuropsychologia.2018.04.025}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Fink%
+, Schwab%
+\BCBL {}\ \BBA {} Papousek%
+}{%
+Fink%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+}]{%
+Fink2011}
+\APACinsertmetastar {%
+Fink2011}%
+\begin{APACrefauthors}%
+Fink, A.%
+, Schwab, D.%
+\BCBL {}\ \BBA {} Papousek, I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Sensitivity of EEG upper alpha activity to cognitive
+  and affective creativity interventions}} {{Sensitivity of EEG upper alpha
+  activity to cognitive and affective creativity interventions}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Journal of
+  Psychophysiology}{82}{3}{233--239}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.ijpsycho.2011.09.003} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Gabrieli%
 , Fleischman%
 , Keane%
@@ -1470,6 +1565,37 @@ Havy, M.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Hedge%
+, Powell%
+\BCBL {}\ \BBA {} Sumner%
+}{%
+Hedge%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Hedge2018}
+\APACinsertmetastar {%
+Hedge2018}%
+\begin{APACrefauthors}%
+Hedge, C.%
+, Powell, G.%
+\BCBL {}\ \BBA {} Sumner, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The reliability paradox: Why robust cognitive tasks do
+  not produce reliable individual differences}} {{The reliability paradox: Why
+  robust cognitive tasks do not produce reliable individual
+  differences}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Behavior Research Methods}{50}{3}{1166--1186}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/s13428-017-0935-1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 H{\'{e}}lie%
 , Waldschmidt%
 \BCBL {}\ \BBA {} Ashby%
@@ -1620,6 +1746,35 @@ Kal{\'{e}}nine, S.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Kaplan%
+\ \BBA {} Murphy%
+}{%
+Kaplan%
+\ \BBA {} Murphy%
+}{%
+{\protect \APACyear {2000}}%
+}]{%
+Kaplan2000}
+\APACinsertmetastar {%
+Kaplan2000}%
+\begin{APACrefauthors}%
+Kaplan, A\BPBI S.%
+\BCBT {}\ \BBA {} Murphy, G\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2000}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Category learning with minimal prior knowledge.}}
+  {{Category learning with minimal prior knowledge.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology: Learning, Memory,
+  and Cognition}{26}{4}{829--846}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/0278-7393.26.4.829} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Karr%
 \ \protect \BOthers {.}}{%
 Karr%
@@ -1675,6 +1830,35 @@ Kaufman, A\BPBI S.%
   form.}} {{Kaufman test of educational achievement - comprehensive form.}}
 \newblock
 \APACaddressPublisher{}{American Guidance Service}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kim%
+\ \BBA {} Rehder%
+}{%
+Kim%
+\ \BBA {} Rehder%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+Kim2011}
+\APACinsertmetastar {%
+Kim2011}%
+\begin{APACrefauthors}%
+Kim, S.%
+\BCBT {}\ \BBA {} Rehder, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{How prior knowledge affects selective attention during
+  category learning: An eyetracking study}} {{How prior knowledge affects
+  selective attention during category learning: An eyetracking study}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Memory and Cognition}{39}{4}{649--665}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/s13421-010-0050-3} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -2270,6 +2454,37 @@ Maddox, W\BPBI T.%
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.neuropsychologia.2010.06.008}
   \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Maguire%
+, Brier%
+\BCBL {}\ \BBA {} Ferree%
+}{%
+Maguire%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2010}}%
+}]{%
+Maguire2010}
+\APACinsertmetastar {%
+Maguire2010}%
+\begin{APACrefauthors}%
+Maguire, M\BPBI J.%
+, Brier, M\BPBI R.%
+\BCBL {}\ \BBA {} Ferree, T\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{EEG theta and alpha responses reveal qualitative
+  differences in processing taxonomic versus thematic semantic relationships}}
+  {{EEG theta and alpha responses reveal qualitative differences in processing
+  taxonomic versus thematic semantic relationships}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Brain and Language}{114}{1}{16--25}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.bandl.2010.03.005} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -3052,6 +3267,42 @@ Rodman, H\BPBI R.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Rominger%
+, Reitinger%
+, Seyfried%
+, Schneckenleitner%
+\BCBL {}\ \BBA {} Fink%
+}{%
+Rominger%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+Rominger2017}
+\APACinsertmetastar {%
+Rominger2017}%
+\begin{APACrefauthors}%
+Rominger, C.%
+, Reitinger, J.%
+, Seyfried, C.%
+, Schneckenleitner, E.%
+\BCBL {}\ \BBA {} Fink, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The Reflecting Brain: Reflection Competence in an
+  Educational Setting Is Associated With Increased Electroencephalogram
+  Activity in the Alpha Band}} {{The Reflecting Brain: Reflection Competence in
+  an Educational Setting Is Associated With Increased Electroencephalogram
+  Activity in the Alpha Band}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Mind, Brain, and Education}{11}{2}{54--63}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/mbe.12140} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Ryherd%
 \ \BBA {} Landi%
 }{%
@@ -3433,6 +3684,36 @@ Switzer, J\BPBI L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Tolins%
+\ \BBA {} Colunga%
+}{%
+Tolins%
+\ \BBA {} Colunga%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+Tolins2015}
+\APACinsertmetastar {%
+Tolins2015}%
+\begin{APACrefauthors}%
+Tolins, J.%
+\BCBT {}\ \BBA {} Colunga, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{How words anchor categorization: conceptual flexibility
+  with labeled and unlabeled categories ‡}} {{How words anchor
+  categorization: conceptual flexibility with labeled and unlabeled categories
+  ‡}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Language and Cognition}{7}{02}{219--238}.
+\newblock
+\begin{APACrefDOI} \doi{10.1017/langcog.2014.26} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Tomblin%
 , Records%
 \BCBL {}\ \BBA {} Zhang%
@@ -3488,6 +3769,38 @@ Torgesen, J\BPBI K.%
   word reading efficiency}}.
 \newblock
 \APACaddressPublisher{Austin, TX}{Pro-Ed}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Van der Lubbe}%
+, de Kleine%
+\BCBL {}\ \BBA {} Rataj%
+}{%
+{Van der Lubbe}%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+VanderLubbe2019}
+\APACinsertmetastar {%
+VanderLubbe2019}%
+\begin{APACrefauthors}%
+{Van der Lubbe}, R\BPBI H.%
+, de Kleine, E.%
+\BCBL {}\ \BBA {} Rataj, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Dyslexic individuals orient but do not sustain visual
+  attention: Electrophysiological support from the lower and upper alpha
+  bands}} {{Dyslexic individuals orient but do not sustain visual attention:
+  Electrophysiological support from the lower and upper alpha bands}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Neuropsychologia}{125}{}{30--41}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.neuropsychologia.2019.01.013}
+  \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

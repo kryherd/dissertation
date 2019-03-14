@@ -63,11 +63,16 @@ rb$type <- "Rule Based"
 all <- rbind(ii,rb)
 all$type = factor(all$type,levels = c("Rule Based", "Information Integration"))
 
-p1 <- ggplot(all, aes(freq.tr, orient.tr, shape = Category)) + geom_point(size = 2) + theme_bw() +
-  xlab("Frequency (cycles/degree)") + ylab("Orientation (degrees)") + ggtitle("Stimulus Parameters") +
-  facet_grid(.~type)
+p1 <- ggplot(subset(all, type == "Rule Based"), aes(freq.tr, orient.tr, shape = Category)) + geom_point(size = 2) + theme_bw(15) +
+  xlab("Frequency (bar width)") + ylab("Orientation (degrees)") + geom_vline(xintercept=3.25, linetype = "dashed") +
+  xlim(1,5)
 p1
 
+p1 <- ggplot(subset(all, type == "Information Integration"), aes(freq.tr, orient.tr, shape = Category)) + geom_point(size = 2) + theme_bw(15) +
+  xlab("Frequency (bar width)") + ylab("Orientation (degrees)") + 
+  geom_abline(intercept = -157, slope = 35, linetype="dashed") +
+  xlim(1,5)
+p1
 ## Save parameters
 
 ii.save <- ii[,c(4:5, 3)]

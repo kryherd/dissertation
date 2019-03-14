@@ -575,6 +575,114 @@ rt_wide %>%
             max = max(value, na.rm = TRUE))
 ```
 
+# Correlations and PCAs
+
+```{r}
+acc_wide$measure <- "acc"
+rt_wide$measure <- "rt"
+
+all_dat <- rbind(acc_wide, rt_wide)
+
+cor_dat <- all_dat %>%
+  dplyr::select(Subject, System, ashby.t:tt.t, measure) %>%
+  gather(key = "task", value = "value", ashby.t:tt.t) %>%
+  mutate(task_measure = paste0(task, "_", System, "_", measure)) %>%
+  dplyr::select(Subject, task_measure, value) %>%
+  spread(key = task_measure, value = value)
+
+cor.mat <- cor(cor_dat[,-1], use = "complete.obs")
+p.mat <- cor_pmat(cor_dat[,-1])
+# plot
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, sig.level = 0.0007)
+
+## by task
+
+ashby_cor <- dplyr::select(cor_dat, ashby.t_associative_acc:`ashby.t_hypothesis-testing_rt`)
+cor.mat <- cor(ashby_cor[,-1], use = "complete.obs")
+p.mat <- cor_pmat(ashby_cor[,-1])
+# plot
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, sig.level = 0.008)
+
+sloutsky_cor <- dplyr::select(cor_dat, sloutsky.t_associative_acc:`sloutsky.t_hypothesis-testing_rt`)
+cor.mat <- cor(sloutsky_cor[,-1], use = "complete.obs")
+p.mat <- cor_pmat(sloutsky_cor[,-1])
+# plot
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, sig.level = 0.008)
+
+tt_cor <- dplyr::select(cor_dat, tt.t_associative_acc:`tt.t_hypothesis-testing_rt`)
+cor.mat <- cor(tt_cor[,-1], use = "complete.obs")
+p.mat <- cor_pmat(tt_cor[,-1])
+# plot
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, sig.level = 0.008)
+
+## by measure
+acc_cor <- dplyr::select(cor_dat, ends_with("acc"))
+cor.mat <- cor(acc_cor[,-1], use = "complete.obs")
+p.mat <- cor_pmat(acc_cor[,-1])
+# plot
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, sig.level = 0.003)
+
+
+rt_cor <- dplyr::select(cor_dat, ends_with("rt"))
+cor.mat <- cor(rt_cor[,-1], use = "complete.obs")
+p.mat <- cor_pmat(rt_cor[,-1])
+# plot
+ggcorrplot(cor.mat, type = "lower", p.mat = p.mat, lab = TRUE, sig.level = 0.003)
+
+
+##### pcas
+
+acc_pca_dat <- acc_wide %>%
+  dplyr::select(System, ashby.t:tt.t) %>%
+  gather(key = "task", value = "value", ashby.t:tt.t) %>%
+  mutate(task_system = paste0(task, "_", System)) %>%
+  dplyr::select(Subject, value, task_system) %>%
+  spread(key = task_system, value = value)
+
+pca_dat <- acc_pca_dat[,-1]
+pca_dat <- pca_dat[complete.cases(pca_dat),]
+# check if the data is suitable for a PCA
+psych::KMO(pca_dat)
+cor.mat <- cor(pca_dat)
+psych::cortest.bartlett(cor.mat, n = 122)
+# run PCA
+beh.pca <- prcomp(pca_dat)
+# view eigenvalues for componenets
+eigen(cor.mat)
+# view prop of variance for components
+summary(beh.pca)
+# view factor loadings
+print(beh.pca)
+# scree plot
+plot(beh.pca, type = "l")
+
+
+rt_pca_dat <- rt_wide %>%
+  dplyr::select(System, ashby.t:tt.t) %>%
+  gather(key = "task", value = "value", ashby.t:tt.t) %>%
+  mutate(task_system = paste0(task, "_", System)) %>%
+  dplyr::select(Subject, value, task_system) %>%
+  spread(key = task_system, value = value)
+
+pca_dat <- rt_pca_dat[,-1]
+pca_dat <- pca_dat[complete.cases(pca_dat),]
+# check if the data is suitable for a PCA
+psych::KMO(pca_dat)
+cor.mat <- cor(pca_dat)
+psych::cortest.bartlett(cor.mat, n = 122)
+# run PCA
+beh.pca <- prcomp(pca_dat)
+# view eigenvalues for componenets
+eigen(cor.mat)
+# view prop of variance for components
+summary(beh.pca)
+# view factor loadings
+print(beh.pca)
+# scree plot
+plot(beh.pca, type = "l")
+
+```
+
 # Accuracy Analysis
 
 ## Ashby
@@ -617,7 +725,7 @@ as_mod <- lm(ashby.t ~ ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf +
 summary(as_mod)
 anova(as_mod)
 
-ggplot(ashby_dat, aes(nd_tf, ashby.t)) + geom_point() + theme_bw() + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)
+ggplot(ashby_dat, aes(nd_tf, ashby.t)) + geom_point() + theme_bw() + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE) + ggtitle("Relationships Between Vocab and COVIS Accuracy") + xlab("Nelson-Denny Vocab (scaled)") + ylab("COVIS Accuracy (scaled)")
 
 # CELF ANALYSES
 
@@ -715,7 +823,7 @@ anova(m3, m4.3)
 m4.4 <- lmer(tt.t ~ System + ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd_tf + nd_tf:System + (1|Subject), data = tt_dat)
 anova(m3, m4.4)
 
-ggplot(tt_dat, aes(tol_acc_tf, tt.t)) + geom_point(alpha = 0.25) + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Planning (Tower of London accuracy)") + ylab("TT Accuracy") + ggtitle("Significant main effect of nonverbal IQ on TT accuracy")
+ggplot(tt_dat, aes(tol_acc_tf, tt.t)) + geom_point(alpha = 0.25) + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Tower of London Accuracy (scaled))") + ylab("TT Accuracy (scaled)") + ggtitle("Significant main effect of planning on TT accuracy")
 
 # CELF ANALYSES
 
@@ -775,7 +883,7 @@ as_mod <- lm(ashby.t ~ ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf +
 summary(as_mod)
 anova(as_mod)
 
-ggplot(ashby_dat, aes(nd_tf, ashby.t)) + geom_point() + theme_bw() + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)
+ggplot(ashby_dat, aes(nd_tf, ashby.t)) + geom_point() + theme_bw() + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)  + ggtitle("Relationships Between Vocab and COVIS RT") + xlab("Nelson-Denny Vocab (scaled)") + ylab("COVIS RT (scaled)")
 
 ggplot(ashby_dat, aes(tol_time_tf, ashby.t)) + geom_point() + theme_bw() + stat_smooth(method = "lm", se = FALSE)
 
@@ -839,7 +947,7 @@ as_mod <- lm(sloutsky.t ~ ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_t
 summary(as_mod)
 anova(as_mod)
 
-ggplot(sloutsky_dat, aes(tol_time_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Planning (Tower of London accuracy)") + ylab("Sloutsky Reaction Time") + ggtitle("Significant interaction between ToL and system on Sloutsky RT") + facet_grid(.~System)
+ggplot(sloutsky_dat, aes(tol_time_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + ggtitle("Relationships Between ToL and Statistical Density RT") + xlab("Tower of London Accuracy (scaled)") + ylab("Statistical Density RT (scaled)") + facet_grid(.~System)
 
 ggplot(sloutsky_dat, aes(ravens_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Nonverbal IQ") + ylab("Sloutsky Reaction Time") + ggtitle("Significant main effect of nonverbal IQ on Sloutsky RT")
 
@@ -901,7 +1009,7 @@ as_mod <- lm(tt.t ~ ravens_tf + flanker_eff_cs + switch_eff_tf + tol_acc_tf + nd
 summary(as_mod)
 anova(as_mod)
 
-ggplot(tt_dat, aes(tol_time_tf, tt.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Planning (Tower of London accuracy)") + ylab("tt Reaction Time") + ggtitle("Significant interaction between ToL and system on tt RT") + facet_grid(.~System)
+ggplot(tt_dat, aes(flanker_eff_cs, tt.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + ggtitle("Relationships Between Flanker Effect and TT RT") + xlab("Flanker Effect (scaled)") + ylab("TT RT (scaled)") + facet_grid(.~System)
 
 
 # CELF ANALYSES
@@ -918,7 +1026,5 @@ m3 <- lmer(tt.t ~ System + ravens_tf + rs_tf + fs_tf  + (1|Subject), data = tt_d
 anova(m1,m3)
 anova(m3)
 ```
-
-
 
 

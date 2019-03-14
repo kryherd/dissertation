@@ -42,25 +42,27 @@
 \contentsline {subsubsection}{\numberline {3.3.1}Ashby perceptual category learning task}{45}
 \contentsline {subsubsection}{\numberline {3.3.2}Sloutsky statistical density task}{46}
 \contentsline {subsubsection}{\numberline {3.3.3}Taxonomic/thematic task}{47}
-\contentsline {subsubsection}{\numberline {3.3.4}Limitations and conclusions}{48}
-\contentsline {subsection}{\numberline {3.4}Results II: Cross-Paradigm Comparison}{49}
-\contentsline {subsubsection}{\numberline {3.4.1}Data Processing}{49}
-\contentsline {subsubsection}{\numberline {3.4.2}Accuracy}{51}
-\contentsline {subsubsection}{\numberline {3.4.3}Reaction Time}{52}
-\contentsline {subsection}{\numberline {3.5}Discussion II: Cross-Paradigm Comparison}{52}
-\contentsline {subsubsection}{\numberline {3.5.1}Task differences}{53}
-\contentsline {subsubsection}{\numberline {3.5.2}Limitations and conclusions}{55}
-\contentsline {section}{\numberline {4}General Discussion}{56}
-\contentsline {subsection}{\numberline {4.1}Language in a dual-systems model: summary of results}{56}
-\contentsline {subsubsection}{\numberline {4.1.1}Language and the interaction between two systems}{56}
-\contentsline {subsubsection}{\numberline {4.1.2}Individual differences and dual-systems category learning}{56}
-\contentsline {subsubsection}{\numberline {4.1.3}Levels of processing and the dual-systems model}{56}
-\contentsline {subsection}{\numberline {4.2}Rethinking the dual-systems model of categorization}{57}
-\contentsline {subsubsection}{\numberline {4.2.1}Existing critiques of dual-systems models}{57}
-\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{58}
-\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{58}
-\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{58}
-\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{60}
-\contentsline {section}{\numberline {6}Appendix B: Example Stimuli for Sloutsky Statistical Density Task}{61}
-\contentsline {subsection}{\numberline {6.1}Sparse stimuli}{61}
-\contentsline {subsection}{\numberline {6.2}Dense stimuli}{62}
+\contentsline {subsubsection}{\numberline {3.3.4}Limitations and conclusions}{49}
+\contentsline {subsection}{\numberline {3.4}Results II: Cross-Paradigm Comparison}{50}
+\contentsline {subsubsection}{\numberline {3.4.1}Data Processing}{50}
+\contentsline {subsubsection}{\numberline {3.4.2}Accuracy}{52}
+\contentsline {subsubsection}{\numberline {3.4.3}Reaction Time}{53}
+\contentsline {subsection}{\numberline {3.5}Discussion II: Cross-Paradigm Comparison}{53}
+\contentsline {subsubsection}{\numberline {3.5.1}Task differences}{54}
+\contentsline {subsubsection}{\numberline {3.5.2}Limitations and conclusions}{56}
+\contentsline {section}{\numberline {4}General Discussion}{57}
+\contentsline {subsection}{\numberline {4.1}Language in a dual-systems model: summary of results}{57}
+\contentsline {subsubsection}{\numberline {4.1.1}Language and the interaction between two systems}{57}
+\contentsline {subsubsection}{\numberline {4.1.2}Individual differences and dual-systems category learning}{57}
+\contentsline {subsubsection}{\numberline {4.1.3}Levels of processing and the dual-systems model}{58}
+\contentsline {subsection}{\numberline {4.2}Rethinking the dual-systems model of categorization}{58}
+\contentsline {subsubsection}{\numberline {4.2.1}Existing critiques of dual-systems models}{59}
+\contentsline {subsubsection}{\numberline {4.2.2}A multidimensional space}{60}
+\contentsline {subsection}{\numberline {4.3}Conclusions and directions for future research}{60}
+\contentsline {section}{\numberline {5}Appendix A: Statistical Density Calculations}{61}
+\contentsline {subsection}{\numberline {5.1}Statistical Density Formulae}{61}
+\contentsline {subsection}{\numberline {5.2}Statistical Density Calculations -- Sparse}{61}
+\contentsline {subsection}{\numberline {5.3}Statistical Density Calculations -- Dense}{63}
+\contentsline {section}{\numberline {6}Appendix B: Example Stimuli for Sloutsky Statistical Density Task}{64}
+\contentsline {subsection}{\numberline {6.1}Sparse stimuli}{64}
+\contentsline {subsection}{\numberline {6.2}Dense stimuli}{65}
