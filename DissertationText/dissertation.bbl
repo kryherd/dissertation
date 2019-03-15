@@ -520,6 +520,39 @@ Bonin, P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Borghesani%
+, Buiatti%
+, Eger%
+\BCBL {}\ \BBA {} Piazza%
+}{%
+Borghesani%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+Borghesani2019}
+\APACinsertmetastar {%
+Borghesani2019}%
+\begin{APACrefauthors}%
+Borghesani, V.%
+, Buiatti, M.%
+, Eger, E.%
+\BCBL {}\ \BBA {} Piazza, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Conceptual and Perceptual Dimensions of Word Meaning
+  Are Recovered Rapidly and in Parallel during Reading}} {{Conceptual and
+  Perceptual Dimensions of Word Meaning Are Recovered Rapidly and in Parallel
+  during Reading}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Cognitive Neuroscience}{31}{1}{95--108}.
+\newblock
+\begin{APACrefDOI} \doi{10.1162/jocn_a_01328} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Botella%
 , Joula%
 \BCBL {}\ \BBA {} {Barriopedro Romo}%
@@ -2544,6 +2577,41 @@ Makowski, D.%
   \end{APACrefURL}
 \newblock
 \APACrefnote{0.5.0}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Man%
+, Martin%
+, Barense%
+, Newsome%
+\BCBL {}\ \BBA {} Douglas%
+}{%
+Man%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Man2018}
+\APACinsertmetastar {%
+Man2018}%
+\begin{APACrefauthors}%
+Man, L\BPBI L.%
+, Martin, C\BPBI B.%
+, Barense, M\BPBI D.%
+, Newsome, R\BPBI N.%
+\BCBL {}\ \BBA {} Douglas, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Integrative and distinctive coding of visual and
+  conceptual object features in the ventral visual stream}} {{Integrative and
+  distinctive coding of visual and conceptual object features in the ventral
+  visual stream}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{eLife}{7}{}{1--29}.
+\newblock
+\begin{APACrefDOI} \doi{10.7554/elife.31873} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
