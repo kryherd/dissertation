@@ -73,6 +73,12 @@ p1 <- ggplot(subset(all, type == "Information Integration"), aes(freq.tr, orient
   geom_abline(intercept = -157, slope = 35, linetype="dashed") +
   xlim(1,5)
 p1
+
+p1 <- ggplot(all, aes(freq.tr, orient.tr, shape = Category)) + geom_point(size = 2) + theme_bw(15) +
+  xlab("Frequency (bar width; cycles/degree)") + ylab("Orientation (direction; degrees)") + facet_grid(.~type) + 
+  theme(legend.position = c(0.65, 0.7))+ theme(legend.background = element_rect(linetype="solid", 
+                                                                               colour ="black"))
+p1
 ## Save parameters
 
 ii.save <- ii[,c(4:5, 3)]

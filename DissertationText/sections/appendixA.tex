@@ -4,7 +4,7 @@
 
 \section{Appendix A: Statistical Density Calculations} \label{appendixA}
 
-\subsection{Statistical Density Formulae}
+\subsection{Statistical density formulae}
 
 Statistical density is the method that Sloutsky and colleagues use to define categories \citep{Sloutsky2010}. Dense categories have multiple intercorrelated features, while sparse categories have few relevant features. Statistical density can vary between 0 and 1. Higher values (closer to 1) are dense, while lower values (closer to 0) are sparse. We calculate statistical density (\textit{D}) with the following formula, where $H_{within}$ is the entropy within the category and $H_{between}$ is the entropy between the category and contrasting categories.
 
@@ -34,7 +34,7 @@ H^{rel}_{between} &= -\sum_{k=1}^{O}w_{k}[\sum_{\substack{\text{m=0,1} \\ \text{
 
 All categories have 7 dimensions. For dense categories, 6 of these dimensions are correlated. The seventh dimensions is allowed to vary randomly. For sparse categories, 6 of the dimensions vary randomly. The seventh dimension is category-relevant and defines the category. All dimensions have two levels (e.g., for hair shape in aliens -- curly and straight). 
 
-\subsection{Statistical Density Calculations -- Sparse}
+\subsection{Statistical density calculations -- sparse}
 
 First, we calculate the entropy due to dimensions. We have 7 dimensions, so \textit{M} = 7. Between categories (i.e., across all categories), each level of each dimension has a 0.5 probability of being present.
 
@@ -91,7 +91,7 @@ D &= 1 - \frac{21}{28}\\
 D &= 0.25
 \end{align*}
 
-\subsection{Statistical Density Calculations -- Dense}
+\subsection{Statistical density calculations -- dense}
 
 The between category entropy for dense categories is the same as for sparse categories. $H_{between} = 28$ \newline
 

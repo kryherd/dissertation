@@ -29,7 +29,7 @@ setwd("~/dissertation/DataAnalysis/Exp2")
 ashby <- read.csv("./data_files/Ashby_concat_fall2018.csv")
 sloutsky <- read.csv("./data_files/Sloutsky_concat_03-08-19_1638.csv")
 taxthem <- read.csv("./data_files/taxthem_concat_03-08-19_1637.csv")
-age_gender <- read.csv("./data_files/age_gender.csv")
+age_gender <- read.csv("./data_files/age_gender_3-11-19.csv")
 '%!in%' <- function(x,y)!('%in%'(x,y))
 ```
 
@@ -572,11 +572,16 @@ ggplot(acc_sel_long, aes(CatLearn, acc_z)) + geom_violin() +
   theme_bw() + xlab("Experiment") + ylab("Accuracy Z-Score (transformed)") + ggtitle("")
 
 # by paradigm
-ggplot(acc_sel_long, aes(System, acc_z)) + geom_violin() + 
+ggplot(acc_sel_long, aes(System, acc_z, fill = System)) + geom_violin() + 
   geom_point(aes(y = acc_z), size = 2, position = position_dodge((width = 0.90)), data = acc_all_plot) +
   geom_errorbar(aes(ymin = acc_z-se, ymax = acc_z+se), width = 0.20, position = position_dodge((width = 0.90)), data = acc_all_plot) +
   facet_grid(.~CatLearn) +
-  theme_bw(15) + xlab("Experiment") + ylab("Accuracy Z-Score (transformed)") + ggtitle("")
+  theme_bw(20) + xlab("Block") + ylab("Accuracy Z-Score") + ggtitle("Accuracy by System and Paradigm") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) + theme(legend.position = c(0.5, 0.87)) + 
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "System") + theme(legend.background = element_rect(linetype="solid", colour ="black", size = 0.5)) +
+  theme(legend.title = element_text(size = 12), legend.text = element_text(size = 10)) + theme(plot.title = element_text(hjust = 0.5))
 
 # run basic models
 m0 <- lmer(acc_z ~ 1 + (1|Subject), data = acc_sel_long)
@@ -715,11 +720,16 @@ ggplot(rt_sel_long, aes(CatLearn, rt_z)) + geom_violin() +
   theme_bw(15) + xlab("Experiment") + ylab("RT z-Score") + ggtitle("")
 
 # then by paradigm
-ggplot(rt_sel_long, aes(System, rt_z)) + geom_violin() + 
+ggplot(rt_sel_long, aes(System, rt_z, fill = System)) + geom_violin() + 
   geom_point(aes(y = rt_z), size = 2, position = position_dodge((width = 0.90)), data = rt_all_plot) +
   geom_errorbar(aes(ymin = rt_z-se, ymax = rt_z+se), width = 0.20, position = position_dodge((width = 0.90)), data = rt_all_plot) +
   facet_grid(.~CatLearn) +
-  theme_bw() + xlab("Experiment") + ylab("RT Z-Score (transformed)") + ggtitle("")
+  theme_bw(20) + xlab("Block") + ylab("Reaction Time Z-Score") + ggtitle("Reaction Time by System and Paradigm") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) + theme(legend.position = "bottom") + 
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "System") +
+  theme(legend.title = element_text(size = 12), legend.text = element_text(size = 10)) + theme(plot.title = element_text(hjust = 0.5)) + theme(plot.margin = unit(c(1,0.5,0,0.5), "lines")) + theme(legend.margin=margin(t=-0.5, r=0, b=0.5, l=0, unit="cm"))
 
 m0 <- lmer(rt_z ~ 1 + (1|Subject), data = rt_sel_long)
 ranova(m0)
