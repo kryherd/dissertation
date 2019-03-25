@@ -979,42 +979,11 @@ Edmiston, P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-C\BPBI E.~Edmunds%
+Edmunds%
 , Milton%
 \BCBL {}\ \BBA {} Wills%
 }{%
-C\BPBI E.~Edmunds%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2018}}%
-}]{%
-Edmunds2018}
-\APACinsertmetastar {%
-Edmunds2018}%
-\begin{APACrefauthors}%
-Edmunds, C\BPBI E.%
-, Milton, F.%
-\BCBL {}\ \BBA {} Wills, A\BPBI J.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2018}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {{Due Process in Dual Process: Model-Recovery Simulations
-  of Decision-Bound Strategy Analysis in Category Learning}} {{Due Process in
-  Dual Process: Model-Recovery Simulations of Decision-Bound Strategy Analysis
-  in Category Learning}}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Cognitive Science}{42}{}{833--860}.
-\newblock
-\begin{APACrefDOI} \doi{10.1111/cogs.12607} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-C\BPBI E\BPBI R.~Edmunds%
-, Milton%
-\BCBL {}\ \BBA {} Wills%
-}{%
-C\BPBI E\BPBI R.~Edmunds%
+Edmunds%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2015}}%
 }]{%
@@ -1042,11 +1011,42 @@ Edmunds, C\BPBI E\BPBI R.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-C\BPBI E\BPBI R.~Edmunds%
+Edmunds%
+, Milton%
+\BCBL {}\ \BBA {} Wills%
+}{%
+Edmunds%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Edmunds2018}
+\APACinsertmetastar {%
+Edmunds2018}%
+\begin{APACrefauthors}%
+Edmunds, C\BPBI E\BPBI R.%
+, Milton, F.%
+\BCBL {}\ \BBA {} Wills, A\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Due Process in Dual Process: Model-Recovery Simulations
+  of Decision-Bound Strategy Analysis in Category Learning}} {{Due Process in
+  Dual Process: Model-Recovery Simulations of Decision-Bound Strategy Analysis
+  in Category Learning}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cognitive Science}{42}{}{833--860}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/cogs.12607} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Edmunds%
 , Wills%
 \BCBL {}\ \BBA {} Milton%
 }{%
-C\BPBI E\BPBI R.~Edmunds%
+Edmunds%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2016}}%
 }]{%
@@ -1585,7 +1585,7 @@ Havy, M.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2016}{nov}{}.
+\APACrefYearMonthDay{2016}{}{}.
 \newblock
 {\BBOQ}\APACrefatitle {{Naming influences 9-month-olds' identification of
   discrete categories along a perceptual continuum}} {{Naming influences
@@ -3156,10 +3156,6 @@ Plunkett, K.%
   infancy}}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Cognition}{106}{2}{665--681}.
-\newblock
-\begin{APACrefURL}
-  \url{http://linkinghub.elsevier.com/retrieve/pii/S0010027707001084}
-  \end{APACrefURL}
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.cognition.2007.04.003} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
