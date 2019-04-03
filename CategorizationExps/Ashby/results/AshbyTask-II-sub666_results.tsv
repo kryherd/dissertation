@@ -1,7 +1,0 @@
-Subject	Run	Type	Category	key_pressed	RESP	Accuracy	RT
-666	1	II	b	lcommand	invalid key	0	1.151
-666	1	II	a	lshift	invalid key	0	-0.232
-666	2	II	b	lcommand	invalid key	0	4.017
-666	2	II	a	lshift	invalid key	0	-0.213
-666	3	II	b	None	None	0	9999.000
-666	3	II	a	lcommand	invalid key	0	0.940

@@ -44,7 +44,7 @@
 \contentsline {subsubsection}{\numberline {3.3.3}Taxonomic/thematic task}{50}
 \contentsline {subsubsection}{\numberline {3.3.4}Limitations and conclusions}{52}
 \contentsline {subsection}{\numberline {3.4}Results II: cross-paradigm comparison}{53}
-\contentsline {subsubsection}{\numberline {3.4.1}Data processing}{53}
+\contentsline {subsubsection}{\numberline {3.4.1}Data processing}{54}
 \contentsline {subsubsection}{\numberline {3.4.2}Accuracy}{55}
 \contentsline {subsubsection}{\numberline {3.4.3}Reaction time}{56}
 \contentsline {subsection}{\numberline {3.5}Discussion II: Cross-paradigm comparison}{57}

@@ -11,49 +11,49 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 11576 items from 5000.
+Reallocated field_info (elt_size=4) to 11672 items from 5000.
 Database file #1: bib.bib
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
 Warning--No address in Anderson2012
-You've used 137 entries,
+You've used 139 entries,
             6951 wiz_defined-function locations,
-            2267 strings with 39934 characters,
-and the built_in function-call counts, 298577 in all, are:
-= -- 36476
-> -- 2466
-< -- 15817
-+ -- 16765
-- -- 274
-* -- 20476
-:= -- 56664
-add.period$ -- 558
-call.type$ -- 137
-change.case$ -- 2335
+            2279 strings with 40329 characters,
+and the built_in function-call counts, 303442 in all, are:
+= -- 37073
+> -- 2504
+< -- 16079
++ -- 17060
+- -- 278
+* -- 20807
+:= -- 57588
+add.period$ -- 566
+call.type$ -- 139
+change.case$ -- 2369
 chr.to.int$ -- 0
-cite$ -- 275
-duplicate$ -- 8231
-empty$ -- 10593
-format.name$ -- 4229
-if$ -- 54811
+cite$ -- 279
+duplicate$ -- 8386
+empty$ -- 10755
+format.name$ -- 4301
+if$ -- 55690
 int.to.chr$ -- 0
-int.to.str$ -- 411
+int.to.str$ -- 417
 missing$ -- 0
-newline$ -- 3787
-num.names$ -- 1104
-pop$ -- 4060
+newline$ -- 3843
+num.names$ -- 1120
+pop$ -- 4118
 preamble$ -- 1
-purify$ -- 548
+purify$ -- 556
 quote$ -- 0
-skip$ -- 17752
+skip$ -- 18026
 stack$ -- 0
-substring$ -- 18143
-swap$ -- 4722
-text.length$ -- 318
+substring$ -- 18473
+swap$ -- 4802
+text.length$ -- 322
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 11344
+type$ -- 11504
 warning$ -- 1
-while$ -- 1433
+while$ -- 1465
 width$ -- 0
-write$ -- 4845
+write$ -- 4919
 (There was 1 warning)

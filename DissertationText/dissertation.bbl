@@ -1416,6 +1416,36 @@ Gabrieli, J\BPBI D.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Geller%
+, Landrigan%
+\BCBL {}\ \BBA {} Mirman%
+}{%
+Geller%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+Geller2019}
+\APACinsertmetastar {%
+Geller2019}%
+\begin{APACrefauthors}%
+Geller, J.%
+, Landrigan, J\BHBI F.%
+\BCBL {}\ \BBA {} Mirman, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{A Pupillometric Examination of Cognitive Control in
+  Taxonomic and Thematic Semantic Memory}} {{A Pupillometric Examination of
+  Cognitive Control in Taxonomic and Thematic Semantic Memory}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Cognition}{2}{1}{1--10}.
+\newblock
+\begin{APACrefDOI} \doi{10.5334/joc.56} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Gillette%
 , Gleitman%
 , Gleitman%
@@ -2082,9 +2112,9 @@ Lewandowsky, S.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Lewis%
+D.~Lewis%
 }{%
-Lewis%
+D.~Lewis%
 }{%
 {\protect \APACyear {1997}}%
 }]{%
@@ -2106,6 +2136,36 @@ Lewis, D.%
 \APACjournalVolNumPages{Neuropsychopharmacology}{16}{6}{385--398}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/S0893-133X(96)00277-1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+G\BPBI A.~Lewis%
+, Poeppel%
+\BCBL {}\ \BBA {} Murphy%
+}{%
+G\BPBI A.~Lewis%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+Lewis2018}
+\APACinsertmetastar {%
+Lewis2018}%
+\begin{APACrefauthors}%
+Lewis, G\BPBI A.%
+, Poeppel, D.%
+\BCBL {}\ \BBA {} Murphy, G\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Contrasting Semantic versus Inhibitory Processing in
+  the Angular Gyrus: An fMRI Study}} {{Contrasting Semantic versus Inhibitory
+  Processing in the Angular Gyrus: An fMRI Study}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cerebral Cortex}{}{}{1--12}.
+\newblock
+\begin{APACrefDOI} \doi{10.1093/cercor/bhy118} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

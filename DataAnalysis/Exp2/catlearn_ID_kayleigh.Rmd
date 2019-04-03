@@ -566,6 +566,34 @@ acc_wide %>%
             min = min(value, na.rm = TRUE),
             max = max(value, na.rm = TRUE))
 
+acc_wide %>%
+  dplyr::select(Subject:tt) %>%
+  gather(key = "task", value = "value", ashby:tt) %>%
+  mutate(task = ifelse(task == "ashby", "Perceptual\ncategory", ifelse(task == "sloutsky", "Sloutsky\nstatistical density", "Taxonomic-\nthematic"))) %>%
+  ggplot(., aes(System, value, fill = System)) + facet_grid(.~task) + geom_violin() + theme_bw(25) + 
+    stat_summary(fun.y = mean, geom = "point") + 
+    stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) + 
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "System") +
+  theme(legend.title = element_text(size = 16), legend.text = element_text(size = 14)) + theme(plot.title = element_text(hjust = 0.5)) + theme(plot.margin = unit(c(1,0.5,0,0.5), "lines")) + theme(legend.margin=margin(t=-0, r=0, b=0.5, l=0, unit="cm"))+
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) + theme(legend.position = "bottom") + ylab("Accuracy")
+
+rt_wide %>%
+  dplyr::select(Subject:tt) %>%
+  gather(key = "task", value = "value", ashby:tt) %>%
+  mutate(task = ifelse(task == "ashby", "Perceptual\ncategory", ifelse(task == "sloutsky", "Sloutsky\nstatistical density", "Taxonomic-\nthematic"))) %>%
+  ggplot(., aes(System, value, fill = System)) + facet_grid(.~task) + geom_violin() + theme_bw(25) + 
+    stat_summary(fun.y = mean, geom = "point") + 
+    stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) + 
+  scale_fill_manual(values=c("#e69f00", "#009e73"), name = "System") +
+ theme(legend.title = element_text(size = 16), legend.text = element_text(size = 14)) + theme(plot.title = element_text(hjust = 0.5)) + theme(plot.margin = unit(c(1,0.5,0,0.5), "lines")) + theme(legend.margin=margin(t=-0, r=0, b=0.5, l=0, unit="cm"))+
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) + theme(legend.position = "bottom") + ylab("Reaction Time")
+
+
+
 rt_wide %>%
   dplyr::select(Subject:tt) %>%
   gather(key = "task", value = "value", ashby:tt) %>%
@@ -729,7 +757,7 @@ anova(as_mod)
 
 ashby_dat %>%
   mutate(System = ifelse(System == "associative", "Associative", "Hypothesis-Testing")) %>%
-  ggplot(., aes(nd_tf, ashby.t)) + geom_point() + theme_bw() + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE) + ggtitle("Relationships Between Vocabulary and Ashby Accuracy") + xlab("Nelson-Denny Vocabulary (scaled)") + ylab("Ashby Accuracy (scaled)") + theme(plot.title = element_text(hjust = 0.5))
+  ggplot(., aes(nd_tf, ashby.t)) + geom_point() + theme_bw(18) + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE) + ggtitle("Relationships Between Vocabulary and COVIS Accuracy") + xlab("Nelson-Denny Vocabulary (scaled)") + ylab("COVIS Accuracy (scaled)") + theme(plot.title = element_text(hjust = 0.5))
 
 # CELF ANALYSES
 
@@ -840,7 +868,7 @@ tt_dat %>%
   group_by(Subject) %>%
   summarise(tt.t_m = mean(tt.t),
             tol_acc_tf = mean(tol_acc_tf)) %>%
-  ggplot(., aes(tol_acc_tf, tt.t_m)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Tower of London Accuracy (scaled)") + ylab("Tax/Them Accuracy (scaled)") + ggtitle("Main Effect of Planning on Tax/Them Accuracy")
+  ggplot(., aes(tol_acc_tf, tt.t_m)) + geom_point() + theme_bw(18) + stat_smooth(se = FALSE, method = "lm") + xlab("Tower of London Accuracy (scaled)") + ylab("Tax/Them Accuracy (scaled)") + ggtitle("Main Effect of Planning\non Tax/Them Accuracy") + theme(plot.title = element_text(hjust = 0.5))
 
 # CELF ANALYSES
 
@@ -902,7 +930,7 @@ anova(as_mod)
 
 ashby_dat %>%
   mutate(System = ifelse(System == "associative", "Associative", "Hypothesis-Testing")) %>%
-  ggplot(., aes(nd_tf, ashby.t)) + geom_point() + theme_bw() + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)  + ggtitle("Relationships Between Vocabulary and Ashby RT") + xlab("Nelson-Denny Vocab (scaled)") + ylab("Ashby Reaction Time (scaled)") + theme(plot.title = element_text(hjust = 0.5))
+  ggplot(., aes(nd_tf, ashby.t)) + geom_point() + theme_bw(18) + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)  + ggtitle("Relationships Between Vocabulary and COVIS RT") + xlab("Nelson-Denny Vocab (scaled)") + ylab("COVIS Reaction Time (scaled)") + theme(plot.title = element_text(hjust = 0.5))
 
 ggplot(ashby_dat, aes(tol_time_tf, ashby.t)) + geom_point() + theme_bw() + stat_smooth(method = "lm", se = FALSE)
 
@@ -968,7 +996,7 @@ anova(as_mod)
 
 sloutsky_dat %>%
   mutate(System = ifelse(System == "associative", "Associative", "Hypothesis-Testing")) %>%
-  ggplot(., aes(tol_acc_tf, sloutsky.t)) + geom_point() + theme_bw() + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)  + ggtitle("Relationships Between Planning and Sloutsky RT") + xlab("Tower of London Accuracy (scaled)") + ylab("Sloutsky Reaction Time (scaled)") + theme(plot.title = element_text(hjust = 0.5))
+  ggplot(., aes(tol_acc_tf, sloutsky.t)) + geom_point() + theme_bw(18) + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)  + ggtitle("Relationships Between Planning\nand Statistical Density RT") + xlab("Tower of London Accuracy (scaled)") + ylab("Statistical Density Reaction Time (scaled)") + theme(plot.title = element_text(hjust = 0.5))
 
 ggplot(sloutsky_dat, aes(ravens_tf, sloutsky.t)) + geom_point() + theme_bw() + stat_smooth(se = FALSE, method = "lm") + xlab("Nonverbal IQ") + ylab("Sloutsky Reaction Time") + ggtitle("Significant main effect of nonverbal IQ on Sloutsky RT")
 
@@ -1032,7 +1060,7 @@ anova(as_mod)
 
 tt_dat %>%
   mutate(System = ifelse(System == "associative", "Associative", "Hypothesis-Testing")) %>%
-  ggplot(., aes(flanker_eff_cs, tt.t)) + geom_point() + theme_bw() + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)  + ggtitle("Relationships Between Inhibition and Tax/Them RT") + xlab("Flanker Effect (scaled)") + ylab("Tax/Them Reaction Time (scaled)") + theme(plot.title = element_text(hjust = 0.5))
+  ggplot(., aes(flanker_eff_cs, tt.t)) + geom_point() + theme_bw(18) + facet_grid(.~System) + stat_smooth(method = "lm", se = FALSE)  + ggtitle("Relationships Between Inhibition\nand Tax/Them RT") + xlab("Flanker Effect (scaled)") + ylab("Tax/Them Reaction Time (scaled)") + theme(plot.title = element_text(hjust = 0.5))
 
 
 # CELF ANALYSES
