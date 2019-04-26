@@ -34,7 +34,7 @@
 \contentsline {subsubsection}{\numberline {3.1.4}Behavioral measures}{38}
 \contentsline {subsubsection}{\numberline {3.1.5}Procedure}{38}
 \contentsline {subsection}{\numberline {3.2}Results I: individual differences}{38}
-\contentsline {subsubsection}{\numberline {3.2.1}Data processing}{40}
+\contentsline {subsubsection}{\numberline {3.2.1}Data processing}{39}
 \contentsline {subsubsection}{\numberline {3.2.2}Accuracy}{42}
 \contentsline {subsubsection}{\numberline {3.2.3}Reaction time}{44}
 \contentsline {subsubsection}{\numberline {3.2.4}Exploratory analyses}{46}
